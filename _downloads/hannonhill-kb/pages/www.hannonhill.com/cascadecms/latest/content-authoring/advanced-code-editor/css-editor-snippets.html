@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>CSS Editor Snippets - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/content-authoring/advanced-code-editor/css-editor-snippets.html" rel="canonical"/>
+		<meta content="a08956830a894fa5135f1dc0e6f52c1b" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">            Content Authoring    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/advanced-code-editor/index.html">            Advanced Code Editor    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">CSS Editor Snippets</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                    <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/content-authoring/advanced-code-editor/css-editor-snippets.html">CSS Editor Snippets</a>
+                        <ul class="navHighlighter">
+                                                                                                                </ul>
+                    </li>
+                                    </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">Content Authoring</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/advanced-code-editor/css-editor-snippets.html">CSS Editor Snippets</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Advanced Code Editor</span>
+        </div>
+        <header>
+                            <h1>CSS Editor Snippets 
+                                        </h1>
+                    </header>
+      <a name="CSS+Editor+Snippets"></a>
+    
+                        
+                                                
+            <section aria-label="" class="anchor-heading" id="">
+                                    <p><strong>.</strong> - ${1} {, ${2}, }</p>
+<p><strong>!</strong> - !important</p>
+<p><strong>bdi:m+</strong> - -moz-border-image: url(${1}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};</p>
+<p><strong>bdi:m</strong> - -moz-border-image: ${1};</p>
+<p><strong>bdrz:m</strong> - -moz-border-radius: ${1};</p>
+<p><strong>bxsh:m+</strong> - -moz-box-shadow: ${1:0} ${2:0} ${3:0} #${4:000};</p>
+<p><strong>bxsh:m</strong> - -moz-box-shadow: ${1};</p>
+<p><strong>bdi:w+</strong> - -webkit-border-image: url(${1}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};</p>
+<p><strong>bdi:w</strong> - -webkit-border-image: ${1};</p>
+<p><strong>bdrz:w</strong> - -webkit-border-radius: ${1};</p>
+<p><strong>bxsh:w+</strong> - -webkit-box-shadow: ${1:0} ${2:0} ${3:0} #${4:000};</p>
+<p><strong>bxsh:w</strong> - -webkit-box-shadow: ${1};</p>
+<p><strong>@f</strong> - @font-face {, font-family: ${1};, src: url(${2});, }</p>
+<p><strong>@i</strong> - @import url(${1});</p>
+<p><strong>@m</strong> - @media ${1:print} {, ${2}, }</p>
+<p><strong>bg+</strong> - background: #${1:FFF} url(${2}) ${3:0} ${4:0} ${5:no-repeat};</p>
+<p><strong>bga</strong> - background-attachment: ${1};</p>
+<p><strong>bga:f</strong> - background-attachment: fixed;</p>
+<p><strong>bga:s</strong> - background-attachment: scroll;</p>
+<p><strong>bgbk</strong> - background-break: ${1};</p>
+<p><strong>bgbk:bb</strong> - background-break: bounding-box;</p>
+<p><strong>bgbk:c</strong> - background-break: continuous;</p>
+<p><strong>bgbk:eb</strong> - background-break: each-box;</p>
+<p><strong>bgcp</strong> - background-clip: ${1};</p>
+<p><strong>bgcp:bb</strong> - background-clip: border-box;</p>
+<p><strong>bgcp:cb</strong> - background-clip: content-box;</p>
+<p><strong>bgcp:nc</strong> - background-clip: no-clip;</p>
+<p><strong>bgcp:pb</strong> - background-clip: padding-box;</p>
+<p><strong>bgc</strong> - background-color: #${1:FFF};</p>
+<p><strong>bgc:t</strong> - background-color: transparent;</p>
+<p><strong>bgi</strong> - background-image: url(${1});</p>
+<p><strong>bgi:n</strong> - background-image: none;</p>
+<p><strong>bgo</strong> - background-origin: ${1};</p>
+<p><strong>bgo:bb</strong> - background-origin: border-box;</p>
+<p><strong>bgo:cb</strong> - background-origin: content-box;</p>
+<p><strong>bgo:pb</strong> - background-origin: padding-box;</p>
+<p><strong>bgpx</strong> - background-position-x: ${1};</p>
+<p><strong>bgpy</strong> - background-position-y: ${1};</p>
+<p><strong>bgp</strong> - background-position: ${1:0} ${2:0};</p>
+<p><strong>bgr</strong> - background-repeat: ${1};</p>
+<p><strong>bgr:n</strong> - background-repeat: no-repeat;</p>
+<p><strong>bgr:x</strong> - background-repeat: repeat-x;</p>
+<p><strong>bgr:y</strong> - background-repeat: repeat-y;</p>
+<p><strong>bgr:r</strong> - background-repeat: repeat;</p>
+<p><strong>bgz</strong> - background-size: ${1};</p>
+<p><strong>bgz:a</strong> - background-size: auto;</p>
+<p><strong>bgz:ct</strong> - background-size: contain;</p>
+<p><strong>bgz:cv</strong> - background-size: cover;</p>
+<p><strong>bg</strong> - background: ${1};</p>
+<p><strong>bg:ie</strong> - filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='${1}', sizingMethod='${2:crop}');</p>
+<p><strong>bg:n</strong> - background: none;</p>
+<p><strong>bd+</strong> - border: ${1:1px} ${2:solid} #${3:000};</p>
+<p><strong>bdb+</strong> - border-bottom: ${1:1px} ${2:solid} #${3:000};</p>
+<p><strong>bdbc</strong> - border-bottom-color: #${1:000};</p>
+<p><strong>bdbi</strong> - border-bottom-image: url(${1});</p>
+<p><strong>bdbi:n</strong> - border-bottom-image: none;</p>
+<p><strong>bdbli</strong> - border-bottom-left-image: url(${1});</p>
+<p><strong>bdbli:c</strong> - border-bottom-left-image: continue;</p>
+<p><strong>bdbli:n</strong> - border-bottom-left-image: none;</p>
+<p><strong>bdblrz</strong> - border-bottom-left-radius: ${1};</p>
+<p><strong>bdbri</strong> - border-bottom-right-image: url(${1});</p>
+<p><strong>bdbri:c</strong> - border-bottom-right-image: continue;</p>
+<p><strong>bdbri:n</strong> - border-bottom-right-image: none;</p>
+<p><strong>bdbrrz</strong> - border-bottom-right-radius: ${1};</p>
+<p><strong>bdbs</strong> - border-bottom-style: ${1};</p>
+<p><strong>bdbs:n</strong> - border-bottom-style: none;</p>
+<p><strong>bdbw</strong> - border-bottom-width: ${1};</p>
+<p><strong>bdb</strong> - border-bottom: ${1};</p>
+<p><strong>bdb:n</strong> - border-bottom: none;</p>
+<p><strong>bdbk</strong> - border-break: ${1};</p>
+<p><strong>bdbk:c</strong> - border-break: close;</p>
+<p><strong>bdcl</strong> - border-collapse: ${1};</p>
+<p><strong>bdcl:c</strong> - border-collapse: collapse;</p>
+<p><strong>bdcl:s</strong> - border-collapse: separate;</p>
+<p><strong>bdc</strong> - border-color: #${1:000};</p>
+<p><strong>bdci</strong> - border-corner-image: url(${1});</p>
+<p><strong>bdci:c</strong> - border-corner-image: continue;</p>
+<p><strong>bdci:n</strong> - border-corner-image: none;</p>
+<p><strong>bdf</strong> - border-fit: ${1};</p>
+<p><strong>bdf:c</strong> - border-fit: clip;</p>
+<p><strong>bdf:of</strong> - border-fit: overwrite;</p>
+<p><strong>bdf:ow</strong> - border-fit: overwrite;</p>
+<p><strong>bdf:r</strong> - border-fit: repeat;</p>
+<p><strong>bdf:sc</strong> - border-fit: scale;</p>
+<p><strong>bdf:sp</strong> - border-fit: space;</p>
+<p><strong>bdf:st</strong> - border-fit: stretch;</p>
+<p><strong>bdi</strong> - border-image: url(${1}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};</p>
+<p><strong>bdi:n</strong> - border-image: none;</p>
+<p><strong>bdl+</strong> - border-left: ${1:1px} ${2:solid} #${3:000};</p>
+<p><strong>bdlc</strong> - border-left-color: #${1:000};</p>
+<p><strong>bdli</strong> - border-left-image: url(${1});</p>
+<p><strong>bdli:n</strong> - border-left-image: none;</p>
+<p><strong>bdls</strong> - border-left-style: ${1};</p>
+<p><strong>bdls:n</strong> - border-left-style: none;</p>
+<p><strong>bdlw</strong> - border-left-width: ${1};</p>
+<p><strong>bdl</strong> - border-left: ${1};</p>
+<p><strong>bdl:n</strong> - border-left: none;</p>
+<p><strong>bdlt</strong> - border-length: ${1};</p>
+<p><strong>bdlt:a</strong> - border-length: auto;</p>
+<p><strong>bdrz</strong> - border-radius: ${1};</p>
+<p><strong>bdr+</strong> - border-right: ${1:1px} ${2:solid} #${3:000};</p>
+<p><strong>bdrc</strong> - border-right-color: #${1:000};</p>
+<p><strong>bdri</strong> - border-right-image: url(${1});</p>
+<p><strong>bdri:n</strong> - border-right-image: none;</p>
+<p><strong>bdrs</strong> - border-right-style: ${1};</p>
+<p><strong>bdrs:n</strong> - border-right-style: none;</p>
+<p><strong>bdrw</strong> - border-right-width: ${1};</p>
+<p><strong>bdr</strong> - border-right: ${1};</p>
+<p><strong>bdr:n</strong> - border-right: none;</p>
+<p><strong>bdsp</strong> - border-spacing: ${1};</p>
+<p><strong>bds</strong> - border-style: ${1};</p>
+<p><strong>bds:ds</strong> - border-style: dashed;</p>
+<p><strong>bds:dtds</strong> - border-style: dot-dash;</p>
+<p><strong>bds:dtdtds</strong> - border-style: dot-dot-dash;</p>
+<p><strong>bds:dt</strong> - border-style: dotted;</p>
+<p><strong>bds:db</strong> - border-style: double;</p>
+<p><strong>bds:g</strong> - border-style: groove;</p>
+<p><strong>bds:h</strong> - border-style: hidden;</p>
+<p><strong>bds:i</strong> - border-style: inset;</p>
+<p><strong>bds:n</strong> - border-style: none;</p>
+<p><strong>bds:o</strong> - border-style: outset;</p>
+<p><strong>bds:r</strong> - border-style: ridge;</p>
+<p><strong>bds:s</strong> - border-style: solid;</p>
+<p><strong>bds:w</strong> - border-style: wave;</p>
+<p><strong>bdt+</strong> - border-top: ${1:1px} ${2:solid} #${3:000};</p>
+<p><strong>bdtc</strong> - border-top-color: #${1:000};</p>
+<p><strong>bdti</strong> - border-top-image: url(${1});</p>
+<p><strong>bdti:n</strong> - border-top-image: none;</p>
+<p><strong>bdtli</strong> - border-top-left-image: url(${1});</p>
+<p><strong>bdtli:c</strong> - border-corner-image: continue;</p>
+<p><strong>bdtli:n</strong> - border-corner-image: none;</p>
+<p><strong>bdtlrz</strong> - border-top-left-radius: ${1};</p>
+<p><strong>bdtri</strong> - border-top-right-image: url(${1});</p>
+<p><strong>bdtri:c</strong> - border-top-right-image: continue;</p>
+<p><strong>bdtri:n</strong> - border-top-right-image: none;</p>
+<p><strong>bdtrrz</strong> - border-top-right-radius: ${1};</p>
+<p><strong>bdts</strong> - border-top-style: ${1};</p>
+<p><strong>bdts:n</strong> - border-top-style: none;</p>
+<p><strong>bdtw</strong> - border-top-width: ${1};</p>
+<p><strong>bdt</strong> - border-top: ${1};</p>
+<p><strong>bdt:n</strong> - border-top: none;</p>
+<p><strong>bdw</strong> - border-width: ${1};</p>
+<p><strong>bd</strong> - border: ${1};</p>
+<p><strong>bd:n</strong> - border: none;</p>
+<p><strong>b</strong> - bottom: ${1};</p>
+<p><strong>b:a</strong> - bottom: auto;</p>
+<p><strong>bxsh+</strong> - box-shadow: ${1:0} ${2:0} ${3:0} #${4:000};</p>
+<p><strong>bxsh</strong> - box-shadow: ${1};</p>
+<p><strong>bxsh:n</strong> - box-shadow: none;</p>
+<p><strong>bxz</strong> - box-sizing: ${1};</p>
+<p><strong>bxz:bb</strong> - box-sizing: border-box;</p>
+<p><strong>bxz:cb</strong> - box-sizing: content-box;</p>
+<p><strong>cps</strong> - caption-side: ${1};</p>
+<p><strong>cps:b</strong> - caption-side: bottom;</p>
+<p><strong>cps:t</strong> - caption-side: top;</p>
+<p><strong>cl</strong> - clear: ${1};</p>
+<p><strong>cl:b</strong> - clear: both;</p>
+<p><strong>cl:l</strong> - clear: left;</p>
+<p><strong>cl:n</strong> - clear: none;</p>
+<p><strong>cl:r</strong> - clear: right;</p>
+<p><strong>cp</strong> - clip: ${1};</p>
+<p><strong>cp:a</strong> - clip: auto;</p>
+<p><strong>cp:r</strong> - clip: rect(${1:0} ${2:0} ${3:0} ${4:0});</p>
+<p><strong>c</strong> - color: #${1:000};</p>
+<p><strong>ct</strong> - content: ${1};</p>
+<p><strong>ct:a</strong> - content: attr(${1});</p>
+<p><strong>ct:cq</strong> - content: close-quote;</p>
+<p><strong>ct:c</strong> - content: counter(${1});</p>
+<p><strong>ct:cs</strong> - content: counters(${1});</p>
+<p><strong>ct:ncq</strong> - content: no-close-quote;</p>
+<p><strong>ct:noq</strong> - content: no-open-quote;</p>
+<p><strong>ct:n</strong> - content: normal;</p>
+<p><strong>ct:oq</strong> - content: open-quote;</p>
+<p><strong>coi</strong> - counter-increment: ${1};</p>
+<p><strong>cor</strong> - counter-reset: ${1};</p>
+<p><strong>cur</strong> - cursor: ${1};</p>
+<p><strong>cur:a</strong> - cursor: auto;</p>
+<p><strong>cur:c</strong> - cursor: crosshair;</p>
+<p><strong>cur:d</strong> - cursor: default;</p>
+<p><strong>cur:ha</strong> - cursor: hand;</p>
+<p><strong>cur:he</strong> - cursor: help;</p>
+<p><strong>cur:m</strong> - cursor: move;</p>
+<p><strong>cur:p</strong> - cursor: pointer;</p>
+<p><strong>cur:t</strong> - cursor: text;</p>
+<p><strong>d</strong> - display: ${1};</p>
+<p><strong>d:mib</strong> - display: -moz-inline-box;</p>
+<p><strong>d:mis</strong> - display: -moz-inline-stack;</p>
+<p><strong>d:b</strong> - display: block;</p>
+<p><strong>d:cp</strong> - display: compact;</p>
+<p><strong>d:ib</strong> - display: inline-block;</p>
+<p><strong>d:itb</strong> - display: inline-table;</p>
+<p><strong>d:i</strong> - display: inline;</p>
+<p><strong>d:li</strong> - display: list-item;</p>
+<p><strong>d:n</strong> - display: none;</p>
+<p><strong>d:ri</strong> - display: run-in;</p>
+<p><strong>d:tbcp</strong> - display: table-caption;</p>
+<p><strong>d:tbc</strong> - display: table-cell;</p>
+<p><strong>d:tbclg</strong> - display: table-column-group;</p>
+<p><strong>d:tbcl</strong> - display: table-column;</p>
+<p><strong>d:tbfg</strong> - display: table-footer-group;</p>
+<p><strong>d:tbhg</strong> - display: table-header-group;</p>
+<p><strong>d:tbrg</strong> - display: table-row-group;</p>
+<p><strong>d:tbr</strong> - display: table-row;</p>
+<p><strong>d:tb</strong> - display: table;</p>
+<p><strong>ec</strong> - empty-cells: ${1};</p>
+<p><strong>ec:h</strong> - empty-cells: hide;</p>
+<p><strong>ec:s</strong> - empty-cells: show;</p>
+<p><strong>exp</strong> - expression()</p>
+<p><strong>fl</strong> - float: ${1};</p>
+<p><strong>fl:l</strong> - float: left;</p>
+<p><strong>fl:n</strong> - float: none;</p>
+<p><strong>fl:r</strong> - float: right;</p>
+<p><strong>f+</strong> - font: ${1:1em} ${2:Arial}, ${3:sans-serif};</p>
+<p><strong>fef</strong> - font-effect: ${1};</p>
+<p><strong>fef:eb</strong> - font-effect: emboss;</p>
+<p><strong>fef:eg</strong> - font-effect: engrave;</p>
+<p><strong>fef:n</strong> - font-effect: none;</p>
+<p><strong>fef:o</strong> - font-effect: outline;</p>
+<p><strong>femp</strong> - font-emphasize-position: ${1};</p>
+<p><strong>femp:a</strong> - font-emphasize-position: after;</p>
+<p><strong>femp:b</strong> - font-emphasize-position: before;</p>
+<p><strong>fems</strong> - font-emphasize-style: ${1};</p>
+<p><strong>fems:ac</strong> - font-emphasize-style: accent;</p>
+<p><strong>fems:c</strong> - font-emphasize-style: circle;</p>
+<p><strong>fems:ds</strong> - font-emphasize-style: disc;</p>
+<p><strong>fems:dt</strong> - font-emphasize-style: dot;</p>
+<p><strong>fems:n</strong> - font-emphasize-style: none;</p>
+<p><strong>fem</strong> - font-emphasize: ${1};</p>
+<p><strong>ff</strong> - font-family: ${1};</p>
+<p><strong>ff:c</strong> - font-family: ${1:'Monotype Corsiva','Comic Sans MS'}, cursive;</p>
+<p><strong>ff:f</strong> - font-family: ${1:Capitals - Impact}, fantasy;</p>
+<p><strong>ff:m</strong> - font-family: ${1:Monaco - 'Courier New'}, monospace;</p>
+<p><strong>ff:ss</strong> - font-family: ${1:Helvetica - Arial}, sans-serif;</p>
+<p><strong>ff:s</strong> - font-family: ${1:Georgia - 'Times New Roman'}, serif;</p>
+<p><strong>fza</strong> - font-size-adjust: ${1};</p>
+<p><strong>fza:n</strong> - font-size-adjust: none;</p>
+<p><strong>fz</strong> - font-size: ${1};</p>
+<p><strong>fsm</strong> - font-smooth: ${1};</p>
+<p><strong>fsm:aw</strong> - font-smooth: always;</p>
+<p><strong>fsm:a</strong> - font-smooth: auto;</p>
+<p><strong>fsm:n</strong> - font-smooth: never;</p>
+<p><strong>fst</strong> - font-stretch: ${1};</p>
+<p><strong>fst:c</strong> - font-stretch: condensed;</p>
+<p><strong>fst:e</strong> - font-stretch: expanded;</p>
+<p><strong>fst:ec</strong> - font-stretch: extra-condensed;</p>
+<p><strong>fst:ee</strong> - font-stretch: extra-expanded;</p>
+<p><strong>fst:n</strong> - font-stretch: normal;</p>
+<p><strong>fst:sc</strong> - font-stretch: semi-condensed;</p>
+<p><strong>fst:se</strong> - font-stretch: semi-expanded;</p>
+<p><strong>fst:uc</strong> - font-stretch: ultra-condensed;</p>
+<p><strong>fst:ue</strong> - font-stretch: ultra-expanded;</p>
+<p><strong>fs</strong> - font-style: ${1};</p>
+<p><strong>fs:i</strong> - font-style: italic;</p>
+<p><strong>fs:n</strong> - font-style: normal;</p>
+<p><strong>fs:o</strong> - font-style: oblique;</p>
+<p><strong>fv</strong> - font-variant: ${1};</p>
+<p><strong>fv:n</strong> - font-variant: normal;</p>
+<p><strong>fv:sc</strong> - font-variant: small-caps;</p>
+<p><strong>fw</strong> - font-weight: ${1};</p>
+<p><strong>fw:b</strong> - font-weight: bold;</p>
+<p><strong>fw:br</strong> - font-weight: bolder;</p>
+<p><strong>fw:lr</strong> - font-weight: lighter;</p>
+<p><strong>fw:n</strong> - font-weight: normal;</p>
+<p><strong>f</strong> - font: ${1};</p>
+<p><strong>h</strong> - height: ${1};</p>
+<p><strong>h:a</strong> - height: auto;</p>
+<p><strong>l</strong> - left: ${1};</p>
+<p><strong>l:a</strong> - left: auto;</p>
+<p><strong>lts</strong> - letter-spacing: ${1};</p>
+<p><strong>lh</strong> - line-height: ${1};</p>
+<p><strong>lisi</strong> - list-style-image: url(${1});</p>
+<p><strong>lisi:n</strong> - list-style-image: none;</p>
+<p><strong>lisp</strong> - list-style-position: ${1};</p>
+<p><strong>lisp:i</strong> - list-style-position: inside;</p>
+<p><strong>lisp:o</strong> - list-style-position: outside;</p>
+<p><strong>list</strong> - list-style-type: ${1};</p>
+<p><strong>list:c</strong> - list-style-type: circle;</p>
+<p><strong>list:dclz</strong> - list-style-type: decimal-leading-zero;</p>
+<p><strong>list:dc</strong> - list-style-type: decimal;</p>
+<p><strong>list:d</strong> - list-style-type: disc;</p>
+<p><strong>list:lr</strong> - list-style-type: lower-roman;</p>
+<p><strong>list:n</strong> - list-style-type: none;</p>
+<p><strong>list:s</strong> - list-style-type: square;</p>
+<p><strong>list:ur</strong> - list-style-type: upper-roman;</p>
+<p><strong>lis</strong> - list-style: ${1};</p>
+<p><strong>lis:n</strong> - list-style: none;</p>
+<p><strong>mb</strong> - margin-bottom: ${1};</p>
+<p><strong>mb:a</strong> - margin-bottom: auto;</p>
+<p><strong>ml</strong> - margin-left: ${1};</p>
+<p><strong>ml:a</strong> - margin-left: auto;</p>
+<p><strong>mr</strong> - margin-right: ${1};</p>
+<p><strong>mr:a</strong> - margin-right: auto;</p>
+<p><strong>mt</strong> - margin-top: ${1};</p>
+<p><strong>mt:a</strong> - margin-top: auto;</p>
+<p><strong>m</strong> - margin: ${1};</p>
+<p><strong>m:4</strong> - margin: ${1:0} ${2:0} ${3:0} ${4:0};</p>
+<p><strong>m:3</strong> - margin: ${1:0} ${2:0} ${3:0};</p>
+<p><strong>m:2</strong> - margin: ${1:0} ${2:0};</p>
+<p><strong>m:0</strong> - margin: 0;</p>
+<p><strong>m:a</strong> - margin: auto;</p>
+<p><strong>mah</strong> - max-height: ${1};</p>
+<p><strong>mah:n</strong> - max-height: none;</p>
+<p><strong>maw</strong> - max-width: ${1};</p>
+<p><strong>maw:n</strong> - max-width: none;</p>
+<p><strong>mih</strong> - min-height: ${1};</p>
+<p><strong>miw</strong> - min-width: ${1};</p>
+<p><strong>op</strong> - opacity: ${1};</p>
+<p><strong>op:ie</strong> - filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=${1:100});</p>
+<p><strong>op:ms</strong> - -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=${1:100})';</p>
+<p><strong>orp</strong> - orphans: ${1};</p>
+<p><strong>o+</strong> - outline: ${1:1px} ${2:solid} #${3:000};</p>
+<p><strong>oc</strong> - outline-color: ${1:#000};</p>
+<p><strong>oc:i</strong> - outline-color: invert;</p>
+<p><strong>oo</strong> - outline-offset: ${1};</p>
+<p><strong>os</strong> - outline-style: ${1};</p>
+<p><strong>ow</strong> - outline-width: ${1};</p>
+<p><strong>o</strong> - outline: ${1};</p>
+<p><strong>o:n</strong> - outline: none;</p>
+<p><strong>ovs</strong> - overflow-style: ${1};</p>
+<p><strong>ovs:a</strong> - overflow-style: auto;</p>
+<p><strong>ovs:mq</strong> - overflow-style: marquee;</p>
+<p><strong>ovs:mv</strong> - overflow-style: move;</p>
+<p><strong>ovs:p</strong> - overflow-style: panner;</p>
+<p><strong>ovs:s</strong> - overflow-style: scrollbar;</p>
+<p><strong>ovx</strong> - overflow-x: ${1};</p>
+<p><strong>ovx:a</strong> - overflow-x: auto;</p>
+<p><strong>ovx:h</strong> - overflow-x: hidden;</p>
+<p><strong>ovx:s</strong> - overflow-x: scroll;</p>
+<p><strong>ovx:v</strong> - overflow-x: visible;</p>
+<p><strong>ovy</strong> - overflow-y: ${1};</p>
+<p><strong>ovy:a</strong> - overflow-y: auto;</p>
+<p><strong>ovy:h</strong> - overflow-y: hidden;</p>
+<p><strong>ovy:s</strong> - overflow-y: scroll;</p>
+<p><strong>ovy:v</strong> - overflow-y: visible;</p>
+<p><strong>ov</strong> - overflow: ${1};</p>
+<p><strong>ov:a</strong> - overflow: auto;</p>
+<p><strong>ov:h</strong> - overflow: hidden;</p>
+<p><strong>ov:s</strong> - overflow: scroll;</p>
+<p><strong>ov:v</strong> - overflow: visible;</p>
+<p><strong>pb</strong> - padding-bottom: ${1};</p>
+<p><strong>pl</strong> - padding-left: ${1};</p>
+<p><strong>pr</strong> - padding-right: ${1};</p>
+<p><strong>pt</strong> - padding-top: ${1};</p>
+<p><strong>p</strong> - padding: ${1};</p>
+<p><strong>p:4</strong> - padding: ${1:0} ${2:0} ${3:0} ${4:0};</p>
+<p><strong>p:3</strong> - padding: ${1:0} ${2:0} ${3:0};</p>
+<p><strong>p:2</strong> - padding: ${1:0} ${2:0};</p>
+<p><strong>p:0</strong> - padding: 0;</p>
+<p><strong>pgba</strong> - page-break-after: ${1};</p>
+<p><strong>pgba:aw</strong> - page-break-after: always;</p>
+<p><strong>pgba:a</strong> - page-break-after: auto;</p>
+<p><strong>pgba:l</strong> - page-break-after: left;</p>
+<p><strong>pgba:r</strong> - page-break-after: right;</p>
+<p><strong>pgbb</strong> - page-break-before: ${1};</p>
+<p><strong>pgbb:aw</strong> - page-break-before: always;</p>
+<p><strong>pgbb:a</strong> - page-break-before: auto;</p>
+<p><strong>pgbb:l</strong> - page-break-before: left;</p>
+<p><strong>pgbb:r</strong> - page-break-before: right;</p>
+<p><strong>pgbi</strong> - page-break-inside: ${1};</p>
+<p><strong>pgbi:a</strong> - page-break-inside: auto;</p>
+<p><strong>pgbi:av</strong> - page-break-inside: avoid;</p>
+<p><strong>pos</strong> - position: ${1};</p>
+<p><strong>pos:a</strong> - position: absolute;</p>
+<p><strong>pos:f</strong> - position: fixed;</p>
+<p><strong>pos:r</strong> - position: relative;</p>
+<p><strong>pos:s</strong> - position: static;</p>
+<p><strong>q</strong> - quotes: ${1};</p>
+<p><strong>q:en</strong> - quotes: '\201C' '\201D' '\2018' '\2019';</p>
+<p><strong>q:n</strong> - quotes: none;</p>
+<p><strong>q:ru</strong> - quotes: '\00AB' '\00BB' '\201E' '\201C';</p>
+<p><strong>rz</strong> - resize: ${1};</p>
+<p><strong>rz:b</strong> - resize: both;</p>
+<p><strong>rz:h</strong> - resize: horizontal;</p>
+<p><strong>rz:n</strong> - resize: none;</p>
+<p><strong>rz:v</strong> - resize: vertical;</p>
+<p><strong>r</strong> - right: ${1};</p>
+<p><strong>r:a</strong> - right: auto;</p>
+<p><strong>tbl</strong> - table-layout: ${1};</p>
+<p><strong>tbl:a</strong> - table-layout: auto;</p>
+<p><strong>tbl:f</strong> - table-layout: fixed;</p>
+<p><strong>tal</strong> - text-align-last: ${1};</p>
+<p><strong>tal:a</strong> - text-align-last: auto;</p>
+<p><strong>tal:c</strong> - text-align-last: center;</p>
+<p><strong>tal:l</strong> - text-align-last: left;</p>
+<p><strong>tal:r</strong> - text-align-last: right;</p>
+<p><strong>ta</strong> - text-align: ${1};</p>
+<p><strong>ta:c</strong> - text-align: center;</p>
+<p><strong>ta:l</strong> - text-align: left;</p>
+<p><strong>ta:r</strong> - text-align: right;</p>
+<p><strong>td</strong> - text-decoration: ${1};</p>
+<p><strong>td:l</strong> - text-decoration: line-through;</p>
+<p><strong>td:n</strong> - text-decoration: none;</p>
+<p><strong>td:o</strong> - text-decoration: overline;</p>
+<p><strong>td:u</strong> - text-decoration: underline;</p>
+<p><strong>te</strong> - text-emphasis: ${1};</p>
+<p><strong>te:ac</strong> - text-emphasis: accent;</p>
+<p><strong>te:a</strong> - text-emphasis: after;</p>
+<p><strong>te:b</strong> - text-emphasis: before;</p>
+<p><strong>te:c</strong> - text-emphasis: circle;</p>
+<p><strong>te:ds</strong> - text-emphasis: disc;</p>
+<p><strong>te:dt</strong> - text-emphasis: dot;</p>
+<p><strong>te:n</strong> - text-emphasis: none;</p>
+<p><strong>th</strong> - text-height: ${1};</p>
+<p><strong>th:a</strong> - text-height: auto;</p>
+<p><strong>th:f</strong> - text-height: font-size;</p>
+<p><strong>th:m</strong> - text-height: max-size;</p>
+<p><strong>th:t</strong> - text-height: text-size;</p>
+<p><strong>ti</strong> - text-indent: ${1};</p>
+<p><strong>ti:-</strong> - text-indent: -9999px;</p>
+<p><strong>tj</strong> - text-justify: ${1};</p>
+<p><strong>tj:a</strong> - text-justify: auto;</p>
+<p><strong>tj:d</strong> - text-justify: distribute;</p>
+<p><strong>tj:ic</strong> - text-justify: inter-cluster;</p>
+<p><strong>tj:ii</strong> - text-justify: inter-ideograph;</p>
+<p><strong>tj:iw</strong> - text-justify: inter-word;</p>
+<p><strong>tj:k</strong> - text-justify: kashida;</p>
+<p><strong>tj:t</strong> - text-justify: tibetan;</p>
+<p><strong>to+</strong> - text-outline: ${1:0} ${2:0} #${3:000};</p>
+<p><strong>to</strong> - text-outline: ${1};</p>
+<p><strong>to:n</strong> - text-outline: none;</p>
+<p><strong>tr</strong> - text-replace: ${1};</p>
+<p><strong>tr:n</strong> - text-replace: none;</p>
+<p><strong>tsh+</strong> - text-shadow: ${1:0} ${2:0} ${3:0} #${4:000};</p>
+<p><strong>tsh</strong> - text-shadow: ${1};</p>
+<p><strong>tsh:n</strong> - text-shadow: none;</p>
+<p><strong>tt</strong> - text-transform: ${1};</p>
+<p><strong>tt:c</strong> - text-transform: capitalize;</p>
+<p><strong>tt:l</strong> - text-transform: lowercase;</p>
+<p><strong>tt:n</strong> - text-transform: none;</p>
+<p><strong>tt:u</strong> - text-transform: uppercase;</p>
+<p><strong>tw</strong> - text-wrap: ${1};</p>
+<p><strong>tw:no</strong> - text-wrap: none;</p>
+<p><strong>tw:n</strong> - text-wrap: normal;</p>
+<p><strong>tw:s</strong> - text-wrap: suppress;</p>
+<p><strong>tw:u</strong> - text-wrap: unrestricted;</p>
+<p><strong>t</strong> - top: ${1};</p>
+<p><strong>t:a</strong> - top: auto;</p>
+<p><strong>va</strong> - vertical-align: ${1};</p>
+<p><strong>va:bl</strong> - vertical-align: baseline;</p>
+<p><strong>va:b</strong> - vertical-align: bottom;</p>
+<p><strong>va:m</strong> - vertical-align: middle;</p>
+<p><strong>va:sub</strong> - vertical-align: sub;</p>
+<p><strong>va:sup</strong> - vertical-align: super;</p>
+<p><strong>va:tb</strong> - vertical-align: text-bottom;</p>
+<p><strong>va:tt</strong> - vertical-align: text-top;</p>
+<p><strong>va:t</strong> - vertical-align: top;</p>
+<p><strong>v</strong> - visibility: ${1};</p>
+<p><strong>v:c</strong> - visibility: collapse;</p>
+<p><strong>v:h</strong> - visibility: hidden;</p>
+<p><strong>v:v</strong> - visibility: visible;</p>
+<p><strong>whsc</strong> - white-space-collapse: ${1};</p>
+<p><strong>whsc:ba</strong> - white-space-collapse: break-all;</p>
+<p><strong>whsc:bs</strong> - white-space-collapse: break-strict;</p>
+<p><strong>whsc:k</strong> - white-space-collapse: keep-all;</p>
+<p><strong>whsc:l</strong> - white-space-collapse: loose;</p>
+<p><strong>whsc:n</strong> - white-space-collapse: normal;</p>
+<p><strong>whs</strong> - white-space: ${1};</p>
+<p><strong>whs:n</strong> - white-space: normal;</p>
+<p><strong>whs:nw</strong> - white-space: nowrap;</p>
+<p><strong>whs:pl</strong> - white-space: pre-line;</p>
+<p><strong>whs:pw</strong> - white-space: pre-wrap;</p>
+<p><strong>whs:p</strong> - white-space: pre;</p>
+<p><strong>wid</strong> - widows: ${1};</p>
+<p><strong>w</strong> - width: ${1};</p>
+<p><strong>w:a</strong> - width: auto;</p>
+<p><strong>wob</strong> - word-break: ${1};</p>
+<p><strong>wob:ba</strong> - word-break: break-all;</p>
+<p><strong>wob:bs</strong> - word-break: break-strict;</p>
+<p><strong>wob:k</strong> - word-break: keep-all;</p>
+<p><strong>wob:l</strong> - word-break: loose;</p>
+<p><strong>wob:n</strong> - word-break: normal;</p>
+<p><strong>wos</strong> - word-spacing: ${1};</p>
+<p><strong>wow</strong> - word-wrap: ${1};</p>
+<p><strong>wow:no</strong> - word-wrap: none;</p>
+<p><strong>wow:n</strong> - word-wrap: normal;</p>
+<p><strong>wow:s</strong> - word-wrap: suppress;</p>
+<p><strong>wow:u</strong> - word-wrap: unrestricted;</p>
+<p><strong>z</strong> - z-index: ${1};</p>
+<p><strong>z:a</strong> - z-index: auto;</p>
+<p><strong>zoo</strong> - zoom: 1;</p>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=a08956830a894fa5135f1dc0e6f52c1b&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

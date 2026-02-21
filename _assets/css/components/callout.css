@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Callouts — Cascade CMS Knowledge Base
+   Info, warning, tip, and danger alert boxes.
+   ========================================================================== */
+
+.callout {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    margin: var(--space-lg) 0;
+    border: 1px solid var(--color-callout-border);
+    border-radius: var(--radius-md);
+    background: var(--color-callout-surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.callout__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 1.875rem;
+    height: 1.875rem;
+    margin-top: 1px;
+    border-radius: var(--radius-sm);
+    background: var(--color-callout-icon-chip-bg);
+    color: var(--color-text-secondary);
+}
+
+.callout__icon svg {
+    --size: 20px;   
+    width: var(--size);
+    height: var(--size);
+}
+
+.callout__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.callout__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    margin-bottom: var(--space-xs);
+    color: var(--color-callout-title);
+}
+
+.callout__content p {
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+}
+
+.callout__content p + p {
+    margin-top: var(--space-sm);
+}
+
+/* ── Info ── */
+.callout--info {
+    border-color: var(--color-callout-info-border);
+    background: transparent;
+}
+
+.callout--info .callout__icon {
+    background: transparent;
+    color: var(--color-callout-info-icon);
+}
+
+.callout--info .callout__title {
+    color: var(--color-callout-info-text);
+}
+
+/* ── Warning ── */
+.callout--warning {
+    border-color: var(--color-callout-warning-border);
+    background: var(--color-callout-warning-bg);
+}
+
+.callout--warning .callout__icon {
+    background: transparent;
+    color: var(--color-callout-warning-icon);
+}
+
+.callout--warning .callout__title {
+    color: var(--color-callout-warning-text);
+}
+
+/* ── Tip ── */
+.callout--tip {
+    border-color: var(--color-callout-tip-border);
+    background: var(--color-callout-tip-bg);
+}
+
+.callout--tip .callout__icon {
+    background: transparent;
+    color: var(--color-callout-tip-icon);
+}
+
+.callout--tip .callout__title {
+    color: var(--color-callout-tip-text);
+}
+
+/* ── Danger ── */
+.callout--danger {
+    border-color: var(--color-callout-danger-border);
+    background: var(--color-callout-danger-bg);
+}
+
+.callout--danger .callout__icon {
+    background: transparent;
+    color: var(--color-callout-danger-icon);
+}
+
+.callout--danger .callout__title {
+    color: var(--color-callout-danger-text);
+}

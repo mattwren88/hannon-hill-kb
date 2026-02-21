@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Numbered Steps — Cascade CMS Knowledge Base
+   Step-by-step guides with numbered badges and connecting lines.
+   ========================================================================== */
+
+.steps {
+    margin: var(--space-xl) 0;
+    padding-left: 0;
+}
+
+.steps__item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: var(--space-md);
+    position: relative;
+    padding-bottom: var(--space-xl);
+}
+
+.steps__item:last-child {
+    padding-bottom: 0;
+}
+
+/* Connecting line */
+.steps__item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-step-line);
+    z-index: 0;
+}
+
+/* ── Step Number Badge ── */
+.steps__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-step-number-bg);
+    color: var(--color-step-number-text);
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Step Content ── */
+.steps__content {
+    padding-top: 4px;
+}
+
+.steps__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--color-heading);
+    margin-bottom: var(--space-sm);
+    line-height: var(--leading-tight);
+}
+
+.steps__description {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-md);
+}
+
+.steps__description:last-child {
+    margin-bottom: 0;
+}
+
+/* Code blocks inside steps */
+.steps__content .code-block {
+    margin-top: var(--space-sm);
+    margin-bottom: 0;
+}

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Publishing - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/index.html" rel="canonical"/>
+		<meta content="ea8b438d0a894fa568b1ecd4d3a45d36" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">            Content Authoring    
+    </a></li>
+      
+        
+                            <li class="breadcrumb-item active">            Publishing    
+    </li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                        <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/index.html">Publishing</a>
+                        <ul class="navHighlighter">
+                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+                    </li>
+                                                                                                                                                    </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">Content Authoring</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publish-sets.html">Publish Sets</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/transports.html">Transports</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/destinations.html">Destinations</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publishing-related-content.html">Publishing Related Content</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						<div class="width" id="release-hero">
+  <h1>Publishing</h1>
+  <p class="lead">Cascade CMS features a robust publishing engine designed to render and publish content to one or more environments. Once content is published, it's completely decoupled from the CMS, allowing it to operate independently in any standard environment.</p>
+</div>
+						<div class="card shadow-big width" id="expand">
+        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+    
+
+
+<section aria-label="Topics" id="topic-guide">
+    <div class="page-header">
+        <div id="topics">
+            <h2>Topics</h2>
+        </div>
+    </div>
+    <ul>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publish-sets.html">             Publish Sets    
+    </a></li>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/transports.html">             Transports    
+    </a></li>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/destinations.html">             Destinations    
+    </a></li>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publishing-related-content.html">             Publishing Related Content    
+    </a></li>
+                
+    </ul>
+</section>
+            
+    <section aria-label="Overview" class="anchor-heading" id="Overview">
+
+                      <h2>Overview <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>Cascade CMS features a robust publishing engine designed to render and publish content to one or more environments. Once content is published, it's completely decoupled from the CMS, allowing it to operate independently in any standard environment.</p>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Publishable Content" class="anchor-heading" id="PublishableContent">
+
+                      <h2>Publishable Content <a aria-label="Skip to Publishable Content" href="#PublishableContent"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>Publishable assets in Cascade CMS include folders, pages, and files. Note that files may include a wide range of content, including images, PDFs, CSS, and JavaScript files.</p>
+<p>Although they sometimes contain HTML content, <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/index.html">Blocks</a> are not publishable assets. To publish Block content, you can publish the pages that use the Block by viewing its <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publishing-related-content.html#PublishableRelationships">Relationships</a>.</p>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Publishing an Asset" class="anchor-heading" id="PublishinganAsset">
+
+                      <h2>Publishing an Asset <a aria-label="Skip to Publishing an Asset" href="#PublishinganAsset"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>To publish an asset:</p>
+<ol>
+<li>Click the <strong>Publish</strong> button ( <i class="fas fa-cloud"> </i>) in the toolbar when previewing a publishable asset or right-click an asset and select <strong>Publish</strong> from the context menu.</li>
+<li>From this menu, you can either click <strong>Publish</strong> to publish the asset now with the default settings, or configure one or more of the following options:
+<ul>
+<li><strong>Optionally Publish Later</strong> - schedule the asset to publish at a future date and time.
+<ul>
+<li>Before this date, the asset can be indexed but isn't publishable and won't be included in other publish jobs such as folder or site publishes.</li>
+<li>You can cancel a future scheduled publish with the <strong>Unschedule</strong> link when previewing the asset.</li>
+</ul>
+</li>
+<li><strong>View Publish Settings</strong>
+<ul>
+<li><strong>View &amp; Publish Related Content</strong> (if applicable) - publish the asset's linked and manual <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publishing-related-content.html#PublishableRelationships">Relationships</a>.</li>
+<li><strong>Include Publish Set</strong> (if applicable) - publish the <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publish-sets.html">Publish Set</a> associated with the asset's <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/content-types/index.html">Content Type</a>.</li>
+<li><strong>Generate a publish report</strong> - send a summary of the items published (including any errors) to your user Notifications.</li>
+<li>For page assets, select the <strong>Outputs</strong> that you'd like to publish.
+<ul>
+<li>Because page Outputs can be routed to specific Destinations at the Content Type level, the publish screen will indicate if a page Output is set to publish to "All Destinations", publish to specific Destinations, or disabled for publishing altogether.</li>
+<li>Outputs that are not publishable will be listed, but cannot be selected.</li>
+<li>If an Output is set to publish to "All Destinations", it will be eligible to publish to all Destinations but will only publish to those selected.</li>
+<li>Likewise, if an Output is set to publish to a specific Destination, it will only publish to that Destination if it's selected.</li>
+<li>Outputs that have been disabled for publishing at the Configuration level will not appear on this screen at all.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Select the <strong>Destinations</strong> you'd like to publish to.</li>
+</ul>
+</li>
+</ol>
+<div class="alert alert-warning"><strong>Note</strong> - Users who have the ability to "<a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/role-abilities-in-cascade.html#SiteRoleAbilities">Publish readable Home area assets</a>" will be able to unschedule a future Publish Later created by another User.</div>
+<div class="alert alert-warning"><strong>Note</strong> - In most cases, Cascade CMS will prevent duplicate publish jobs from being added to the publish queue. Note that publishing an asset to different Destinations in separate submissions to the publish queue will not result in a duplicate publish warning. For example, if a user publishes Page A to Destination A and then publishes page A to Destination B; a duplicate publish warning won't be displayed.</div>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Unpublishing" class="anchor-heading" id="Unpublishing">
+
+                      <h2>Unpublishing <a aria-label="Skip to Unpublishing" href="#Unpublishing"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>To unpublish an asset:</p>
+<ol>
+<li>Click <strong>More &gt; Unpublish</strong> when previewing a publishable asset or right-click an asset and select <strong>Unpublish</strong> from the context menu.</li>
+<li>From this menu, you can either click <strong>Unpublish</strong> to unpublish the asset now with the default settings, or configure one or more of the following options:
+<ul>
+<li><strong>Optionally Unpublish Later</strong> - schedule the asset to unpublish at a future date and time.<br/>
+<ul>
+<li>Before this date, the asset can be indexed and included in other unpublish jobs such as folder or site unpublishes.</li>
+<li>You can cancel a future scheduled unpublish with the <strong>Unschedule</strong> link when previewing the asset.</li>
+</ul>
+</li>
+<li><strong>Generate a publish report</strong> - send a summary of the items unpublished (including any errors) to your user Notifications.</li>
+<li>Select one or more <strong>Outputs</strong> to unpublish (for pages).</li>
+<li>Select one or more <strong>Destinations</strong> to unpublish from.</li>
+</ul>
+</li>
+</ol>
+<div class="alert alert-warning"><strong>Note</strong> - If unpublishing one or more Page or File assets results in the assets' parent folder on the remote server being empty, Cascade CMS will first check to make sure the folder is empty and then attempt to delete the empty folder from the remote server (with the exception of the site's base folder).</div>
+<div class="alert alert-warning"><strong>Note</strong> - When you move, rename, or delete an asset, Cascade CMS will automatically unpublish the asset from all enabled Destinations and Outputs (for pages) by default. This is to prevent outdated files from being left on the remote server at their old location. If you're not using workflow, you can change which Destinations and/or Outputs are unpublished if needed.</div>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Scheduled Publishing" class="anchor-heading" id="ScheduledPublishing">
+
+                      <h2>Scheduled Publishing <a aria-label="Skip to Scheduled Publishing" href="#ScheduledPublishing"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>Individual assets can be scheduled to publish once at a future date and time. See <a href="https://www.hannonhill.com/cascadecms/latest/faqs/general/scheduled-publishing-for-individual-assets.html">Scheduling Publishing for Individual Assets</a> for more information.</p>
+<p>Additionally, the following types of assets can be set to publish on a recurring schedule:</p>
+<ul>
+<li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/sites/index.html"><strong>Sites</strong></a></li>
+<li><strong><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/destinations.html">Destinations</a></strong></li>
+<li><strong><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publish-sets.html">Publish Sets</a></strong></li>
+</ul>
+<p>Scheduled publishing can be configured on an asset when creating or editing it. Once enabled, the following options are available:</p>
+<h5>Destinations</h5>
+<ul>
+<li><strong>Publish to all enabled Destinations</strong>&#160;- publish to all Destinations that are enabled at the time the job is added to the Publish Queue.</li>
+<li><strong>Publish to selected Destinations</strong>&#160;- publish to selected Destinations.</li>
+</ul>
+<h5>Frequency</h5>
+<ul>
+<li><strong>Every day</strong> - publish the asset daily at the time specified.</li>
+<li><strong>Each selected day(s)</strong> - publish the asset each given day of the week at the time specified.</li>
+<li><strong>Every <em>n</em> hours</strong> - publish the asset every specified number of hours starting at the time specified.
+<ul>
+<li>This setting does not respect Daylight Saving Time (DST) changes.</li>
+</ul>
+</li>
+<li><strong>Cron Expression</strong> - publish the asset on a schedule specified by a provided cron expression.</li>
+</ul>
+<h5>Notifications</h5>
+<ul>
+<li><strong>Send report to</strong> - send a publish report to the Notifications of selected Users and/or Groups.</li>
+<li><strong>Only send report when errors are present</strong> - only generate a publish report if there are errors during the publish job.</li>
+</ul>
+<div class="alert alert-warning"><strong>Note</strong> - Once scheduled for publishing, an asset will be added to the site's Publish Queue at the specified time. Note that the actual rendering and publishing of the asset could begin later if there are jobs ahead of it in the Publish Queue at the specified time.</div>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Publish Queue" class="anchor-heading" id="PublishQueue">
+
+                      <h2>Publish Queue <a aria-label="Skip to Publish Queue" href="#PublishQueue"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>Each site in Cascade CMS has its own publish queue that can process up to 2 jobs at a time. To view the publish queue, click the system menu button ( <i class="fa fa-bars"> </i>) while in a site and select <strong>Publish Queue</strong>. When viewing a site's publish queue, you can also see which other sites have active publish jobs.</p>
+<p>To reorder jobs in the publish queue, select a job from the list and use the arrow buttons to move it up or down in the queue. You may also drag-and-drop publish jobs into position in the list. Note that in-progress publish jobs can't be reordered.</p>
+<p>To cancel jobs in the publish queue, select a job from the list and click the <strong>Delete</strong> button ( <i class="fas fa-trash-alt"> </i>).</p>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+          <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+
+</div>
+
+    
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=ea8b438d0a894fa568b1ecd4d3a45d36&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>User Menu and Account Settings - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/account-settings.html" rel="canonical"/>
+		<meta content="336f76800a894fa50d32c7bf96089779" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/index.html">            Cascade Basics    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">User Menu and Account Settings</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                                                                                                                                                                                        <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/account-settings.html">User Menu and Account Settings</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Account Settings" href="#AccountSettings">Account Settings</a> </li>
+                                                                                                                                <li><a aria-label="Skip to API Key" href="#APIKey">API Key</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                                                                        </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/index.html">Cascade Basics</a></li>
+                                                                                                                        <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsesearch">+ Search</a>
+                            <ul class="navHighlighter collapse" id="collapsesearch">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/search/index.html">Search Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/search/full-search-and-replace.html">Full Search and Replace</a></li>
+                                                                                                                                                    </ul>
+                        </li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/the-dashboard.html">The Dashboard</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/creating-content.html">Creating Content</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/my-content.html">My Content</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/drafts-and-working-copies.html">Drafts and Working Copies</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/using-the-context-menu.html">Context Menu</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/asset-display-options.html">Asset Display Options</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/account-settings.html">User Menu and Account Settings</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/comments.html">Comments and Mentions</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/daily-content-report.html">Daily Content Report</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/unpublishing-deleting-which-is-best.html">Unpublishing vs. Deleting Content - Which is best?</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Cascade Basics</span>
+        </div>
+        <header>
+                            <h1>User Menu and Account Settings 
+                                        </h1>
+                    </header>
+      <a name="User+Menu+and+Account+Settings"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p><img alt="Screenshot demonstrating location of user menu" class="img-polaroid" src="https://www.hannonhill.com/cascadecms/latest/cascade-basics/images/user-menu-dropdown.png" width="100%"/></p>
+<p>Your account settings are accessible when viewing any area in Cascade CMS. To access them, click on the letter representing your name (or your profile picture if you have one set) in the upper-right corner.</p>
+<ul>
+<li><strong>Starred</strong> - View your starred assets in the <a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/my-content.html">My Content</a> area.</li>
+<li><strong>History</strong> - View your recently-visited assets in the <a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/my-content.html">My Content</a> area.</li>
+<li><strong>Notifications</strong> - View your notifications such as workflow notifications, publish reports, and user mentions.</li>
+<li><strong>Tasks</strong> - View <a href="https://www.hannonhill.com/cascadecms/latest/content-management/tasks.html">tasks</a> that are assigned to you.</li>
+<li><strong>Settings</strong> - Configure some basic preferences for how you interact with Cascade CMS (see <a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/account-settings.html#AccountSettings">Account Settings</a>).</li>
+<li><strong>API Key</strong> - Manage your API Key used to authenticate with scripts and applications (see <a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/account-settings.html#APIKey">User API Key</a>).</li>
+<li><strong>Sign Out</strong> - Log out of Cascade CMS. After a period of inactivity set by your CMS administrator, you'll be logged out automatically.</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Account Settings" class="anchor-heading" id="AccountSettings">
+                                        <h2>Account Settings     <a aria-label="Skip to Account Settings" href="#AccountSettings"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>To access your account settings, click on the user menu button and then click <strong>Settings</strong>. The following settings are available to configure:</p>
+<ul>
+<li><strong>Appearance of Asset Links</strong> - View assets by either their Title/Display Name or their system name in Cascade CMS. For more information, see <a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/asset-display-options.html">Asset Display Options</a>.</li>
+<li><strong>Daily Content Report</strong> - Subscribe or unsubscribe from the <a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/daily-content-report.html">Daily Content Report</a> if it's enabled for your system.</li>
+<li><strong>Default Site</strong> - Choose your default site here to pre-filter new dashboard widgets and reports to display data from this site.</li>
+<li><strong>Notification Duration</strong> - Adjust the&#160;duration of notifications displayed within the interface.</li>
+<li><strong>Change Password</strong> - If your organization uses Active Directory, LDAP, or something similar for logging in users, you won't see this option.</li>
+<li><strong>Change Profile Photo</strong> - Drag and drop an image file or choose one from your computer to create a profile image. This image will be displayed next to your username in Cascade CMS.</li>
+</ul>
+<p class="alert alert-warning"><strong>Notes<br/></strong>The maximum size for profile images is 1.04MB.<br/><br/>Changing password will invalidate "Remember me" functionality across all browsers. You will need to log in again in order to use the "Remember me" feature for future sessions.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="API Key" class="anchor-heading" id="APIKey">
+                                        <h2>API Key     <a aria-label="Skip to API Key" href="#APIKey"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Your API Key is unique to your user account and can be used to authenticate with <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/rest-api/index.html">Web Services</a> scripts and applications in place of a traditional username and password.</p>
+<ul>
+<li><strong>Generate a new key</strong> to open a dialog which displays a new, unique API Key. This key is only shown once and can't be retrieved again, so be sure to store it somewhere safe.</li>
+<li>If you lose your API Key, you can <strong>Regenerate</strong> it. Again, the generated key will only be shown once.</li>
+<li>If you no longer need your API Key, you can <strong>Revoke</strong> it entirely. Once revoked, scripts and applications must authenticate using a traditional username and password.</li>
+</ul>
+<p>Once an API Key is generated, the following information will be provided on the API Key screen:</p>
+<ul>
+<li><strong>Preview</strong> - a preview of the beginning of your API Key.</li>
+<li><strong>Generated at</strong> - the date that your current API Key was generated. For security purposes, you may wish to periodically regenerate your API Key.</li>
+</ul>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=336f76800a894fa50d32c7bf96089779&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

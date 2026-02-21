@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>WYSIWYG Editor Configurations - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/content-authoring/wysiwyg-editor-configurations/index.html" rel="canonical"/>
+		<meta content="6ca7dd7d3211e37169688512dc38d4e3" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">            Content Authoring    
+    </a></li>
+      
+        
+                            <li class="breadcrumb-item active">            WYSIWYG Editor Configurations    
+    </li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                        <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/content-authoring/wysiwyg-editor-configurations/index.html">WYSIWYG Editor Configurations</a>
+                        <ul class="navHighlighter">
+                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+                    </li>
+                                                                </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">Content Authoring</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/wysiwyg-editor-configurations/upgrade-guide.html">WYSIWYG Editor Configuration Upgrade Guide</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						<div class="width" id="release-hero">
+  <h1>WYSIWYG Editor Configurations</h1>
+  <p class="lead">WYSIWYG Editor Configurations allow you to customize which features of the WYSIWYG rich-text editor are available to content creators.</p>
+</div>
+						<div class="card shadow-big width" id="expand">
+        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+    
+
+
+<section aria-label="Topics" id="topic-guide">
+    <div class="page-header">
+        <div id="topics">
+            <h2>Topics</h2>
+        </div>
+    </div>
+    <ul>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/wysiwyg-editor-configurations/upgrade-guide.html">             WYSIWYG Editor Configuration Upgrade Guide    
+    </a></li>
+                
+    </ul>
+</section>
+            
+    <section aria-label="Overview" class="anchor-heading" id="Overview">
+
+                      <h2>Overview <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>WYSIWYG Editor Configurations allow you to customize which features of the WYSIWYG rich-text editor are available to content creators.</p>
+<p>By default, Cascade CMS's&#160;System Default WYSIWYG Editor Configuration governs all WYSIWYGs that don't have a site-level editor configuration specified. For sites that need further WYSIWYG customization, one or more site-level WYSIWYG Editor Configurations can be created and applied either as the default for one or more sites, or&#160;to Content Types and/or Data Definitions&#160;for greater granularity.</p>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Editor Configuration Settings" class="anchor-heading" id="EditorConfigurationSettings">
+
+                      <h2>Editor Configuration Settings <a aria-label="Skip to Editor Configuration Settings" href="#EditorConfigurationSettings"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p><img alt="editor configuration settings" class="img-polaroid" height="589" src="https://www.hannonhill.com/cascadecms/latest/content-authoring/wysiwyg-editor-configurations/images/editor-configuration-settings.png" width="768"/></p>
+<ul>
+<li><strong>Allow style attributes in content</strong> -&#160;When this option is disabled, buttons that generate inline style attributes will be disabled and hidden.
+<ul>
+<li>Existing style attributes or style attributes manually entered in the source code of the WYSIWYG will be stripped.</li>
+<li>An exception is made for Data Definition WYSIWYG fields that have deprecated options enabled to preserve old functionality from previous versions of Cascade CMS. Style attributes are removed, but all buttons will be visible.</li>
+</ul>
+</li>
+<li><strong>Toolbar</strong>&#160;-&#160;Click on the toolbar button icons to toggle their visibility in the WYSIWYG.
+<ul>
+<li>Disabling a button within the toolbar will remove any corresponding menu items that may be present; however, disabling a menu will not remove corresponding toolbar buttons.</li>
+</ul>
+</li>
+<li><strong>CSS File</strong> - Choose a CSS file to apply to the WYSIWYG to allow users to preview the site's styling within the WYSIWYG.</li>
+<li><strong>Schema</strong> - Choose a schema to control which HTML elements are permitted in the WYSIWYG.
+<ul>
+<li><strong>All</strong> - Allows any tag.</li>
+<li><strong>HTML5</strong> - Allows any HTML5-supported tags excluding those entered in the optional <strong>Invalid Elements</strong> field. Elements specified in the Invalid Elements field will be stripped from the WYSIWYG.</li>
+<li><strong>Custom</strong> - Allows only tags provided in the <strong>Valid Elements</strong> field, all other elements will be stripped from the WYSIWYG.</li>
+</ul>
+</li>
+</ul>
+<div class="alert alert-warning"><strong>Note</strong> - If you disable any toolbar buttons in your configuration, it's recommended that you also disable the <strong>Source Code</strong> ( <i class="fa fa-chevron-left">&#160;</i><i class="fa fa-chevron-right">&#160;</i>) and the <strong>Insert/edit media</strong> ( <i class="fas fa-film">&#160;</i>) buttons, as this would allow users to effectively bypass restrictions by inserting code directly into the source markup.</div>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Editor Configuration Custom Formatting" class="anchor-heading" id="EditorConfigurationCustomFormatting">
+
+                      <h2>Editor Configuration Custom Formatting <a aria-label="Skip to Editor Configuration Custom Formatting" href="#EditorConfigurationCustomFormatting"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <div style="padding: 1rem;">
+<script async="" src="https://fast.wistia.com/embed/medias/fel6m53gn7.jsonp"></script>
+<script async="" src="https://fast.wistia.com/assets/external/E-v1.js"></script>
+<div class="wistia_responsive_padding" style="padding: 56.25% 0 0 0; position: relative;">
+<div class="wistia_responsive_wrapper" style="height: 100%; left: 0; position: absolute; top: 0; width: 100%;">
+<div class="wistia_embed wistia_async_fel6m53gn7 videoFoam=true" style="height: 100%; position: relative; width: 100%;">
+<div class="wistia_swatch" style="height: 100%; left: 0; opacity: 0; overflow: hidden; position: absolute; top: 0; transition: opacity 200ms; width: 100%;"><img alt="Thumbnail for video illustrating how to apply custom formats to WYSIWYG content" aria-hidden="true" src="https://fast.wistia.com/embed/medias/fel6m53gn7/swatch" style="filter: blur(5px); height: 100%; object-fit: contain; width: 100%;"/></div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Visible Built-in Formats</strong> - All default formats such as headings will be appear here. Remove items from this field to hide them from the <strong>Formats</strong> menu.</li>
+<li><strong>Formatting Type</strong> - In addition to the built-in format options, you can make custom formats available to users using the Simple or Advanced formatting options:
+<ul>
+<li><strong>None</strong> - No custom formats provided.</li>
+<li><strong>Simple</strong> - Provide a&#160;comma-separated list of CSS classes in the <strong>CSS Classes</strong> field to make available in the custom formats menu. These styles will be applied to the selected content's <code>style</code> attribute.</li>
+<li><strong>Advanced</strong> - For greater control you can build custom formats, with the option to scope them to appropriate content, with the following settings:&#160;
+<ul>
+<li><strong>Format Title</strong> - A descriptive label of your custom format that will appear in the custom formats drop-down menu. For example: "Bold Red Text" or "Blue Button".</li>
+<li><strong>Apply format to specific CSS3 selector(s) only</strong> - Enabling this option ensures that your custom format can only be applied to elements specified in the&#160;<strong>Applicable CSS3 selectors</strong> field. For example: If a format should only apply to images, enable this option and specify <code>img</code> as the applicable selector.
+<ul>
+<li>Formats that apply to <code>img</code>&#160;and&#160;<code>a</code> elements will be made available in the <strong>Insert/edit image&#160;</strong>and <strong>Insert/edit&#160;link</strong>&#160;menus, respectively.</li>
+</ul>
+</li>
+<li><strong>Tag name of the element to use as a wrapper for the current selection</strong> - Wraps selected content with the specified tag. If the tag is a block element, existing block elements surrounding the selection will be replaced with this element. For example: Select <code>span</code> to wrap your selection with a span tag in order to style inline content.</li>
+<li><strong>CSS classes to add</strong> - A comma-separated list of CSS classes to be applied to the selected content's <code>class</code> attribute.</li>
+<li><strong>CSS styles to add</strong> - A semicolon-separated list of CSS styles to be applied to the select content's <code>style</code> attribute.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="alert alert-success"><strong>Tip</strong> - You can create restricted editor configurations but still allow site administrators greater content editing flexibility by enabling the <strong>Bypass WYSIWYG editor restrictions</strong> ability in their <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/roles.html">Site Role</a>.</div>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Editing the System Default WYSIWYG Editor Configuration" class="anchor-heading" id="EditingtheSystemDefaultWYSIWYGEditorConfiguration">
+
+                      <h2>Editing the System Default WYSIWYG Editor Configuration <a aria-label="Skip to Editing the System Default WYSIWYG Editor Configuration" href="#EditingtheSystemDefaultWYSIWYGEditorConfiguration"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>&#160;To edit the System Default WYSIWYG Editor Configuration:</p>
+<ol>
+<li>Navigate to&#160;<strong>Administration</strong> &gt;&#160;<strong>System Default WYSIWYG Editor Configuration</strong> and click&#160;<strong>Edit</strong>.</li>
+<li>When finished configuring the editor settings, click <strong>Submit</strong> to save your changes.</li>
+</ol>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Creating Site-Level WYSIWYG Editor Configurations" class="anchor-heading" id="CreatingSite-LevelWYSIWYGEditorConfigurations">
+
+                      <h2>Creating Site-Level WYSIWYG Editor Configurations <a aria-label="Skip to Creating Site-Level WYSIWYG Editor Configurations" href="#CreatingSite-LevelWYSIWYGEditorConfigurations"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>To create a site-level WYSIWYG Editor Configuration:</p>
+<ol>
+<li>Navigate to <strong>Manage Site</strong> &gt; <strong>WYSIWYG Editor Configurations</strong>.</li>
+<li>Click <strong>Create</strong>.</li>
+<li>In the&#160;<strong>Name</strong>&#160;field, enter a name for your configuration.</li>
+<li>When finished configuring editor settings, click <strong>Submit</strong> to save your changes.</li>
+</ol>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Applying WYSIWYG Editor Configurations" class="anchor-heading" id="ApplyingWYSIWYGEditorConfigurations">
+
+                      <h2>Applying WYSIWYG Editor Configurations <a aria-label="Skip to Applying WYSIWYG Editor Configurations" href="#ApplyingWYSIWYGEditorConfigurations"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>Site-level editor configurations can be applied at various levels to fully customize the content-editing experience for users.</p>
+<h3>At the Site Level</h3>
+<p>Editor configurations specified as site's default will be used for:</p>
+<ul>
+<li>WYSIWYG fields in Data Definitions.</li>
+<li>Pages using a Content Type without a Data Definition selected (WYSIWYG-only).</li>
+<li>XHTML Blocks without a Data Definition selected.</li>
+</ul>
+<p>To specify an editor configuration as the site's default:</p>
+<ol>
+<li>Navigate to <strong>Manage Site</strong> &gt; <strong>Site Settings</strong>.</li>
+<li>In the <strong>Properties</strong> tab, select a site-level configuration in the <strong>Default WYSIWYG Editor Configuration</strong> field.</li>
+<li>Click <strong>Submit</strong> to save your changes.</li>
+</ol>
+<p>For cases where more granularity is required, editor configurations can also be assigned at the Content Type and/or Data Definition field level (see below).&#160;</p>
+<h3>At the Content Type Level</h3>
+<p>For Content Types that do not have a Data Definition selected, an editor configuration may be chosen to override the system or site default editor configuration. This editor configuration will used for pages using a Content Type without a Data Definition selected (WSYIWYG-only).</p>
+<p>To apply an editor configuration to a Content Type:</p>
+<ol>
+<li>Navigate to <strong>Manage Site</strong> &gt; <strong>Content Types</strong>, select the appropriate Content Type and click <strong>Edit</strong>.</li>
+<li>Under&#160;<strong>WYSIWYG Editor Configuration</strong>, select the appropriate site-level editor configuration.</li>
+<li>Click <strong>Submit</strong> to save your changes.</li>
+</ol>
+<h3>At the Data Definition Level</h3>
+<p>Editor configurations can be specified for individual WYSIWYG fields in a Data Definition to further customize the content users can create for that field. For example, a &#8220;simple&#8221; configuration with only basic formatting buttons may be used for summary and caption fields that only require basic text and some markup.</p>
+<p>To apply an editor configuration to a Data Definition field:</p>
+<ol>
+<li>Navigate to <strong>Manage Site</strong> &gt; <strong>Data Definitions</strong>, select the appropriate Data Definition and click <strong>Edit</strong>.</li>
+<li>Click the edit button ( <i class="fa fa-pencil-alt">&#160;</i>) next to the appropriate WYSIWYG field and then click&#160;&#160;<strong>Show Advanced Settings</strong>.</li>
+<li>Under&#160;<strong>Editor Configuration</strong>, select the appropriate site-level editor configuration.</li>
+<li>Click <strong>Submit</strong> to save your changes.</li>
+</ol>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+          <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+
+</div>
+
+    
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=6ca7dd7d3211e37169688512dc38d4e3&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

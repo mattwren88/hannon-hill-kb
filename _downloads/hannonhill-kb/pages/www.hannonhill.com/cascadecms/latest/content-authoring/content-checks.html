@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Content Checks - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/content-authoring/content-checks.html" rel="canonical"/>
+		<meta content="7f724fe13211e3711c75b25a431785a0" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">            Content Authoring    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Content Checks</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/content-authoring/content-checks.html">Content Checks</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Spell Check" href="#SpellCheck">Spell Check</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Link Check" href="#LinkCheck">Link Check</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Accessibility Check" href="#AccessibilityCheck">Accessibility Check</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Enabling Content Checks" href="#EnablingContentChecks">Enabling Content Checks</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                                                                                                                                                            </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">Content Authoring</a></li>
+                                                                                            <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsepages">+ Pages</a>
+                            <ul class="navHighlighter collapse" id="collapsepages">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/pages/index.html">Pages Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/pages/system-tags.html">System Tags</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/pages/editable-fields.html">Editable Fields</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/pages/rendering-metrics.html">Rendering Metrics</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsefiles">+ Files</a>
+                            <ul class="navHighlighter collapse" id="collapsefiles">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/files/index.html">Files Overview</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsefolders">+ Folders</a>
+                            <ul class="navHighlighter collapse" id="collapsefolders">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/folders/index.html">Folders Overview</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapseblocks">+ Blocks</a>
+                            <ul class="navHighlighter collapse" id="collapseblocks">
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/index.html">Blocks Overview</a></li>
+                                                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/index-blocks.html">Index Blocks</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/xhtml-blocks.html">XHTML/Data Definition Blocks</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/feed-blocks.html">Feed Blocks</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/xml-blocks.html">XML Blocks</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/text-blocks.html">Text Blocks</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapseexternal-links">+ External Links</a>
+                            <ul class="navHighlighter collapse" id="collapseexternal-links">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/external-links/index.html">External Links Overview</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapseasset-factories">+ Asset Factories</a>
+                            <ul class="navHighlighter collapse" id="collapseasset-factories">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/asset-factories/plugins/index.html">Asset Factory Plugins</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/asset-factories/index.html">Asset Factories Overview</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsepublishing">+ Publishing</a>
+                            <ul class="navHighlighter collapse" id="collapsepublishing">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/index.html">Publishing Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publish-sets.html">Publish Sets</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/transports.html">Transports</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/destinations.html">Destinations</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publishing-related-content.html">Publishing Related Content</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapseaccessibility">+ Accessibility</a>
+                            <ul class="navHighlighter collapse" id="collapseaccessibility">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/accessibility/index.html">Accessibility Overview</a></li>
+                                                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/accessibility/page-accessibility-checker.html">Native On-Page Accessibility Checker</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/accessibility/keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapseadvanced-code-editor">+ Advanced Code Editor</a>
+                            <ul class="navHighlighter collapse" id="collapseadvanced-code-editor">
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/advanced-code-editor/index.html">Advanced Code Editor Overview</a></li>
+                                                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/advanced-code-editor/css-editor-snippets.html">CSS Editor Snippets</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsewysiwyg-editor-configurations">+ WYSIWYG Editor Configurations</a>
+                            <ul class="navHighlighter collapse" id="collapsewysiwyg-editor-configurations">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/wysiwyg-editor-configurations/index.html">WYSIWYG Editor Configurations Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/wysiwyg-editor-configurations/upgrade-guide.html">WYSIWYG Editor Configuration Upgrade Guide</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/versions.html">Versions</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/linking.html">Linking</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/content-checks.html">Content Checks</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/references.html">References</a></li>
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/asset-naming-rules.html">Asset Naming Rules</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/tags.html">Tags</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/ai-content-and-seo-suggestions.html">AI Content and SEO Suggestions</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/content-tips.html">Content Tips</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Content Authoring</span>
+        </div>
+        <header>
+                            <h1>Content Checks 
+                                        </h1>
+                    </header>
+      <a name="Content+Checks"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>You can check new and revised assets for spelling errors, invalid internal or external links and accessibility issues with Cascade CMS's built-in content checks.</p>
+<p>To run these checks, ensure they're <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/content-checks.html#EnablingContentChecks">enabled for your site</a> and select&#160;<strong>Check Content &amp; Submit</strong> when creating&#160;or submitting&#160;an asset for changes.</p>
+<div class="alert alert-success"><strong>Tip</strong> -&#160;You can enforce content checks for users by disabling&#160;the&#160;<strong>Bypass Accessibility, Link, and Spell Checks when submitting content changes</strong>&#160;ability in their <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/roles.html">Site Role</a>.</div>
+                                    </section>
+                    
+                                                
+            <section aria-label="Spell Check" class="anchor-heading" id="SpellCheck">
+                                        <h2>Spell Check     <a aria-label="Skip to Spell Check" href="#SpellCheck"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The Spell Check checks and reports all words (in asset content and metadata) that are not found in the <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/system-dictionary.html">system dictionary</a>.</p>
+<p>Depending on your role abilities, you have the following options for handling each misspelled word:</p>
+<ul>
+<li><strong>Add</strong> - Add the word to the system dictionary.</li>
+<li><strong>Ignore</strong> - Disregard the word.</li>
+<li><strong>Fix</strong> - Enter your own correction or choose from a list of suggested replacements.</li>
+</ul>
+<div class="alert alert-warning"><strong>Note</strong> -&#160;Only users with the <strong>Modify Dictionary</strong> ability enabled in their <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/roles.html">System Role</a> can add words to the system dictionary.</div>
+                                    </section>
+                    
+                                                
+            <section aria-label="Link Check" class="anchor-heading" id="LinkCheck">
+                                        <h2>Link Check     <a aria-label="Skip to Link Check" href="#LinkCheck"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The Link&#160;Check&#160;ensures that all links between assets in the system and links to external resources are valid. The&#160;<strong>Broken Link</strong> column lists&#160;the URL of the broken link, and the <strong>Link Text</strong>&#160;column lists&#160;the text wrapped&#160;for hyperlinks or the tag name for other types of links. You can click the question mark&#160;icon ( <i class="far fa-question-circle">&#160;</i>) to the left of each link for more information on why the link is considered invalid.</p>
+<p>You have&#160;two options for handling each broken link:</p>
+<ul>
+<li><strong>Ignore</strong>&#160;- Disregard the link.</li>
+<li><strong>Fix</strong>&#160;- Enter a corrected URL in a text box (for external links) or choose an asset within Cascade CMS via an asset chooser (for internal links).</li>
+</ul>
+<h4>Scheme-relative Link Checking</h4>
+<p>External links that do not include a protocol, such as "//google.com" rather than "http://google.com" or "https://google.com" are called scheme-relative links. On the live site, they will navigate the website visitor to the same protocol as the page they are on. Cascade CMS&#160;follows a slightly different checking routine for such links as it cannot predict which protocol the visitor is going to view the page on. It verifies the link works with any of the two protocols and reports the link as broken only if the connection fails for both of these protocols.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Accessibility Check" class="anchor-heading" id="AccessibilityCheck">
+                                        <h2>Accessibility Check     <a aria-label="Skip to Accessibility Check" href="#AccessibilityCheck"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The Accessibility content check ensures WYSIWYG content complies with the following accessibility guidelines:</p>
+<ul>
+<li>Image (<code>img</code>) tags must have alternate text describing the graphic. (Section 508 / WCAG 2.0)</li>
+<li>Table captions should not be empty. (HTML5 recommendation.)</li>
+</ul>
+<p>For each issue found, you have the following options:</p>
+<ul>
+<li><strong>View Non-Compliant Content</strong> - View the specific HTML markup flagged during the check.</li>
+<li><strong>Ignore</strong> - Disregard the issue.</li>
+<li><strong>Fix</strong> - Enter a value for the missing or flagged content. For example: alternate text for an image or caption for a table.</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Enabling Content Checks" class="anchor-heading" id="EnablingContentChecks">
+                                        <h2>Enabling Content Checks     <a aria-label="Skip to Enabling Content Checks" href="#EnablingContentChecks"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4>At the System Level</h4>
+<ol>
+<li>Click the system menu button ( <i class="fa fa-bars">&#160;</i>) &gt; <strong>Administration</strong> &gt; <strong>Preferences</strong> &gt; <strong>Content</strong>.</li>
+<li>Under&#160;<strong>General</strong> &gt; <strong>Content Checks</strong>&#160;select one or more options.</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
+<h4>At the Site Level</h4>
+<ol>
+<li>Navigate to <strong>Manage Site</strong> &gt; <strong>Site Settings</strong>.</li>
+<li>In the <strong>Properties</strong> tab, select one or more options under <strong>Content&#160;Checks</strong>.</li>
+<li>Alternatively, select <strong>Inherit from system preferences</strong> to enable the content checks selected in your system preferences.</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=7f724fe13211e3711c75b25a431785a0&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

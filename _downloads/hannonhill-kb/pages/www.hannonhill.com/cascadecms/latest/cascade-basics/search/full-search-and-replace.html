@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Full Search and Replace - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/search/full-search-and-replace.html" rel="canonical"/>
+		<meta content="3be456253211e3714381c1ace0eacc6c" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/index.html">            Cascade Basics    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/search/index.html">            Search    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Full Search and Replace</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                    <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/search/full-search-and-replace.html">Full Search and Replace</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Conducting a Full Search" href="#ConductingaFullSearch">Conducting a Full Search</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Replacing Content" href="#ReplacingContent">Replacing Content</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/index.html">Cascade Basics</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/search/full-search-and-replace.html">Full Search and Replace</a></li>
+                                                                </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Search</span>
+        </div>
+        <header>
+                            <h1>Full Search and Replace 
+                                        </h1>
+                    </header>
+      <a name="Full+Search+and+Replace"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Full Search offers a more fine-tuned search capability than a basic search and includes filters to select Sites, asset types, and asset fields to search.&#160;Full Search&#160;searches all Home and Administration Area assets across the following fields:</p>
+<ul>
+<li>Username and Full Name</li>
+<li>Author, Owner, Created By, and Modified By</li>
+<li>System Name, Title, and Display Name</li>
+<li>Description</li>
+<li>Keywords</li>
+<li>Tags</li>
+<li>Summary</li>
+<li>Teaser</li>
+<li>Path</li>
+<li>Link</li>
+<li>Asset Type</li>
+<li>Asset ID</li>
+<li>Site and Site ID</li>
+<li>Velocity Format content</li>
+<li>XML content</li>
+<li>Binary Large OBject (BLOB) data</li>
+</ul>
+Note that&#160;not all fields are applicable for all asset types.
+                                    </section>
+                    
+                                                
+            <section aria-label="Conducting a Full Search" class="anchor-heading" id="ConductingaFullSearch">
+                                        <h2>Conducting a Full Search     <a aria-label="Skip to Conducting a Full Search" href="#ConductingaFullSearch"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p><img alt="full search options" class="img-polaroid" height="327" src="https://www.hannonhill.com/cascadecms/latest/cascade-basics/search/images/full-search-options.png" width="750"/></p>
+<p>To conduct a full search:</p>
+<ol>
+<li>Enter your search terms in the Search box in the top-right of the Cascade CMS interface and either press <kbd>Enter</kbd> or click the <strong>Go to Full Search</strong> link. The list of results will populate as terms are added.
+<ul>
+<li>Only those assets for which you have&#160;read or write access will be listed.</li>
+<li>By default, 20&#160;assets will be listed per page. To jump to another page of results, select a page number or click&#160;previous or next below the search results.</li>
+</ul>
+</li>
+<li>Optionally, expand the <strong>Advanced Options</strong>&#160;menu to use the Site, asset types, and/or asset fields filters to further refine your list of results.</li>
+<li>Click an asset to view it or right-click an asset to perform actions on it with&#160;the <a href="https://hannonhill.cascadeserver.com/entity/open.act?type=page&amp;id=a3e47ac90a894fa5303760f504570670&amp;confId=c6415bd50a894fa568b1ecd4fb4c060b" target="_parent">context menu</a>.</li>
+</ol>
+<h4>Search&#160;Tips</h4>
+<ul>
+<li>To match a multi-word phrase like "ice cream", put quotes <code>""</code> around your search terms.</li>
+<li>Use <code>?</code> as a single-character wildcard. For example, a search for <code>fac?s</code> will return "facts" and "faces".</li>
+<li>Use <code>*</code> as a multiple-character wildcard. For example, a search for <code>fac*s</code> will return "facts", "faces", and "factories".</li>
+</ul>
+<div class="alert alert-warning"><strong>Note</strong> - The maximum number of search results is capped at <strong>5000</strong>. If you're hitting this max, we recommend using the Advanced Options to limit the scope of your search operation.</div>
+                                    </section>
+                    
+                                                
+            <section aria-label="Replacing Content" class="anchor-heading" id="ReplacingContent">
+                                        <h2>Replacing Content     <a aria-label="Skip to Replacing Content" href="#ReplacingContent"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p><img alt="search and replace" class="img-polaroid" height="518" src="https://www.hannonhill.com/cascadecms/latest/cascade-basics/search/images/search-and-replace.png" width="750"/></p>
+<p>The Replace Content feature allows users to quickly change multiple assets at once. To replace content:</p>
+<ol>
+<li>Select the assets you wish to update from the list of search results and click&#160;<strong>Replace Content</strong> at the top of the list.</li>
+<li>In the Replacement Text field, type the text you wish to replace the search terms with in the assets to be updated.
+<ul>
+<li>Text replacement will replace partial matches in content. Replacing the word "app" will replace "apple".</li>
+<li>Text replacement is also case insensitive. Replacing the word "house" will replace "House" or "HOUSE".</li>
+</ul>
+</li>
+<li>Click <strong>Replace</strong>.</li>
+</ol>
+<div class="alert alert-warning"><strong>Note</strong> - Content replacement&#160;is only available to users with access to the Administration area and write access to the selected assets. Content replacement will not be processed through workflow.</div>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=3be456253211e3714381c1ace0eacc6c&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

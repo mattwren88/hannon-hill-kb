@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Data Definitions - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html" rel="canonical"/>
+		<meta content="9990c2810a894fa5681d1c44c004d291" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/index.html">            Design in Cascade    
+    </a></li>
+      
+        
+                            <li class="breadcrumb-item active">            Data Definitions    
+    </li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                        <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html">Data Definitions</a>
+                        <ul class="navHighlighter">
+                                                                                                                                                                                                                                                                                                    </ul>
+                    </li>
+                                                                                                                        </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/index.html">Design in Cascade</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/shared-fields.html">Shared Fields</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/what-are-smart-fields.html">Smart Fields</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/data-definition-xml-schema-reference.html">Data Definition XML Schema Reference</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						<div class="width" id="release-hero">
+  <h1>Data Definitions</h1>
+  <p class="lead">A Data Definition is a collection of fields used in the creation and editing of page and block content.</p>
+</div>
+						<div class="card shadow-big width" id="expand">
+        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+    
+
+
+<section aria-label="Topics" id="topic-guide">
+    <div class="page-header">
+        <div id="topics">
+            <h2>Topics</h2>
+        </div>
+    </div>
+    <ul>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/shared-fields.html">             Shared Fields    
+    </a></li>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/what-are-smart-fields.html">             Smart Fields    
+    </a></li>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/data-definition-xml-schema-reference.html">             Data Definition XML Schema Reference    
+    </a></li>
+                
+    </ul>
+</section>
+            
+    <section aria-label="Overview" class="anchor-heading" id="Overview">
+
+                      <h2>Overview <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>A Data Definition is a collection of fields used in the creation and editing of page and block content. Data Definitions allow users to enter content in a series of form fields to create structured pages without the need for additional formatting via a&#160;WYSIWYG, for example.</p>
+<p>Data Definitions support 15 types of input including WYSIWYG ("What You See Is What You Get") rich-text fields, checkboxes, radio buttons, multi-select and drop-down lists, and page and file choosers that reference content managed in Cascade CMS. All content entered in a Data Definition will be stored as reusable XML that can be styled with <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/index.html">formats</a>.</p>
+<p>There are five basic steps in creating and implementing a Data Definition:</p>
+<ol>
+<li>Create a Data Definition using the drag-and-drop&#160;Data Definition Builder or write/import Data Definition XML.</li>
+<li>Assign the Data Definition to a page via its <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/content-types/index.html">Content Type</a> or to an <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/xhtml-blocks.html">XHTML/Data Definition&#160;block</a>.</li>
+<li>Edit the page or block, and fill in your Data Definition's form fields.</li>
+<li>Use&#160;the XML output from the page or block to&#160;write a corresponding <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/index.html">Velocity or XSLT&#160;format</a>.</li>
+<li>Apply the format to the appropriate page region to transform it into markup.</li>
+</ol>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Creating a Data Definition" class="anchor-heading" id="CreatingaDataDefinition">
+
+                      <h2>Creating a Data Definition <a aria-label="Skip to Creating a Data Definition" href="#CreatingaDataDefinition"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>To create a Data Definition:</p>
+<ol>
+<li>Navigate to <strong>Manage Site</strong> &gt; <strong>Data Definitions</strong>.</li>
+<li>Navigate to the container in which the new Data Definition will be stored, or create a new container using <strong>Add</strong> &gt; <strong>Container</strong>.</li>
+<li>Click <strong>Add</strong> &gt; <strong>Data Definition</strong>.</li>
+<li>In the <strong>Name</strong> field, enter the name for your Data Definition.</li>
+<li>In the <strong>Parent Container</strong> field, select a container for the Data Definition, if desired.</li>
+<li>There are two interface options when creating a Data Definition:
+<ul>
+<li><strong>XML</strong> - An XML editor (see&#160;<a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/data-definition-xml-schema-reference.html">Data Definition XML Schema Reference</a>).</li>
+<li><strong>Builder</strong> - A visual drag-and-drop interface.</li>
+</ul>
+</li>
+<li>The <strong>Builder</strong> has 15 field types to choose from (see <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html#DataDefinitionFieldTypes">Data Definition Field Types</a>). Click and drag fields into the desired location on the form.</li>
+<li>If you'd like to add an existing <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/shared-fields.html">Shared Field</a> to the form, click <strong>Choose Shared Field</strong>. Otherwise, configure the field settings described below:<br/>
+<ul>
+<li><strong>Identifier</strong> - The identifier of the field which will appear in the XML rendering of an asset that contains this field. Fields within the same group can't share the same identifier.</li>
+<li><strong>Label</strong> - The name of the field that will be visible to users entering content in the field.</li>
+<li><strong>Help text</strong> - Allows you to provide instructions to users about the field's usage and purpose.</li>
+<li><strong>Required</strong> - Determines whether users are required to enter a value for that field before allowing them to save their content.</li>
+<li><strong>Values</strong>&#160;(radio, drop-down, checkbox, and multiselect fields) - Provide one or more&#160;values.</li>
+<li><strong>Value labels</strong>&#160;(radio, drop-down, checkbox, and multiselect fields) (optional) - Specify labels for values. Value labels allow you to update the visible label for field values without affecting values stored in existing pages/blocks.</li>
+<li><strong>Collapsed</strong>&#160;(field groups) - This setting determines if the group is collapsed by default when editing the page.</li>
+</ul>
+</li>
+<li>Click <strong>Show&#160;Advanced Settings</strong>&#160;to see additional field options. These options vary&#160;by field type selected and include:<br/>
+<ul>
+<li><strong>Multiple</strong> - Allows users to create multiple instances of this field or group.</li>
+<li><strong>Minimum/Maximum number</strong> - When combined with the "Multiple" setting, limits the number of instances of the same field that can be created.</li>
+<li><strong>Restrict to groups</strong> - Limits the visibility of the field to members of a comma-separated list of Cascade CMS group names.</li>
+<li><strong>Restrict to folder</strong> (chooser and WYSIWYG fields) - Limits asset selection and uploads to a designated folder. For WYSIWYG fields, this setting effects the <strong>Insert/edit image</strong> menu.</li>
+<li><strong>Render content depth</strong>&#160;(chooser fields) - This setting determines how many levels of chooser field content are included in the XML rendering. For example, if a page or block chosen in the chooser field also contains chooser fields, and you want to render the content of the assets chosen in those fields, set the depth&#160;to 2. If you want to include the content of assets chosen in Level 2's chooser fields, set the depth to 3, and so on.</li>
+</ul>
+</li>
+<li>Click <strong>Submit</strong> when finished configuring field settings.</li>
+</ol>
+<div class="alert alert-danger"><strong>Warning</strong> - To avoid loss of content in existing pages and blocks, do not alter or remove&#160;<code>field-id</code> attributes if you're editing the Data Definition's XML.</div>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Data Definition Field Types" class="anchor-heading" id="DataDefinitionFieldTypes">
+
+                      <h2>Data Definition Field Types <a aria-label="Skip to Data Definition Field Types" href="#DataDefinitionFieldTypes"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p><img alt="Data Definition Builder" class="img-polaroid" height="119" src="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/images/ddef-builder.png" width="768"/></p>
+<p>There are 15 field types available in the Data Definition Builder. From left to right, they are:</p>
+<ul>
+<li><strong>Group</strong> - A collection of fields, often used to organize other fields for improved usability and readability. Groups can be nested.</li>
+<li><strong>Text Field</strong> - A single-line plain text field.</li>
+<li><strong>Text Area</strong> - A multi-line plain text field.</li>
+<li><strong>WYSIWYG Editor</strong> - A rich text editor with optional source code editing. <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/wysiwyg-editor-configurations/index.html">WYSIWYG Editor Configurations</a> can be used to manage the tools available to users in the editor.</li>
+<li><strong>Checkbox</strong> - A single checkbox or a group of checkbox fields.</li>
+<li><strong>Drop-down Menu</strong> -&#160;A drop-down field for selecting a single option from a list.</li>
+<li><strong>Radio Button</strong> -&#160;A single radio button or a group of radio button fields.</li>
+<li><strong>Multi-select Chooser</strong> - A multi-select field&#160;for selecting one or more items from a list.</li>
+<li><strong>Calendar</strong> - A date chooser.</li>
+<li><strong>Date Time</strong>&#160;- A date/time chooser with hour/minute and AM/PM selectors.</li>
+<li><strong>Page Chooser</strong> - A chooser field for selecting internal pages. Example: a list of related links.</li>
+<li><strong>File Chooser</strong> - A chooser field for selecting internal files. Examples:&#160;image for an employee biography page or a banner image upload.</li>
+<li><strong>Block Chooser</strong> - A chooser field for selecting internal blocks. Examples: XHTML / Data Definition Blocks or XML Blocks.</li>
+<li><strong>External Link (Symlink) Chooser</strong> - A chooser field for selecting External Link assets.</li>
+<li><strong>Linkable Chooser</strong> - A chooser field for selecting an internal page, file, or external link asset.</li>
+</ul>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Reordering Data Definition Fields" class="anchor-heading" id="ReorderingDataDefinitionFields">
+
+                      <h2>Reordering Data Definition Fields <a aria-label="Skip to Reordering Data Definition Fields" href="#ReorderingDataDefinitionFields"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>You can drag and drop fields in a Data Definition with the drag handle ( <span class="fas fa-grip-horizontal">&#160;</span>) located to the right of each field.</p>
+<div class="alert alert-danger"><strong>Warning</strong> - To avoid loss of content in existing pages and blocks, use caution when moving a field out of a group that permits multiple groups, or into a group that either doesn't permit multiple groups OR has a lower maximum number of groups allowed.</div>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+          <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+
+</div>
+
+    
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=9990c2810a894fa5681d1c44c004d291&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

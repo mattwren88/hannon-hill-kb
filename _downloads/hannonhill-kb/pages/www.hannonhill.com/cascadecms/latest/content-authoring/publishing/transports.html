@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Transports - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/transports.html" rel="canonical"/>
+		<meta content="b8978ace0a894fa55194d6aca2a8f43d" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">            Content Authoring    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/index.html">            Publishing    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Transports</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/transports.html">Transports</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Filesystem Transports" href="#FilesystemTransports">Filesystem Transports</a> </li>
+                                                                                                                                <li><a aria-label="Skip to FTP/FTPS/SFTP Transports" href="#FTPFTPSSFTPTransports">FTP/FTPS/SFTP Transports</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Database Publishing" href="#DatabasePublishing">Database Publishing</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Amazon S3 Transports" href="#AmazonS3Transports">Amazon S3 Transports</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Testing Transport Connectivity" href="#TestingTransportConnectivity">Testing Transport Connectivity</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                                            </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">Content Authoring</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publish-sets.html">Publish Sets</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/transports.html">Transports</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/destinations.html">Destinations</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publishing-related-content.html">Publishing Related Content</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width-full" id="expand">
+                        <div class="flex">
+            <span class="badge badge-danger">Publishing</span>
+        </div>
+        <header>
+                            <h1>Transports 
+                                        </h1>
+                    </header>
+      <a name="Transports"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>A Transport represents a server to which content can be published. Transports can be used by one or more Destinations. &#160;Destinations provide an extra layer of abstraction on top of Transports that allow users to publish content to different locations on the same Transport. Basically, a Transport is "how" the content gets there and Destination is "where" it goes.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Filesystem Transports" class="anchor-heading" id="FilesystemTransports">
+                                        <h2>Filesystem Transports     <a aria-label="Skip to Filesystem Transports" href="#FilesystemTransports"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Filesystem Transports can push out content to a location on the CMS server&#8217;s hard drive or to a mapped network location.&#160; In order to successfully publish using a Transport that points to a mapped network location, the operating system level user executing the Cascade CMS system process must have the appropriate privileges to write to and create new files in the network publish location.</p>
+<div class="alert alert-warning"><strong>Note</strong> - Filesystem Transports are applicable to legacy on-premise environments only.</div>
+<p>To create a Filesystem Transport:</p>
+<ol>
+<li>Navigate to <strong>Manage Site</strong> &gt; <strong>Transports</strong>.</li>
+<li>Navigate to the container in which the new Transport&#160;will be stored, or create a new container using <strong>Add</strong> &gt; <strong>Container</strong>.</li>
+<li>Click <strong>Add</strong> &gt; <strong>Transport</strong>.</li>
+<li>Select&#160;<strong>Filesystem</strong> and click<strong> Choose</strong>.</li>
+<li>In the <strong>Name</strong> field, enter the name for your Transport.</li>
+<li>In the <strong>Parent Container</strong> field, select a container for the Transport, if desired.</li>
+<li>In the <strong>Server Directory</strong> field, enter a&#160;directory path. This path will be&#160;prepended to an optional non-absolute Destination Directory path when determining the full published path of an asset. This combined path is then prepended to asset paths when publishing. For example, if a Transport has a Server Directory of '/www/publish root', the Destination using the Transport has a Directory of 'mysite' and the asset being published has a system path of '/content/my press release'; then the asset will be published to the '/www/publish root/mysite/content' directory in the filesystem. If, however, the Destination being used contains an absolute path, then the Server Directory field on the Transport will be ignored.</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
+<h4>Filesystem Access Rights and Permissions</h4>
+<p>Filesystem Transports are restricted by filesystem level access rights and permissions. In order to successfully publish, the user who owns the Cascade CMS process must have write access to the directory specified in the Transport. Otherwise, the publish report will contain access rights violations.</p>
+<h4>Mapped Network Locations</h4>
+<p>It is possible to publish to a mapped network drive using a Filesystem Transport. The directory used as the mount point for a network-mapped drive should be treated like any other directory in the filesystem. Note, however, that because Cascade CMS is treating the drive like a directory; the mechanism by which the drive is being shared (NFS, FTP, etc.) cannot be managed by Cascade CMS. An alternative would be to set up an FTP/FTPS/SFTP server and a corresponding FTP/FTPS/SFTP Transport that can be managed from within Cascade CMS.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="FTP/FTPS/SFTP Transports" class="anchor-heading" id="FTPFTPSSFTPTransports">
+                                        <h2>FTP/FTPS/SFTP Transports     <a aria-label="Skip to FTP/FTPS/SFTP Transports" href="#FTPFTPSSFTPTransports"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>FTP/FTPS/SFTP Transports push content to a remote server via the FTP, FTPS (FTP over SSL/TLS), or SFTP (Secure FTP) protocols. The account specified in the Transport's settings must have appropriate privileges on the remote server to navigate through the folder structure, write, and create to ensure that publish operations do not encounter errors.</p>
+<p>To create a FTP/FTPS/SFTP&#160;Transport:</p>
+<ol>
+<li>Navigate to&#160;<strong>Manage Site</strong>&#160;&gt;&#160;<strong>Transports</strong>.</li>
+<li>Navigate to the container in which the new Transport&#160;will be stored, or create a new container using&#160;<strong>Add</strong>&#160;&gt;&#160;<strong>Container</strong>.</li>
+<li>Click&#160;<strong>Add</strong>&#160;&gt;&#160;<strong>Transport</strong>.</li>
+<li>Select <strong>FTP/FTPS/SFTP</strong>&#160;and click&#160;<strong>Choose</strong>.</li>
+<li>In the&#160;<strong>Name</strong>&#160;field, enter a&#160;name for your Transport.</li>
+<li>In the&#160;<strong>Parent Container</strong>&#160;field, select a container for the Transport, if desired.</li>
+<li>Under&#160;<strong>Transport Settings</strong>, configure the following fields:
+<ul>
+<li><strong>Server Name</strong> - The hostname of the server to which Cascade will connect.</li>
+<li><strong>Server Port</strong> - The port over which Cascade will communicate with the FTP/FTPS/SFTP server. Note that the&#160;default port for each protocol selected below is preselected.</li>
+<li><strong>Server Directory</strong> - An optional directory path that is prepended to a non-absolute Destination Directory path when determining the full published path of an asset. This combined path is then prepended to asset paths when publishing. For example, if a Transport has a Server Directory of '/www/publish root', the Destination using the Transport has a Directory of 'mysite' and the asset being published has a system path of '/content/my press release'; then the asset will be published to the '/www/publish root/mysite/content' directory on the FTP/FTPS/SFTP server. If, however, the Destination being used contains an absolute path, then the Server Directory field on the Transport will be ignored.</li>
+</ul>
+</li>
+<li>Under <strong>Protocol</strong>, select one the following:
+<ul>
+<li><strong>FTP</strong> - With option to <strong>Use Passive FTP (PASV)</strong>.</li>
+<li><strong>FTPS</strong> - FTP over SSL/TLS.</li>
+<li><strong>SFTP</strong> - Secure FTP.</li>
+</ul>
+</li>
+<li>Under&#160;<strong>Authentication Settings</strong>, configure the following fields:
+<ul>
+<li><strong>Username</strong> - The username used when authenticating with the FTP/FTPS/SFTP server.</li>
+<li><strong>Authentication Type</strong>
+<ul>
+<li><strong>Password</strong> - The password to be used in combination with Username to authenticate with the FTP/FTPS/SFTP server.</li>
+<li><strong>SSH Key</strong> - Allows you to upload a Private Key file and an&#160;optional Private Key Passphrase&#160;to authenticate with an SFTP server.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Click&#160;<strong>Submit</strong>.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Database Publishing" class="anchor-heading" id="DatabasePublishing">
+                                        <h2>Database Publishing     <a aria-label="Skip to Database Publishing" href="#DatabasePublishing"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Database publishing allows publishable assets (pages, files, and folders) to be published to an external MySQL database. This gives developers of third-party applications a way to access the content in Cascade CMS in a structured, tabular format. Database publishing requires a Database Transport and a Destination that uses the Transport. Content published to this Destination will end up as records in the remote database.</p>
+<p>To create a Database&#160;Transport:</p>
+<ol>
+<li>Navigate to&#160;<strong>Manage Site</strong>&#160;&gt;&#160;<strong>Transports</strong>.</li>
+<li>Navigate to the container in which the new Transport&#160;will be stored, or create a new container using&#160;<strong>Add</strong>&#160;&gt;&#160;<strong>Container</strong>.</li>
+<li>Click&#160;<strong>Add</strong>&#160;&gt;&#160;<strong>Transport</strong>.</li>
+<li>Select&#160;<strong>Database</strong>&#160;and click&#160;<strong>Choose</strong>.</li>
+<li>In the&#160;<strong>Name</strong>&#160;field, enter the name for your Transport.</li>
+<li>In the&#160;<strong>Parent Container</strong>&#160;field, select a container for the Transport, if desired.</li>
+<li>Under&#160;<strong>Database&#160;Transport Settings</strong>, configure the following fields:<br/>
+<ul>
+<li><strong>Site Id</strong> - An identifier that is attached to each item published using this Transport that is used to differentiate between publishes from different Database Transports.</li>
+<li><strong>Server Name&#160;</strong>- The hostname of the server to which Cascade will connect.</li>
+<li><strong>Server Port</strong> - The port over which Cascade will communicate with MySQL.</li>
+<li><strong>Database Name</strong> - The name of the database into which data will be inserted.</li>
+<li><strong>Username</strong> - The username used when authenticating with MySQL.</li>
+<li><strong>Password</strong> - The password to be used in combination with Username to authenticate with MySQL.</li>
+</ul>
+</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
+<h4 id="requirements-for-database-publishing">Requirements for Database Publishing</h4>
+<ul>
+<li>Database publishing requires&#160;MySQL 5+.</li>
+<li>The default character set on the external database and all its tables and text columns must be set to <em>utf8,</em> and the collation must be <em>utf8_unicode_ci</em>.</li>
+</ul>
+<div class="alert alert-warning"><strong>Note</strong> - SSL is not currently supported for Database Transports. Because MySQL 8 defaults to SSL for connections, if you are using MySQL 8 on your target database, you may need to add <code>ssl=0</code> to the target database's configuration file and restart it to disable SSL entirely.</div>
+<h4 id="types-of-content-being-published">Types of Content being Published</h4>
+<ul>
+<li>Files - Published files include the name, location, path, and metadata of the associated asset in the CMS; the published version, however, does not include the byte content of the file.</li>
+<li>Folders - Published folders include the name, location, path, and metadata of the associated asset in the CMS; they serve as containers for collections of other files, pages, and folders.</li>
+<li>Pages - Published pages include the name, location, path, and metadata of the associated asset in the CMS; also includes the rendered content of the DEFAULT region (i.e. page specific content with any default region transformations applied). Works with both Structured Data and WYSIWYG Pages.</li>
+</ul>
+<h4 id="external-database">External Database</h4>
+<p>Database publishing creates records in an external database that containing five tables: <span class="code">file</span>, <span class="code">folder</span>, <span class="code">page</span>, <span class="code">metadata</span>, and <span class="code">metadata_custom</span>.&#160; The file, folder and page&#160;tables contain records that are mapped from the corresponding assets managed in Cascade. &#160;The metadata&#160;and custom_metadata tables contain the wired and dynamic metadata for the page, file and folder assets represented in the file, folder, and page tables.&#160; A few notes on some of the above fields:</p>
+<ul>
+<li><span class="code">account_id</span>&#160;-&#160;should always be 1</li>
+<li><span class="code">site_id</span>&#160;-&#160;is an arbitrary value that reflects a particular site to which the record belongs, and is set on the transport</li>
+<li><span class="code">folder_id</span>&#160;-&#160;corresponds to the <em>cms&#173;&#173;_id</em> of a folder, and not its <em>id</em>&#160;field in the remote database</li>
+</ul>
+<p>The default database schema for database publishing can be <a href="http://github.com/hannonhill/Cascade-Server-Default-Database/raw/master/cascade_db_publishing_schema.zip">downloaded here</a>.</p>
+<h4 id="site-ids">Site IDs</h4>
+<p>As mentioned above, a site id is an arbitrary number set on a Database Transport to reflect the 'site' to which a record belongs. The site id should be unique for each of the multiple Database Transports using the same external MySQL database to effectively distinguish the content.</p>
+<h4 id="troubleshooting-database-transports">Troubleshooting Database Transports</h4>
+<p>If Cascade is unable to publish to an external database, make sure these guidelines are being followed:</p>
+<ul>
+<li>The server name and port are correct (usually 3306 for MySQL).</li>
+<li>A firewall is not blocking access on the above port.</li>
+<li>The host that is trying to connect has granted access to the database transport user.</li>
+<li>The bind-address parameter in the MySQL configuration is not set to localhost or the loopback address.</li>
+</ul>
+<p>Useful information in solving these problems can be garnered from the output of a Transport or Destination connectivity test.</p>
+<h4 id="other-notes">Other Notes</h4>
+Until now, publishing has consisted of moving files to a local or remote file system. Database publishing is more along the lines of synchronizing some portion of the asset hierarchy within Cascade to representative records in an external database. When using database publishing, keep in mind a few of these important items :
+<ul>
+<li>Records inserted during a database publish do <em>not</em> represent the assets in the state in which they would have been published to a file system by simply publishing them. This is particularly true if options are set on relevant targets and destinations that relate to publish-time directory and link manipulation (i.e. remove base folder path, include target path, destination path, etc.).</li>
+<li>Links in page content are not rewritten during database publishing, and should reflect the in-CMS path of the entities the records represent.</li>
+<li>After particular sequences of publishes, deletes, and unpublishes (or lack thereof), the state of the external database should be considered.</li>
+</ul>
+<p>For example, a folder containing two pages:</p>
+<ul>
+<li>Folder
+<ul>
+<li>Page 1</li>
+<li>Page 2</li>
+</ul>
+</li>
+</ul>
+<p>The folder, its pages, and their associated metadata would be written to the external database if a user were to publish this folder to a destination backed by a database transport. Page 1 is then deleted and the folder is republished. If the external database was examined, it would be discovered that Page 1 still has records therein. In database publishing as in normal publishing, it is assumed that users will indicate exactly which assets they want unpublished from their destination. &#160;</p>
+<p>If the same asset is published to destinations using different database transports, this may result in several files, pages, and folders in the external database with the same cms_id. It is important to know what criteria to include in SQL queries to ensure that the correct records are being operated on. The <em>cms_id</em>, <em>the account_id</em>, and the <em>site_id</em> of the assets being operated on should match those on which the user intends to operate. The <em>folder_id</em> of records in the remote database corresponds to the <em>cms_id</em> of its parent folder, and not to the <em>folder_id</em>.</p>
+<p>&#160;If a user was dealing with a site with id=5 and an account with id=1, and wanted to get the parent folder of a file named &#8216;koko.png&#8217; in the external database, the file record would appear in the external database like so:</p>
+<div align="center">
+<table border="1" cellpadding="0" cellspacing="0" summary="data1" width="100%"><caption>Sample database record for 'koko.png'</caption>
+<thead>
+<tr>
+<th valign="top" width="19">
+<p align="center">id</p>
+</th>
+<th valign="top" width="54">
+<p align="center">account_id</p>
+</th>
+<th valign="top" width="30">
+<p align="center">site_id</p>
+</th>
+<th valign="top" width="158">
+<p align="center">cms_id</p>
+</th>
+<th valign="top" width="169">
+<p align="center">folder_id</p>
+</th>
+<th valign="top" width="87">
+<p align="center">metadata_id</p>
+</th>
+<th valign="top" width="48">
+<p align="center">name</p>
+</th>
+<th valign="top" width="81">
+<p align="center">path</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top" width="19">
+<p align="center">9</p>
+</td>
+<td valign="top" width="54">
+<p align="center">1</p>
+</td>
+<td valign="top" width="30">
+<p align="center">5</p>
+</td>
+<td valign="top" width="158">
+<p>92436e0a7f00010100b2eca959237ccd</p>
+</td>
+<td valign="top" width="169">
+<p>92436dc67f00010100b2eca953a7298f</p>
+</td>
+<td valign="top" width="87">
+<p align="center">10</p>
+</td>
+<td valign="top" width="48">
+<p align="center">koko.png</p>
+</td>
+<td valign="top" width="81">
+<p align="center">site5/images/koko.pn</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The desired folder record would appear like so:</p>
+<div align="center">
+<table border="1" cellpadding="0" cellspacing="0" summary="data2" width="100%"><caption>Sample database record for the parent folder of 'koko.png'</caption>
+<thead>
+<tr>
+<th valign="top" width="19">
+<p align="center">id</p>
+</th>
+<th valign="top" width="54">
+<p align="center">account_id</p>
+</th>
+<th valign="top" width="30">
+<p align="center">site_id</p>
+</th>
+<th valign="top" width="156">
+<p align="center">cms_id</p>
+</th>
+<th valign="top" width="174">
+<p align="center">folder_id</p>
+</th>
+<th valign="top" width="84">
+<p align="center">metadata_id</p>
+</th>
+<th valign="top" width="51">
+<p align="center">name</p>
+</th>
+<th valign="top" width="75">
+<p align="center">path</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top" width="19">
+<p align="center">3</p>
+</td>
+<td valign="top" width="54">
+<p align="center">1</p>
+</td>
+<td valign="top" width="30">
+<p align="center">5</p>
+</td>
+<td valign="top" width="156">
+<p>92434dc67f00010100b2eca953a7298f</p>
+</td>
+<td valign="top" width="174">
+<p>9a436dc67f00010100b2eca234526666</p>
+</td>
+<td valign="top" width="84">
+<p align="center">10</p>
+</td>
+<td valign="top" width="51">
+<p align="center">images</p>
+</td>
+<td valign="top" width="75">
+<p align="center">site5/image</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In order to select this record, the correct query would be:</p>
+<p><code>SELECT * FROM folder WHERE cms_id='92436dc67f00010100b2eca953a7298f' AND site_id=5 AND account_id=1;</code></p>
+<p>It is possible that there is another record corresponding to the images folder in the external database with the same <em>cms_id</em>, but with a different <em>account_id</em>, <em>site_id</em>, or both. If the expressions restricting the <em>site_id</em> and <em>account_id</em> were omitted from the query above, multiple folders would be returned in the result.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Amazon S3 Transports" class="anchor-heading" id="AmazonS3Transports">
+                                        <h2>Amazon S3 Transports     <a aria-label="Skip to Amazon S3 Transports" href="#AmazonS3Transports"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Amazon's Simple Storage Service (S3) can be used for hosting static resources such as images, PDFs, CSS, or JS. You can also publish and host entire sites, including page content, on S3 and serve them through a custom domain on CloudFront.</p>
+<p>To publish using an S3 Transport, you'll need an Access Key, which allows a program, script, or developer to have full programmatic access to the resources on your&#160;account. A sample S3 JSON Policy with the minimum required privileges can be found below (replace <em>bucketName</em> with the name of your bucket):<code></code></p>
+<pre dir="ltr"><code>{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteObject",
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucketName/*",
+                "arn:aws:s3:::bucketName"
+            ]
+        }
+    ]
+}</code></pre>
+<h3>On-premise Customers Older pre-v8.22.1</h3>
+<pre dir="ltr"><code>{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteObject",
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucketName/*"
+            ]
+        }
+    ]
+}<br/></code></pre>
+<p><code></code></p>
+<div class="alert alert-warning"><strong>On-premise customers pre-v8.22.1:</strong> the Permissions tab for your S3 bucket must have the <strong>Block new public ACLs and uploading public objects </strong>option <em>disabled</em>. Without that setting disabled, you may encounter <strong>Access Denied</strong> errors when attempting to publish to your S3 bucket. Other causes for this error and steps to resolve them can be found on <a href="https://aws.amazon.com/premiumsupport/knowledge-center/s3-troubleshoot-403/" rel="noopener" target="_blank" title="Troubleshooting S3 HTTP 403: Access Denied">the Amazon S3 Troubleshooting page</a>.</div>
+<p>To create an Amazon S3 Transport:</p>
+<ol>
+<li>Navigate to&#160;<strong>Manage Site</strong>&#160;&gt;&#160;<strong>Transports</strong>.</li>
+<li>Navigate to the container in which the new Transport&#160;will be stored, or create a new container using&#160;<strong>Add</strong>&#160;&gt;&#160;<strong>Container</strong>.</li>
+<li>Click&#160;<strong>Add</strong>&#160;&gt;&#160;<strong>Transport</strong>.</li>
+<li>Select&#160;<strong>Amazon S3</strong>&#160;and click&#160;<strong>Choose</strong>.</li>
+<li>In the&#160;<strong>Name</strong>&#160;field, enter the name for your Transport.</li>
+<li>In the&#160;<strong>Parent Container</strong>&#160;field, select a container for the Transport, if desired.</li>
+<li>Under&#160;<strong>Amazon S3&#160;Transport Settings</strong>, configure the following fields:
+<ul>
+<li><strong>AWS User Access Key ID</strong></li>
+<li><strong>AWS User Secret Key</strong></li>
+<li><strong>S3 Bucket Name </strong>- Name of an S3 bucket to which&#160;the AWS Access Key user above has write access.</li>
+<li><strong>Base Path </strong>- Optional, assets will be published in this folder within your S3 bucket.</li>
+</ul>
+</li>
+<li>Click&#160;<strong>Submit</strong>.</li>
+</ol>
+<h4>Linking</h4>
+<p>To ensure links to assets published to S3, either on their&#160;own or as&#160;part of a CloudFront distribution, from assets that aren't published there are valid, be sure to use the S3 bucket's URL (including the Base Path) or the&#160;CloudFront distribution's URL&#160;(including the Base Path) as the site URL or Destination's Web URL.<br/><br/>As a best practice, you'll want to manage your S3 published assets in a separate site so the system can easily tell which URL to use when generating links.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Testing Transport Connectivity" class="anchor-heading" id="TestingTransportConnectivity">
+                                        <h2>Testing Transport Connectivity     <a aria-label="Skip to Testing Transport Connectivity" href="#TestingTransportConnectivity"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The Transport test&#160;utility allows users to test Transport&#160;connectivity without invoking a publish. To run a&#160;Transport test:</p>
+<ol>
+<li>Navigate to <strong>Manage Site</strong>&#160;&gt; <strong>Transports</strong>.</li>
+<li>Select the Transport you wish to test.</li>
+<li>Click <strong>More</strong> &gt; <strong>Test Connectivity</strong>.</li>
+<li>Click <strong>Start&#160;Test</strong>.&#160;If there are no errors, the screen will indicate "Test Successful!"&#160;If errors are found, the screen will identify the problem that occurred.</li>
+</ol>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            <section aria-label="Related Links" class="card shadow-big  width" id="related-links ">
+        <h2>Related Links</h2>
+        <ul>
+                            <li><a href="https://www.hannonhill.com/cascadecms/latest/faqs/general/which-algorithms-are-supported-for-sftp.html">Which algorithms are supported for SFTP?</a></li>
+                    </ul>
+    </section>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=b8978ace0a894fa55194d6aca2a8f43d&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

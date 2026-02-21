@@ -1,0 +1,72 @@
+[
+    {
+        "id": "cascade-basics-creating-content",
+        "title": "Creating Content",
+        "category": "Cascade Basics",
+        "body": "Learn how to create new content in Cascade CMS. This guide covers creating pages, folders, files, and other asset types. You can create content from the dashboard or from within any folder in the system.",
+        "url": "#"
+    },
+    {
+        "id": "cascade-basics-dashboard",
+        "title": "The Dashboard",
+        "category": "Cascade Basics",
+        "body": "The Dashboard is your home screen in Cascade CMS. It provides quick access to recent activity, your content, notifications, and customizable widgets. You can personalize your dashboard layout.",
+        "url": "#"
+    },
+    {
+        "id": "cascade-basics-search",
+        "title": "Search",
+        "category": "Cascade Basics",
+        "body": "Cascade CMS provides powerful search capabilities to find content across your entire site. You can search by title, content, metadata, and system properties. Advanced search filters help narrow results.",
+        "url": "#"
+    },
+    {
+        "id": "developing-velocity-tools",
+        "title": "Velocity Tools",
+        "category": "Developing in Cascade",
+        "body": "Cascade CMS provides a comprehensive set of Velocity tools for use in Script Formats and templates. These tools give you access to content, navigation, date formatting, and other utilities within Velocity templates.",
+        "url": "#"
+    },
+    {
+        "id": "developing-rest-api",
+        "title": "REST API",
+        "category": "Developing in Cascade",
+        "body": "The Cascade CMS REST API enables programmatic access to content and operations. You can create, read, update, and delete assets, manage workflows, and perform publishing operations through HTTP endpoints.",
+        "url": "#"
+    },
+    {
+        "id": "admin-authentication",
+        "title": "Authentication",
+        "category": "Administration",
+        "body": "Configure authentication methods for your Cascade CMS instance including LDAP, Active Directory, and SSO integration. Manage user sessions, password policies, and multi-factor authentication settings.",
+        "url": "#"
+    },
+    {
+        "id": "admin-permissions",
+        "title": "Users, Groups & Roles",
+        "category": "Administration",
+        "body": "Manage user access through groups and roles in Cascade CMS. Assign permissions at the site, folder, and asset level. Create custom roles to match your organization's workflow requirements.",
+        "url": "#"
+    },
+    {
+        "id": "content-workflows",
+        "title": "Workflows",
+        "category": "Content Management",
+        "body": "Workflows in Cascade CMS enable content review and approval processes. Configure multi-step workflows with different assignees, define workflow triggers, and track content through the approval pipeline.",
+        "url": "#"
+    },
+    {
+        "id": "design-templates",
+        "title": "Templates",
+        "category": "Design in Cascade",
+        "body": "Templates in Cascade CMS define the structure and layout of your published pages. Create templates using HTML, CSS, and Velocity to control how content is rendered. Templates support regions for editable content areas.",
+        "url": "#"
+    },
+    {
+        "id": "content-publishing",
+        "title": "Publishing",
+        "category": "Content Authoring",
+        "body": "Publishing in Cascade CMS deploys your content to one or more destinations. Configure publish targets, set up scheduled publishing, and manage publish queues. Understand the difference between publishing and unpublishing.",
+        "url": "#"
+    }
+]

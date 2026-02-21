@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Badges & Pills — Cascade CMS Knowledge Base
+   Inline status labels for content metadata.
+   ========================================================================== */
+
+.badge,
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    padding: 0.2em 0.55em;
+    border: 1px solid var(--color-badge-border);
+    border-radius: 999px;
+    background: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    font-size: 0.75rem;
+    font-weight: var(--weight-semibold);
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.badge--info,
+.pill--info {
+    background: var(--color-badge-info-bg);
+    color: var(--color-badge-info-text);
+}
+
+.badge--warning,
+.pill--warning {
+    background: var(--color-badge-warning-bg);
+    color: var(--color-badge-warning-text);
+}
+
+.badge--tip,
+.pill--tip {
+    background: var(--color-badge-tip-bg);
+    color: var(--color-badge-tip-text);
+}
+
+.badge--danger,
+.pill--danger {
+    background: var(--color-badge-danger-bg);
+    color: var(--color-badge-danger-text);
+}
+
+.badge--outline,
+.pill--outline {
+    background: transparent;
+}
+
+.badge + .badge,
+.badge + .pill,
+.pill + .badge,
+.pill + .pill {
+    margin-left: var(--space-xs);
+}

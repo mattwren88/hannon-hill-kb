@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Table of Contents — Cascade CMS Knowledge Base
+   Right sidebar with auto-generated heading links + scroll spy.
+   ========================================================================== */
+
+.toc__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-md);
+}
+
+.toc__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid var(--color-border);
+}
+
+.toc__link {
+    display: block;
+    padding: 4px 0 4px var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+    line-height: var(--leading-normal);
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.toc__link:hover {
+    color: var(--color-text);
+}
+
+.toc__link--active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+}
+
+/* Indent h3-level items */
+.toc__link--h3 {
+    padding-left: calc(var(--space-md) + var(--space-sm));
+    font-size: var(--text-xs);
+}
+
+/* ── Mobile TOC Dropdown ── */
+.toc--mobile-open .toc__title {
+    margin-bottom: var(--space-sm);
+}
+
+.toc--mobile-open .toc__list {
+    border-left: none;
+}
+
+.toc--mobile-open .toc__link {
+    padding: 6px var(--space-sm);
+    border-left: none;
+    border-radius: var(--radius-sm);
+}
+
+.toc--mobile-open .toc__link:hover {
+    background: var(--color-bg-tertiary);
+}
+
+.toc--mobile-open .toc__link--active {
+    background: var(--color-primary-bg);
+    color: var(--color-primary);
+}

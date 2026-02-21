@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Role Abilities - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/role-abilities-in-cascade.html" rel="canonical"/>
+		<meta content="e91be7fd0a894fa5135f1dc062250061" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">            Cascade Administration    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/index.html">            Permissions    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Role Abilities</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                                                                        <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/role-abilities-in-cascade.html">Role Abilities</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to System Role Abilities" href="#SystemRoleAbilities">System Role Abilities</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Site Role Abilities" href="#SiteRoleAbilities">Site Role Abilities</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">Cascade Administration</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/users.html">Users</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/groups.html">Groups</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/roles.html">Roles</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/role-abilities-in-cascade.html">Role Abilities</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/access-rights.html">Access Rights</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Permissions</span>
+        </div>
+        <header>
+                            <h1>Role Abilities 
+                                        </h1>
+                    </header>
+      <a name="Role+Abilities"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Abilities are individual actions that Cascade CMS users are capable of making. Some actions are very basic, like being able to view&#160;the Publish Queue. Others - like being able to change the LDAP setup - are a bit more important, but both are controlled by role abilities.</p>
+<p>Roles and their abilities apply in two contexts: <strong>System</strong>&#160;and <strong>Site</strong>. A System Role primarily governs access to administrative, non-content areas of Cascade CMS. For example, the ability to create new sites and groups, users, and roles will fall&#160;within the control of a System Role. Essentially, if it doesn't have to do with a Site, it will be a System ability.</p>
+<p>A Site Role is assigned specifically to a site and applies to a site only. For example, the ability to publish content or to bypass workflow within a site are only going to apply when the Site Role is assigned to a specific site.</p>
+<p>The permissions tables&#160;below outline the available System and Site Role abilities.</p>
+<div class="alert alert-warning"><strong>Note</strong> -&#160;Abilities are cumulative. When assigning multiple roles to a user, they&#160;will inherit all overlapping abilities between those roles.</div>
+                                    </section>
+                    
+                                                
+            <section aria-label="System Role Abilities" class="anchor-heading" id="SystemRoleAbilities">
+                                        <h2>System Role Abilities     <a aria-label="Skip to System Role Abilities" href="#SystemRoleAbilities"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4>System Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>System Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Bypass all permissions checks</td>
+<td>&#160;</td>
+<td>Gives read and write access to all assets.</td>
+</tr>
+</tbody>
+</table>
+<h4>Site Management Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>Site Management Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Access the Site Management Area</td>
+<td>&#160;</td>
+<td>Ability to access the Site Management area to create edit or delete sites.</td>
+</tr>
+<tr>
+<td>Access All Sites</td>
+<td>&#160;</td>
+<td>Ability to access the Home area of all sites.</td>
+</tr>
+<tr>
+<td>Create Sites</td>
+<td>&#160;</td>
+<td>Ability to create new sites.</td>
+</tr>
+</tbody>
+</table>
+<h4>Administration Area Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>Administration Area Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Access the Administration Area</td>
+<td>&#160;</td>
+<td>Controls who can navigate to the Administration Area.&#160;</td>
+</tr>
+<tr>
+<td>Access Users, Groups, and Roles</td>
+<td>Access the Administration Area</td>
+<td>*Gives the ability to access Users, Groups, and Roles.</td>
+</tr>
+<tr>
+<td>View Information and Logs and Send Support Request in Administration Area</td>
+<td>Access the Administration Area</td>
+<td>Gives the ability to view and download system information and logs.</td>
+</tr>
+<tr>
+<td>Force logout of users</td>
+<td>Access the Administration Area</td>
+<td>Gives the ability to log out other users from the system.</td>
+</tr>
+<tr>
+<td>Access/Modify Default WYSIWYG Editor Configuration</td>
+<td>Access the Administration Area</td>
+<td>
+<p>Allows users to access and update WYSIWYG editor configurations in the Manage Site area for the site. Because there are no individual permissions or containers for editor configurations, users with this ability will have access to all of the site&#8217;s editor configurations.</p>
+<p>All users who have access to update the site&#8217;s settings can choose a default editor configuration, regardless of this ability.</p>
+</td>
+</tr>
+<tr>
+<td>Modify Dictionary</td>
+<td>Access the Administration Area or Access the Manage Site Area (Site Role)</td>
+<td>
+<p>Allows users to access and edit the System Dictionary.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>* <em>Having the ability to access a particular administration area asset&#160;does not circumvent access rights applied to assets of that type.<br/></em></p>
+<h4>Home Area Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>Home Area Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Edit Access Rights</td>
+<td>&#160;</td>
+<td>Ability to change access rights to the assets to which&#160;the user has write permission by assigning the groups and users that the user has abilities to view.</td>
+</tr>
+<tr>
+<td>View the Audits Tab</td>
+<td>&#160;</td>
+<td>Ability to view the audits of assets to which&#160;the user has read permission.</td>
+</tr>
+</tbody>
+</table>
+<h4>Tools Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>Tools Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Optimize Database</td>
+<td>&#160;</td>
+<td>Ability to use the Database Optimizer tool.</td>
+</tr>
+<tr>
+<td>Sync LDAP</td>
+<td>&#160;</td>
+<td>Ability to trigger an LDAP synchronization.</td>
+</tr>
+<tr>
+<td>Modify Logging</td>
+<td>&#160;</td>
+<td>Ability to choose different classes/packages that should be outputting logging information.</td>
+</tr>
+<tr>
+<td>Search and Indexing</td>
+<td>&#160;</td>
+<td>Ability to access the Searching and Indexing tool.</td>
+</tr>
+<tr>
+<td>Modify Configuration Files</td>
+<td>&#160;</td>
+<td>Ability to access Custom Authentication Configuration, Image Editor Configuration, Image Editor Licence, LDAP Configuration, Product License and Publish Trigger Configuration.</td>
+</tr>
+<tr>
+<td>Announcements</td>
+<td>&#160;</td>
+<td>Ability to create and send system-wide announcements.</td>
+</tr>
+<tr>
+<td>Database Export Tool</td>
+<td>&#160;</td>
+<td>Ability to use the Database Export Tool.</td>
+</tr>
+<tr>
+<td>Edit System Preferences</td>
+<td>&#160;</td>
+<td>Ability to access and change General, Email, and Content Preferences.</td>
+</tr>
+</tbody>
+</table>
+<h4>Security Area Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>Security Area Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>View users that share groups with current user</td>
+<td>Access Users, Groups and Roles</td>
+<td>Ability to view users of the same group as the current user.</td>
+</tr>
+<tr>
+<td>View all users</td>
+<td>Access Users, Groups and Roles</td>
+<td>Ability to view all users.</td>
+</tr>
+<tr>
+<td>Create users</td>
+<td>Access Users, Groups and Roles, either View all users or View users that share groups with current user</td>
+<td>Ability to create new users.</td>
+</tr>
+<tr>
+<td>Delete users that share groups with current user</td>
+<td>Access Users, Groups and Roles, either Edit all users or Edit users that share groups with current user</td>
+<td>Ability to delete users of the same group as the current user and at the same time the current user must be able to edit the user.</td>
+</tr>
+<tr>
+<td>Delete all users</td>
+<td>Access Users, Groups and Roles, either Edit all users or Edit users that share groups with current user</td>
+<td>Ability to delete any users that the current user is able to edit.</td>
+</tr>
+<tr>
+<td>Edit all users</td>
+<td>Access Users, Groups and Roles, either View all users or View users that share groups with current user</td>
+<td>Ability to edit any users.</td>
+</tr>
+<tr>
+<td>Edit users that share groups with current user</td>
+<td>Access Users, Groups and Roles, either View all users or View users that share groups with current user</td>
+<td>Ability to edit users of the same group as the current user.</td>
+</tr>
+<tr>
+<td>View groups to which current user belongs</td>
+<td>Access Users, Groups and Roles</td>
+<td>Ability to view the current user's groups.</td>
+</tr>
+<tr>
+<td>View all groups</td>
+<td>Access Users, Groups and Roles</td>
+<td>Ability to view all groups.</td>
+</tr>
+<tr>
+<td>Create groups</td>
+<td>Access Users, Groups and Roles, either View all groups or&#160; View groups to which current user belongs</td>
+<td>Ability to create new groups.</td>
+</tr>
+<tr>
+<td>Delete groups to which current user belongs</td>
+<td>Access Users, Groups and Roles, either Edit all groups or&#160; Edit groups to which the current user belongs</td>
+<td>Ability to delete the current user's groups that the current user can edit.</td>
+</tr>
+<tr>
+<td>Delete all groups</td>
+<td>Access Users, Groups and Roles, either Edit all groups or&#160; Edit groups to which the current user belongs</td>
+<td>Ability to delete any groups that the current user can edit.</td>
+</tr>
+<tr>
+<td>Edit all groups</td>
+<td>Access Users, Groups and Roles, either View all groups or&#160; View groups to which current user belongs</td>
+<td>Ability to edit any groups.</td>
+</tr>
+<tr>
+<td>Edit groups to which the current user belongs</td>
+<td>Access Users, Groups and Roles, either View all groups or&#160; View groups to which current user belongs</td>
+<td>Ability to edit the current user's groups.</td>
+</tr>
+<tr>
+<td>Access Roles</td>
+<td>Access Users, Groups and Roles</td>
+<td>*Ability to view all roles in the system.</td>
+</tr>
+<tr>
+<td>Create&#160;Roles</td>
+<td>Access Users, Groups and Roles</td>
+<td>*Ability to create&#160;roles in the system.</td>
+</tr>
+</tbody>
+</table>
+<p>* <em>Having the ability to access a particular administration area asset&#160;does not circumvent access rights applied to assets of that type.</em></p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Site Role Abilities" class="anchor-heading" id="SiteRoleAbilities">
+                                        <h2>Site Role Abilities     <a aria-label="Skip to Site Role Abilities" href="#SiteRoleAbilities"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4>System Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>Global Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Bypass all permissions checks</td>
+<td>&#160;</td>
+<td>Gives read and write access to all assets in the site.</td>
+</tr>
+</tbody>
+</table>
+<h4>Administration Area Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>Administration Area Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Access the Manage Site&#160;Area</td>
+<td>&#160;</td>
+<td>Ability to access the Manage Site area.&#160;</td>
+</tr>
+<tr>
+<td>Access Asset Factories</td>
+<td>Access the&#160;Manage Site&#160;Area</td>
+<td>*Gives the ability to access Asset Factories.</td>
+</tr>
+<tr>
+<td>Access Configurations</td>
+<td>Access the&#160;Manage Site&#160;Area</td>
+<td>*Gives the ability to access Configurations.</td>
+</tr>
+<tr>
+<td>Access Connectors</td>
+<td>Access the&#160;Manage Site&#160;Area</td>
+<td>*Gives the ability to access Connectors</td>
+</tr>
+<tr>
+<td>Access Content Types</td>
+<td>Access the&#160;Manage Site&#160;Area</td>
+<td>*Gives the ability to access Content Types.</td>
+</tr>
+<tr>
+<td>Access Data Definitions</td>
+<td>Access the&#160;Manage Site&#160;Area</td>
+<td>*Gives the ability to access Data Definitions.</td>
+</tr>
+<tr>
+<td>Access Shared Fields</td>
+<td>Access the Manage Site Area</td>
+<td>*Gives the ability to access Shared Fields.</td>
+</tr>
+<tr>
+<td>Access Metadata Sets</td>
+<td>Access the&#160;Manage Site&#160;Area</td>
+<td>*Gives the ability to access Metadata Sets.</td>
+</tr>
+<tr>
+<td>Access Publish Sets</td>
+<td>Access the&#160;Manage Site&#160;Area</td>
+<td>*Gives the ability to access Publish Sets.</td>
+</tr>
+<tr>
+<td>Access Destinations</td>
+<td>Access the&#160;Manage Site&#160;Area</td>
+<td>*Gives the ability to access Destinations.</td>
+</tr>
+<tr>
+<td>Access Transports</td>
+<td>Access the&#160;Manage Site&#160;Area</td>
+<td>*Gives the ability to access Transports.</td>
+</tr>
+<tr>
+<td>Access Workflow Definitions</td>
+<td>Access the&#160;Manage Site&#160;Area</td>
+<td>*Gives the ability to access Workflow Definitions.</td>
+</tr>
+<tr>
+<td>Run Transports and Destination Diagnostic Tests</td>
+<td>Access the&#160;Manage Site&#160;Area and&#160;access to at least one of these: Transports, Destinations</td>
+<td>Gives the ability to test Transports and Destinations.</td>
+</tr>
+<tr>
+<td>Access/Modify Site's WYSIWYG Editor Configurations</td>
+<td>Access the Manage Site Area</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>Publish Readable Administration Area Assets</td>
+<td>Access the&#160;Manage Site&#160;Area and access to at least one of these: Publish Sets, Destinations</td>
+<td>Ability to publish Administration Area assets (Publish Sets&#160;and Destinations) to which the user has read permission.</td>
+</tr>
+<tr>
+<td>Publish Writeable Administration Area Assets</td>
+<td>Access the&#160;Manage Site&#160;Area and access to at least one of these: Publish Sets, Destinations</td>
+<td>Ability to publish Administration Area assets (Publish Sets and Destinations) to which&#160;the user has write permission.</td>
+</tr>
+</tbody>
+</table>
+<p>* <em>Having the ability to access a particular administration&#160;asset does not circumvent access rights applied to assets of that type.<br/></em></p>
+<h4>Home Area Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>Home Area Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Bypass workflow</td>
+<td>&#160;</td>
+<td>Ability to bypass workflow when creating, editing, copying and deleting assets.</td>
+</tr>
+<tr>
+<td>Assign to self and approve steps in a workflow</td>
+<td>&#160;</td>
+<td>Ability to assign workflow steps to the current user and to be assigned to transition steps in a workflow.</td>
+</tr>
+<tr>
+<td>Delete workflows</td>
+<td>&#160;</td>
+<td>Ability to delete workflow.</td>
+</tr>
+<tr>
+<td>Assign workflows to folders</td>
+<td>&#160;</td>
+<td>When user has edit access to a folder, they&#160;can also assign workflows to that folder.</td>
+</tr>
+<tr>
+<td>Upload images in file chooser</td>
+<td>&#160;</td>
+<td>When editing an XHTML block or a page with a WYSIWYG editor, ability to upload images through that editor. Ability to upload images through File choosers. Folders restricted by workflow can not be selected.</td>
+</tr>
+<tr>
+<td>Multi-select copy</td>
+<td>Bypass workflow</td>
+<td>Ability to copy several assets at the same time.</td>
+</tr>
+<tr>
+<td>Multi-select publish</td>
+<td>Publish either readable or writeable Home Area assets</td>
+<td>Ability to publish several assets at the same time.</td>
+</tr>
+<tr>
+<td>Multi-select move</td>
+<td>Bypass workflow</td>
+<td>Ability to move several assets at the same time.</td>
+</tr>
+<tr>
+<td>Multi-select delete</td>
+<td>Bypass workflow</td>
+<td>Ability to delete several assets at the same time.</td>
+</tr>
+<tr>
+<td>Modify outputs&#160;on pages</td>
+<td>&#160;</td>
+<td>Ability to assign different blocks and formats&#160;at the page level when editing a page.</td>
+</tr>
+<tr>
+<td>Modify the Content Type of pages</td>
+<td>&#160;</td>
+<td>Ability to assign a different Content Type to a page when editing it.</td>
+</tr>
+<tr>
+<td>Bypass WYSIWYG editor restrictions</td>
+<td>&#160;</td>
+<td>Ability to access restricted elements in the WYSIWYG editor configuration.</td>
+</tr>
+<tr>
+<td>Bypass Accessibility, Link and Spell Checks when submitting content changes</td>
+<td>&#160;</td>
+<td>Ability to bypass content checks enabled at the system or site level.</td>
+</tr>
+<tr>
+<td><span class="disabled-false">Modify Data Definitions of Pages and Blocks</span></td>
+<td>&#160;</td>
+<td>Ability to assign or update a Data Definition assignment in pages and Data Definition blocks.</td>
+</tr>
+<tr>
+<td><span class="disabled-false">Move or Rename assets</span></td>
+<td>&#160;</td>
+<td>Ability to move or rename assets.</td>
+</tr>
+<tr>
+<td>Publish readable Home area assets</td>
+<td>&#160;</td>
+<td>Ability to publish Home area assets to which&#160;the user has read permission.</td>
+</tr>
+<tr>
+<td>Publish writeable Home area assets</td>
+<td>&#160;</td>
+<td>Ability to publish Home area assets to which&#160;the user has write permission.</td>
+</tr>
+<tr>
+<td>View the publish queue</td>
+<td>&#160;</td>
+<td>Ability to view the Publish Queue in a particular site.</td>
+</tr>
+<tr>
+<td>Reorder the publish queue</td>
+<td>View the publish queue</td>
+<td>Ability to reorder jobs in a site's publish queue.</td>
+</tr>
+<tr>
+<td>Cancel publish jobs</td>
+<td>View the publish queue</td>
+<td>Ability to cancel jobs in a site's publish queue.</td>
+</tr>
+<tr>
+<td>Edit access rights</td>
+<td>&#160;</td>
+<td>Ability to change access rights to the assets to which&#160;the user has write permission by assigning the groups and users that the user has abilities to view.</td>
+</tr>
+<tr>
+<td>View the Versions tab</td>
+<td>&#160;</td>
+<td>Ability to view previous versions of assets to which&#160;the user has read permissions.</td>
+</tr>
+<tr>
+<td>Activate or delete previous asset versions</td>
+<td>&#160;</td>
+<td>Ability to activate or delete previous versions of assets to which&#160;the user has write permission.</td>
+</tr>
+<tr>
+<td>View the Audits tab</td>
+<td>&#160;</td>
+<td>Ability to view the audits of assets to which&#160;the user has read permission.</td>
+</tr>
+<tr>
+<td>Break locks on assets</td>
+<td>&#160;</td>
+<td>Ability to break a lock on assets so that the users who were editing the asset previously won't be able to submit their edits and the asset will become available for another user to edit it.</td>
+</tr>
+<tr>
+<td>View Asset Factories in New menu even if user does not belong to any of their applicable groups</td>
+<td>&#160;</td>
+<td>Ability to see all the site's&#160;Asset Factories in the new menu.</td>
+</tr>
+<tr>
+<td>Choose Destinations to publish to even if user does not belong to any of their applicable groups</td>
+<td>Publish either readable or writeable Home area assets</td>
+<td>Ability to choose any&#160;destinations that are applicable for publishing.</td>
+</tr>
+<tr>
+<td>Be assigned to and use Workflow Definitions even if user does not belong to any of their applicable groups</td>
+<td>&#160;</td>
+<td>Ability to start any workflows that are applicable for the asset.</td>
+</tr>
+<tr>
+<td>Notify users by email about stale content</td>
+<td>&#160;</td>
+<td>Ability to send email notifications from the Stale Content Report.</td>
+</tr>
+<tr>
+<td>Access site-wide broken link report</td>
+<td>&#160;</td>
+<td>Ability to access the Broken Links Report.</td>
+</tr>
+<tr>
+<td>Mark broken links as fixed on the site-wide broken link report</td>
+<td>&#160;</td>
+<td>Ability to mark links as fixed in the Broken Links Report.</td>
+</tr>
+</tbody>
+</table>
+<h4>Tools Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>Tools Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Zip Archive</td>
+<td>&#160;</td>
+<td>Ability to upload and unpack a zip archive.</td>
+</tr>
+<tr>
+<td>Bulk Change</td>
+<td>Bypass workflow</td>
+<td>Ability to use the Bulk Change tool.</td>
+</tr>
+<tr>
+<td>View and Restore only assets the current user deleted</td>
+<td>&#160;</td>
+<td>Ability to view and restore assets in the Trash that have been deleted by the current user.</td>
+</tr>
+<tr>
+<td>View and Restore all assets in the&#160;Trash</td>
+<td>&#160;</td>
+<td>Ability to view and restore assets in the Trash&#160;that have been deleted by the current user or any other user.</td>
+</tr>
+<tr>
+<td>Permanently remove assets from the&#160;Trash</td>
+<td>&#160;</td>
+<td>Ability to remove assets from the Trash&#160;which permanently removes them from the system.</td>
+</tr>
+</tbody>
+</table>
+<h4>Integrations Abilities</h4>
+<table cellpadding="2" cellspacing="2" class="table table-striped" width="100%"><caption>Integrations Abilities</caption>
+<tbody>
+<tr class="head">
+<th>Ability</th>
+<th>Required Abilities</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Access Siteimprove integration</td>
+<td>&#160;</td>
+<td>Ability to access the Siteimprove integration when viewing folders and pages.</td>
+</tr>
+</tbody>
+</table>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=e91be7fd0a894fa5135f1dc062250061&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

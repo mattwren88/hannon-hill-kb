@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Cascade CMS 8.1 - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/releases/8.1/index.html" rel="canonical"/>
+		<meta content="410c8f7a0a894fa53063e99e7a9106c5" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/archives.html">Archives</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/changelog.html">Changelog</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/index.html">Knowledge Base</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">            Release Notes    
+    </a></li>
+      
+        
+                            <li class="breadcrumb-item active">            8.1    
+    </li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						
+<div class="sidenav release-sidebar" id="sidebar">
+    
+  
+    <nav class="release-sidenav list-group">
+    <a arial-label="Skip to Overview" class="list-group-item list-group-item-action" href="#overview"><i class="icon-chevron fas fa-chevron-right float-right"> </i> Overview</a>    <a arial-label="Skip to Release Notes" class="list-group-item list-group-item-action" href="#notes"><i class="icon-chevron fas fa-chevron-right float-right"> </i> Notes</a>    <a arial-label="Skip to Upgrade Guide" class="list-group-item list-group-item-action" href="#upgrade-guide"><i class="icon-chevron fas fa-chevron-right float-right"> </i> Upgrade Guide</a>  </nav>
+  
+    
+    
+
+  <div class="release-stats card bg-light border-light" role="complementary">
+      <div class="card-body">
+          <div class="card-title">
+            <h3>At a Glance</h3>
+          </div>
+          <div class="card-text">
+            <dl>
+              <dt>Released on</dt>
+              <dd class="lead text-info">11/11/2016</dd>
+                                    </dl>
+            
+                        <hr/>
+              
+                                                                                                                                                                              
+                        
+                                        
+    <div class="release-pagination">
+    <p>
+            Next Release: <a href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.1.1/index.html">8.1.1</a><br/>
+                Previous Release: <a href="https://www.hannonhill.com/cascadecms/latest/releases/8.0.2/index.html">8.0.2</a>
+        </p>
+  </div>
+          </div>
+    </div>
+  </div>
+
+  
+
+</div>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+<div class="jumbotron bg-light" id="release-hero">
+  <h1>Cascade CMS 8.1</h1>
+  <p class="lead">Cascade CMS 8.1 introduces tasks, streamlined editing, and addresses improvements/issues found in versions 8.0.2 and earlier.</p>
+   <a class="btn btn-primary" href="https://www.hannonhill.com/cascadecms/latest/releases/8.1/requirements.html"><i class="far fa-check-square"> </i> View Requirements</a> </div>
+						
+
+<section id="overview">
+    <div class="page-header">
+      <h2>Overview</h2>
+    </div>
+                  <ul>
+              <li><a href="#Tasks">Tasks</a></li>
+              <li><a href="#Advanced+Submit">Advanced Submit</a></li>
+              <li><a href="#Broken+link+reasons+and+permanently+ignoring+links">Broken link reasons and permanently ignoring links</a></li>
+              <li><a href="#Navigation+when+managing+site+components">Navigation when managing site components</a></li>
+            </ul>
+      
+    
+              <a name="Tasks"></a>
+            <h3>Tasks</h3>
+          
+              <p>Manage your content to-do list right from within Cascade CMS with Tasks. You can now create and discuss tasks tied to specific pieces of content right from within the system:</p>
+<p><img alt="Creating tasks" class="img-polaroid" height="777" src="https://www.hannonhill.com/cascadecms/latest/releases/8.1/images/create-task.png" width="901"/></p>
+<p>You can monitor&#160;them&#160;with a handy new widget on your Dashboard.</p>
+<p><img alt="Upcoming tasks dashboard widget" class="img-polaroid" height="201" src="https://www.hannonhill.com/cascadecms/latest/releases/8.1/images/upcoming-tasks.png" width="443"/></p>
+          
+              <a name="Advanced+Submit"></a>
+            <h3>Advanced Submit</h3>
+          
+              <p>This release introduces an Advanced Submit menu available from both the full edit&#160;and the in-context edit screens. This allows users to submit directly from the edit interface or to immedately start content check without having to go back through the preview.</p>
+<p><img alt="Advanced Submit" class="img-polaroid" height="455" src="https://www.hannonhill.com/cascadecms/latest/releases/8.1/images/advanced-submit.png" width="901"/></p>
+          
+              <a name="Broken+link+reasons+and+permanently+ignoring+links"></a>
+            <h3>Broken link reasons and permanently ignoring links</h3>
+          
+              <p>We've added the ability to see information about the reason a link is broken.</p>
+<p><img alt="Broken Link Reasons" class="img-polaroid" height="99" src="https://www.hannonhill.com/cascadecms/latest/releases/8.1/images/broken-link-reasons.png" width="778"/></p>
+<p>It's useful to know whether or a link is 404-ing vs timing out as your approach to dealing with it might be different. Some timeout just indicate slow loading servers and do not require any action on the user's part. You can also&#160;choose to look at only internal links&#160;or only external links to resources outside the CMS or use the Search box to look for links failing with a particular reason.</p>
+<p><img alt="Broken Link reason search" class="img-polaroid" height="260" src="https://www.hannonhill.com/cascadecms/latest/releases/8.1/images/broken-link-reason-search.png" width="1008"/></p>
+<p>Lastly, it's now possible to ignore links if a particular link is always timing but you know it's not broken, for example.</p>
+<p><img alt="Ignore Links" class="img-polaroid" height="254" src="https://www.hannonhill.com/cascadecms/latest/releases/8.1/images/ignore-links.png" width="394"/></p>
+<p>This functionality is designed to help users focus on a specific set of links at time and make progress towards the goal of getting all of your links in working order.</p>
+          
+              <a name="Navigation+when+managing+site+components"></a>
+            <h3>Navigation when managing site components</h3>
+          
+              <p>By user request, we've added a navigation to components in the Manage Site area to let you easily jump between different component types. This is useful when building sites as users frequently need to move between different components.</p>
+<p><img alt="Manage Site Navigation" class="img-polaroid" height="583" src="https://www.hannonhill.com/cascadecms/latest/releases/8.1/images/manage-site-navigation.png" width="850"/></p>
+          </section>
+
+<section id="notes">
+    <div class="page-header">
+      <h2>Notes</h2>
+    </div>
+        
+    
+              <a name="Improvements"></a>
+            <h3>Improvements</h3>
+          
+              <ul>
+<li><span class="js-issue-title">Added user tasks</span></li>
+<li><span class="js-issue-title">The editing process is now streamlined for users who are able to skip the preview step</span><span class="js-issue-title"></span></li>
+<li><span class="js-issue-title">Added support for MySQL 5.7; deprecates 5.1</span><span class="js-issue-title"></span></li>
+<li>Improved performance of loading notifications (even a massive amount)</li>
+<li>Notifications now include a button to mark all notifications as read and a button to delete all notifications</li>
+<li>Updated Web Services search functionality to match new Search behavior</li>
+<li>Can now permanently ignore a broken link in the Broken Link Report</li>
+<li>Can now view a reason a link is considered broken in the Broken Link Report</li>
+<li>Broken link types and reasons are now filterable in the Broken Link Report</li>
+<li>Minor broken Link Report UI Improvements</li>
+<li><span class="js-issue-title">Improved button focus style and increased button contrast</span><span class="js-issue-title"></span></li>
+<li><span class="js-issue-title">Improved focus style in a table of selected assets</span></li>
+<li><span class="js-issue-title">Clicking the main menu automatically highlights Help &amp; Support button</span><span class="js-issue-title"></span></li>
+<li><span class="js-issue-title">Faster switching between Site Management module types</span></li>
+</ul>
+          
+              <a name="Issues+Resolved"></a>
+            <h3>Issues Resolved</h3>
+          
+              <ul>
+<li>Links ignored in the Broken Link Report are now also ignored in the submit link checker</li>
+<li>Unable to go directly to deep-link for assets immediately after login using custom authentication</li>
+<li>Adjustment width and height of the code editor window to better handle smaller screens</li>
+<li>On mobile, the code editor's window is now fullscreen. This ensures the submit/cancel buttons are always visible.</li>
+<li>No longer using an iframe for the code editor, which fixes various issues including: code editor components being cut off and a flash of an un-styled textarea before the code editor initialized</li>
+<li>IE11 no longer throws a JavaScript error on draft view preventing the content from loading</li>
+<li>Fixed a JavaScript error when a region with invalid XML is encountered</li>
+<li><span class="js-issue-title">Fixed inconsistently named Structured Data/Data Definition/XHTML block in header areas</span></li>
+<li><span class="js-issue-title">Adds content insertion options in TinyMCE right-click context menu for images/links</span></li>
+<li><span class="js-issue-title">Fixed missing template name in configure tab of pages</span></li>
+<li><span class="js-issue-title">When viewing a template, regions are now listed in alphabetical order</span></li>
+<li><span class="js-issue-title">Fixed unread notification tab from showing read notifications</span></li>
+<li><span class="js-issue-title">Fixed show all pagination throwing an error in Broken Link Report</span></li>
+<li><span class="js-issue-title">Fixed no link to resume identity on mobile devices</span></li>
+<li><span class="js-issue-title">Fixed show all pagination shows no matching records on Content Ownership report either with/without search term</span></li>
+<li><span class="js-issue-title">Fixed search/replace discrepancies; search includes partial matches and replace is now case insensitive</span><span class="js-issue-title"></span><span class="js-issue-title"></span></li>
+<li><span class="js-issue-title">In some cases, core TinyMCE plugins (e.g. the Visual Blocks plugin) were&#160;unable to load their associated CSS file, causing the&#160;plugin to appear&#160;broken</span></li>
+</ul>
+          </section>
+
+<section id="upgrade-guide">
+    <div class="page-header">
+      <h2>Upgrade Guide</h2>
+    </div>
+        
+    
+              <a name="Upgrade+Procedure"></a>
+            <h3>Upgrade Procedure</h3>
+          
+              <h3>Important notes about the upgrade</h3>
+<h4>Cascade CMS 8 no longer supports Global</h4>
+<p>As of Cascade CMS 8, the Global area is no longer supported. Please read the <a href="https://www.hannonhill.com/cascadeserver/Cascade-8-Preparation/index.html">preparation guide</a>&#160;to help ensure that&#160;you've successfully removed all content from the Global area before attempting the upgrade.</p>
+<p>You <strong>cannot&#160;</strong>&#65279;upgrade to Cascade CMS 8 if content remains in the Global area.</p>
+<h4>Tomcat 8 Required</h4>
+<p>Cascade CMS 8 will not run in any other version of Tomcat except Tomcat 8 at this time. For this reason, use of the <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/">full installer</a> during upgrade is required. <strong>ROOT.war upgrades are not supported</strong>.</p>
+              
+	<h3>First Time Installation?</h3>
+	<p>Be sure to 
+		<a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/index.html">import our default database schema</a> prior to installing Cascade CMS for the first time. Then follow our 
+		<a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html">standard installation instructions</a>.
+	</p>
+	<h3>Upgrade Steps</h3>
+	<ol>
+		<li>Shut down your currently running Cascade CMS instance.</li>
+		<li>Before you upgrade, we strongly recommend that you 
+			<a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/db-backup.html">
+				<strong>back-up your production database.</strong>
+			</a> as well as 
+			<a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/test-server.html">set up a test instance</a> and perform a trial run of the upgrade. All customers are entitled to a test license for this purpose.
+		</li>
+		<li>Read the release notes and upgrade guides for 
+			<strong>all releases</strong> between your version and the latest version.
+		</li>
+		<li>Cascade CMS 8 
+			<strong>requires</strong> a 
+			<a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html">full installation</a>.
+		</li>
+		<li>Certain versions require that specific steps be taken during the upgrade process. 
+			<strong>Be sure to read over any and all items that apply to the version to which you are upgrading:</strong>
+		</li>
+	</ol>
+	<div class="alert alert-danger">
+		<div class="alert-heading">
+			<a data-toggle="collapse" href="#alert-8_0-no-global">
+				<i class="icon-plus">&#160;</i>
+				<strong>8.0: Global area not supported</strong>
+			</a>
+		</div>
+		<div class="collapse" id="alert-8_0-no-global">
+			<p>Cascade CMS 8 will not run if any content or site management components still exist in the Global area. Please review the 
+				<a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/cascade-8-upgrade-prep.html">prepration guide</a>.
+			</p>
+		</div>
+	</div>
+	<div class="alert alert-danger">
+		<div class="alert-heading">
+			<a data-toggle="collapse" href="#alert-8_0-tomcat">
+				<i class="icon-plus">&#160;</i>
+				<strong>8.0: Requires Tomcat 8. Tomcat 6 or 7 are not supported</strong>
+			</a>
+		</div>
+		<div class="collapse" id="alert-8_0-tomcat">
+			<p>Cascade CMS 8 will not run in any other version of Tomcat except Tomcat 8 at this time. For this reason, use of the 
+				<a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html">full installer</a> during upgrade is required. ROOT.war upgrades are not supported.
+			</p>
+		</div>
+	</div>
+	<div class="alert alert-danger">
+		<div class="alert-heading">
+			<a data-toggle="collapse" href="#alert-0">
+				<i class="icon-plus">&#160;</i>
+				<strong>7.14: Requires Java 8. Java 6 and Java 7 no longer supported</strong>
+			</a>
+		</div>
+		<div class="collapse" id="alert-0">
+			<p>As of this release, Java 8u40 or later is now required to run Cascade. The OS X, Linux, and Windows packages all ship with Java 8 JREs included for easy execution. If you're using the ZIP installer or the ROOT.war, you'll need to ensure you're pointing the application to a Java 8 JRE. See 
+				<a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/java-configuration.html">this page</a> for instructions on updating Cascade to point to a JRE.
+			</p>
+		</div>
+	</div>
+	<div class="alert alert-danger">
+		<div class="alert-heading">
+			<a data-toggle="collapse" href="#alert-1">
+				<i class="icon-plus">&#160;</i>
+				<strong>7.14: SQL Server and Oracle driver updates</strong>
+			</a>
+		</div>
+		<div class="collapse" id="alert-1">
+			<p>Organizations that use the ROOT.war upgrade method and are using SQL Server or Oracle are required to upgrade their drivers using the steps below:
+                
+				<ul>
+					<strong>SQL Server Users</strong>
+					<li>Download 
+						<em>jtds-1.3.1.jar</em> from the 
+						<a href="http://sourceforge.net/projects/jtds/files/jtds/1.3.1/">jTDS web site</a>
+					</li>
+					<li>Replace the file 
+						<em>tomcat/lib/jtds-1.2.5.jar</em> with the 
+						<em>jtds-1.3.1.jar</em> file
+					</li>
+				</ul>
+				<ul>
+					<strong>Oracle Users</strong>
+					<li>Download 
+						<em>ojdbc7_g.jar</em> from the Oracle web site
+					</li>
+					<li>Replace the file 
+						<em>tomcat/lib/ojdbc14_g.jar</em> with the 
+						<em>ojdbc7_g.jar</em> file
+					</li>
+				</ul>
+			</p>
+		</div>
+	</div>
+	<div class="alert alert-danger">
+		<div class="alert-heading">
+			<a data-toggle="collapse" href="#alert-2">
+				<i class="icon-plus">&#160;</i>
+				<strong>7.12.5: Important information for SQL Server users</strong>
+			</a>
+		</div>
+		<div class="collapse" id="alert-2">
+			<p>7.12.5 and later do not support SQL Server 2005. This version of Cascade will no longer start against SQL Server 2005. Please upgrade to a 
+				<a href="https://www.hannonhill.com/cascadeserver/releases/7.12.5/requirements.html">supported version</a>
+			</p>
+			<p>All other versions of SQL Server must be running above compatibility level 
+				<strong>80</strong>. To view and/or change the current compatibility level of your database, follow the instructions in this article: 
+				<a href="https://msdn.microsoft.com/en-us/library/bb933794.aspx">SQL Server: View or Change the Compatibility Level of a Database</a>. We recommend setting the compatibility level to 
+				<strong>100</strong>.
+			</p>
+		</div>
+	</div>
+	<div class="alert alert-danger">
+		<div class="alert-heading">
+			<a data-toggle="collapse" href="#alert-3">
+				<i class="icon-plus">&#160;</i>
+				<strong>7.12.3: EhCache configuration files in 7.12.3 or later</strong>
+			</a>
+		</div>
+		<div class="collapse" id="alert-3">
+			<p>Organizations that use the ROOT.war upgrade method and are upgrading to 7.12.3 or later must follow these steps:</p>
+			<ul>
+				<li>If running in a load balanced environment, check to see if the file 
+					<code>tomcat/conf/ehcache.xml</code> exists on each node. If this file exists, please contact support [at] hannonhill.com prior to performing the upgrade. If the file does 
+					<strong>not</strong> exist, proceed with the upgrade as usual.
+				</li>
+			</ul>
+			<ul>
+				<li>If not running in a load balanced environment, remove the file 
+					<code>tomcat/conf/ehcache.xml</code> prior to performing the upgrade.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="alert alert-info">
+		<div class="alert-heading">
+			<a data-toggle="collapse" href="#alert-4">
+				<i class="icon-plus">&#160;</i>
+				<strong>7.12.2: MySQL 5.6 driver library updated in 7.12.2 or later</strong>
+			</a>
+		</div>
+		<div class="collapse" id="alert-4">
+			<p>
+                Organizations that use the ROOT.war upgrade method and are upgrading from 7.12.1 or earlier to 7.12.2 or later and use MySQL 5.6 must manually update the 
+                driver library in tomcat/lib folder from mysql-connector-java-5.1.18-bin.jar to mysql-connector-java-5.1.31-bin.jar. The file mysql-connector-java-5.1.31-bin.jar
+                can be obtained by downloading ZIP version of Cascade CMS.
+            </p>
+		</div>
+	</div>
+	<div class="alert alert-info">
+		<div class="alert-heading">
+			<a data-toggle="collapse" href="#alert-5">
+				<i class="icon-plus">&#160;</i>
+				<strong>7.10.2: EhCache library changes on upgrades to 7.10.2 or later</strong>
+			</a>
+		</div>
+		<div class="collapse" id="alert-5">
+			<p>Organizations that use the ROOT.war upgrade method and are upgrading from 7.10.1 or earlier to 7.10.2 or later must remove the 
+            
+				<strong>ehcache-core-*.jar</strong> and 
+				<strong>slf4j-api-*.jar</strong> from the 
+				<strong>${CATALINA_BASE}/lib</strong> of Tomcat.
+        
+			</p>
+		</div>
+	</div>
+	<div class="alert alert-info">
+		<div class="alert-heading">
+			<a data-toggle="collapse" href="#alert-6">
+				<i class="icon-plus">&#160;</i>
+				<strong>7.8.2: Database optimization on upgrades to 7.8.2 or later</strong>
+			</a>
+		</div>
+		<div class="collapse" id="alert-6">
+			<p>Organizations upgrading to 7.8.2 or above for the first time may notice a delay during the initial startup accompanied by messages like these in the log file:
+        
+				<pre><code>
+2014-01-01 11:53:25,405 INFO  [OptimizeDatabaseServiceImpl] Clearing orphaned assets...
+2014-01-01 11:53:25,405 INFO  [OptimizeDatabaseServiceImpl] Clearing orphaned Data Definition nodes...
+2014-01-01 11:54:09,508 INFO  [OptimizeDatabaseServiceImpl] Deleted 7 orhpaned Data Definition nodes
+2014-01-01 11:54:09,508 INFO  [OptimizeDatabaseServiceImpl] Repeating the operation until there are no more orhaned nodes to delete
+2014-01-01 11:54:57,350 INFO  [OptimizeDatabaseServiceImpl] Deleted 14 more orhpaned Data Definition nodes
+2014-01-01 12:02:30,529 INFO  [OptimizeDatabaseServiceImpl] Repeating the operation until there are no more orhaned nodes to delete
+2014-01-01 12:02:58,724 INFO  [OptimizeDatabaseServiceImpl] Deleted 0 more orhpaned Data Definition nodes
+2014-01-01 12:02:58,725 INFO  [OptimizeDatabaseServiceImpl] Finished clearing 224 orphaned Data Definition node record(s)
+2014-01-01 12:02:58,725 INFO  [OptimizeDatabaseServiceImpl] Fixing Structured Data with missing owner entity property
+2014-01-01 12:03:29,712 INFO  [OptimizeDatabaseServiceImpl] Found 211 broken Structured Data nodes
+2014-01-01 12:03:32,451 INFO  [OptimizeDatabaseServiceImpl] Fixed a total of 9 assets with broken Structured Data nodes
+</code></pre>
+				<strong>It is important that the Cascade CMS process not be stopped during this time.</strong> Once the orphaned Data Definition nodes have been removed, the application will start up normally.
+			</p>
+		</div>
+	</div>
+	<div class="alert alert-info">
+		<div class="alert-heading">
+			<a data-toggle="collapse" href="#alert-7">
+				<i class="icon-plus">&#160;</i>
+				<strong>7.4.1: Rebuild search indexes on upgrade</strong>
+			</a>
+		</div>
+		<div class="collapse" id="alert-7">
+			<p>If you are upgrading from Cascade CMS 7.4.1 or later, you should rebuild search indexes after the upgrade is complete and the application is running. To do so, navigate to 
+				<strong>System Menu</strong> -&gt; 
+				<strong>Utilities</strong> -&gt; 
+				<strong>Search Indexing</strong>, check the 
+				<strong>Rebuild Index?</strong> checkbox and then click 
+				<strong>Submit</strong>.
+			</p>
+		</div>
+	</div>
+
+      </section>
+
+
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=410c8f7a0a894fa53063e99e7a9106c5&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

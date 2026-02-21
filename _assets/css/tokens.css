@@ -1,0 +1,364 @@
+/* ==========================================================================
+   Design Tokens — Cascade CMS Knowledge Base
+   All CSS custom properties for light and dark themes.
+   ========================================================================== */
+
+:root,
+html[data-theme="light"] {
+    /* ── Brand ── */
+    --color-primary: #D94A7B;
+    --color-primary-vivid: #E41961;
+    --color-primary-hover: #C01555;
+    --color-primary-bg: #FDF0F4;
+
+    /* ── Neutrals ── */
+    --color-bg: #FFFFFF;
+    --color-bg-secondary: #FBFCFE;
+    --color-bg-tertiary: #F5F8FC;
+    --color-surface: #FFFFFF;
+    --color-border: #E5E7EB;
+    --color-border-light: #F0F0F0;
+
+    /* ── Text ── */
+    --color-text: #1A1D27;
+    --color-text-secondary: #4B5563;
+    --color-text-tertiary: #9CA3AF;
+    --color-heading: #22252F;
+
+    /* ── Sidebar ── */
+    --color-sidebar-bg: #FCFDFF;
+    --color-sidebar-text: #4B5563;
+    --color-sidebar-hover-bg: transparent;
+    --color-sidebar-active-bg: transparent;
+    --color-sidebar-active-text: #2F3A4A;
+    --color-sidebar-active-border: #8A98AD;
+    --color-sidebar-category: #22252F;
+
+    /* ── Code ── */
+    --color-code-bg: #FCFDFF;
+    --color-code-text: #1A1D27;
+    --color-code-inline-bg: #F6F8FB;
+    --color-code-inline-text: #C01555;
+    --color-code-header-bg: #F7F9FC;
+
+    /* ── Callouts (Muted Editorial) ── */
+    --color-callout-surface: #F8F7F4;
+    --color-callout-border: #D7D2C8;
+    --color-callout-icon-chip-bg: #ECE8E1;
+    --color-callout-title: #2A2730;
+
+    --color-callout-info-bg: #EEF5FA;
+    --color-callout-info-border: #9CB9CC;
+    --color-callout-info-icon: #2E617F;
+    --color-callout-info-chip-bg: #DDEAF3;
+    --color-callout-info-text: #1F4C67;
+
+    --color-callout-warning-bg: #FAF3E8;
+    --color-callout-warning-border: #DAB88C;
+    --color-callout-warning-icon: #8C5C1E;
+    --color-callout-warning-chip-bg: #F2E2CC;
+    --color-callout-warning-text: #6A461A;
+
+    --color-callout-tip-bg: #ECF6F0;
+    --color-callout-tip-border: #9FC8AE;
+    --color-callout-tip-icon: #2F6A4A;
+    --color-callout-tip-chip-bg: #D9ECDF;
+    --color-callout-tip-text: #25563B;
+
+    --color-callout-danger-bg: #FAEEEE;
+    --color-callout-danger-border: #D5A2A0;
+    --color-callout-danger-icon: #8A3E3D;
+    --color-callout-danger-chip-bg: #F1DCDC;
+    --color-callout-danger-text: #6A2F2E;
+
+    /* ── Buttons ── */
+    --color-button-bg: #FFFFFF;
+    --color-button-text: #2A2730;
+    --color-button-border: #D6D9E0;
+    --color-button-hover-bg: #F4F6FA;
+    --color-button-hover-border: #BCC4D3;
+
+    --color-button-info-bg: #E9F3FA;
+    --color-button-info-text: #1F4C67;
+    --color-button-info-border: #A7C2D4;
+    --color-button-info-hover-bg: #DCECF7;
+
+    --color-button-warning-bg: #FAF0DF;
+    --color-button-warning-text: #6A461A;
+    --color-button-warning-border: #DEBC8D;
+    --color-button-warning-hover-bg: #F4E3C8;
+
+    --color-button-tip-bg: #E8F4ED;
+    --color-button-tip-text: #25563B;
+    --color-button-tip-border: #A8CDB6;
+    --color-button-tip-hover-bg: #DCEEE4;
+
+    --color-button-danger-bg: #F9E9E9;
+    --color-button-danger-text: #6A2F2E;
+    --color-button-danger-border: #D6A8A7;
+    --color-button-danger-hover-bg: #F1DCDC;
+
+    /* ── Badges / Pills ── */
+    --color-badge-bg: #F1F3F8;
+    --color-badge-text: #364152;
+    --color-badge-border: #D3D9E4;
+    --color-badge-info-bg: #E8F1F8;
+    --color-badge-info-text: #285774;
+    --color-badge-warning-bg: #F8EEDC;
+    --color-badge-warning-text: #6A481D;
+    --color-badge-tip-bg: #E8F4EC;
+    --color-badge-tip-text: #2E6147;
+    --color-badge-danger-bg: #F7E8E8;
+    --color-badge-danger-text: #6E3130;
+
+    /* ── Tooltips ── */
+    --color-tooltip-bg: #1F2430;
+    --color-tooltip-text: #F7F8FA;
+    --color-tooltip-border: #2E3648;
+
+    /* ── Steps ── */
+    --color-step-number-bg: #FDF0F4;
+    --color-step-number-text: #D94A7B;
+    --color-step-line: #CBD5E1;
+
+    /* ── Cards ── */
+    --color-card-bg: #FFFFFF;
+    --color-card-border: #E5E7EB;
+    --color-card-hover-border: #D1D5DB;
+    --color-card-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --color-card-icon: #4B5563;
+    --color-card-active-border: #D94A7B;
+    --color-card-active-shadow: 0 0 0 2px rgba(217, 74, 123, 0.15);
+
+    /* ── Search ── */
+    --color-search-backdrop: rgba(0, 0, 0, 0.4);
+    --color-search-bg: #FFFFFF;
+    --color-search-result-hover: #F8F9FA;
+    --color-search-highlight: #FDF0F4;
+
+    /* ── Header ── */
+    --color-header-bg: #FFFFFF;
+    --color-header-border: #E5E7EB;
+
+    /* ── Shadows ── */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-overlay: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+    /* ── Prism.js Syntax Highlighting ── */
+    --prism-comment: #6B7280;
+    --prism-keyword: #D94A7B;
+    --prism-string: #059669;
+    --prism-number: #D97706;
+    --prism-function: #2563EB;
+    --prism-operator: #6B7280;
+    --prism-class: #7C3AED;
+    --prism-punctuation: #4B5563;
+    --prism-property: #0891B2;
+    --prism-tag: #DC2626;
+    --prism-attr-name: #D97706;
+    --prism-attr-value: #059669;
+}
+
+/* ── Dark Mode ── */
+html[data-theme="dark"] {
+    --color-primary: #F0507F;
+    --color-primary-vivid: #F0507F;
+    --color-primary-hover: #F5739A;
+    --color-primary-bg: rgba(228, 25, 97, 0.12);
+
+    --color-bg: #1A1D27;
+    --color-bg-secondary: #22252F;
+    --color-bg-tertiary: #2A2D38;
+    --color-surface: #22252F;
+    --color-border: #363944;
+    --color-border-light: #2E3140;
+
+    --color-text: #E5E7EB;
+    --color-text-secondary: #9CA3AF;
+    --color-text-tertiary: #6B7280;
+    --color-heading: #F3F4F6;
+
+    --color-sidebar-bg: #1E2028;
+    --color-sidebar-text: #9CA3AF;
+    --color-sidebar-hover-bg: transparent;
+    --color-sidebar-active-bg: transparent;
+    --color-sidebar-active-text: #D4DEED;
+    --color-sidebar-active-border: #7E90AB;
+    --color-sidebar-category: #E5E7EB;
+
+    --color-code-bg: #16181F;
+    --color-code-text: #E5E7EB;
+    --color-code-inline-bg: #2A2D38;
+    --color-code-inline-text: #F0507F;
+    --color-code-header-bg: #1E2028;
+
+    --color-callout-surface: #252832;
+    --color-callout-border: #3C414E;
+    --color-callout-icon-chip-bg: #303544;
+    --color-callout-title: #F0EDF6;
+
+    --color-callout-info-bg: #1F2E3A;
+    --color-callout-info-border: #3D5C74;
+    --color-callout-info-icon: #91BFDE;
+    --color-callout-info-chip-bg: #273C4C;
+    --color-callout-info-text: #C4DEF0;
+
+    --color-callout-warning-bg: #33281F;
+    --color-callout-warning-border: #6B4F33;
+    --color-callout-warning-icon: #E3BA80;
+    --color-callout-warning-chip-bg: #423223;
+    --color-callout-warning-text: #F0D4AA;
+
+    --color-callout-tip-bg: #1F3027;
+    --color-callout-tip-border: #3E664F;
+    --color-callout-tip-icon: #95D2AD;
+    --color-callout-tip-chip-bg: #294133;
+    --color-callout-tip-text: #C2E9D0;
+
+    --color-callout-danger-bg: #332323;
+    --color-callout-danger-border: #6F4444;
+    --color-callout-danger-icon: #E2A6A6;
+    --color-callout-danger-chip-bg: #422D2D;
+    --color-callout-danger-text: #F0C6C6;
+
+    --color-button-bg: #2A2E3A;
+    --color-button-text: #E6E9F0;
+    --color-button-border: #434A5E;
+    --color-button-hover-bg: #32384A;
+    --color-button-hover-border: #57617A;
+
+    --color-button-info-bg: #243646;
+    --color-button-info-text: #C4DEF0;
+    --color-button-info-border: #3D5F78;
+    --color-button-info-hover-bg: #2C4256;
+
+    --color-button-warning-bg: #3A2F23;
+    --color-button-warning-text: #F0D4AA;
+    --color-button-warning-border: #755839;
+    --color-button-warning-hover-bg: #463726;
+
+    --color-button-tip-bg: #24382D;
+    --color-button-tip-text: #C2E9D0;
+    --color-button-tip-border: #456F57;
+    --color-button-tip-hover-bg: #2B4536;
+
+    --color-button-danger-bg: #3A2727;
+    --color-button-danger-text: #F0C6C6;
+    --color-button-danger-border: #764848;
+    --color-button-danger-hover-bg: #463131;
+
+    --color-badge-bg: #2E3342;
+    --color-badge-text: #D5DBE7;
+    --color-badge-border: #454C61;
+    --color-badge-info-bg: #283D4D;
+    --color-badge-info-text: #C4DEF0;
+    --color-badge-warning-bg: #3A3025;
+    --color-badge-warning-text: #F0D4AA;
+    --color-badge-tip-bg: #283D31;
+    --color-badge-tip-text: #C2E9D0;
+    --color-badge-danger-bg: #3A2A2A;
+    --color-badge-danger-text: #F0C6C6;
+
+    --color-tooltip-bg: #E9ECF4;
+    --color-tooltip-text: #1A2030;
+    --color-tooltip-border: #C2CBDA;
+
+    --color-step-number-bg: rgba(228, 25, 97, 0.12);
+    --color-step-number-text: #F0507F;
+    --color-step-line: #4B5563;
+
+    --color-card-bg: #22252F;
+    --color-card-border: #363944;
+    --color-card-hover-border: #4B5563;
+    --color-card-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    --color-card-icon: #9CA3AF;
+    --color-card-active-border: #F0507F;
+    --color-card-active-shadow: 0 0 0 2px rgba(240, 80, 127, 0.2);
+
+    --color-search-backdrop: rgba(0, 0, 0, 0.6);
+    --color-search-bg: #22252F;
+    --color-search-result-hover: #2A2D38;
+    --color-search-highlight: rgba(228, 25, 97, 0.15);
+
+    --color-header-bg: #1E2028;
+    --color-header-border: #363944;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
+    --shadow-overlay: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+    --prism-comment: #6B7280;
+    --prism-keyword: #F0507F;
+    --prism-string: #34D399;
+    --prism-number: #FBBF24;
+    --prism-function: #60A5FA;
+    --prism-operator: #9CA3AF;
+    --prism-class: #A78BFA;
+    --prism-punctuation: #9CA3AF;
+    --prism-property: #22D3EE;
+    --prism-tag: #F87171;
+    --prism-attr-name: #FBBF24;
+    --prism-attr-value: #34D399;
+}
+
+/* ── Shared (theme-independent) ── */
+:root {
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+
+    /* Typography */
+    --font-heading: 'Poppins', system-ui, -apple-system, sans-serif;
+    --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'Mononoki', 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Cascadia Code', Consolas, monospace;
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+
+    --leading-tight: 1.25;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.75;
+
+    --weight-normal: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* Layout */
+    --sidebar-width: 260px;
+    --toc-width: 220px;
+    --content-max-width: 780px;
+    --header-height: 60px;
+
+    /* Borders */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 350ms ease;
+
+    /* Z-index scale */
+    --z-sidebar: 100;
+    --z-header: 200;
+    --z-toc-mobile: 150;
+    --z-overlay: 300;
+    --z-search: 400;
+}

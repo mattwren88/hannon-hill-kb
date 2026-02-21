@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Working with Server Side Includes - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/faqs/development/working-with-server-side-includes.html" rel="canonical"/>
+		<meta content="009818adc0a8002b3c151686ff5e383d" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/faqs/index.html">            FAQs    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/faqs/development/index.html">            Development    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Working with Server Side Includes</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<main class="col-sm-12 col-md-12" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big center width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Development</span>
+        </div>
+        <header>
+                            <h1>Working with Server Side Includes 
+                                        </h1>
+                    </header>
+      <a name="Working+with+Server+Side+Includes"></a>
+    
+                        
+                                                
+            <section aria-label="" class="anchor-heading" id="">
+                                    <p>It is possible to publish snippets of HTML which can be pulled in via Server Side Includes (SSI) at runtime on your live web server.&#160;This method of including content can be useful for components like navigation menus, footers, and/or any other areas of your site that are commonly used across your site.</p>
+<p>One drawback of a push CMS (like Cascade CMS) is that if the contents of a navigation menu change, for example, a full site publish is needed in order to ensure that all of the pages on your site get their navigation menu updated accordingly. By utilizing SSI for these areas of your site(s), you can publish a single asset and have all pages on your site load the most up-to-date navigation menu almost instantaneously.&#160;</p>
+<p>The steps below will walk you through a very basic setup that allows you to create/publish a snippet of HTML and then pull that into your pages on the live website through a SSI directive.</p>
+<h2>Set up a Page type for "include" files</h2>
+<ul>
+<li>Create a new <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/templates/index.html" rel="noopener" target="_blank" title="Templates">Template</a> with the following code:</li>
+</ul>
+<pre style="padding-left: 30px;"><code>&lt;!--#cascade-skip--&gt;</code><br/><code>&lt;pass-through&gt;</code><br/><code> &lt;system-region name="DEFAULT"/&gt;</code><br/><code>&lt;/pass-through&gt;<br/></code></pre>
+<ul>
+<li>Create a new <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/configurations/index.html" rel="noopener" target="_blank" title="Configurations">Configuration</a> with the following settings:<br/>
+<ul>
+<li>Check the <strong>Default Output</strong> box</li>
+<li>Set the <strong>Type of Data</strong> field to HTML</li>
+<li>Set the <strong>File Extension</strong> field to <code>.shtml</code></li>
+<li>In the <strong>Template</strong> field, select the Template that you created in the very first step</li>
+<li>Ensure that the <strong>Publishable</strong> check box is checked</li>
+</ul>
+</li>
+<li>Create a new <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/content-types/index.html" rel="noopener" target="_blank" title="Content Types">Content Type</a> with the following settings:<br/>
+<ul>
+<li>In the <strong>Configuration</strong> field, select the Configuration you created in the step above</li>
+<li>In the <strong>Metadata Set</strong> field, select a Metadata Set (the Default will typically be fine in this case)</li>
+<li>In the <strong><label class="cs-tooltip  tooltipstered" for="definitionType-1"> Type of Content</label></strong>&#160;field, select <strong>No Data Definition (WYSIWYG Only)</strong></li>
+</ul>
+</li>
+</ul>
+<p>At this point, we can create a Page asset using this Content Type and supply the HTML snippet we're looking to publish to the web server, and then reference the include file we've created using an SSI directive. To do this, follow the steps outlined in the next section below.</p>
+<h2>Create a new "include" Page</h2>
+<ul>
+<li>From the <strong>Add Content</strong> menu, click to create a new <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/xml-blocks.html" rel="noopener" target="_blank" title="XML Blocks">XML Block</a></li>
+<li>In the content field of the Block, enter the following code and Submit:</li>
+</ul>
+<pre style="padding-left: 30px;">&lt;!--#protect-top<br/>&lt;ul&gt;<br/> &lt;li&gt;Sample item 1&lt;/li&gt;<br/> &lt;li&gt;Sample item 2&lt;/li&gt;<br/> &lt;li&gt;Sample item 3&lt;/li&gt;<br/>&lt;/ul&gt;<br/>#protect-top--&gt;</pre>
+<ul>
+<li>Click the <strong>Add Content</strong> menu once again and click to create a new Default -&gt; Page</li>
+<li>When prompted to select a Content Type for the Page, select the Content Type that you created in the previous section</li>
+<li>Give the Page a name of <code>include-file</code> and then click the <strong>Configure</strong> tab</li>
+<li>Scroll down to the <strong>Regions</strong> section and in the <code>DEFAULT</code> region, click the Block chooser and select the XML Block that you created above</li>
+<li>Submit the Page</li>
+<li>Publish the Page to your web server and verify that you can reach it by using the <strong>More -&gt; Live</strong> option (you should see a mostly empty page with just our unordered list from earlier)</li>
+</ul>
+<p>At this point, we have a Page asset that just contains our short HTML snippet (an unordered list containing 3 list items) and we can now pull it into other pages using an SSI directive.</p>
+<h2>Add the SSI to your page(s)</h2>
+<ul>
+<li>From the <strong>Add Content</strong> menu, click to create a new <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/xml-blocks.html" rel="noopener" target="_blank" title="XML Blocks">XML Block</a></li>
+<li>In the content field of the Block, enter the following code and Submit:</li>
+</ul>
+<pre>[<!-- -->system-view:internal]<br/>Enter content here that will be displayed inside the CMS only<br/>[/<!-- -->system-view:internal]<br/><br/>[<!-- -->system-view:external]<br/>&lt;!--#include virtual="[<!-- -->system-asset]/full/path/to/include-file[/<!-- -->system-asset]" --&gt;<br/>[/<!-- -->system-view:external]</pre>
+<div class="alert alert-warning"><strong>Notes</strong>: <br/><br/>- In the code snippet above, we're utilizing <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/system-pseudo-tags.html" rel="noopener" target="_blank" title="System Pseudo Tags">system-view</a> tags in order to tell the CMS what should be displayed when previewing inside the CMS versus what should be displayed once published. This is necessary as SSIs will only work when viewing pages on the live website.<br/><br/>- In the "include" directive, we're surrounding the full path to our "include" file with <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/linking.html#System-assetpseudo-tags" rel="noopener" target="_blank" title="Linking">system-asset</a> tags to tell the system that we're linking to an asset that is managed in the system and that it should rewrite the link accordingly on publish.</div>
+<ul>
+<li>Create or edit an existing Page <br/>
+<ul>
+<li>While creating/editing, click the <strong>Configure</strong> tab</li>
+<li>Scroll down to the <strong>Regions</strong> section, then pick a region where you'd like to attach the HTML snippet we created earlier in this document</li>
+<li>Click the Block chooser in that region and select the XML Block we just created above (the one with the SSI directive in it)</li>
+</ul>
+</li>
+<li>Publish the Page and then view it on the live site by clicking <strong>More -&gt; Live</strong></li>
+</ul>
+<p>Assuming all goes as planned, your published page should display the unordered list that we are including via our SSI.</p>
+<div class="alert alert-success"><strong>Additional information</strong>: <br/><br/>The steps above are intended to show how SSIs can be used in conjunction with CMS assets. There are many different ways in which this could be implemented and this document only touches on the general strategy for how it can be done. <br/><br/>For example, you'd typically want to attach your SSI directive Block to either a Template region or Configuration region (so that all Pages using that Template/Configuration inherit the SSI directive). It's also very common to have more dynamic content being generated for the HTML snippet using Format logic as opposed to just static HTML in a Block.</div>
+<div class="alert alert-warning"><strong>Notes</strong>:<br/><br/>- The ability to use SSI is dependent on the target web server configuration. You'll want to verify that your web server administrator(s) have this option enabled before you attempt to utilize this strategy.<br/><br/>- The HTML includes end up publishing as standard HTML files on the web server. You may wish to exclude the folder/directory where those includes are stored from search engines/crawlers by adding the directory to your <em>robots.txt</em> file on the web server.</div>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=009818adc0a8002b3c151686ff5e383d&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

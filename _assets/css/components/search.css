@@ -1,0 +1,172 @@
+/* ==========================================================================
+   Search Overlay — Cascade CMS Knowledge Base
+   Cmd+K search modal with Lunr.js integration.
+   ========================================================================== */
+
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-search);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 15vh;
+}
+
+.search-overlay__backdrop {
+    position: absolute;
+    inset: 0;
+    background: var(--color-search-backdrop);
+}
+
+.search-overlay__dialog {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    max-height: 480px;
+    margin: 0 var(--space-md);
+    background: var(--color-search-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-overlay);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ── Search Header ── */
+.search-overlay__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.search-overlay__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--color-text-tertiary);
+}
+
+.search-overlay__input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: var(--text-base);
+    color: var(--color-text);
+}
+
+.search-overlay__input::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+.search-overlay__shortcut {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-tertiary);
+    flex-shrink: 0;
+}
+
+/* ── Search Results ── */
+.search-overlay__results {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-sm);
+}
+
+.search-overlay__empty {
+    padding: var(--space-2xl) var(--space-lg);
+    text-align: center;
+    color: var(--color-text-tertiary);
+    font-size: var(--text-sm);
+}
+
+.search-overlay__loading {
+    padding: var(--space-2xl) var(--space-lg);
+    text-align: center;
+    color: var(--color-text-tertiary);
+    font-size: var(--text-sm);
+}
+
+/* ── Individual Result ── */
+.search-result {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+    text-decoration: none;
+}
+
+.search-result:hover,
+.search-result--highlighted {
+    background: var(--color-search-result-hover);
+}
+
+.search-result__title {
+    display: block;
+    font-weight: var(--weight-medium);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    margin-bottom: 2px;
+}
+
+.search-result__category {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    margin-bottom: 2px;
+}
+
+.search-result__excerpt {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+}
+
+.search-result__excerpt mark {
+    background: var(--color-search-highlight);
+    color: var(--color-primary);
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
+/* ── Search Footer ── */
+.search-overlay__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-lg);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+}
+
+.search-overlay__footer kbd {
+    display: inline-block;
+    padding: 1px 5px;
+    margin: 0 2px;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+}
+
+@media (max-width: 767px) {
+    .search-overlay {
+        padding-top: var(--space-md);
+    }
+
+    .search-overlay__dialog {
+        max-height: calc(100vh - var(--space-xl));
+        border-radius: var(--radius-lg);
+    }
+}

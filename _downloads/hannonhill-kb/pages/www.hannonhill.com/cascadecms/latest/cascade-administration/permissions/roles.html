@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Roles - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/roles.html" rel="canonical"/>
+		<meta content="9665b4ed0a894fa51a1be9d9e62710ec" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">            Cascade Administration    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/index.html">            Permissions    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Roles</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                                            <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/roles.html">Roles</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Effective Roles" href="#EffectiveRoles">Effective Roles</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Adding a Role" href="#AddingaRole">Adding a Role</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Assigning System Roles" href="#AssigningSystemRoles">Assigning System Roles</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Assigning Site Roles" href="#AssigningSiteRoles">Assigning Site Roles</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                                            </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">Cascade Administration</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/users.html">Users</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/groups.html">Groups</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/roles.html">Roles</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/role-abilities-in-cascade.html">Role Abilities</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/access-rights.html">Access Rights</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Permissions</span>
+        </div>
+        <header>
+                            <h1>Roles 
+                                        </h1>
+                    </header>
+      <a name="Roles"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>A role is a set of a abilities that governs a user's access to a number of different areas in Cascade CMS. They can be assigned to a user directly, to any of the user's groups, or to a site to which the user requires access. Roles are not to be confused with <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/access-rights.html">Access Rights</a> which control read and write access to specific assets.</p>
+<p>There are two types of roles in the system: <strong>System Roles</strong>&#160;and <strong>Site Roles</strong>. These two role types have many abilities in common, but they apply within different contexts. System&#160;Roles are applicable in the Administration&#160;Area and cannot be assigned to sites. Site Roles, as you may have guessed, are applicable to sites. Site Roles, however, do not control access to tools and areas of the system that are not specific to a particular site. For example, access to the Sites menu is governed by a user's System&#160;Role because the Sites menu can be accessed from anywhere in the system and is not specific to any particular site.</p>
+<p>You can access the Roles&#160;menu&#160;by clicking the system menu button ( <i class="fa fa-bars">&#160;</i>) &gt; <strong>Administration</strong>&#160;&gt; <strong>Roles</strong>.&#160;The following information will be displayed for all roles:</p>
+<ul>
+<li><strong>Name</strong></li>
+<li><strong>Type</strong> - You can filter roles by their type (System or Site) using the filter button.</li>
+</ul>
+<p>Click on any role&#160;in the list to view its:</p>
+<ul>
+<li><strong>Abilities</strong> - A list of <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/role-abilities-in-cascade.html">role abilities</a> and whether they are enabled or disabled for this role.</li>
+<li><strong>Users</strong> - A list of users to which the&#160;role is assigned either directly or through one or more of their groups. For Site Roles, a list of sites in which the user is assigned the&#160;role either directly or through one of their groups will be provided.</li>
+<li><strong>Groups</strong> - A list of groups to which the&#160;role is assigned.&#160;For Site Roles, a list of sites in which the group&#160;is assigned&#160;the&#160;role will be&#160;provided.</li>
+<li><strong>Sites</strong>&#160;(for Site Roles) - A list of sites to which the role is assigned.</li>
+</ul>
+Additional options are available in&#160;the&#160;<strong>More</strong>&#160;menu while viewing a role:<br/>
+<ul>
+<li><strong>Relationships</strong> - A list of assets to which the role is linked. For System Roles, this will be users and groups to which the role is directly assigned. For Site Roles, this will be sites to which the role is assigned.</li>
+<li><strong><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/audits.html">Audits</a></strong> -&#160;A summary of activities performed in the system by all&#160;users who are assigned this role.</li>
+<li><strong><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/access-rights.html">Access</a></strong> - The read/write permissions for the role asset itself.</li>
+<li><strong>Delete</strong></li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Effective Roles" class="anchor-heading" id="EffectiveRoles">
+                                        <h2>Effective Roles     <a aria-label="Skip to Effective Roles" href="#EffectiveRoles"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>In order to figure out whether or not a user has access to an area in the system, Cascade CMS must first determine the user's effective role which includes all of that user's abilities across all of his or her roles in a particular context. The context being either a Site or a System area.</p>
+<p>A user's effective System&#160;Role is determined by taking all of the roles assigned to the user's groups and all of the roles assigned to the user directly and "summing" them. For example, if a user is assigned a&#160;contributor role and the user's group is assigned a&#160;manager role, then the user effectively has all of the abilities in the contributor role as well as all of the abilities in the manager role when in the System&#160;area.</p>
+<p>A user's effective Site Role is determined a little differently, because Site Roles are assigned to sites directly. The effective Site Role is also only applicable when in a particular Site. Nevertheless, the same principle of summing the abilities for all of a user's Site Roles still applies (including those roles that are assigned to the user's groups).</p>
+<p>Be aware that while in a site, System&#160;Roles will still apply for abilities not contained in Site Roles. As mentioned earlier, access to the publish queue is controlled by System&#160;Roles; therefore, a user's effective System&#160;Role still applies for this ability when inside a Site.</p>
+<p>To see what effective abilities a user has in a particular Site, click <strong>More</strong> &gt; <strong>Effective Abilities</strong> while viewing a user and select a site from the drop-down menu.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Adding a Role" class="anchor-heading" id="AddingaRole">
+                                        <h2>Adding a Role     <a aria-label="Skip to Adding a Role" href="#AddingaRole"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>To add a role to the system:</p>
+<ol>
+<li>Click the system menu button ( <i class="fa fa-bars">&#160;</i>) &gt; <strong>Administration</strong> &gt; <strong>Roles</strong> and click <strong>Add Role</strong>.</li>
+<li>Choose&#160;<strong>System</strong> or <strong>Site</strong> role.</li>
+<li>All role abilities for a new role are disabled by default. Enable the abilities you want users assigned this role to inherit by clicking the checkbox next to the applicable role. You can also select a role to use as a template for the new role from the <strong>Based on original role</strong>&#160;drop-down.</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Assigning System Roles" class="anchor-heading" id="AssigningSystemRoles">
+                                        <h2>Assigning System Roles     <a aria-label="Skip to Assigning System Roles" href="#AssigningSystemRoles"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>To assign a System Role to a User or Group:</p>
+<ol>
+<li>Click the system menu button ( <i class="fa fa-bars">&#160;</i>) &gt; <strong>Administration</strong> &gt; <strong>Users</strong> or <strong>Groups</strong>.</li>
+<li>Select the user or group and click <strong>Edit</strong>.</li>
+<li>In the <strong>Membership and Roles</strong> tab, click <strong>Choose Roles</strong> and select one or more System Roles to assign to the user or group.&#160;Any System Roles&#160;that have already been assigned to the user or group&#160;will be checked. Click <strong>Choose</strong>, and notice that the newly assigned roles are now displayed in the Membership and Roles tab.</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Assigning Site Roles" class="anchor-heading" id="AssigningSiteRoles">
+                                        <h2>Assigning Site Roles     <a aria-label="Skip to Assigning Site Roles" href="#AssigningSiteRoles"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>See article&#160;<a href="https://www.hannonhill.com/cascadecms/latest/faqs/general/give-user-or-group-access-to-site.html">"How do I give a User or Group access to a Site?"</a></p>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=9665b4ed0a894fa51a1be9d9e62710ec&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

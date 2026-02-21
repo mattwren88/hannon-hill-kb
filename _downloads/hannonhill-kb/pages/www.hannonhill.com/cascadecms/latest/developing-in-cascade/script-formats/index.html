@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Formats - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/index.html" rel="canonical"/>
+		<meta content="e54f61de0a894fa568b1ecd43288aa2b" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html">            Developing in Cascade    
+    </a></li>
+      
+        
+                            <li class="breadcrumb-item active">            Formats    
+    </li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                    <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/index.html">Formats</a>
+                        <ul class="navHighlighter">
+                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+                    </li>
+                                                                                                                                                                                                            </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html">Developing in Cascade</a></li>
+                                                                                                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-tools.html">Velocity Tools</a></li>
+                                                                <li><a href="https://github.com/hannonhill/Velocity-Cookbook"><i class="fas fa-external-link-alt"> </i> Cascade CMS Velocity Examples</a></li>
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-best-practices.html">Best practices for performance</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/date-tool-essentials.html">Date Tool Essentials</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/query-tool-directives.html">Query Tool Directives </a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						<div class="width" id="release-hero">
+  <h1>Formats</h1>
+  <p class="lead">Formats are used to transform XML or API data into XHTML, XML, text, or other meaningful markup.</p>
+</div>
+						<div class="card shadow-big width-full" id="expand">
+
+
+
+<section aria-label="Topics" id="topic-guide">
+    <div class="page-header">
+        <div id="topics">
+            <h2>Topics</h2>
+        </div>
+    </div>
+    <ul>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-tools.html">             Velocity Tools    
+    </a></li>
+                    
+                                    <li><a href="https://github.com/hannonhill/Velocity-Cookbook" target="_blank"><i class="fas fa-external-link-alt"> </i>             Cascade CMS Velocity Examples    
+    </a></li>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-best-practices.html">             Best practices for performance    
+    </a></li>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/date-tool-essentials.html">             Date Tool Essentials    
+    </a></li>
+                    
+                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/query-tool-directives.html">             Query Tool Directives     
+    </a></li>
+                
+    </ul>
+</section>
+            
+    <section aria-label="Overview" class="anchor-heading" id="Overview">
+
+                      <h2>Overview <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>Content in Cascade CMS is stored as XML such as structured data from Data Definitions or XML from Index Blocks. In order to style that data for display on the web, it must be transformed into useful markup, and we use Formats for this purpose.</p>
+<p>Formats can be applied alone or in conjunction with <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/index.html">Blocks</a> to Template regions in a page. Using Formats with Blocks also makes Blocks reusable as&#160;one Block's content can be styled in many different ways. Formats can also be assigned to the default region of a page. In this case, the Format styles the user-supplied structured data from the Data Definition in a way that is meaningful for that page.</p>
+<p>You can choose between two templating languages to create Formats in Cascade CMS:</p>
+<ul>
+<li><a href="https://velocity.apache.org/engine/1.7/user-guide.html" rel="noopener" target="_blank">Apache Velocity <i class="fas fa-external-link-alt">&#160;</i></a></li>
+<li><a href="https://www.w3.org/TR/1999/REC-xslt-19991116" rel="noopener" target="_blank">XSLT (eXtensible Stylesheet Language Transformations) <i class="fas fa-external-link-alt">&#160;</i></a></li>
+</ul>
+<p>Formats of either type can be used in separate regions on the same page, but syntax from the two can't be used within the same Format.</p>
+<p>As a language, Apache Velocity is procedural in nature. It takes several cues from Java, even employing several Java-based tools for string manipulation. String literals and variables in Velocity are derived directly from Java objects. The DateTool, for example, uses the same date formatting as in Java. Velocity users familiar with JavaScript and PHP may note some similarities in how code is written.</p>
+<p>As a declarative language, XSLT formats are capable of transforming entire pages at once, given their close ties to XML. Prior users of XSLT should find immediate familiarity in using XML data in Cascade CMS.</p>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Creating a Format" class="anchor-heading" id="CreatingaFormat">
+
+                      <h2>Creating a Format <a aria-label="Skip to Creating a Format" href="#CreatingaFormat"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>To create a Format:</p>
+<ol>
+<li>Click <strong>Add Content&#160;</strong>&gt;<strong> Default </strong>&gt;<strong> Format</strong>.</li>
+<li>Select&#160;<strong>Velocity</strong> or <strong>XSLT</strong>&#160;and click <strong>Choose</strong>.<strong><br/></strong></li>
+<li>Enter a name&#160;for your Format and select a <strong>Placement Folder</strong>.</li>
+<li>Enter your Format content&#160;in the <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/advanced-code-editor/index.html">code editor</a>.</li>
+<li>Click <strong>Preview Draft</strong> to preview the Format and then click<strong> Submit</strong> to save your Format.</li>
+</ol>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Testing a Format" class="anchor-heading" id="TestingaFormat">
+
+                      <h2>Testing a Format <a aria-label="Skip to Testing a Format" href="#TestingaFormat"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>You can test your Format on Block and/or page content before the Format is submitted by using&#160;the <strong>Test Format</strong>&#160;feature&#160;in the Format editing area. This saves time and prevents you&#160;from having to make numerous small edits to incrementally test Formats against assets to which the Formats will be assigned. It also reduces the number of versions being generated for the asset because only final, tested changes need to be saved.</p>
+<p><img alt="new ui in cascade 8" height="306" src="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/images/formats-ui.png" width="710"/></p>
+<p>To test a Format:</p>
+<ol>
+<li>Click <strong>Preview Options</strong>.</li>
+<li>Under&#160;<strong>Select an asset type</strong>, select one of the following options:
+<ol>
+<li><strong>Block &amp; Context Page</strong>&#160;- Select any Block in the system to be rendered in the preview area.&#160;For Blocks that can make use of a context page (for example Index Blocks with no folder selected), a page can be selected to be used as the context page for the Block so that a Format can be written as if it were being applied to a page region with an implicit Index Block assigned.</li>
+<li><strong>Context Page</strong> -&#160;Select any page in the system to be rendered in the preview area. WYSIWYG pages will have their WYSIWYG content rendered in the preview area, and Data Definition pages will have their structured data rendered in the preview area. That is unless the default region of the page being previewed has a Block assigned to it in which case the Block's content will be rendered. Note that any Format assigned to the page's default region will be ignored so that the Format currently being edited can be applied to the raw page content.</li>
+</ol>
+</li>
+<li>Click <strong>Test Format</strong>.</li>
+</ol>
+<p>The results rendered when the Format in the editor is applied to the chosen content will be displayed in the bottom&#160;pane.</p>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Including Formats" class="anchor-heading" id="IncludingFormats">
+
+                      <h2>Including Formats <a aria-label="Skip to Including Formats" href="#IncludingFormats"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>You can include one or more Velocity Formats in another Velocity Format using the <code>import</code> statement. Below is a simple example of a macro declared in one Format and called in another using an <code>import</code> statement.</p>
+<p><em>/_cascade/formats/include/print</em></p>
+<pre><code>#macro(printElementName $element)
+   $element.name
+#end</code></pre>
+<p><em>/_cascade/formats/display-elements</em></p>
+<pre><code>#import('/_cascade/formats/include/print')
+#set($elements = $_XPathTool.selectNodes($contentRoot, '//system-page'))
+
+#foreach($element in $elements)<br/>&#160;&#160;&#160;&lt;p&gt;#printElementName($element)&lt;/p&gt;
+#end</code></pre>
+<p>The <code>import</code> statement takes a single argument that is a path to another Format in the system. To import a Format from another site, prepend the path with <code>site://</code> and the site name. A variable can be supplied to the <code>import</code> statement as well.</p>
+<pre><code>#set($myPath = 'site://Site Name/_cascade/formats/include/print')
+#import($myPath)</code></pre>
+<p>Note that imported Formats can only be used below the line where the Format is included.</p>
+<pre><code>## Incorrect, this comes before the import statement and won't execute correctly.<br/>#printElementName($element)
+<br/>#import('/_cascade/formats/include/print')
+<br/>## Correct, this comes after the import statement.<br/>#printElementName($element)</code></pre>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Assigning Formats" class="anchor-heading" id="AssigningFormats">
+
+                      <h2>Assigning Formats <a aria-label="Skip to Assigning Formats" href="#AssigningFormats"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>Both Velocity and XSLT Formats can be assigned to individual regions at the page, Configuration, or Template level.</p>
+<p>The page level is the most specific level in the Block/Format assignment hierarchy. Changes to Block/Format assignments at the page level will only affect that page. In contrast, changing a Block/Format&#160;assignment on the Configuration level will affect any page using that Configuration.</p>
+<p>For example, if your sitemap uses a specific Index Block and Format, rather than setting up a new Configuration that will only be used for one page, you could also override the Block/Format assignment at the page level just for the sitemap page.</p>
+<div class="alert alert-warning"><strong>Note</strong> - Only XSLT Formats&#160;be applied to the entire page at the page, Configuration, or Template level. An XSLT Format assigned to a page will transform the complete assembled content of that page after all region-level Formats have been applied.</div>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+      
+    <section aria-label="Current Versions" class="anchor-heading" id="CurrentVersions">
+
+                      <h2>Current Versions <a aria-label="Skip to Current Versions" href="#CurrentVersions"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+          
+              <p>Velocity 1.7 is the current version used as of Cascade CMS 8.0. Versions of Cascade CMS&#160;earlier than 6.10 support Velocity 1.5.</p>
+<p>XSLT version 1.0 is supported in Cascade CMS 8.0 and previous releases.</p>
+            <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+    </section>
+          <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+
+    <section aria-label="Related Links" id="related-links">
+        <h2>Related Links</h2>
+        <ul>
+                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/_docs/velocity-cheatsheet.pdf" target="_blank"><i class="fas fa-external-link-alt"> </i>Velocity Cheatsheet</a></li>
+                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/_docs/advanced-velocity-cheatsheet.pdf" target="_blank"><i class="fas fa-external-link-alt"> </i>Advanced Velocity Cheatsheet</a></li>
+                    </ul>
+    </section>
+</div>
+
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=e54f61de0a894fa568b1ecd43288aa2b&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

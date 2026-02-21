@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Print Styles — Cascade CMS Knowledge Base
+   Single-column layout, no interactive elements.
+   ========================================================================== */
+
+@media print {
+    .header,
+    .sidebar,
+    .toc,
+    .toc-toggle,
+    .sidebar-overlay,
+    .search-overlay,
+    .theme-toggle,
+    .skip-link,
+    .content__pagination,
+    .code-block__copy,
+    .code-block__tabs,
+    .accordion__chevron {
+        display: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+
+    .docs-layout {
+        display: block;
+        margin-top: 0;
+    }
+
+    .main {
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .content {
+        max-width: 100%;
+    }
+
+    .content__body a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    .content__body a[href^="http"]::after {
+        content: ' (' attr(href) ')';
+        font-size: 0.8em;
+        color: #666;
+    }
+
+    .code-block {
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+
+    .code-block__header {
+        background: #f5f5f5;
+    }
+
+    .callout {
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+
+    details.accordion > summary {
+        list-style: none;
+    }
+
+    details.accordion > summary::-webkit-details-marker {
+        display: none;
+    }
+
+    details.accordion > *:not(summary) {
+        display: block !important;
+        max-height: none !important;
+    }
+
+    .accordion__panel,
+    .accordion__panel[hidden] {
+        max-height: none !important;
+        display: block !important;
+    }
+
+    h2, h3, h4 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+}

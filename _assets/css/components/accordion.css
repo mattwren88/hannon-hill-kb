@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Accordion — Cascade CMS Knowledge Base
+   Expandable/collapsible content sections.
+   ========================================================================== */
+
+.accordion {
+    --_duration: 0.2s;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin: var(--space-md) 0;
+    overflow: hidden;
+    background: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ── Trigger Button ── */
+.accordion__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    text-align: left;
+    font-size: var(--text-base);
+    font-weight: var(--weight-medium);
+    color: var(--color-heading);
+    background: var(--color-bg-secondary);
+    transition: background var(--transition-fast);
+    cursor: pointer;
+    list-style: none;
+    border: 0;
+}
+
+.accordion__trigger:hover {
+    background: var(--color-bg-tertiary);
+}
+
+.accordion__trigger::-webkit-details-marker {
+    display: none;
+}
+
+.accordion__title {
+    flex: 1;
+    min-width: 0;
+}
+
+.accordion__chevron {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--color-text-tertiary);
+    transition: transform var(--transition-normal);
+    margin-left: var(--space-md);
+}
+
+.accordion[open] .accordion__chevron,
+.accordion__trigger[aria-expanded="true"] .accordion__chevron {
+    transform: rotate(180deg);
+}
+
+/* ── Panel Content ── */
+.accordion__panel {
+    overflow: hidden;
+    border-top: 1px solid var(--color-border);
+}
+
+.accordion__content {
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+}
+
+.accordion__content p:last-child {
+    margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .accordion {
+        interpolate-size: allow-keywords;
+    }
+
+    .accordion::details-content {
+        opacity: 0;
+        block-size: 0;
+        overflow-y: clip;
+        transition:
+            content-visibility var(--_duration) allow-discrete,
+            opacity var(--_duration),
+            block-size var(--_duration);
+    }
+
+    .accordion[open]::details-content {
+        opacity: 1;
+        block-size: auto;
+    }
+}
+
+/* Fallback for browsers without details-content support */
+@supports not selector(details::details-content) {
+    .accordion .accordion__panel {
+        max-height: 0;
+        transition: max-height var(--transition-slow);
+    }
+
+    .accordion[open] .accordion__panel {
+        max-height: 2000px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .accordion__chevron {
+        transition: none;
+    }
+
+    .accordion::details-content,
+    .accordion .accordion__panel {
+        transition: none;
+    }
+}

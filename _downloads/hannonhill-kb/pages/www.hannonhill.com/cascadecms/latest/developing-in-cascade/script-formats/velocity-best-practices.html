@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Best practices for performance - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-best-practices.html" rel="canonical"/>
+		<meta content="9290e3bac0a8002b3249e88a9b8fb375" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html">            Developing in Cascade    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/index.html">            Formats    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Best practices for performance</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                                                                                                    <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-best-practices.html">Best practices for performance</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Working with choosers" href="#Workingwithchoosers">Working with choosers</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Importing Formats" href="#ImportingFormats">Importing Formats</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Using the Query API" href="#UsingtheQueryAPI">Using the Query API</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                                            </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html">Developing in Cascade</a></li>
+                                                                                                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-tools.html">Velocity Tools</a></li>
+                                                                <li><a href="https://github.com/hannonhill/Velocity-Cookbook"><i class="fas fa-external-link-alt"> </i> Cascade CMS Velocity Examples</a></li>
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-best-practices.html">Best practices for performance</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/date-tool-essentials.html">Date Tool Essentials</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/query-tool-directives.html">Query Tool Directives </a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Formats</span>
+        </div>
+        <header>
+                            <h1>Best practices for performance 
+                                        </h1>
+                    </header>
+      <a name="Best+practices+for+performance"></a>
+    
+                        
+                                                
+            <section aria-label="Working with choosers" class="anchor-heading" id="Workingwithchoosers">
+                                        <h2>Working with choosers     <a aria-label="Skip to Working with choosers" href="#Workingwithchoosers"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>When working with choosers, it is important to save repeated <code>.asset</code> calls to a variable and then access that variable's methods directly. Failure to do so will result in multiple round trips to the database when only a single round trip is necessary.</p>
+<p>Consider the following Velocity code which accesses an image file that has been selected in a chooser:&#160;</p>
+<pre><code>#set ($image = $currentPage.getStructuredDataNode("image"))<br/>## one database round trip<br/>#set ($imageLink = $image.asset.link)<br/>## another database round trip<br/>#set ($imageFileSize = $image.asset.fileSize) <br/>## another database round trip<br/>#set ($imageWidth = $image.asset.dimensions.width)<br/>## another database round trip<br/>#set ($imageHeight = $image.asset.dimensions.height) </code></pre>
+<p>As indicated by the comments, each line with <code>.asset</code> is having to fetch the image from the database (forcing a round trip from the app to the database and back).&#160;</p>
+<p>Rather than doing this, the code can be simplified by saving the chosen asset to a variable and then accessing methods of that variable:</p>
+<pre><code>## one database round trip<br/>#set ($selectedImage = $currentPage.getStructuredDataNode("image").asset) <br/>#set ($imageLink =$selectedImage.link) <br/>#set ($imageFileSize = $selectedImage.fileSize)<br/>#set ($imageWidth = $selectedImage.dimensions.width)<br/>#set ($imageHeight = $selectedImage.dimensions.height)</code></pre>
+                                    </section>
+                    
+                                                
+            <section aria-label="Importing Formats" class="anchor-heading" id="ImportingFormats">
+                                        <h2>Importing Formats     <a aria-label="Skip to Importing Formats" href="#ImportingFormats"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>&#160;<code>#import</code> directives in Formats require a round trip from the app to the database and back again. This is necessary in order for the app to retrieve the contents of the Format being imported at runtime. Due to this fact, it is important to limit the number of <code>#import</code> directives as much as possible in order to keep transformation times performant.&#160;</p>
+<p>Consider the following sample code snippet below which imports 3 Formats. Each of the imported Formats contains a single macro.</p>
+<pre><code>## one database round trip<br/>#import ("_cms/formats/shared/macros/stripTags")<br/>##&#160;another&#160;database&#160;round&#160;trip<br/>#import ("_cms/formats/shared/macros/escapeAll")<br/>##&#160;another&#160;database&#160;round&#160;trip<br/>#import ("_cms/formats/shared/macros/makeAccessible")</code></pre>
+<p>While this type of setup is clean and makes things very straightforward to manage (a single Format contains a single macro with a corresponding name), it requires 3 round trips to the database during the transformation of any Page on which the main Format is attached.</p>
+<p>In order to prevent repeated <code>#import</code> calls like this, macros should instead be combined into fewer Formats so that fewer <code>#import</code> directives are needed.</p>
+<p>Continuing the example from above, the macros from the 3 separate Formats indicated above can be combined into a single Format (we'll name it <code>utility</code> for the purposes of this sample). Then, rather than importing 3 separate Formats to get access to the 3 individual macros, a single line will do the trick:</p>
+<pre><code>## one database round trip<br/>#import ("_cms/formats/shared/macros/utility")</code></pre>
+<p>Now, rather than making multiple trips back and forth to the database (adding to overall render times), only one trip is required and the main Format automatically has access to all of the macros needed for the transformation.<code></code></p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Using the Query API" class="anchor-heading" id="UsingtheQueryAPI">
+                                        <h2>Using the Query API     <a aria-label="Skip to Using the Query API" href="#UsingtheQueryAPI"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h2>Accessing Structured Data and Dynamic Metadata</h2>
+<p>When working with the Query API, if you're accessing Structured Data or Dynamic Metadata fields for the queried assets, you should utilize the corresponding&#160;<code>$_.query().preloadStructuredData</code> and/or&#160;<code>$_.query().preloadDynamicMetadata</code> methods for a performance boost.&#160;</p>
+<h3>Preloading Structured Data</h3>
+<p>Consider the following code which loads 500 "events":</p>
+<pre><code>#set ($events = $_.query().byContentType("event").execute())<br/>#foreach ($event in $events)<br/> ## database round trip (x 500)<br/> #set($start = $event.getStructuredDataNode("startDateTime").textValue)<br/> #set($end = $event.getStructuredDataNode("endDateTime").textValue)<br/> #set($details = $event.getStructuredDataNode("details").textValue)<br/> #set($link = $event.getStructuredDataNode("additional").getChild("link").textValue)<br/>## additional logic here<br/>#end</code></pre>
+<p>In the <code>foreach</code> loop here, the application will be required to make a database round trip for each of the 500 results in order to gather each asset's Structured Data.&#160;</p>
+<p>By adding the "preload" method to the query as seen below:</p>
+<pre><code>#set ($events = $_.query().byContentType("event").preloadStructuredData().execute())</code></pre>
+<p>The initial query execution will take longer (since the application is gathering the related Structured Data for all 500 results upfront), but accessing this data in the <code>foreach</code> loop for each asset will be exponentially faster as the data is already in memory.&#160;</p>
+<h3>Preloading Dynamic Metadata</h3>
+<p>Similar to above, you can preload dynamic metadata as well. Consider the following code in a scenario where the query is returning 500 assets:</p>
+<pre><code>#set ($events = $_.query().byContentType("event").execute())<br/>#foreach ($event in $events)<br/>&#160;## database round trip (x 500)<br/> #set($showInNavMenu = $event.metadata.getDynamicField("display-in-nav").value)<br/> #set($alternateTitle = $event.metadata.getDynamicField("alternate title").value)<br/><span class="token velocity-comment comment">## additional logic here</span> <br/>#end</code></pre>
+<p>In order to increase performance, we can change the query line as follows which will preload the necessary dynamic metadata fields:</p>
+<pre><code>#set ($events = $_.query().byContentType("event").preloadDynamicMetadata().execute())</code></pre>
+<p>This will force the app to load all of the metadata fields upfront which prevents the repeated database round trips within the <code>foreach</code> loop.</p>
+<h2>Leveraging the #queryexecute directive</h2>
+<p>The <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/tools/query-api.html#queryexecute"><code>#queryexecute</code></a> directive is an alternative to the <code>.execute()</code> method of the <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-tools.html#QueryAPI">Query API</a>. The main benefits of using this directive are as follows:</p>
+<ul>
+<li>It bypasses the 2,000 asset limitation of the <code>.execute()</code> method (allowing for querying up to 100,000 assets).</li>
+<li>On each iteration, the previous asset in stored in memory is removed from memory to allow for the processing of the remaining assets without hampering performance.</li>
+</ul>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=9290e3bac0a8002b3249e88a9b8fb375&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

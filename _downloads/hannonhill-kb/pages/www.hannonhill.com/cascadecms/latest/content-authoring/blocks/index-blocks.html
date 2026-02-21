@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Index Blocks - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/index-blocks.html" rel="canonical"/>
+		<meta content="7fdd5dda0a894fa55de5f3188a8e7202" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">            Content Authoring    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/index.html">            Blocks    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Index Blocks</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                    <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/index-blocks.html">Index Blocks</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Creating an Index Block" href="#CreatinganIndexBlock">Creating an Index Block</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Indexed Asset Content" href="#IndexedAssetContent">Indexed Asset Content</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Examples of Index Block XML" href="#ExamplesofIndexBlockXML">Examples of Index Block XML</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                                                                                                    </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html">Content Authoring</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/index-blocks.html">Index Blocks</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/xhtml-blocks.html">XHTML/Data Definition Blocks</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/feed-blocks.html">Feed Blocks</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/xml-blocks.html">XML Blocks</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/text-blocks.html">Text Blocks</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Blocks</span>
+        </div>
+        <header>
+                            <h1>Index Blocks 
+                                        </h1>
+                    </header>
+      <a name="Index+Blocks"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>An index block is a special type of block that returns a listing of assets from the CMS directory structure in the form of XML data. Assets like pages, files, folders, external links, and even other blocks can be returned as XML content. An index block can even return the data content of multiple pages within a directory for use on other pages within the system.</p>
+<p>Index blocks may also be used to return a listing of all pages of a particular content type. For example, all news articles found in a particular site may be lumped into a "news articles" index block.</p>
+<p>In Cascade CMS, index blocks are typically used for creating dynamic navigation menus, site maps, indices, etc.</p>
+<p>Because index blocks can be configured to index an entire site or a specific folder, the way you configure index blocks in your system will vary depending on your needs and specifications. You can choose to create index blocks that are limited by either the number of assets in a given folder, or by the number/depth of folders to index. To ensure dynamic and consistent content across your site, any time content relevant to that index block in the system changes (a page is added, deleted, renamed, moved, etc.), the index block automatically updates, and all pages using the index block are also updated.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Creating an Index Block" class="anchor-heading" id="CreatinganIndexBlock">
+                                        <h2>Creating an Index Block     <a aria-label="Skip to Creating an Index Block" href="#CreatinganIndexBlock"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>To create an index block:</p>
+<ol>
+<li>Click&#160;<strong>Add Content</strong>&#160;&gt;&#160;<strong>Default</strong>&#160;&gt; <strong>Block</strong>.</li>
+<li>Select <strong>Index</strong> and click <strong>Choose</strong>.</li>
+<li>In the&#160;<strong>Name</strong>&#160;field, enter a&#160;name for your block.</li>
+<li>In the&#160;<strong>Placement Folder</strong>&#160;field, choose the folder where the block&#160;should be created.</li>
+<li>Under <strong>Index Block Settings</strong>, configure the following options:
+<ul>
+<li><strong>Folder Index</strong>&#160;- Choosing this option will generate&#160;block contents based on&#160;the contents of the specified folder.&#160;If you want the block to index nested folders, simply select the highest folder.
+<ul>
+<li><strong>Rendering Behavior</strong> - This field has a great deal of impact on the structure of the rendered XML. It is important to choose a type of rendering behavior that is best suited to the purpose of a particular index block.<br/>
+<ul>
+<li><strong>Render normally, starting at the indexed folder</strong> - This is the most common option and allows one to preview the rendered block XML in most cases when viewing the index block itself. This option renders data starting at the "Index Folder", and renders its children forward at a depth specified in the "Depth of Index" field. Subfolders will be included in the render, along with their children, to the extent to which the depth of index will allow.</li>
+<li><strong>Start at the current page and include its folder hierarchy</strong> - One may think of this as a backwards render. This rendering option depends on a current page context. That is, that this option requires that the index block be rendered in a region of a page (it is for this reason that you may not see XML in the "view" of an index block asset in Cascade CMS). The rendering will start at the current page, render it, and then proceed to render each parent folder until the base folder is rendered. These index blocks tend to be rather small, and are well-suited for breadcrumb navigation generation.</li>
+<li><strong>Start at the current page with folder hierarchy, and also include sibling</strong>s - This option is like the "Start at the current page and include its folder hierarchy" option, except that for each parent folder asset rendered, it will also render that folder's children as well. For example, when rendering with his option, the renderer will start at the current page and render all of the siblings of that page, including the page itself. It will then render the parent folder and all of its siblings, repeating until the base folder is rendered. Note that this option will not continue to render sibling folders as the parent folder hierarchy is traversed.</li>
+<li><strong>Start at the current page with folder hierarchy, siblings, and also render forward</strong> - This option expands on the "Start at the current page with folder hierarchy, and also include siblings" rendering option, but also includes rendering the siblings of the current page, exactly the same way that the normal rendering option would render the current page's parent folder. This option is in effect, a combination of the "Render normally, starting at the indexed folder" and the "Start at the current page with folder hierarchy, and also include siblings" options.</li>
+</ul>
+</li>
+<li><strong>Depth of Index</strong> - If you only want one folder indexed, type in 1. If there are nested (or child) folders that you wish to include, type in the number of levels you want. If you are indexing all levels, but aren't sure how many there are, it is ok to overshoot (i.e. 100).</li>
+</ul>
+</li>
+<li><strong>Content Type Index</strong>&#160;- Choosing this option will generate&#160;block contents based on pages that share the specified&#160;Content Type.</li>
+<li><strong>Max Rendered Assets</strong> - Determine how many assets you wish to be rendered. Limiting this number is useful when you want to return only the most recent pages, for example.</li>
+<li><strong>Indexed Asset Content</strong> - This allows you to determine what information is included in results. These results may be styled or filtered via&#160;an accompanying script format.
+<ul>
+<li><strong>Append Calling Page Data</strong> - Appends data from the page which includes this index block.</li>
+<li><strong>Regular Content</strong> - Includes content visible to users when editing.</li>
+<li><strong>System Metadata</strong> - Includes system information such as when the asset was created and last updated, and by whom.</li>
+<li><strong>User Metadata</strong> - Includes metadata the user can change.</li>
+<li><strong>Tags</strong> - Includes tags assigned to the asset.</li>
+<li><strong>Folder Access Rights</strong> - Includes permission information such as user and group names and their level of access.</li>
+<li><strong>User Information</strong> - Includes information about the current user.</li>
+<li><strong>Workflow Information</strong> - Includes the asset's workflow information, if applicable.</li>
+</ul>
+</li>
+<li><strong>Indexed Asset Types</strong> - This allows you to limit the types of assets. For most navigation features, only pages and links need to be indexed.</li>
+<li><strong>Page XML</strong> - This field controls how page XML is rendered inline during an index block render.&#160;Note that Regular Content must be indexed in order to render page XML.
+<ul>
+<li><strong>Do not render page XML inline</strong> - This option will not include any XHTML or Data Definition content for any page that is included in the index block render.</li>
+<li><strong>Render page XML inline</strong> - Default region content will be included for any page that is included in the index block render. For XHTML pages, it will be the XHTML/WYSIWYG content that one typically edits in the page. For pages with a Data Definition, it will be the rendered as&#160;XML. Note that for pages with a Data Definition, this XML will not have any XSLT applied to it.</li>
+<li><strong>Render page XML inline only for current page</strong> - This is exactly like the "Render page XML inline" option, but only the current page is rendered in this manner. All other pages that are included in the index block render will not have the default page content included for those pages in the resulting document.</li>
+</ul>
+</li>
+<li><strong>Block XML</strong> - This field controls how block XML is rendered inline during an index block render.&#160;Note that Regular Content must be indexed in order to render block&#160;XML.
+<ul>
+<li><strong>Do not render block XML inline</strong> - This is the default and does not render any block content inline.</li>
+<li><strong>Render XHTML/Data Definition block, XML block, and Text block XML inline</strong> - This option will render inline the contents of any block&#160;in the overall document.</li>
+</ul>
+</li>
+<li><strong>Sort Method</strong> - This determines the order in which assets are rendered. "Folder Order" refers to ordering content via&#160;the drag-and-drop folder view and can be useful in setting up custom&#160;navigation.</li>
+<li><strong>Sort Order</strong> - This determines whether the assets are sorted in ascending or descending order.</li>
+</ul>
+</li>
+<li>Click <strong>Preview Draft</strong>&#160;and&#160;<strong>Submit</strong>.</li>
+</ol>
+<div class="alert alert-warning"><strong>Note</strong> -&#160;In general, rendering inline page and block content&#160;will increase the size of the index block and will increase the amount of time needed to render the index block. Because this could slow down page load times in Cascade CMS, it's recommended that this option only be used if necessary.</div>
+                                    </section>
+                    
+                                                
+            <section aria-label="Indexed Asset Content" class="anchor-heading" id="IndexedAssetContent">
+                                        <h2>Indexed Asset Content     <a aria-label="Skip to Indexed Asset Content" href="#IndexedAssetContent"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4>Regular Content</h4>
+<table class="table table-striped"><caption>Regular Content</caption>
+<tbody>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;path&gt;</strong></th>
+<td valign="top">The path from the root of the site.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;site&gt;</strong></th>
+<td valign="top">The site-link notation of the asset (only available in a site).</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;link&gt;</strong></th>
+<td valign="top">The site-link notation of the asset (only available in a site).</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;display-name&gt;</strong></th>
+<td valign="top">The "Display Name" metadata field.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;file-size&gt;</strong></th>
+<td valign="top">The size (in bytes) of a file (only available for files).&#160;</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;height&gt;</strong></th>
+<td valign="top">The height (in pixels) of an image file (if present).&#160;</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;width&gt;</strong></th>
+<td valign="top">The width (in pixels) of an image file (if present).&#160;</td>
+</tr>
+</tbody>
+</table>
+<h4>System Metadata</h4>
+<p><em>Metadata populated by Cascade CMS automatically.</em></p>
+<table class="table table-striped"><caption>System Metadata</caption>
+<tbody>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;is-published&gt;</strong></th>
+<td valign="top">Returns "true" if the asset has <em>Include when publishing</em> checked or "false" if the asset does not have <em>Include when publishing</em> checked.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;created-by&gt;</strong></th>
+<td valign="top">The username of the user who created the asset.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;created-on&gt;</strong></th>
+<td valign="top">Timestamp of when the asset was created.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;last-modified-by&gt;</strong></th>
+<td valign="top">The username of the user who last modified the asset.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;last-modified&gt;</strong></th>
+<td valign="top">Timestamp of when the asset was last modified.</td>
+</tr>
+</tbody>
+</table>
+<h4>User Metadata</h4>
+<p><em>Any metadata populated by a user (except Display Name, which is rendered in Regular Content).</em></p>
+<table class="table table-striped"><caption>User Metadata</caption>
+<tbody>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;title&gt;</strong></th>
+<td valign="top">&#160;</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;summary&gt;</strong></th>
+<td valign="top">&#160;</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;author&gt;</strong></th>
+<td valign="top">&#160;</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;teaser&gt;</strong></th>
+<td valign="top">&#160;</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;keywords&gt;</strong></th>
+<td valign="top">&#160;</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;description&gt;</strong></th>
+<td valign="top">&#160;</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;start-date&gt;</strong></th>
+<td valign="top">UNIX timestamp of the start-date.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;end-date&gt;</strong></th>
+<td valign="top">UNIX timestamp of the end-date.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;dynamic-metadata&gt;</strong></th>
+<td valign="top">The element that holds &lt;name&gt; and &lt;value&gt; for dynamic metadata fields.&#160;</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;name&gt;</strong></th>
+<td valign="top">The name of the dynamic metadata field.&#160; Child element of &lt;dynamic-metadata&gt;.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;value&gt;</strong></th>
+<td valign="top">The value of the dynamic metadata field.&#160; There can be multiple &lt;value&gt; nodes for checkbox field types.</td>
+</tr>
+</tbody>
+</table>
+<h4>Folder Access Rights</h4>
+<p><em>Information about the access rights of the assets.</em></p>
+<table class="table table-striped"><caption>Folder Access Rights</caption>
+<tbody>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;access-rights&gt;</strong></th>
+<td valign="top">All the access rights information is contained in this element.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;user&gt;</strong></th>
+<td valign="top">Each user's permissions are in this element. If a user does not have <em>read</em> or <em>write</em> permissions to the asset, the &lt;user&gt; node is not rendered.&#160; &lt;user&gt; has &lt;name&gt; and &lt;permssion&gt; as children elements.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;name&gt;</strong></th>
+<td valign="top">Username</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;permission&gt;</strong></th>
+<td valign="top">The values <em>read</em> or <em>write</em>.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;group&gt;</strong></th>
+<td valign="top">Each group's permissions are in this element. If a group does not have <em>read</em> or <em>write</em> permissions to the asset, the &lt;user&gt; node is not rendered.&#160; &lt;group&gt; has &lt;name&gt; and &lt;permssion&gt; as children elements.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;name&gt;</strong></th>
+<td valign="top">The name of the group.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;permission&gt;</strong></th>
+<td valign="top">The values <em>read</em> or <em>write</em>.</td>
+</tr>
+</tbody>
+</table>
+<h4>User Information</h4>
+<p><em>Adds an element after rendering the assets (i.e. towards the bottom of the index block) with information about the user accessing the page inside Cascade CMS. This information can be helpful for generating pages for view inside of Cascade CMS&#160;specific to the user.</em></p>
+<table class="table table-striped"><caption>User Information</caption>
+<tbody>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;user-information&gt;</strong></th>
+<td valign="top">The element that contains all the user information nodes.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;username&gt;</strong></th>
+<td valign="top">The username of the user currently accessing the index block (i.e. <em>your</em> username when viewing the index block).</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;full-name&gt;</strong></th>
+<td valign="top">The current user's full name.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;groups&gt;</strong></th>
+<td valign="top">Contains &lt;group&gt; nodes for each group for the user.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;group&gt;</strong></th>
+<td valign="top">The group's name.</td>
+</tr>
+</tbody>
+</table>
+<h4>Workflow Information</h4>
+<p><em>Contains any workflow information about the asset.</em></p>
+<table class="table table-striped"><caption>Workflow Information</caption>
+<tbody>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;workflow&gt;</strong></th>
+<td valign="top">The element that contains all the workflow information.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;initialized&gt;</strong></th>
+<td valign="top">If the workflow has started: <em>true</em> or <em>false</em> are the values.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;name&gt;</strong></th>
+<td valign="top">The name of the workflow.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;owner&gt;</strong></th>
+<td valign="top">The username of the workflow's owner (i.e. the user who started the workflow).</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;related-entity-id&gt;</strong></th>
+<td valign="top">The unique Cascade CMS identifier of the asset in workflow.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;related-entity-type&gt;</strong></th>
+<td valign="top">The entity type of the asset in workflow: <em>page</em>, <em>block</em>, <em>file</em> or <em>symlink</em>.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;start-date&gt;</strong></th>
+<td valign="top">The date the workflow began (in the format: <em>MMM DD, YYYY hh:mm a</em>).</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;end-date&gt;</strong></th>
+<td valign="top">The date the workflow expires (in the format: <em>MMM DD, YYYY hh:mm a</em>).</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;status&gt;</strong></th>
+<td valign="top">The workflow's status: <em>In Progress</em> or <em>Completed</em>.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;current-step&gt;</strong></th>
+<td valign="top">If &lt;status&gt; is <em>In Progress</em>, information about the step the workflow is in currently.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;step&gt;</strong></th>
+<td valign="top">Element that contains all the information about the current step.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;identifier&gt;</strong></th>
+<td valign="top">The step's unique name.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;name&gt;</strong></th>
+<td valign="top">The name of the step.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;type&gt;</strong></th>
+<td valign="top">The type of step: <em>edit</em>, <em>transition</em>, or <em>system</em>.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;owner&gt;</strong></th>
+<td valign="top">The user or group the step is assigned.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;owner-type&gt;</strong></th>
+<td valign="top">Either <em>user</em> or <em>group</em>.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;started-one&gt;</strong></th>
+<td valign="top">The date the step was started (in the format: <em>MMM DD, YYYY hh:mm a</em>).</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;actions&gt;</strong></th>
+<td valign="top">Element that contains &lt;action&gt; elements with the information about each action this step contains.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;action&gt;</strong></th>
+<td valign="top">Element that contains information about the action.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;identifier&gt;</strong></th>
+<td valign="top">The action's unique identifier.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;name&gt;</strong></th>
+<td valign="top">The name of the action.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;action-type&gt;</strong></th>
+<td valign="top">The type of action: <em>forward</em>, <em>reverse</em>, or <em>explicit</em>.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;entity-information&gt;</strong></th>
+<td valign="top">Contains additional information about the entity attached to this workflow.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;id&gt;</strong></th>
+<td valign="top">The entity's unique Cascade CMS identifier.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;cache-path&gt;</strong></th>
+<td valign="top">The path of the entity from the root of the site.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;name&gt;</strong></th>
+<td valign="top">The name of the entity.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;type&gt;</strong></th>
+<td valign="top">The entity type: <em>page</em>, <em>file</em>, <em>block</em> or <em>symlink</em>.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;lock-information&gt;</strong></th>
+<td valign="top">Contains information who has the entity locked with the element &lt;lock-owner&gt;.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;lock-owner&gt;</strong></th>
+<td valign="top">The name of the user who has locked the entity.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;steps&gt;</strong></th>
+<td valign="top">Contains &lt;step&gt; elements for each ordered step in the Workflow Definition.&#160; (See &lt;step&gt; above).</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;unordered-steps&gt;</strong></th>
+<td valign="top">Contains &lt;step&gt; elements for each unordered step in the Workflow Definition (See &lt;step&gt; above).</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;histories&gt;</strong></th>
+<td valign="top">Contains &lt;history&gt; elements for each change in the workflow.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;history&gt;</strong></th>
+<td valign="top">Element that represents an update to the workflow.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;who&gt;</strong></th>
+<td valign="top">Username of who updated the workflow.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;timestamp&gt;</strong></th>
+<td valign="top">The date the update occurred (in the format: <em>MMM DD, YYYY hh:mm a</em>).</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;action-name&gt;</strong></th>
+<td valign="top">The name of the action used to update the workflow.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;comments&gt;</strong></th>
+<td valign="top">Any user comments entered after the action was taken.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;source-step-name&gt;</strong></th>
+<td valign="top">The name of the step where this update occurred.</td>
+</tr>
+<tr>
+<th scope="row" style="text-align: left;" valign="top"><strong>&lt;dest-step-name&gt;</strong></th>
+<td valign="top">The name of the step where the update takes the workflow.</td>
+</tr>
+</tbody>
+</table>
+<h4>Append Calling Page Data</h4>
+<p><em>Adds all information about the current page using this index block.</em></p>
+<p><strong>&lt;calling-page&gt;</strong> - Contains all information about the current page in a &lt;system-page&gt; element.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Examples of Index Block XML" class="anchor-heading" id="ExamplesofIndexBlockXML">
+                                        <h2>Examples of Index Block XML     <a aria-label="Skip to Examples of Index Block XML" href="#ExamplesofIndexBlockXML"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The examples below show a portion of an index block for each of the four types of indexed assets: folder, page, file, and external link.<br/><br/>All index blocks begin with the following XML document element:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-index-block name="index-block" type="folder" current-time="1245954924080"&gt;
+</code></pre>
+                                    <p>In this example, <code>index-block</code> is the system name of the block asset, and the index block is a folder index block. The&#160;<code>current-time</code>&#160;attribute is the Cascade CMS server's local time at which the index block was rendered represented as a Unix timestamp in milliseconds.<br/><br/>A Content Type index block would start with the following:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-index-block name="index-block" type="content_type" current-time="1245954924080"&gt;
+</code></pre>
+                                    <p>Note that Content Type index blocks do not display folder structure using&#160;<code>&lt;system-folder&gt;</code> elements. They inherently only contain&#160;<code>&lt;system-page&gt;</code>&#160;elements, because Content Types can only be assigned to pages.<br/><br/>The following sections demonstrate&#160;index block XML for a page without a Data Definition, a page with a Data Definition, a folder containing a single page, a file, and an external link, an index or feed block, and an XHTML, XML, or text block.</p>
+<h4>Page without a Data Definition</h4>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-page id="ef81d1c90a00016b00659a66bcacb166"&gt;  
+      &lt;name&gt;page&lt;/name&gt;  
+      &lt;is-published&gt;true&lt;/is-published&gt;  
+      &lt;title&gt;Lorem Ipsum Dolor Sit Amet&lt;/title&gt;  
+      &lt;summary&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/summary&gt;  
+      &lt;author&gt;Author Name&lt;/author&gt;  
+      &lt;teaser&gt;Teaser&lt;/teaser&gt;  
+      &lt;keywords&gt;Comma, Separated, Keywords&lt;/keywords&gt;  
+      &lt;description&gt;Description&lt;/description&gt;  
+      &lt;display-name&gt;Lorem Ipsum&lt;/display-name&gt;  
+      &lt;path&gt;/index-block-example/page&lt;/path&gt;  
+      &lt;created-by&gt;admin&lt;/created-by&gt;  
+      &lt;created-on&gt;1245263810949&lt;/created-on&gt;  
+      &lt;last-modified-by&gt;admin&lt;/last-modified-by&gt;  
+      &lt;last-modified&gt;1245954849582&lt;/last-modified&gt;  
+      &lt;page-xhtml&gt;  
+         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;  
+         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;  
+         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;  
+      &lt;/page-xhtml&gt;  
+   &lt;/system-page&gt;
+</code></pre>
+                                    <h4>Page with a Data Definition</h4>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-page id="ef8c30b10a00016b00659a66495b1501"&gt;  
+      &lt;name&gt;structured-data-page&lt;/name&gt;  
+      &lt;is-published&gt;true&lt;/is-published&gt;  
+      &lt;title&gt;Online Marketing Intern&lt;/title&gt;  
+      &lt;author&gt;Author Name&lt;/author&gt;  
+      &lt;teaser&gt;Teaser&lt;/teaser&gt;  
+      &lt;keywords&gt;Comma, Separated, Keywords&lt;/keywords&gt;  
+      &lt;description&gt;Description&lt;/description&gt;  
+      &lt;display-name&gt;Marketing Intern&lt;/display-name&gt;  
+      &lt;path&gt;/index-block-example/structured-data-page&lt;/path&gt;  
+      &lt;created-by&gt;admin&lt;/created-by&gt;  
+      &lt;created-on&gt;1245264490577&lt;/created-on&gt;  
+      &lt;last-modified-by&gt;admin&lt;/last-modified-by&gt;  
+      &lt;last-modified&gt;1245954890668&lt;/last-modified&gt;  
+      &lt;system-data-structure definition-path="Job Posting"&gt;  
+         &lt;opening&gt;  
+            &lt;job-title&gt;Lorem ipsum&lt;/job-title&gt;  
+            &lt;summary&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/summary&gt;  
+         &lt;/opening&gt;  
+         &lt;responsibilities&gt;  
+            &lt;bullet-point&gt;Help manage our search engine optimization (SEO) &amp;amp; pay-per-click (PPC) campaigns&lt;/bullet-point&gt;  
+            &lt;bullet-point&gt;Help plan annual conference event and customer communications&lt;/bullet-point&gt;  
+            &lt;bullet-point&gt;Write marketing copy&lt;/bullet-point&gt;  
+         &lt;/responsibilities&gt;  
+         &lt;requirements&gt;  
+            &lt;bullet-point&gt;Strong interpersonal skills&lt;/bullet-point&gt;  
+            &lt;bullet-point&gt;Located in the Atlanta metropolitan area&lt;/bullet-point&gt;  
+         &lt;/requirements&gt;  
+         &lt;closing&gt;  
+            &lt;notes&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/notes&gt;  
+            &lt;contact-email&gt;careers@example.com&lt;/contact-email&gt;  
+         &lt;/closing&gt;  
+      &lt;/system-data-structure&gt;  
+   &lt;/system-page&gt;
+</code></pre>
+                                    <h4>Folder</h4>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-folder id="ef85ff080a00016b00659a6696c43ceb"&gt;  
+      &lt;name&gt;folder&lt;/name&gt;  
+      &lt;is-published&gt;true&lt;/is-published&gt;  
+      &lt;title&gt;CHANGE ME&lt;/title&gt;  
+      &lt;summary&gt;CHANGE ME&lt;/summary&gt;  
+      &lt;display-name&gt;CHANGE ME&lt;/display-name&gt;  
+      &lt;path&gt;/index-block-example/folder&lt;/path&gt;  
+      &lt;created-by&gt;admin&lt;/created-by&gt;  
+      &lt;created-on&gt;1245264084723&lt;/created-on&gt;  
+      &lt;last-modified-by&gt;admin&lt;/last-modified-by&gt;  
+      &lt;last-modified&gt;1245264084723&lt;/last-modified&gt;  
+      &lt;system-page id="18a659150a00016b01958816fa2e34a7"&gt;  
+         &lt;name&gt;page&lt;/name&gt;  
+         &lt;is-published&gt;true&lt;/is-published&gt;  
+         &lt;title&gt;CHANGE ME&lt;/title&gt;  
+         &lt;summary&gt;CHANGE ME&lt;/summary&gt;  
+         &lt;author&gt;Author Name&lt;/author&gt;  
+         &lt;teaser&gt;Teaser&lt;/teaser&gt;  
+         &lt;keywords&gt;Comma, Separated, Keywords&lt;/keywords&gt;  
+         &lt;description&gt;Description&lt;/description&gt;  
+         &lt;display-name&gt;CHANGE ME&lt;/display-name&gt;  
+         &lt;path&gt;/index-block-example/folder/page&lt;/path&gt;  
+         &lt;created-by&gt;admin&lt;/created-by&gt;  
+         &lt;created-on&gt;1245954070774&lt;/created-on&gt;  
+         &lt;last-modified-by&gt;admin&lt;/last-modified-by&gt;  
+         &lt;last-modified&gt;1245954070774&lt;/last-modified&gt;  
+         &lt;page-xhtml&gt;  
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;  
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;  
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;  
+         &lt;/page-xhtml&gt;  
+      &lt;/system-page&gt;  
+   &lt;/system-folder&gt;
+</code></pre>
+                                    <h4>File</h4>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-file id="ef8505950a00016b00659a666df25e7d"&gt;  
+      &lt;name&gt;file.txt&lt;/name&gt;  
+      &lt;is-published&gt;true&lt;/is-published&gt;  
+      &lt;path&gt;/index-block-example/file.txt&lt;/path&gt;  
+      &lt;created-by&gt;admin&lt;/created-by&gt;  
+      &lt;created-on&gt;1245264020863&lt;/created-on&gt;  
+      &lt;last-modified-by&gt;admin&lt;/last-modified-by&gt;  
+      &lt;last-modified&gt;1245954823105&lt;/last-modified&gt;  
+      &lt;file-size&gt;13&lt;/file-size&gt;  
+   &lt;/system-file&gt;
+</code></pre>
+                                    <h4>External Link</h4>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-symlink id="ef85a0af0a00016b00659a66a30910aa"&gt;  
+      &lt;name&gt;external-link&lt;/name&gt;  
+      &lt;display-name&gt;An External Link&lt;/display-name&gt;  
+      &lt;path&gt;/index-block-example/external-link&lt;/path&gt;  
+      &lt;created-by&gt;admin&lt;/created-by&gt;  
+      &lt;created-on&gt;1245264060581&lt;/created-on&gt;  
+      &lt;last-modified-by&gt;admin&lt;/last-modified-by&gt;  
+      &lt;last-modified&gt;1245954788677&lt;/last-modified&gt;  
+      &lt;link&gt;http://www.hannonhill.com/&lt;/link&gt;  
+&lt;/system-symlink&gt;
+</code></pre>
+                                    <h4>Index or Feed Block</h4>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-block id="18a828040a00016b01958816156e0c63"&gt;  
+      &lt;name&gt;index-or-feed-block&lt;/name&gt;  
+      &lt;path&gt;/index-block-example/index-or-feed-block&lt;/path&gt;  
+      &lt;created-by&gt;admin&lt;/created-by&gt;  
+      &lt;created-on&gt;1245954189294&lt;/created-on&gt;  
+      &lt;last-modified-by&gt;admin&lt;/last-modified-by&gt;  
+      &lt;last-modified&gt;1245954273235&lt;/last-modified&gt;  
+   &lt;/system-block&gt;
+</code></pre>
+                                    <h4>XHTML, XML, or Text Block</h4>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-block id="ef826bc40a00016b00659a66c30019d5"&gt;  
+   &lt;name&gt;xhtml-block&lt;/name&gt;  
+   &lt;title&gt;CHANGE ME&lt;/title&gt;  
+   &lt;summary&gt;CHANGE ME&lt;/summary&gt;  
+   &lt;display-name&gt;CHANGE ME&lt;/display-name&gt;  
+   &lt;path&gt;/index-block-example/xhtml-block&lt;/path&gt;  
+   &lt;created-by&gt;admin&lt;/created-by&gt;  
+   &lt;created-on&gt;1245263850415&lt;/created-on&gt;  
+   &lt;last-modified-by&gt;admin&lt;/last-modified-by&gt;  
+   &lt;last-modified&gt;1245263862596&lt;/last-modified&gt;  
+   &lt;!-- XHTML --&gt;  
+   &lt;block-xhtml&gt;  
+      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;  
+      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;  
+      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;  
+   &lt;/block-xhtml&gt;  
+   &lt;!-- XML --&gt;  
+   &lt;block-xhtml&gt;  
+      &lt;xml&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/xml&gt;  
+   &lt;/block-xhtml&gt;  
+   &lt;!-- Text --&gt;  
+   &lt;block-xhtml&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/block-xhtml&gt;  
+&lt;/system-block&gt;
+</code></pre>
+                                        </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=7fdd5dda0a894fa55de5f3188a8e7202&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

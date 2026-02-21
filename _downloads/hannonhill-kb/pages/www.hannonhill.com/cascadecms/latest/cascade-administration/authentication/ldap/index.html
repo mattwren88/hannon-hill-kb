@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>LDAP/Active Directory Authentication - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/ldap/index.html" rel="canonical"/>
+		<meta content="92caa4e3ac1e00a70b21690a27f59e20" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">            Cascade Administration    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/index.html">            Authentication    
+    </a></li>
+      
+        
+                            <li class="breadcrumb-item active">            LDAP/Active Directory    
+    </li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                        <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/ldap/index.html">LDAP/Active Directory Authentication</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Options" href="#Options">Options</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Policies" href="#Policies">Policies</a> </li>
+                                                                                                                                <li><a aria-label="Skip to XML" href="#XML">XML</a> </li>
+                                                                                    </ul>
+                    </li>
+                                    </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/index.html">Authentication</a></li>
+                                                                                        </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">LDAP/Active Directory</span>
+        </div>
+        <header>
+                            <h1>LDAP/Active Directory Authentication 
+                                        </h1>
+                    </header>
+      <a name="LDAP%2FActive+Directory+Authentication"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Your environment's LDAP Configuration interface can be found under <strong>Administration</strong> &gt; <strong>Security and Authentication</strong> &gt; <strong>LDAP Configuration</strong>. The LDAP Configuration interface consists of three main areas (tabs):</p>
+<ul>
+<li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/ldap/index.html#Options"><strong>Options</strong></a> - general information regarding how Cascade CMS should connect to your existing LDAP/AD server.</li>
+<li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/ldap/index.html#Policies"><strong>Policies</strong></a> - an interface for building one or more user Policies. Policies specify which users you wish to sync/import into Cascade CMS and determine which Groups and Roles those users should inherit upon syncing.</li>
+<li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/ldap/index.html#XML"><strong>XML</strong></a> - an XML representation of your LDAP Configuration.</li>
+</ul>
+<div class="alert alert-warning"><strong>Note:</strong> You must have at least one Policy set up in order to use the LDAP functionality within Cascade CMS.</div>
+                                    </section>
+                    
+                                                
+            <section aria-label="Options" class="anchor-heading" id="Options">
+                                        <h2>Options     <a aria-label="Skip to Options" href="#Options"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>This screen contains general information regarding how Cascade CMS should connect to your existing LDAP/AD server. The fields located in this interface are self-documenting and for the most part self-explanatory; however, there are a couple of options here that are important to consider.</p>
+<h4>Orphaned LDAP Users</h4>
+<p>The <strong>Orphaned LDAP Users</strong> option determines the action that Cascade CMS should take when an existing LDAP User in the system is no longer synchronized/imported with any of the existing Policies. The three possible actions are:</p>
+<ul>
+<li><strong>Ignore</strong> - does nothing, no action will be taken for the User account.<strong><br/></strong></li>
+<li><strong>Deactivate</strong> - disables the User account. Disabled accounts can be manually re-enabled by an Administrator.</li>
+</ul>
+<div class="alert alert-warning">Note: The Delete option has been deprecated to prevent accidentally mass deleting users during an erroneous LDAP sync and will be removed in a future release of Cascade CMS. Until the behavior is removed as a valid option, configurations with Delete/Remove will fall back to Deactivate.</div>
+<p>Consider the following scenario:</p>
+<ul>
+<li>As part of an LDAP sync, a User named "user1" is imported into Cascade CMS and configured to authenticate against your LDAP/AD server any time they log into the system.</li>
+<li>Some time later, "user1" has their DN modified in the LDAP/AD server such that they no longer match any of the Policies that have been set up to sync.</li>
+<li>Upon the next LDAP sync (manual or scheduled), the system marks this User as orphaned because they are an LDAP User in the system but are no longer being synced with any of the current Policies.</li>
+<li>When this occurs, the User account in Cascade CMS will either be ignored or deactivated depending on the option selected for <strong>Orphaned LDAP Users</strong>.</li>
+</ul>
+<h4>Scheduling and Reporting</h4>
+<p>In addition to manually syncing with LDAP, the system can be configured to sync on a schedule. We typically recommend that this option be set to <strong>Repeat Every 1 days</strong>. If you need to sync more often than this, we don&#8217;t recommend doing so more frequently than once per hour since syncing large numbers of Users can be resource intensive.</p>
+<p>When running scheduled syncs, we also recommend using the <strong>Generate Report</strong> option to email a report to one or more system Administrators. This way, Administrators can be alerted to any potential syncing issues and see which users were added/removed during each sync.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Policies" class="anchor-heading" id="Policies">
+                                        <h2>Policies     <a aria-label="Skip to Policies" href="#Policies"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p><span style="font-weight: 400;">In order to sync/import users from an LDAP/AD server, a minimum of one Policy must be configured in this interface, but you can add as many additional Policies as needed to manage your Users, Groups, and Roles.<br/></span></p>
+<p><span style="font-weight: 400;">A Policy allows you to target specific subsets of users in your LDAP/AD server and import them into the system. This can be done either by pointing the configuration to one or more Container Identifiers (for type: </span><b>User</b><span style="font-weight: 400;">) or by specifying a Security Group Id (for type: </span><b>Active Directory Security Group</b><span style="font-weight: 400;">).</span></p>
+<h4><span style="font-weight: 400;">User Policy&#160;</span></h4>
+<p><span style="font-weight: 400;">When creating a Policy of type </span><b>User</b><span style="font-weight: 400;">, Cascade CMS will attempt to iterate over the first level of users residing in the Container Identifiers that you&#8217;ve specified. It will </span><i><span style="font-weight: 400;">not</span></i><span style="font-weight: 400;"> traverse sub-containers within a specified Container Identifier.</span></p>
+<p><span style="font-weight: 400;">The </span><b>Filter</b><span style="font-weight: 400;"> section allows you to filter on particular users within containers by specifying one or more</span><b> Object Attribute Filter(s) </b><span style="font-weight: 400;">(name/value pairs)</span> <span style="font-weight: 400;">or by using a </span><b>Freeform Filter</b><span style="font-weight: 400;">. The Freeform Filter field can be used to provide a filter using standard LDAP query syntax.</span></p>
+<h4><span style="font-weight: 400;">Active Directory Security Group Policy</span></h4>
+<p><span style="font-weight: 400;">Using a Policy of type </span><b>Active Directory Security Group</b><span style="font-weight: 400;"> allows you to point to the DN of a Security Group in your existing AD server. In addition to specifying the </span><b>Security Group Id</b><span style="font-weight: 400;">, you&#8217;ll also need to provide a </span><b>Group Member Attribute Id</b><span style="font-weight: 400;">. For this field, you&#8217;ll typically use a value of </span><code><span style="font-weight: 400;">member</span></code><span style="font-weight: 400;"> as that is the attribute which specifies that a user is a member of the Security Group.<br/></span></p>
+<h4><span style="font-weight: 400;">Authentication Mode</span></h4>
+<p><span style="font-weight: 400;">The </span><b>Authentication Mode</b><span style="font-weight: 400;"> option specifies how the users synced/imported via your Policy will authenticate when logging into Cascade CMS. These options are:</span></p>
+<ul>
+<li><strong>Normal</strong> - Use this option if you wish to import Users into Cascade CMS but not have them authenticate against your LDAP server. If selected, this option requires that you manually specify a password for each User that you&#8217;ve synced/imported into the system by editing each User account. Passwords for Normal Users are stored in the Cascade CMS database and are encrypted as well as salted and hashed.</li>
+<li><strong>LDAP</strong> - This option should be selected if you want your users to authenticate directly against your LDAP/AD server each time they log in to Cascade CMS. In this scenario, no password information for those users will be stored in the Cascade CMS database.</li>
+<li><strong>Custom</strong> - The Custom option is used to tell the application that the Users being synced/imported via your Policies will authenticate via your Single Sign-On (SSO) solution.</li>
+</ul>
+<div class="alert alert-warning"><strong>Note:</strong> In order for Users to authenticate via your SSO solution, you must have your Cascade CMS environment properly configured to direct users to your organization&#8217;s SSO login page. See <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/index.html#CustomAuthentication">Custom Authentication</a> for more information on integrating Cascade CMS with Single Sign-On solutions.</div>
+<div class="alert alert-success"><span style="font-weight: 400;"><strong>Tip:</strong> It's possible to configure a Policy to specify one authentication method while another Policy specifies a different authentication method. Example: Policy A can configure Users synced via Policy A to use Normal authentication while Policy B can configure Users in Policy B to authenticate via LDAP.</span></div>
+                                    </section>
+                    
+                                                
+            <section aria-label="XML" class="anchor-heading" id="XML">
+                                        <h2>XML     <a aria-label="Skip to XML" href="#XML"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        The <strong>XML</strong> tab provides an XML representation of your LDAP Configuration, which is a combination of the information entered in both the Options and Policies areas. This can be useful if you&#8217;re copying a configuration from one environment to another (from development to production, for example) or if to maintain a backup of a working configuration.
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=92caa4e3ac1e00a70b21690a27f59e20&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

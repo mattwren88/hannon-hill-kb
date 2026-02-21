@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Content Inventory Report - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/content-inventory-report.html" rel="canonical"/>
+		<meta content="c755535ec0a8002b63898591aad870cf" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-management/index.html">            Content Management    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/index.html">            Reports    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Content Inventory Report</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/content-inventory-report.html">Content Inventory Report</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Filtering the Report" href="#FilteringtheReport">Filtering the Report</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Assign Content Ownership" href="#AssignContentOwnership">Assign Content Ownership</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Identify Stale Content" href="#IdentifyStaleContent">Identify Stale Content</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Send a Stale Content Notification" href="#SendaStaleContentNotification">Send a Stale Content Notification</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Schedule a Review Date" href="#ScheduleaReviewDate">Schedule a Review Date</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Identify Unused Assets" href="#IdentifyUnusedAssets">Identify Unused Assets</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Create a Manual Relationship to an Asset" href="#CreateaManualRelationshiptoanAsset">Create a Manual Relationship to an Asset</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Unpublish Assets" href="#UnpublishAssets">Unpublish Assets</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Delete Assets" href="#DeleteAssets">Delete Assets</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Export Results as a CSV File" href="#ExportResultsasaCSVFile">Export Results as a CSV File</a> </li>
+                                                                                    </ul>
+                    </li>
+                                    </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/content-management/index.html">Content Management</a></li>
+                                                                                                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/active-users-report.html">Active Users Report</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/user-activity-report.html">User Activity Report</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/broken-links-report.html">Broken Link Report</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/stale-content-report.html">Stale Content Report</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/content-up-for-review-report.html">Content Reviews Report</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/content-ownership-report.html">Content Ownership Report</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/background-tasks.html">Background Tasks</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/workflows-report.html">Workflows Report</a></li>
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/content-inventory-report.html">Content Inventory Report</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Reports</span>
+        </div>
+        <header>
+                            <h1>Content Inventory Report 
+                                        </h1>
+                    </header>
+      <a name="Content+Inventory+Report"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The Content Inventory Report provides users with an overview of the assets contained within a Site. The report allows for Users to filter on various properties as described below.<br/><img alt="Screenshot of a content inventory report showing 91 assets, with filters for matching assets, published status, and owner assignments." class="img-polaroid" height="780" src="https://www.hannonhill.com/cascadecms/latest/content-management/reports/images/content-inv-report.png" width="1534"/></p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Filtering the Report" class="anchor-heading" id="FilteringtheReport">
+                                        <h2>Filtering the Report     <a aria-label="Skip to Filtering the Report" href="#FilteringtheReport"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The following filters are available to refine the results of the report:</p>
+<ul>
+<li><strong>Site</strong> -&#160;A Site must be selected to display report data.</li>
+<li><strong>Asset Types</strong> - Select to display Blocks, Files, Pages, and/or Links. Additional filtering options are available to display those assets based on their indexing status, whether they are potentially unused, and/or if they are in an active Workflow.</li>
+<li><strong>Publish Status&#160;</strong>- Select one of the following:
+<ul>
+<li>any publish status</li>
+<li>are publishable</li>
+<li>are previously published</li>
+<li>have edits that have not been published</li>
+<li>are publishable but have never been published</li>
+<li>are not publishable</li>
+</ul>
+</li>
+<li><strong>Owner&#160;</strong>- Optionally select from the following:
+<ul>
+<li>any owner</li>
+<li>owned by me</li>
+<li>selected owners (a chooser will appear to allow for multiple Users to be selected)</li>
+<li>no owner</li>
+</ul>
+</li>
+<li><strong>Review date&#160;</strong>- Optionally filter by various Review Dates.</li>
+<li><strong>Last updated&#160;</strong>- Optionally filter by when assets were last updated.</li>
+<li><strong>Restrict to folders</strong> - Optionally limit the results to assets within specified folders.</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Assign Content Ownership" class="anchor-heading" id="AssignContentOwnership">
+                                        <h2>Assign Content Ownership     <a aria-label="Skip to Assign Content Ownership" href="#AssignContentOwnership"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        Assets can be assigned owners from the Content Inventory report or directly from the asset. When assigning content ownership, remember:<br/>
+<ul>
+<li>You must have&#160;write&#160;access to an asset to assign the content owner.</li>
+<li>You must share a Group with the User to whom you're assigning the asset or have the ability to view all Users.</li>
+</ul>
+<p>To assign/unassign ownership of asset(s) from the report:</p>
+<ol>
+<li>Select one or more assets from the results list.</li>
+<li>To assign/re-assign ownership of asset(s), click&#160;<strong>Assign owner</strong>&#160;from the top of the list and select&#160;a User or click&#160;<strong>Choose myself</strong>&#160;to assign yourself ownership of the asset.</li>
+<li>To unassign ownership of asset(s), click the&#160;<strong>Unassign selected</strong>&#160;icon&#160;from the top of the list.</li>
+</ol>
+<p>To assign/unassign ownership directly from the asset:</p>
+<ol>
+<li>While viewing the asset, click&#160;<strong>Details</strong>&#160;&gt;&#160;<strong>Properties</strong>.</li>
+<li>To assign/re-assign ownership, click&#160;<strong>Choose User</strong>&#160;in the&#160;<strong>Content Owner</strong>&#160;field and select a User or click&#160;<strong>Choose myself</strong>&#160;to assign yourself. You can clear the assignment by clicking the "x" icon.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Identify Stale Content" class="anchor-heading" id="IdentifyStaleContent">
+                                        <h2>Identify Stale Content     <a aria-label="Skip to Identify Stale Content" href="#IdentifyStaleContent"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The Content Inventory report can be used to display a list&#160;of assets that have not been modified within a specified time period.&#160;The definition of what content is considered stale is specific to each user, and only assets for which the user has write access are included in the results.</p>
+<p>To identify assets that may be stale, use the <strong>Last updated</strong> dropdown to filter by items that were last updated within the following time periods:</p>
+<ul>
+<li>30 days</li>
+<li>60 days</li>
+<li>90 days</li>
+<li>120 days</li>
+<li>360 days</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Send a Stale Content Notification" class="anchor-heading" id="SendaStaleContentNotification">
+                                        <h2>Send a Stale Content Notification     <a aria-label="Skip to Send a Stale Content Notification" href="#SendaStaleContentNotification"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p><img alt="Stale Content Report Send Notification" class="img-polaroid" height="758" src="https://www.hannonhill.com/cascadecms/latest/content-management/reports/images/stale-content-report-send-notification.png" width="1800"/></p>
+<p>To send a stale content email notification:</p>
+<ol>
+<li>Select one or more assets from the results list.</li>
+<li>Click the&#160;<strong>Notify by Email</strong>&#160;envelope icon at the top of the list.</li>
+<li>Click&#160;<strong>Choose Users and Groups</strong>&#160;and select Users/Groups to receive the notification email. You may also enter a comma-delimited list of email addresses.</li>
+<li>Optionally, add a message to the notification recipients.&#160;By default, the system will send the user an email containing a brief description and link to the asset needing review.</li>
+<li>Click&#160;<strong>Notify</strong>.&#160;An email will be sent using the email options configured in your System Preferences.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Schedule a Review Date" class="anchor-heading" id="ScheduleaReviewDate">
+                                        <h2>Schedule a Review Date     <a aria-label="Skip to Schedule a Review Date" href="#ScheduleaReviewDate"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p><img alt="Stale Content Report Schedule Review Date" class="img-polaroid" height="686" src="https://www.hannonhill.com/cascadecms/latest/content-management/reports/images/stale-content-report-schedule-review-date.png" width="1800"/></p>
+<p>To schedule a review date:</p>
+<ol>
+<li>Select one or more assets from the results list.</li>
+<li>Click the&#160;<strong>Schedule Review</strong>&#160;calendar/clock icon at the top of the list.</li>
+<li>Select a date for future review. Options include 1 month, 3 months, 1 year, or a specific date.</li>
+<li>Click&#160;<strong>Schedule Review</strong>. This will update&#160;the asset Review Date metadata field to the specified date. Modifying an item&#8217;s Review Date does not change the item&#8217;s Last Modified date.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Identify Unused Assets" class="anchor-heading" id="IdentifyUnusedAssets">
+                                        <h2>Identify Unused Assets     <a aria-label="Skip to Identify Unused Assets" href="#IdentifyUnusedAssets"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>To see a list of suggested unused assets in the report, use the <strong>Filter Results</strong> button above the report and select the&#160;<strong>Show only assets that are potentially unused </strong>check box.</p>
+<p>Assets listed in the results have no linked or manual <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/publishing-related-content.html#PublishableRelationships">Relationships</a> with other assets in Cascade CMS; however, they may still be in use and/or linked indirectly via Format. For example, a news listing may link to news articles via the <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-tools.html#QueryAPI">Query API</a>, but the individual article pages may not have any Relationships.</p>
+<p>If there are assets in the report that you know are in use but have no Relationships, you have the option to create a manual Relationship to an appropriate asset as described in the section that follows.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Create a Manual Relationship to an Asset" class="anchor-heading" id="CreateaManualRelationshiptoanAsset">
+                                        <h2>Create a Manual Relationship to an Asset     <a aria-label="Skip to Create a Manual Relationship to an Asset" href="#CreateaManualRelationshiptoanAsset"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>To create a manual relationship for an asset in the report:</p>
+<ol>
+<li>Select an asset from the list.</li>
+<li>Click the <strong>Create a manual relationship</strong> button at the top of the list.</li>
+<li>Click <strong>Choose publishable site content</strong> and select the asset(s) you wish to manually link to the current asset.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Unpublish Assets" class="anchor-heading" id="UnpublishAssets">
+                                        <h2>Unpublish Assets     <a aria-label="Skip to Unpublish Assets" href="#UnpublishAssets"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>To unpublish one or more assets in the report:</p>
+<ol>
+<li>Select one or more assets from the list.</li>
+<li>Click the <strong>Unpublish</strong> (&#160;<i class="fas fa-fw fa-cloud">&#160;</i>) icon at the top of the list.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Delete Assets" class="anchor-heading" id="DeleteAssets">
+                                        <h2>Delete Assets     <a aria-label="Skip to Delete Assets" href="#DeleteAssets"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>To delete one or more assets in the report:</p>
+<ol>
+<li>Select one or more assets from the list.</li>
+<li>Click the <strong>Delete</strong> (&#160;<i class="fas fa-fw fa-trash">&#160;</i>) icon at the top of the list.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Export Results as a CSV File" class="anchor-heading" id="ExportResultsasaCSVFile">
+                                        <h2>Export Results as a CSV File     <a aria-label="Skip to Export Results as a CSV File" href="#ExportResultsasaCSVFile"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        Information visible in the Content Inventory report&#160;can be exported as a CSV file using the&#160;<strong>Export CSV</strong>&#160;link&#160;in the top right corner.&#160;The file will also contain information about the current user, Site name, and type of report.
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=c755535ec0a8002b63898591aad870cf&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

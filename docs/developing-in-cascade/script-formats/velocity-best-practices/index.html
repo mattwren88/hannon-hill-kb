@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best practices for performance - Cascade CMS Knowledge Base</title>
+  <meta name="description" content="When working with choosers, it is important to save repeated .asset calls to a variable and then access that variable&#39;s methods directly. Failure to do so will result in multiple r">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <script>
+  (function () {
+    var pref = localStorage.getItem('theme-preference');
+    var theme;
+    if (pref === 'dark') { theme = 'dark'; }
+    else if (pref === 'light') { theme = 'light'; }
+    else { theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+  </script>
+  <link rel="stylesheet" href="../../../../_assets/css/tokens.css">
+  <link rel="stylesheet" href="../../../../_assets/css/reset.css">
+  <link rel="stylesheet" href="../../../../_assets/css/layout.css">
+  <link rel="stylesheet" href="../../../../_assets/css/typography.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/sidebar.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/toc.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/breadcrumb.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/code-block.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/callout.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/accordion.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/steps.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/tabs.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/table.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/search.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/theme-toggle.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/cards.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/footer.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/buttons.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/badges.css">
+  <link rel="stylesheet" href="../../../../_assets/css/components/tooltip.css">
+  <link rel="stylesheet" href="../../../../_assets/css/utilities.css">
+  <link rel="stylesheet" href="../../../../_assets/css/print.css" media="print">
+  <link rel="stylesheet" href="../../../../_assets/vendor/prism/prism-theme.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="header" role="banner">
+    <div class="header__left">
+      <button class="header__menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="../../.././" class="header__logo"><span style="color: var(--color-primary-vivid); font-weight: 700;">Cascade</span>&nbsp;CMS Docs</a>
+    </div>
+    <nav class="header__nav" aria-label="Top navigation">
+      <a href="#" class="header__nav-link header__nav-link--active">Knowledge Base</a>
+      <a href="#" class="header__nav-link">Release Notes</a>
+      <a href="#" class="header__nav-link">Support</a>
+    </nav>
+    <div class="header__right">
+      <button class="header__search-trigger" aria-label="Search documentation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="header__search-text">Search...</span>
+        <kbd class="header__search-kbd">⌘K</kbd>
+      </button>
+      <div class="theme-toggle">
+        <button class="theme-toggle__button" aria-label="Toggle color theme" aria-expanded="false" aria-haspopup="true">
+          <svg class="theme-toggle__icon theme-toggle__icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--system" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </button>
+        <div class="theme-toggle__dropdown" role="menu" hidden>
+          <button class="theme-toggle__option" role="menuitem" data-theme="light">Light</button>
+          <button class="theme-toggle__option" role="menuitem" data-theme="dark">Dark</button>
+          <button class="theme-toggle__option theme-toggle__option--active" role="menuitem" data-theme="system">System</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay"></div>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="Documentation navigation">
+      <nav class="sidebar__nav">
+        <div class="sidebar__section">
+  <button class="sidebar__category" aria-expanded="true">
+    Developing In Cascade
+    <svg class="sidebar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+  <ul class="sidebar__pages">
+    <li><a href="../../" class="sidebar__link">Developing In Cascade Overview</a></li>
+<li><a href="./" class="sidebar__link sidebar__link--active" aria-current="page">Best practices for performance</a></li>
+<li><a href="../date-tool-essentials/" class="sidebar__link">Date Tool Essentials</a></li>
+<li><a href="../query-tool-directives/" class="sidebar__link">Query Tool Directives</a></li>
+  </ul>
+</div>
+      </nav>
+    </aside>
+
+    <main id="main-content" class="main">
+      <article class="content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item"><a href="../../.././" class="breadcrumb__link">Home</a></li>
+    <li class="breadcrumb__item"><a href="../../" class="breadcrumb__link">Developing In Cascade</a></li>
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Best practices for performance</li>
+  </ol>
+</nav>
+        <header class="content__header">
+          <span class="content__category-label">Developing In Cascade</span>
+          <h1 class="content__title">Best practices for performance</h1>
+        </header>
+        <div class="content__body">
+          <h2 id="developing-in-cascade-script-formats-velocity-best-practices-section-1">Working with choosers</h2>
+<p>When working with choosers, it is important to save repeated .asset calls to a variable and then access that variable&#39;s methods directly. Failure to do so will result in multiple round trips to the database when only a single round trip is necessary. Consider the following Velocity code which accesses an image file that has been selected in a chooser: #set ($image = $currentPage.getStructuredDataNode(&quot;image&quot;))## one database round trip#set ($imageLink = $image.asset.link)## another database round trip#set ($imageFileSize = $image.asset.fileSize) ## another database round trip#set ($imageWidth = $image.asset.dimensions.width)## another database round trip#set ($imageHeight = $image.asset.dimensions.height) As indicated by the comments, each line with .asset is having to fetch the image from the database (forcing a round trip from the app to the database and back). Rather than doing this, the code can be simplified by saving the chosen asset to a variable and then accessing methods of that variable: ## one database round trip#set ($selectedImage = $currentPage.getStructuredDataNode(&quot;image&quot;).asset) #set ($imageLink =$selectedImage.link) #set ($imageFileSize = $selectedImage.fileSize)#set ($imageWidth = $selectedImage.dimensions.width)#set ($imageHeight = $selectedImage.dimensions.height)</p>
+
+<h2 id="developing-in-cascade-script-formats-velocity-best-practices-section-2">Importing Formats</h2>
+<p>#import directives in Formats require a round trip from the app to the database and back again. This is necessary in order for the app to retrieve the contents of the Format being imported at runtime. Due to this fact, it is important to limit the number of #import directives as much as possible in order to keep transformation times performant. Consider the following sample code snippet below which imports 3 Formats. Each of the imported Formats contains a single macro. ## one database round trip#import (&quot;_cms/formats/shared/macros/stripTags&quot;)## another database round trip#import (&quot;_cms/formats/shared/macros/escapeAll&quot;)## another database round trip#import (&quot;_cms/formats/shared/macros/makeAccessible&quot;) While this type of setup is clean and makes things very straightforward to manage (a single Format contains a single macro with a corresponding name), it requires 3 round trips to the database during the transformation of any Page on which the main Format is attached. In order to prevent repeated #import calls like this, macros should instead be combined into fewer Formats so that fewer #import directives are needed. Continuing the example from above, the macros from the 3 separate Formats indicated above can be combined into a single Format (we&#39;ll name it utility for the purposes of this sample). Then, rather than importing 3 separate Formats to get access to the 3 individual macros, a single line will do the trick: ## one database round trip#import (&quot;_cms/formats/shared/macros/utility&quot;) Now, rather than making multiple trips back and forth to the database (adding to overall render times), only one trip is required and the main Format automatically has access to all of the macros needed for the transformation.</p>
+
+<h2 id="developing-in-cascade-script-formats-velocity-best-practices-section-3">Using the Query API</h2>
+<p>Accessing Structured Data and Dynamic Metadata When working with the Query API, if you&#39;re accessing Structured Data or Dynamic Metadata fields for the queried assets, you should utilize the corresponding $_.query().preloadStructuredData and/or $_.query().preloadDynamicMetadata methods for a performance boost. Preloading Structured Data Consider the following code which loads 500 &quot;events&quot;: #set ($events = $_.query().byContentType(&quot;event&quot;).execute())#foreach ($event in $events) ## database round trip (x 500) #set($start = $event.getStructuredDataNode(&quot;startDateTime&quot;).textValue) #set($end = $event.getStructuredDataNode(&quot;endDateTime&quot;).textValue) #set($details = $event.getStructuredDataNode(&quot;details&quot;).textValue) #set($link = $event.getStructuredDataNode(&quot;additional&quot;).getChild(&quot;link&quot;).textValue)## additional logic here#end In the foreach loop here, the application will be required to make a database round trip for each of the 500 results in order to gather each asset&#39;s Structured Data. By adding the &quot;preload&quot; method to the query as seen below: #set ($events = $_.query().byContentType(&quot;event&quot;).preloadStructuredData().execute()) The initial query execution will take longer (since the application is gathering the related Structured Data for all 500 results upfront), but accessing this data in the foreach loop for each asset will be exponentially faster as the data is already in memory. Preloading Dynamic Metadata Similar to above, you can preload dynamic metadata as well. Consider the following code in a scenario where the query is returning 500 assets: #set ($events = $_.query().byContentType(&quot;event&quot;).execute())#foreach ($event in $events) ## database round trip (x 500) #set($showInNavMenu = $event.metadata.getDynamicField(&quot;display-in-nav&quot;).value) #set($alternateTitle = $event.metadata.getDynamicField(&quot;alternate title&quot;).value)## additional logic here #end In order to increase performance, we can change the query line as follows which will preload the necessary dynamic metadata fields: #set ($events = $_.query().byContentType(&quot;event&quot;).preloadDynamicMetadata().execute()) This will force the app to load all of the metadata fields upfront which prevents the repeated database round trips within the foreach loop. Leveraging the #queryexecute directive The #queryexecute directive is an alternative to the .execute() method of the Query API. The main benefits of using this directive are as follows:</p>
+<p>It bypasses the 2,000 asset limitation of the .execute() method (allowing for querying up to 100,000 assets). On each iteration, the previous asset in stored in memory is removed from memory to allow for the processing of the remaining assets without hampering performance.</p>
+        </div>
+        <footer class="content__footer">
+  <div class="content__meta">
+    <span>Last updated: February 21, 2026</span>
+  </div>
+  <nav class="content__pagination">
+    <a href="../query-tool-directives/" class="content__prev"><span>Previous</span><span>Query Tool Directives</span></a>
+    <span class="content__next" aria-disabled="true"><span>Next</span><span>None</span></span>
+  </nav>
+</footer>
+      </article>
+    </main>
+
+    <aside class="toc" aria-label="Table of contents">
+      <div class="toc__sticky">
+        <h2 class="toc__title">ON THIS PAGE</h2>
+        <nav class="toc__nav"></nav>
+      </div>
+    </aside>
+
+    <button class="toc-toggle" aria-label="Table of contents" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+    </button>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <nav class="site-footer__primary" aria-label="Footer primary links">
+      <a class="site-footer__primary-link" href="https://www.hannonhill.com/cascadecms/latest/">Documentation Home</a>
+      <a class="site-footer__primary-link" href="https://www.hannonhill.com/cascadecms/latest/release-notes/index.html">Release Notes</a>
+      <a class="site-footer__primary-link" href="https://support.hannonhill.com/">Support</a>
+      <a class="site-footer__primary-link" href="https://www.hannonhill.com/cascadecms/latest/rss/index.html">RSS</a>
+    </nav>
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">All content &copy; 2026 Hannon Hill. All rights reserved.</p>
+      <nav class="site-footer__links" aria-label="Footer links">
+        <a class="site-footer__link" href="https://www.hannonhill.com/about-us">About Us</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/careers">Careers</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/compliance">Compliance</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/resources">Resources</a>
+        <a class="site-footer__link" href="https://hannonhill.ideas.aha.io/">Idea Portal</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/site-index">Site Index</a>
+        <a class="site-footer__link" href="https://github.com/hannonhill">Github</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/accessibility-policy">Accessibility</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/privacy-policy">Privacy Policy</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/legal">Legal</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+  <div class="search-overlay" role="dialog" aria-modal="true" aria-label="Search documentation" data-search-index="../../../search-index.json" hidden>
+    <div class="search-overlay__backdrop"></div>
+    <div class="search-overlay__dialog">
+      <div class="search-overlay__header">
+        <svg class="search-overlay__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="search" class="search-overlay__input" placeholder="Search documentation..." autocomplete="off">
+        <kbd class="search-overlay__shortcut">ESC</kbd>
+      </div>
+      <div class="search-overlay__results"><div class="search-overlay__empty">Start typing to search...</div></div>
+      <div class="search-overlay__footer"><span>Navigate with <kbd>&uarr;</kbd><kbd>&darr;</kbd></span><span>Open with <kbd>&crarr;</kbd></span></div>
+    </div>
+  </div>
+
+  <script src="../../../../_assets/vendor/prism/prism.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-markup.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-css.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-javascript.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-java.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-python.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-json.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-bash.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-yaml.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-sql.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-markup-templating.min.js" defer></script>
+  <script src="../../../../_assets/vendor/prism/prism-velocity.min.js" defer></script>
+  <script src="../../../../_assets/vendor/lunr/lunr.min.js" defer></script>
+  <script src="../../../../_assets/js/theme.js" defer></script>
+  <script src="../../../../_assets/js/sidebar.js" defer></script>
+  <script src="../../../../_assets/js/toc.js" defer></script>
+  <script src="../../../../_assets/js/tabs.js" defer></script>
+  <script src="../../../../_assets/js/accordion.js" defer></script>
+  <script src="../../../../_assets/js/code-block.js" defer></script>
+  <script src="../../../../_assets/js/search.js" defer></script>
+</body>
+</html>

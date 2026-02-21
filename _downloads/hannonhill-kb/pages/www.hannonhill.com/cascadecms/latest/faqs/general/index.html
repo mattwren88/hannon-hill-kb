@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>General / How To - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/faqs/general/index.html" rel="canonical"/>
+		<meta content="7439f22ac0a80079701c396254b2ace0" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/faqs/index.html">            FAQs    
+    </a></li>
+      
+        
+                            <li class="breadcrumb-item active">            General / How To    
+    </li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<main class="col-sm-12 col-md-12" id="main-content" role="main">
+						
+						<div class="card shadow-big">
+    <h1>General / How To</h1>
+            <div class="grid gap1 auto-grid" style="--item-width: 270px;">
+                                    <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/where-to-edit-content-certain-region.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I edit content or find out where to edit a certain region?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">You may be able to edit your page content by simply clicking Edit at the top of the page, making any changes, submitting and then publishing.
+
+However, if you don't see the content you want to edit when editing the page, that content could be contained elsewhere. The content may be located in a...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/upload-a-folder.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I upload a folder?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">In addition to uploading individual files, Cascade CMS also supports the ability to upload an entire folder. To do this, you must first zip up the folder in question along with its contents.Once you have a zip file containing your folder(s), upload it by following the steps below:
+
+Click Add...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/unlock-page-or-asset.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I unlock a page or asset?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">
+
+
+
+
+
+
+
+
+
+
+First, make sure you're looking at the working copy. Look for the drop-down to the left of the title. If it says Current, click it and select Working Copy.
+If you're the lock owner:
+You should now see options to either Commit Changes you've made, or Break Lock and discard those...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/restore-from-trash.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I restore something I deleted from the trash / recycle bin?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">
+
+
+
+
+
+
+
+
+
+
+The Trash bin is located above the left-hand folder tree when you're in the Site Content area. To restore one or more items from the Trash, select the checkbox next to the items and click the Restore button at the top of the list.
+Note for users - If you don't see the the Trash bin,...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/give-user-or-group-access-to-site.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I give a User or Group access to a Site?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">In order to access a Site via the Site drop down menu, a User must have a Site Role assigned to them at the Site level (either directly or via their Group membership).To see which Users/Groups have Site Roles assigned to them for a specific Site:
+
+Navigate to Manage Site &gt; Site Settings.
+Click...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/control-user-access-to-folders-and-assets.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I control User access to Folders and assets?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">You can control Read/Write access to Site assets through Access rights. Access rights, or permissions, control which Users or Groups can view or edit assets. While viewing an asset (such as a Folder):
+
+Click More &gt; Access.
+Select the Access level for all users. (Selecting None here will hide...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/check-what-user-can-do-in-site.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How can I check what a User can do in a specific Site?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">A user&#8217;s abilities in a Site will be determined by the Site Role that they are assigned to for that Site. There are a couple of very handy tools that you can use to quickly identify how your Users are configured.</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/who-edited-or-published-a-page.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How can I tell who edited or published a page?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">Audit trails provide a list of activities by users in Cascade CMS which can be handy when tracking down a particular event.
+Viewing an asset's audit trail
+While viewing an asset (such as a page or file) click More &gt; Audits. You can filter the audit trail by timeframe or type of action.
+If you...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/change-name-or-url-of-site.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I change the name or URL of my site?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">To change the name and/or URL of your Site:
+
+Access your Site from the Sites system menu, the Site drop-down menu, or the My Sites widget on your dashboard.
+Once inside your Site, click Manage Site &gt; Site Settings.
+Update the Name and/or URL field in the Properties tab.
+Click Submit.
+</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/delete-a-site.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I delete a site?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">To delete a site in Cascade CMS:
+
+Click the menu button (&#160;) in the upper-right corner of the interface.
+Click Sites.
+Select the site from the Sites list by checking the checkbox next to it.
+Click the Delete icon at the top of the list.
+
+Note: You can only delete one site at a...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/publish-changes-to-a-block.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I publish changes to a block?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">Blocks, such as XHTML/Data Definition blocks, aren't publishable by themselves. If you've made changes to a block, such as a navigation block, and you're not seeing your changes on your live site, you'll need to publish any pages that use that block.
+For blocks used on all or most every page in a...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/rebuild-search-indexes.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I rebuild my search indexes?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">Search indexes can be rebuilt by following these steps:
+
+Click Menu &gt; Administration.
+In the Search section, click Search Indexing.
+Confirm that your Index Location is correct (this directory should exist on the application server directly under the tomcat folder, by default it will be named...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/configure-301-redirects.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I configure 301 Redirects?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">301 redirects should be handled by a configuration file on your web server. For example, an .htaccess file if using an Apache-driven web server or a web.config file if using a Microsoft (IIS) web server.
+While there is not a native feature in Cascade CMS regarding 301 redirects, you can maintain...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/max-asset-versions-setting.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How does the Max Asset Versions setting affect existing versions?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">If you adjust the Max Asset Versions setting under Administration &gt; Preferences &gt; Content and the new value causes a given asset to have more than the allowed number of Versions, the Version chain will be trimmed for this asset the next time it's edited and submitted. For example, consider...</p>
+                </a>
+                                                                    <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/locate-publish-notifications.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Where can I find publish notifications?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">To locate publish notifications for assets that you have published:
+
+Click your User profile picture or letter in the top-right corner of the screen.
+In the dropdown menu that appears, select Notifications.
+
+The subject line for a publish notification will look something like the...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/how-can-i-find-the-os-account-running-cascade-cms.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How can I find the O/S account running Cascade CMS?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">To find out which O/S account is running the application:
+
+Navigate to the Logs and System Information area
+Scroll down to the User Name field
+
+The value entered for this field is the account under which Cascade CMS is currently running.</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/how-can-i-generate-a-cron-expression-for-my-scheduled-publishes.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How can I generate a cron expression for my scheduled publishes?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">When working with scheduled publishes in the CMS, one option for scheduling is to provide a cron expression.
+Since Cascade CMS uses Quartz for scheduling, the syntax for cron expressions may be slightly different from other applications where you've set up cron tasks. In order to generate...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/how-do-i-delete-a-workflow.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I delete a Workflow?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">To delete a Workflow:
+
+Navigate to your workflow
+Click the Delete Workflow button in the top right of your screen
+
+Tip: Having trouble locating your Workflow? Here are a few ways to get back to it:
+
+Navigate to the asset in Workflow and click the corresponding link to the workflow in the top...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/how-do-i-unpublish-an-asset-that-no-longer-exists-in-the-cms-two.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How Do I Unpublish An Asset That No Longer Exists In The CMS?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">In certain cases, you may find that a page or file exists on your live website that you wish to remove. If that page/file no longer exists in the CMS, you can take the following steps to remove it from your site:
+
+Navigate into the original folder path where the asset previously existed. If the...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/how-do-i-determine-where-assets-will-be-published.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I determine where assets will be published?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">Cascade CMS determines where to place files using a combination of the following values:
+
+The Transport Server Directory (if blank, the FTP/FTPS/SFTP user&#8217;s home directory).
+The Destination Directory.
+The folder path of your asset in your Site.
+
+For example, consider the following...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/scheduled-publishing-for-individual-assets.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Scheduled publishing for individual assets</h2>
+                                            </div>
+                    <p class="mb-1 break-word">Both the Start Date field (in an asset's Metadata) and the Optionally Publish Later option provide a way to schedule an asset to publish at a future date/time.
+See below for notes on when to use one versus the other:
+Start Date
+The Start Date field, which is part of an asset's Metadata, allows...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/granting-access-specific-folders-users-groups.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Granting Access to Specific Folders for Users/Groups</h2>
+                                            </div>
+                    <p class="mb-1 break-word">Since Sites typically consist of multiple Folders, there may be scenarios where you're looking to 'hide' many of those from particular Users and/or Groups.
+Take the following Folder structure into consideration:
+
+&lt;Base Folder of Site&gt;
+
+FolderA
+
+PageA
+PageB
+
+
+FolderB
+FolderC
+
+
+
+Now, consider...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/how-do-i-rename-an-asset.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I rename an asset?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">To rename an asset:
+
+While viewing the asset, click More -&gt; Rename&#160;(you can also do this via the&#160;context menu)
+In the New "asset" Name field, enter the new name
+Click Rename
+
+Warning:&#160;Renaming an asset will result in the asset being unpublished from all enabled...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/how-do-i-reorder-items-in-a-navigation-menu.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">How do I reorder items in a navigation menu?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">One of the most common strategies for implementing a navigation menu is to dynamically output links to the assets contained within a particular Folder. This type of setup often relies on the ordering of those items within that Folder when deciding how to display them within a navigation menu.
+To...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/which-algorithms-are-supported-for-sftp.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Which algorithms are supported for SFTP?</h2>
+                                            </div>
+                    <p class="mb-1 break-word">When publishing to an SFTP server, Cascade CMS supports the following algorithms:
+KEX...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/general/styles-not-loading-for-404-pages.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Styles not loading for 404 pages</h2>
+                                            </div>
+                    <p class="mb-1 break-word">If you're managing a 404 page in the CMS and find that it doesn't display properly on your live site in certain scenarios, the issue is likely due to how CSS file(s) in the page are being referenced. To fix this, we'll want to change the link rewriting for the asset at the page...</p>
+                </a>
+                        </div>
+        <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+</div>
+
+
+
+
+
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=7439f22ac0a80079701c396254b2ace0&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

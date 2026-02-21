@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>SOAP Web Services Changelog - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-changelog.html" rel="canonical"/>
+		<meta content="03aefa350a894fa574bd45090efa42b9" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html">            Developing in Cascade    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/index.html">            SOAP Web Services API    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">SOAP Web Services Changelog</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                    <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-changelog.html">SOAP Web Services Changelog</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Cascade CMS 8.19" href="#CascadeCMS8_19">Cascade CMS 8.19</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.17" href="#CascadeCMS8_17">Cascade CMS 8.17</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.16" href="#CascadeCMS8_16">Cascade CMS 8.16</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.15" href="#CascadeCMS8_15">Cascade CMS 8.15</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.14" href="#CascadeCMS8_14">Cascade CMS 8.14</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.12" href="#CascadeCMS8_12">Cascade CMS 8.12</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.11" href="#CascadeCMS8_11">Cascade CMS 8.11</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.9.1" href="#CascadeCMS8_9_1">Cascade CMS 8.9.1</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.9" href="#CascadeCMS8_9">Cascade CMS 8.9</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.8" href="#CascadeCMS8_8">Cascade CMS 8.8</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.7" href="#CascadeCMS8_7">Cascade CMS 8.7</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.6" href="#CascadeCMS8_6">Cascade CMS 8.6</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.5" href="#CascadeCMS8_5">Cascade CMS 8.5</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.4.1.2ccc4d6" href="#CascadeCMS8_4_1_2ccc4d6">Cascade CMS 8.4.1.2ccc4d6</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.3" href="#CascadeCMS8_3">Cascade CMS 8.3</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.1.1" href="#CascadeCMS8_1_1">Cascade CMS 8.1.1</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.1" href="#CascadeCMS8_1">Cascade CMS 8.1</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Cascade CMS 8.0" href="#CascadeCMS8_0">Cascade CMS 8.0</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Pre 8.0 Changelog" href="#Pre8_0Changelog">Pre 8.0 Changelog</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html">Developing in Cascade</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-changelog.html">SOAP Web Services Changelog</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html">SOAP Web Services Operations</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">SOAP Web Services API</span>
+        </div>
+        <header>
+                            <h1>SOAP Web Services Changelog 
+                                        </h1>
+                    </header>
+      <a name="SOAP+Web+Services+Changelog"></a>
+    
+                        
+                                                
+            <section aria-label="Cascade CMS 8.19" class="anchor-heading" id="CascadeCMS8_19">
+                                        <h2>Cascade CMS 8.19     <a aria-label="Skip to Cascade CMS 8.19" href="#CascadeCMS8_19"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ul>
+<li>New property added to <code>publishInformation</code> complexType:
+<ul>
+<li><code><span class="blob-code-inner blob-code-marker" data-code-marker="+"><span class="pl-s">scheduledDate</span></span></code> (dateTime)</li>
+</ul>
+</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.17" class="anchor-heading" id="CascadeCMS8_17">
+                                        <h2>Cascade CMS 8.17     <a aria-label="Skip to Cascade CMS 8.17" href="#CascadeCMS8_17"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ul>
+<li>New property added to <code>site</code> complexType:
+<ul>
+<li><code>siteLinkRewriting</code> (string)
+<ul>
+<li><code>absolute</code></li>
+<li><code>relative</code></li>
+<li><code>site-relative</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>New property added to <code>page</code> and <code>file</code> complexTypes:
+<ul>
+<li><code>linkRewriting</code> (string)
+<ul>
+<li><code>inherit</code></li>
+<li><code>absolute</code></li>
+<li><code>relative</code></li>
+<li><code>site-relative</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Property removed from <code>page</code> and <code>file</code> complexTypes:
+<ul>
+<li><code>maintainAbsoluteLinks</code></li>
+</ul>
+</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.16" class="anchor-heading" id="CascadeCMS8_16">
+                                        <h2>Cascade CMS 8.16     <a aria-label="Skip to Cascade CMS 8.16" href="#CascadeCMS8_16"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ul>
+<li>New property added to <code>authentication</code>:
+<ul>
+<li><code>apiKey</code> (string)</li>
+<li>Either&#160;<code>username</code> <em>and</em> <code>password</code> or <code>apiKey</code> are required when authenticating requests</li>
+</ul>
+</li>
+<li>New properties added to <code>moveParameters</code>:
+<ul>
+<li><code>unpublish</code> (boolean)</li>
+<li><code>destinations</code> (array of identifiers)</li>
+</ul>
+</li>
+<li>New properties added to <code>delete</code> operation:
+<ul>
+<li><code>deleteParameters</code>
+<ul>
+<li><code>doWorkflow</code> (require; boolean)</li>
+<li><code>unpublish</code> (boolean)</li>
+<li><code>destinations</code> (array of identifiers)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>New complexTypes <code>deleteParameters</code> and <code>unpublish-parameters</code>:
+<pre class="line-numbers"><code class="language-xml">&lt;complexType name="deleteParameters"&gt;
+  &lt;complexContent&gt;
+    &lt;extension base="impl:unpublish-parameters"&gt;
+      &lt;sequence&gt;
+        &lt;element name="doWorkflow" minOccurs="1" maxOccurs="1" type="xsd:boolean"/&gt;
+      &lt;/sequence&gt;
+    &lt;/extension&gt;
+  &lt;/complexContent&gt;
+&lt;/complexType&gt;
+
+&lt;complexType name="unpublish-parameters"&gt;
+  &lt;sequence&gt;
+    &lt;!-- NOT REQUIRED: when true, the asset will be unpublished. Default: false --&gt;
+    &lt;element name="unpublish" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:boolean"/&gt;
+    &lt;!-- NOT REQUIRED: unpublishes the asset from the given destinations. Default: all enabled destinations in the asset's site --&gt;
+    &lt;element name="destinations" minOccurs="0" maxOccurs="1" nillable="true" type="impl:assetIdentifiers"/&gt;
+  &lt;/sequence&gt;
+&lt;/complexType&gt;</code></pre>
+</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.15" class="anchor-heading" id="CascadeCMS8_15">
+                                        <h2>Cascade CMS 8.15     <a aria-label="Skip to Cascade CMS 8.15" href="#CascadeCMS8_15"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ul>
+<li>The&#160;<code>siteImproveIntegrationEnabled</code><em>&#160;</em>property has been added to the&#160;<code>site</code>&#160;complexType which can be used to enable or disable the <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/web-governance/siteimprove-integration.html">Siteimprove Integration</a> for the site.</li>
+<li>The&#160;<code>accessSiteImproveIntegration</code> ability has been added to the&#160;<code>site-abilities</code><em>&#160;</em>complexType which can be used to restrict user/group access to the <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/web-governance/siteimprove-integration.html">Siteimprove Integration</a> when viewing folders and pages.</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.14" class="anchor-heading" id="CascadeCMS8_14">
+                                        <h2>Cascade CMS 8.14     <a aria-label="Skip to Cascade CMS 8.14" href="#CascadeCMS8_14"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ul>
+<li>Results from the&#160;<code>readAudits</code> operation will now default to one week's worth of audits in the cases where: 1) no <code>startDate</code> or <code>endDate</code> are provided, or 2) an <code>endDate</code> is provided <em>without</em> a <code>startDate</code>. Otherwise, all audits within the provided date range will be returned.</li>
+<li>New&#160;<code>entityTypeString</code>&#160;enumeration values:&#160;<code>workflowemail</code>&#160;and&#160;<code>workflowemailcontainer</code></li>
+<li>New properties added to <code>workflow</code>:<br/><code></code>
+<ul>
+<li><code>completedWorkflowEmailId</code> (string)</li>
+<li><code>completedWorkflowEmailPath</code> (string)</li>
+<li><code>notificationWorkflowEmailId</code> (string)</li>
+<li><code>notificationWorkflowEmailPath</code> (string)</li>
+</ul>
+</li>
+<li>New properties added to <code>workflowDefinition</code>:<br/><code></code>
+<ul>
+<li><code>completedWorkflowEmailId</code> (string)</li>
+<li><code>completedWorkflowEmailPath</code> (string)</li>
+<li><code>notificationWorkflowEmailId</code> (string)</li>
+<li><code>notificationWorkflowEmailPath</code> (string)</li>
+</ul>
+</li>
+<li>New string property added to&#160;<code>site</code> :<code></code><code></code><code>rootWorkflowEmailContainerId</code></li>
+<li>New boolean property in&#160;<code>site-abilities</code>:&#160;<code>accessWorkflowEmails</code></li>
+<li>New complex types: <code>workflowEmail</code> and <code>workflowEmailContainer</code>:
+<pre class="line-numbers"><code class="language-xml">&lt;complexType name="workflowEmail"&gt;
+  &lt;complexContent&gt;
+    &lt;extension base="impl:containered-asset"&gt;
+      &lt;sequence&gt;
+        &lt;!-- The subject of this email
+           REQUIRED --&gt;
+        &lt;element name="subject" maxOccurs="1" minOccurs="1" type="xsd:string"/&gt;
+        &lt;!-- The body of this email
+           REQUIRED --&gt;
+        &lt;element name="body" maxOccurs="1" minOccurs="1" type="xsd:string"/&gt;
+      &lt;/sequence&gt;
+    &lt;/extension&gt;
+  &lt;/complexContent&gt;
+&lt;/complexType&gt;
+
+&lt;complexType name="workflowEmailContainer"&gt;
+  &lt;complexContent&gt;
+    &lt;extension base="impl:containered-asset"&gt;
+      &lt;sequence&gt;
+        &lt;!-- the array of children --&gt;
+        &lt;element name="children" maxOccurs="1" minOccurs="0" nillable="true" type="impl:container-children"/&gt;
+      &lt;/sequence&gt;
+    &lt;/extension&gt;
+  &lt;/complexContent&gt;
+&lt;/complexType&gt;</code></pre>
+</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.12" class="anchor-heading" id="CascadeCMS8_12">
+                                        <h2>Cascade CMS 8.12     <a aria-label="Skip to Cascade CMS 8.12" href="#CascadeCMS8_12"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ul>
+<li>In cases where structured data nodes have been removed from the Data Definition, but are still persisted with the asset, the nodes will be moved to the root level of <code>structured-data-nodes</code> and its&#160;<code>identifier</code> property will be changed to a static value of <code>&lt;legacy&gt;</code>.</li>
+<li>When reading an asset with structured data nodes, a <code>structured-data-node</code>&#160;will now be returned for all fields. This means that if a given asset is missing a value for a field, a&#160;<code>structured-data-node</code> with that field's default value will be returned.</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.11" class="anchor-heading" id="CascadeCMS8_11">
+                                        <h2>Cascade CMS 8.11     <a aria-label="Skip to Cascade CMS 8.11" href="#CascadeCMS8_11"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ul>
+<li>The&#160;<code>dynamic-metadata-field-definition-value</code> complexType has an new <code>label</code> element allowing Dynamic Metadata Field items to be configured with an alternative label to coincide with a value.</li>
+<li>The&#160;<code>dynamic-metadata-field-type</code> simpleType now has an additional <code>datetime</code> value</li>
+<li>New properties added to&#160;<code>site</code>:<code></code><code></code>
+<ul>
+<li><code>accessibilityCheckerEnabled</code> (boolean)</li>
+<li><code>widenDamIntegrationEnabled</code>&#160;(boolean)</li>
+<li><code>widenDamIntegrationCategory</code>&#160;(string)</li>
+<li><code>webdamDamIntegrationEnabled</code>&#160;(boolean)</li>
+<li><code>rootSharedFieldContainerId</code> (string)<code></code></li>
+</ul>
+</li>
+<li>New <code>entityTypeString</code> enumeration values: <code>sharedfield</code> and&#160;<code>sharedfieldcontainer</code><code></code></li>
+<li>New boolean property in&#160;<code>site-abilities</code>:&#160;<code>accessSharedFields</code><code></code><code></code></li>
+<li><code></code>New complex type properties in <code>asset</code>:&#160;<code>sharedField</code> and&#160;<code>sharedFieldContainer</code></li>
+<li>New complex types:&#160;<code>sharedField</code>,&#160;<code>sharedFieldContainer</code></li>
+</ul>
+<code>&lt;complexType name="sharedField"&gt;<br/>&#160; &lt;complexContent&gt;<br/>&#160; &#160; &lt;extension base="impl:containered-asset"&gt;<br/>&#160; &#160; &#160; &lt;sequence&gt;<br/>&#160; &#160; &#160; &#160; &lt;!-- The XML content of this shared field REQUIRED --&gt;<br/>&#160; &#160; &#160; &#160; &lt;element name="xml" maxOccurs="1" minOccurs="1" type="xsd:string"/&gt;<br/>&#160; &#160; &#160; &lt;/sequence&gt;<br/>&#160; &#160; &lt;/extension&gt;<br/>&#160; &lt;/complexContent&gt;<br/>&lt;/complexType&gt;<br/><br/>&lt;complexType name="sharedFieldContainer"&gt;<br/>&#160; &lt;complexContent&gt;<br/>&#160; &#160; &lt;extension base="impl:containered-asset"&gt;<br/>&#160; &#160; &#160; &lt;sequence&gt;<br/>&#160; &#160; &#160; &#160; &lt;!-- the array of children --&gt;<br/>&#160; &#160; &#160; &#160; &lt;element name="children" maxOccurs="1" minOccurs="0" nillable="true" type="impl:container-children"/&gt;<br/>&#160; &#160; &#160; &lt;/sequence&gt;<br/>&#160; &#160; &lt;/extension&gt;<br/>&#160; &lt;/complexContent&gt;<br/>&lt;/complexType&gt;</code>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.9.1" class="anchor-heading" id="CascadeCMS8_9_1">
+                                        <h2>Cascade CMS 8.9.1     <a aria-label="Skip to Cascade CMS 8.9.1" href="#CascadeCMS8_9_1"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ul>
+<li>The&#160;<code>read</code>&#160;SOAP operation will now correctly return&#160;<code>&lt;tag&gt;</code>&#160;elements within&#160;<code>&lt;tags&gt;</code>&#160;for an assets with tags.</li>
+<li>The&#160;<code>listSubscribers</code>&#160;SOAP operation will now correctly return&#160;<code>&lt;assetIdentifier&gt;</code>&#160;elements within&#160;<code>&lt;manualSubscribers&gt;</code></li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.9" class="anchor-heading" id="CascadeCMS8_9">
+                                        <h2>Cascade CMS 8.9     <a aria-label="Skip to Cascade CMS 8.9" href="#CascadeCMS8_9"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4>Content Tags</h4>
+<p>The&#160;<code>indexBlock</code>&#160;complexType has a new boolean field called&#160;<code>indexTags</code>&#160;which specifies whether or not the block should render tags assigned to assets being indexed.</p>
+<p>The&#160;<code>folder-contained-asset</code> complexType has a new field called&#160;<code>tags</code>&#160;which is used to read/edit tags associated with an asset.</p>
+<p>There are also two new complexTypes,&#160;<code>tags</code>&#160;and&#160;<code>tag</code>, which are used to structure the tags assigned to an asset.</p>
+<h4>Related Asset Publishing</h4>
+<p>The <code>contentType</code> complexType has two new fields,&#160;<code>publishSetId</code> and&#160;<code>publishSetPath</code>, used to associate a Publish Set with the Content Type.</p>
+<p>The <code>listSubscribers</code> operation has a new field called <code>manualSubscribers</code>&#160;to include relationships that are manually added to an asset.</p>
+<p>The <code>publish</code> operation has a two new boolean fields:</p>
+<ul>
+<li><code>publishRelatedAssets</code>&#160;- includes related assets in the publish job</li>
+<li><code>publishRelatedPublishSet</code>&#160;- includes the Publish Set associated with the given Page's Content Type</li>
+</ul>
+<h4>Asset Review Scheduling</h4>
+<p>The&#160;<code>folder-contained-asset</code>&#160;complexType's&#160;<code>reviewEvery</code>&#160;property is now validated to ensure the provided value is: 0, 30, 90, 180, or 365.</p>
+<h4>System Preferences</h4>
+<p>When updating system preferences using the <code>editPreference</code> operation,&#160;the&#160;<code>system_pref_system_url</code>&#160;preference will be validated to ensure the provided <code>value</code> is a valid URL.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.8" class="anchor-heading" id="CascadeCMS8_8">
+                                        <h2>Cascade CMS 8.8     <a aria-label="Skip to Cascade CMS 8.8" href="#CascadeCMS8_8"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4>Siteimprove Settings</h4>
+<p>The&#160;<em>siteImproveUrl</em><em>&#160;</em>property has been added to the&#160;<em>site</em>&#160;complexType which can be used to overwrite the Site URL if it differs from the URL specified within Siteimprove.</p>
+<h4>System Dictionary</h4>
+<p>A new ability,<em>&#160;modifyDictionary</em>,<em>&#160;</em>has been added to the&#160;<em>global-abilities </em>complexType to match new abilities available in the UI related to allowing users the ability to modify the System Dictionary.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.7" class="anchor-heading" id="CascadeCMS8_7">
+                                        <h2>Cascade CMS 8.7     <a aria-label="Skip to Cascade CMS 8.7" href="#CascadeCMS8_7"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4>Asset Naming Rules</h4>
+<p>The following properties have been added to&#160;<em>site</em> asset:</p>
+<ul>
+<li><em>inheritNamingRules</em></li>
+<li><em>namingRuleCase</em></li>
+<li><em>namingRuleSpacing</em></li>
+<li><em>namingRuleAssets</em></li>
+</ul>
+<h4>Scheduling properties</h4>
+<p>Properties&#160;<em>reviewOnSchedule</em> and&#160;<em>reviewEvery</em> belong now to&#160;<em>dublin-aware-asset</em> rather than&#160;<em>folder-contained-asset</em>. This means that <em>references</em>, <em>formats</em> and <em>templates</em> no longer have these properties.</p>
+<h4>Move/rename workflow type</h4>
+<p>The&#160;<em>workflowDefinition</em> asset has a new boolean property:&#160;<em>move</em>.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.6" class="anchor-heading" id="CascadeCMS8_6">
+                                        <h2>Cascade CMS 8.6     <a aria-label="Skip to Cascade CMS 8.6" href="#CascadeCMS8_6"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4>Extensions to Strip</h4>
+<p>The&#160;<em>extensionsToStrip</em><em>&#160;</em>property has been added to the&#160;<i>destination</i>&#160;and&#160;<em>site</em>&#160;complexTypes which can be used to&#160;remove extension(s) from links managed by Cascade CMS during publish.</p>
+<h4>LDAP Users</h4>
+<p>The&#160;<em>ldapDN</em> property has been added to the&#160;<em>user</em> compexType which can be used to update an existing LDAP User's binding DN, or manually create new LDAP Users using Web Services.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.5" class="anchor-heading" id="CascadeCMS8_5">
+                                        <h2>Cascade CMS 8.5     <a aria-label="Skip to Cascade CMS 8.5" href="#CascadeCMS8_5"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4 id="metadata-field-help-text">Metadata Field Help Text</h4>
+Metadata help text fields are now available for read/edit via web services to match the UI. &#160;Fields&#160;<em>authorFieldHelpText, descriptionFieldHelpText, displayNameFieldHelpText, endDateFieldHelpText, expirationFolderFieldHelpText, keywordsFieldHelpText, reviewDateFieldHelpText, startDateFieldHelpText, summaryFieldHelpText, teaserFieldHelpText,&#160;</em>and<em>&#160;titleFieldHelpText</em>&#160;have been added to the<em>&#160;metadataSet&#160;</em>complexType and field&#160;<em>helpText&#160;</em>has been added to the<em>dynamicMetadataFieldDefinition&#160;</em>complexType to facilitate reading/editing help text.<a name="scheduled-asset-review"></a>
+<h4 id="scheduled-asset-review">Scheduled Asset Review</h4>
+Configuring scheduled asset reviews is now available via web services. &#160;The&#160;<em>reviewOnSchedule</em> and&#160;<em>reviewEvery&#160;</em>properties have been added to the&#160;<em>folder-contained-asset</em> complexType which can be used to enable and configure the scheduling of reviews on home area assets.
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.4.1.2ccc4d6" class="anchor-heading" id="CascadeCMS8_4_1_2ccc4d6">
+                                        <h2>Cascade CMS 8.4.1.2ccc4d6     <a aria-label="Skip to Cascade CMS 8.4.1.2ccc4d6" href="#CascadeCMS8_4_1_2ccc4d6"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>In 8.4.1.2ccc4d6, it is possible to configure whether or not folders should be included in the Stale Content Report.&#160;This setting is available at a folder&#160;level through the "includeInStaleContent" property:</p>
+<code><code></code></code> <code>&lt;element name="includeInStaleContent" maxoccurs="1" minoccurs="0" nillable="true" type="xsd:boolean"&gt;&lt;/element&gt;</code>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.3" class="anchor-heading" id="CascadeCMS8_3">
+                                        <h2>Cascade CMS 8.3     <a aria-label="Skip to Cascade CMS 8.3" href="#CascadeCMS8_3"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4>WYSIWYG Editor Configurations</h4>
+<p>Customizable WYSIWYG Configurations, added in Cascade 8.3, can be manipulated via web services operations like most other assets in the system. &#160;The available fields are displayed below:</p>
+<code>&lt;complexType name="editorConfiguration"&gt;<br/>&#160; &lt;complexContent&gt;<br/>&#160; &#160; &lt;extension base="impl:named-asset"&gt;<br/>&#160; &#160; &#160; &lt;sequence&gt;<br/>&#160; &#160; &#160; &#160; &lt;!-- The Site in which the asset is located NOT REQUIRED when referencing the System Default Editor Configuration (id=DEFAULT, name=Default) One is REQUIRED for all other Editor Configurations --&gt;<br/>&#160; &#160; &#160; &#160; &lt;element maxOccurs="1" minOccurs="0" name="siteId" nillable="true" type="xsd:string"&gt;&lt;/element&gt;<br/>&#160; &#160; &#160; &#160; &lt;element maxOccurs="1" minOccurs="0" name="siteName" nillable="true" type="xsd:string"&gt;&lt;/element&gt;<br/><br/>&#160; &#160; &#160; &#160; &lt;!-- File containing css for the WYSIWYG editor Priority: cssFileId &gt; cssFilePath NOT REQUIRED --&gt;<br/>&#160; &#160; &#160; &#160; &lt;!-- When editing and selected asset is recycled, it is recommended to preserve this relationship by providing selected asset's id in case if the selected asset gets restored from the recycle bin. --&gt;<br/>&#160; &#160; &#160; &#160; &lt;element maxOccurs="1" minOccurs="0" name="cssFileId" type="xsd:string"&gt;&lt;/element&gt;<br/>&#160; &#160; &#160; &#160; &lt;!-- Path works only for non-recycled assets --&gt;<br/>&#160; &#160; &#160; &#160; &lt;element maxOccurs="1" minOccurs="0" name="cssFilePath" type="xsd:string"&gt;&lt;/element&gt;<br/><br/>&#160; &#160; &#160; &#160; &lt;!-- NOT REQUIRED: For reading purposes only. Ignored when editing, copying etc. --&gt;<br/>&#160; &#160; &#160; &#160; &lt;element maxOccurs="1" minOccurs="0" name="cssFileRecycled" type="xsd:boolean"&gt;&lt;/element&gt;<br/><br/>&#160; &#160; &#160; &#160; &lt;!-- JSON String for the configuration --&gt;<br/>&#160; &#160; &#160; &#160; &lt;element maxOccurs="1" minOccurs="1" name="configuration" nillable="false" type="xsd:string"&gt;&lt;/element&gt;<br/>&#160; &#160; &#160; &lt;/sequence&gt;<br/>&#160; &#160; &lt;/extension&gt;<br/>&#160; &lt;/complexContent&gt;<br/>&lt;/complexType&gt;</code>
+<p>A&#160;<em>listEditorConfigurations</em>&#160;operation has also been added which allows script writers to access all Wysiwyg Editor Configurations contained in a particular Site.</p>
+<p>With the addition of WYSIWYG&#160;configurations, all WYSIWYG related properties on Groups and Sites have been removed. &#160;Sites and Content Types have new properties&#160;<em>defaultEditorConfigurationId/defaultEditorConfigurationPath</em>&#160;and&#160;<em>editorConfigurationId/editorConfigurationPath</em>&#160;respectively, which allow editor configurations to be assigned to those asset types via web services.</p>
+<p>New abilities<em>&#160;accessEditorConfigurations and bypassWysiwygEditorRestrictions&#160;</em>have been added to the&#160;<em>sites-abilities</em> complexType and the&#160;<em>accessDefaultEditorConfiguration</em>&#160;ability has been added to&#160;<em>global-abilities&#160;</em>to match new abilities available in the UI related to WYSIWYG configurations.</p>
+<h4 id="global-area-cleanup-and-other-misc-updates">Global Area Cleanup and Other Misc Updates</h4>
+<p>In an effort to clean up remnants of the Global Area, most of the old Global Area abilities on Roles that are no longer applicable have been removed from the&#160;<em>global-abilities</em>&#160;complexType.</p>
+<p>The&#160;<em>defaultGroup</em>&#160;property has also been removed from User objects as it has been removed from the system entirely.</p>
+<p>The&#160;<em>accessAudits</em> ability has been added to the&#160;<em>global-abilities&#160;</em>complexType to match the UI.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.1.1" class="anchor-heading" id="CascadeCMS8_1_1">
+                                        <h2>Cascade CMS 8.1.1     <a aria-label="Skip to Cascade CMS 8.1.1" href="#CascadeCMS8_1_1"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ul>
+<li>Fixed: Blocks can not be read if underlying Data Definition has a field added to it</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.1" class="anchor-heading" id="CascadeCMS8_1">
+                                        <h2>Cascade CMS 8.1     <a aria-label="Skip to Cascade CMS 8.1" href="#CascadeCMS8_1"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4 id="search-updates">Search Updates</h4>
+<p>The Web Services search API has been updated to mirror&#160;the new Advanced Search UI added in Cascade 8.0. &#160;</p>
+<p>It's now possible to filter search results by specific types, specific fields, and/or a specific site. &#160;Search terms behave identically to how they behave in the UI. &#160;Multi-word phrases can be searched for by surrounding the terms in double-quotes. &#160;Unquoted terms will be matched individually. &#160;For example, <span class="code">"mouse rat"</span> will exactly match the phrase <span class="code">"mouse rat"</span>, but <span class="code">mouse rat</span> will match <span class="code">mouse</span> or <span class="code">rat</span> or both.</p>
+<p>Note that single term searches in 8.1 will also include partial word matches. &#160;So, searching for <span class="code">house</span>will match <span class="code">milhouse</span> and&#160;<span class="lightboxed code">houseboat</span>. &#160;This did not happen in 8.0.x.</p>
+<p>The "searchInformation" complexType has been changed to the following which more closely matches the new Advanced Search UI:</p>
+<code>&lt;complexType name="searchInformation"&gt;
+<br/>&#160; &lt;sequence&gt;<br/>&#160; &#160; &lt;element maxOccurs="1" minOccurs="1" name="searchTerms" type="xsd:string"&gt;&lt;/element&gt;<br/>&#160; &#160; &lt;!-- Id or name of the site to search<br/>NOT REQUIRED, if left blank, all sites will be searched --&gt;<br/>&#160; &#160; &lt;element maxOccurs="1" minOccurs="0" name="siteId" nillable="false" type="xsd:string"&gt;&lt;/element&gt;<br/>&#160; &#160; &lt;element maxOccurs="1" minOccurs="0" name="siteName" nillable="false" type="xsd:string"&gt;&lt;/element&gt;<br/>&#160; &#160; &lt;!-- Asset fields to search (e.g. name, title, content), see searchField simpleType for valid values NOT REQUIRED --&gt;<br/>&#160; &#160; &lt;element maxOccurs="1" minOccurs="0" name="searchFields" nillable="false" type="impl:searchFields"&gt;&lt;/element&gt;<br/>&#160; &#160; &lt;!-- Asset types to search (e.g. page, folder, site) NOT REQUIRED, if left blank, all asset types will be searched --&gt;<br/>&#160; &#160; &lt;element maxOccurs="1" minOccurs="0" name="searchTypes" nillable="false" type="impl:searchTypes"&gt;&lt;/element&gt;<br/>&#160; &lt;/sequence&gt;<br/>&lt;/complexType&gt;</code>
+<p>Notice the elements&#160;to specify a site by either id or name, the element to specify the types of assets to match, and the element to specify the fields to match.</p>
+<p>The searchTypes element can be populated with any of the values that already exist in the <span class="code">entityTypeString simpleType.</span></p>
+<p><span class="code">The searchFields element can be populated with any values present in the newly added</span>searchFieldString<span class="code"> simpleType displayed below.</span></p>
+<code>&lt;simpleType name="searchFieldString"&gt;<br/>&#160; &lt;restriction base="xsd:string"&gt;<br/>&#160; &#160; &lt;!-- Basic fields --&gt;<br/>&#160; &#160; &lt;enumeration value="name"/&gt;<br/>&#160; &#160; &lt;enumeration value="path"/&gt;<br/>&#160; &#160; &lt;enumeration value="createdBy"/&gt;<br/>&#160; &#160; &lt;enumeration value="modifiedBy"/&gt;<br/>&#160; &#160; &lt;!-- Metadata fields --&gt;<br/>&#160; &#160; &lt;enumeration value="displayName"/&gt;<br/>&#160; &#160; &lt;enumeration value="title"/&gt;<br/>&#160; &#160; &lt;enumeration value="summary"/&gt;<br/>&#160; &#160; &lt;enumeration value="teaser"/&gt;<br/>&#160; &#160; &lt;enumeration value="keywords"/&gt;<br/>&#160; &#160; &lt;enumeration value="description"/&gt;<br/>&#160; &#160; &lt;enumeration value="author"/&gt;<br/>&#160; &#160; &lt;!-- File content --&gt;<br/>&#160; &#160; &lt;enumeration value="blob"/&gt;<br/>&#160; &#160; &lt;!-- Velocity Format content --&gt;<br/>&#160; &#160; &lt;enumeration value="velocityFormatContent"/&gt;<br/>&#160; &#160; &lt;!-- WYSIWYG and Data Definition Page content, Text and XML Block content, Template content, XSLT Format content --&gt;<br/>&#160; &#160; &lt;enumeration value="xml"/&gt;<br/>&#160; &#160; &lt;!-- Symlink link text field --&gt;<br/>&#160; &#160; &lt;enumeration value="link"/&gt;<br/>&#160; &lt;/restriction&gt;<br/>&lt;/simpleType&gt;</code>
+                                    </section>
+                    
+                                                
+            <section aria-label="Cascade CMS 8.0" class="anchor-heading" id="CascadeCMS8_0">
+                                        <h2>Cascade CMS 8.0     <a aria-label="Skip to Cascade CMS 8.0" href="#CascadeCMS8_0"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <h4>Asset Factory Descriptions</h4>
+<p>With the addition of the "description" field for Asset Factories and Asset Factory Containers in the UI, the WSDL has been updated to allow configuring that field via web services.</p>
+<code>&lt;element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"&gt;&lt;/element&gt;</code>
+<h4>Goodbye Global!</h4>
+<p>With the removal of the Global Area from the system, all existing complexTypes containing a siteName and siteId now require that at least one of those fields be populated. &#160;This includes all home area assets&#160;and&#160;site management&#160;components. &#160;Note that this is not enforced in the WSDL&#160;but is enforced by the server whenever an edit or create operation is performed.</p>
+<h4>Ability Updates</h4>
+<p>The existing "accessAdminArea" global ability has been renamed to "accessManageSiteArea" and a new ability with the old name, "accessAdminArea", has been added which governs access to the new System Administration area and not the Manage Site area as the renamed&#160;ability does.</p>
+<p>The New Site wizard and Site Migration wizard tools have been removed from the system and their corresponding global abilities in the WSDL, "newSiteWizard" and "siteMigration", have also been removed.</p>
+<p>The Recycle Bin Checker and Path Repair database tools have also been removed from the system and their global abilities, "recycleBinChecker" and "pathRepairTool", have likewise been removed from the WSDL.</p>
+<h4>Search Updates</h4>
+<p>Search via the UI has been revamped; however, the WSDL has <strong>not</strong>&#160;yet been updated to be compatible with the new search functionality. &#160;Searching via web services will be unpredictable at best and will outright fail at worst. &#160;Stay tuned for search updates in a future release!</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Pre 8.0 Changelog" class="anchor-heading" id="Pre8_0Changelog">
+                                        <h2>Pre 8.0 Changelog     <a aria-label="Skip to Pre 8.0 Changelog" href="#Pre8_0Changelog"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        For all changes to the Cascade CMS SOAP Web Services API prior to Cascade CMS 8, see the <a href="https://www.hannonhill.com/cascadeserver/Web-Services/Web Services Changelog/index.html">previous changelog.</a>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            <section aria-label="Related Links" class="card shadow-big  width" id="related-links ">
+        <h2>Related Links</h2>
+        <ul>
+                            <li><a href="https://www.hannonhill.com/cascadeserver/Web-Services/Web Services Changelog/index.html">Web Services Changelog</a></li>
+                    </ul>
+    </section>
+    
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=03aefa350a894fa574bd45090efa42b9&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

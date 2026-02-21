@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-02-21T21:54:35.268Z",
+  "dryRun": false,
+  "processed": 3,
+  "updated": 3,
+  "skipped": 0,
+  "errors": 0,
+  "entries": [
+    {
+      "key": "developing-in-cascade/script-formats/date-tool-essentials",
+      "localDocPath": "docs/developing-in-cascade/script-formats/date-tool-essentials/index.html",
+      "kbUrl": "local://Date Tool Essentials",
+      "outcome": "updated",
+      "reason": ""
+    },
+    {
+      "key": "developing-in-cascade/script-formats/query-tool-directives",
+      "localDocPath": "docs/developing-in-cascade/script-formats/query-tool-directives/index.html",
+      "kbUrl": "local://Query Tool Directives",
+      "outcome": "updated",
+      "reason": ""
+    },
+    {
+      "key": "developing-in-cascade/script-formats/velocity-best-practices",
+      "localDocPath": "docs/developing-in-cascade/script-formats/velocity-best-practices/index.html",
+      "kbUrl": "local://Best practices for performance",
+      "outcome": "updated",
+      "reason": ""
+    }
+  ]
+}

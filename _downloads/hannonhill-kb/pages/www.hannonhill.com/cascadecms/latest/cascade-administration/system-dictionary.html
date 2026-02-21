@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>System Dictionary - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/system-dictionary.html" rel="canonical"/>
+		<meta content="9f2496703211e3712c89cbe0584526c5" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">            Cascade Administration    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">System Dictionary</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                                                                                                                                                                                                                    <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/system-dictionary.html">System Dictionary</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Adding Words" href="#AddingWords">Adding Words</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Exporting the Dictionary" href="#ExportingtheDictionary">Exporting the Dictionary</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Copying a User Dictionary (Legacy)" href="#CopyingaUserDictionaryLegacy">Copying a User Dictionary (Legacy)</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                                                                        </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">Cascade Administration</a></li>
+                                                                                            <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapseadministration-tools">+ Administration Tools</a>
+                            <ul class="navHighlighter collapse" id="collapseadministration-tools">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/administration-tools/index.html">Administration Tools Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/administration-tools/logs-and-system-information.html">Logs and System Information</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/administration-tools/logging-configuration.html">Logging Configuration</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/administration-tools/broadcast-messages.html">Announcements</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapseauthentication">+ Authentication</a>
+                            <ul class="navHighlighter collapse" id="collapseauthentication">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/index.html">Authentication Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/ldap/index.html">LDAP/Active Directory</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapseconnectors">+ Connectors and Integrations</a>
+                            <ul class="navHighlighter collapse" id="collapseconnectors">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/index.html">Connectors and Integrations Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/analytics/index.html">Analytics</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/content-export/index.html">Content Export</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/digital-asset-management-dam/index.html">Digital Asset Management (DAM)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/web-governance/index.html">Web Governance</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsedatabase-tools">+ Database Tools</a>
+                            <ul class="navHighlighter collapse" id="collapsedatabase-tools">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/database-tools/index.html">Database Tools Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/database-tools/recycle-bin-checker.html">Recycle Bin Checker</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/database-tools/path-repair-tool.html">Path Repair Tool</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/database-tools/database-export.html">Database Export</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/database-tools/optimize-database.html">Optimize Database</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapseinstallation-and-upgrades">+ Installation &amp; Upgrades</a>
+                            <ul class="navHighlighter collapse" id="collapseinstallation-and-upgrades">
+                                                                                                                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html">Installation &amp; Upgrades Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/index.html">Database</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/linux.html">Installation/Upgrade (ZIP)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/windows.html">Installation/Upgrade (Windows)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/macos.html">Installation/Upgrade (macOS)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/index.html">System Configuration</a></li>
+                                                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/windows-service.html">Add or remove the Windows service</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/configure-a-web-server-for-publishing.html">Configure a web server for publishing</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/migrate-server.html">Migrating Cascade CMS to a new server</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/test-server.html">Setting up a test environment</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/migration-tool.html">Migration Tool</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/cascade-8-upgrade-prep.html">Cascade CMS 8 Upgrade Prep Guide</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/running-cascade-cms-as-a-linux-service.html">Running Cascade CMS as a Linux service</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsepermissions">+ Permissions</a>
+                            <ul class="navHighlighter collapse" id="collapsepermissions">
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/index.html">Permissions Overview</a></li>
+                                                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/users.html">Users</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/groups.html">Groups</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/roles.html">Roles</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/role-abilities-in-cascade.html">Role Abilities</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/access-rights.html">Access Rights</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsesites">+ Sites</a>
+                            <ul class="navHighlighter collapse" id="collapsesites">
+                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/sites/index.html">Sites Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/sites/site-import-and-export.html">Site Import and Export</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/administration-menus.html">Administration Menus</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/audits.html">Audits</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/system-dictionary.html">System Dictionary</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/system-preferences.html">System Preferences</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/external-link-checking.html">External Link Checking Preferences</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/snippets.html">Snippets</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Cascade Administration</span>
+        </div>
+        <header>
+                            <h1>System Dictionary 
+                                        </h1>
+                    </header>
+      <a name="System+Dictionary"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The system dictionary is a centrally-managed collection of words that is used when performing spelling <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/content-checks.html">content checks</a> or when using the spellcheck&#160;feature in the WYSIWYG.</p>
+<p>You can access the system dictionary by clicking the system menu button ( <span class="fa fa-bars">&#160;</span>) &gt; <strong>Administration</strong> &gt; <strong>System Dictionary</strong>.</p>
+<p>There are two types of system dictionary words:</p>
+<ul>
+<li><strong>Custom</strong> - Words that have been manually added to the dictionary; these words are editable.</li>
+<li><strong>Internal</strong> - A pre-populated collection of common words in English; these words are not editable.</li>
+</ul>
+                                    </section>
+                    
+                                                
+            <section aria-label="Adding Words" class="anchor-heading" id="AddingWords">
+                                        <h2>Adding Words     <a aria-label="Skip to Adding Words" href="#AddingWords"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>To add words to the dictionary from the System Dictionary screen:</p>
+<ul>
+<li>Click the system menu button ( <span class="fa fa-bars">&#160;</span>) &gt; <strong>Administration</strong> &gt; <strong>System Dictionary</strong>.</li>
+<li>Click <strong>Add</strong>.</li>
+<li>Enter one or more words in the text area, separating each word with a new line. Words with spaces between them will be separated into multiple words on submit.</li>
+<li>Alternately, drag and drop a newline-separated, plain-text file containing your words into the text area.</li>
+<li>Click <strong>Submit</strong>.</li>
+</ul>
+<p>To add words to the dictionary during a spelling content check:</p>
+<ul>
+<li>Ensure the spelling <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/content-checks.html">content check</a> is enabled for your site.</li>
+<li>After editing an asset, click <strong>Check Content &amp; Submit</strong>.</li>
+<li>Click <strong>Add</strong> next to one or more flagged words.</li>
+<li>Click submit ( <span class="fas fa-check">&#160;</span>).</li>
+</ul>
+<p>To add words to the dictionary in the WYSIWYG:</p>
+<ul>
+<li>In the WYSIWYG, click <strong>Tools</strong> &gt; <strong>Spellcheck</strong>.</li>
+<li>Misspelled words will be underlined in red.</li>
+<li>Click the flagged word(s) and select <strong>Add to Dictionary</strong>.</li>
+</ul>
+<div class="alert alert-warning"><strong>Note</strong> -&#160;Only users with the <strong>Modify Dictionary</strong> ability enabled in their <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/roles.html">System Role</a> can add words to the system dictionary.</div>
+                                    </section>
+                    
+                                                
+            <section aria-label="Exporting the Dictionary" class="anchor-heading" id="ExportingtheDictionary">
+                                        <h2>Exporting the Dictionary     <a aria-label="Skip to Exporting the Dictionary" href="#ExportingtheDictionary"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>To export the dictionary (for example, to import into another instance of Cascade CMS):</p>
+<ol>
+<li>Click the system menu button ( <span class="fa fa-bars">&#160;</span>) &gt; <strong>Administration</strong> &gt; <strong>System Dictionary</strong>.</li>
+<li>Click <b>More</b> &gt; <b>Export</b>.</li>
+<li>A newline-separated, plain-text file containing your custom dictionary words will be downloaded.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Copying a User Dictionary (Legacy)" class="anchor-heading" id="CopyingaUserDictionaryLegacy">
+                                        <h2>Copying a User Dictionary (Legacy)     <a aria-label="Skip to Copying a User Dictionary (Legacy)" href="#CopyingaUserDictionaryLegacy"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>In previous versions of Cascade CMS, users could add words only to their own private dictionary. The system dictionary is now centrally-managed so all users are presented with the same set of words during spell checks. To avoid manually re-entering custom words in the system dictionary, you may wish to import words from one or more users' legacy dictionaries.</p>
+<p>To copy words from a user's dictionary:</p>
+<ol>
+<li>Click the system menu button ( <span class="fa fa-bars">&#160;</span>) &gt; <strong>Administration</strong> &gt; <strong>System Dictionary</strong>.</li>
+<li>Click <b>More</b> &gt; <b>Copy Words From User</b>.</li>
+<li>Unique words (those not already in the system dictionary) from the user's legacy dictionary will be appended to the system dictionary.</li>
+</ol>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=9f2496703211e3712c89cbe0584526c5&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

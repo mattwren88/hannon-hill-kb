@@ -1,0 +1,182 @@
+/* ==========================================================================
+   Code Blocks — Cascade CMS Knowledge Base
+   Styled pre/code blocks with header bar, copy button, and language tabs.
+   ========================================================================== */
+
+.code-block {
+    margin: var(--space-lg) 0;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    background: var(--color-code-bg);
+}
+
+/* ── Header Bar ── */
+.code-block__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-code-header-bg);
+    border-bottom: 1px solid var(--color-border);
+    min-height: 40px;
+}
+
+.code-block__language,
+.code-block__filename {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    font-weight: var(--weight-medium);
+}
+
+.code-block__filename {
+    color: var(--color-text-secondary);
+}
+
+/* ── Copy Button ── */
+.code-block__copy {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 4px var(--space-sm);
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.code-block__copy:hover {
+    color: var(--color-text);
+    background: var(--color-bg-tertiary);
+}
+
+.code-block__copy svg {
+    width: 14px;
+    height: 14px;
+}
+
+.code-block__copy--copied {
+    color: var(--color-callout-tip-icon);
+}
+
+/* ── Code Content ── */
+.code-block__body {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: stretch;
+    background:
+        linear-gradient(transparent 95%, color-mix(in srgb, var(--color-border) 30%, transparent) 100%) 0 0 / 100% calc(1.75em) repeat-y,
+        var(--color-code-bg);
+}
+
+.code-block__gutter {
+    padding: var(--space-md) var(--space-sm);
+    background: color-mix(in srgb, var(--color-code-header-bg) 80%, var(--color-bg) 20%);
+    border-right: 1px solid var(--color-border);
+    min-width: 3.5ch;
+    text-align: right;
+    user-select: none;
+}
+
+.code-block__line-number {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: color-mix(in srgb, var(--color-text-secondary) 80%, var(--color-text) 20%);
+}
+
+.code-block__pre {
+    margin: 0;
+    padding: var(--space-md) var(--space-lg);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background: transparent;
+}
+
+.code-block__pre code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: color-mix(in srgb, var(--color-code-text) 78%, var(--color-heading) 22%);
+    background: transparent;
+    padding: 0;
+}
+
+.code-block__pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.code-block__pre::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.code-block__pre::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+/* ── Language Tabs (multi-language code blocks) ── */
+.code-block__tabs {
+    display: flex;
+    gap: 2px;
+}
+
+.code-block__tab {
+    padding: 4px var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), background var(--transition-fast);
+    font-weight: var(--weight-medium);
+}
+
+.code-block__tab:hover {
+    color: var(--color-text);
+    background: var(--color-bg-tertiary);
+}
+
+.code-block__tab--active {
+    color: var(--color-primary);
+    background: var(--color-primary-bg);
+}
+
+/* ── Tab Panels ── */
+.code-block__panel {
+    display: none;
+}
+
+.code-block__panel--active {
+    display: block;
+}
+
+/* ── Thin Footer Strip ── */
+.code-block__footer {
+    height: 9px;
+    border-top: 1px solid var(--color-border);
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--color-border) 35%, transparent), transparent 40%),
+        color-mix(in srgb, var(--color-code-header-bg) 72%, var(--color-code-bg) 28%);
+}
+
+/* ── Simple pre/code without wrapper (fallback) ── */
+.content__body pre:not(.code-block__pre) {
+    margin: var(--space-lg) 0;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-code-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.content__body pre:not(.code-block__pre) code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--color-code-text);
+    background: transparent;
+    padding: 0;
+}

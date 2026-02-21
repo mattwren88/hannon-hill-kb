@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Cascade CMS 8.12 - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.12/index.html" rel="canonical"/>
+		<meta content="d95ad2e5ac1e00a7122d912b6d203425" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/archives.html">Archives</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/changelog.html">Changelog</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/index.html">Knowledge Base</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">            Release Notes    
+    </a></li>
+      
+        
+                            <li class="breadcrumb-item active">            Cascade CMS 8.12    
+    </li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						
+<div class="sidenav release-sidebar" id="sidebar">
+    
+  
+    <nav class="release-sidenav list-group">
+        <a arial-label="Skip to Release Notes" class="list-group-item list-group-item-action" href="#notes"><i class="icon-chevron fas fa-chevron-right float-right"> </i> Notes</a>    <a arial-label="Skip to Upgrade Guide" class="list-group-item list-group-item-action" href="#upgrade-guide"><i class="icon-chevron fas fa-chevron-right float-right"> </i> Upgrade Guide</a>  </nav>
+  
+    
+    
+
+  <div class="release-stats card bg-light border-light" role="complementary">
+      <div class="card-body">
+          <div class="card-title">
+            <h3>At a Glance</h3>
+          </div>
+          <div class="card-text">
+            <dl>
+              <dt>Released on</dt>
+              <dd class="lead text-info">04/01/2019</dd>
+                                    </dl>
+            
+                        <hr/>
+              
+                                                            
+                        
+                                                                                                                                                          
+    <div class="release-pagination">
+    <p>
+            Next Release: <a href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13/index.html">8.13</a><br/>
+                Previous Release: <a href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11.1/index.html">8.11.1</a>
+        </p>
+  </div>
+          </div>
+    </div>
+  </div>
+
+  
+
+</div>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+<div class="jumbotron bg-light" id="release-hero">
+  <h1>Cascade CMS 8.12</h1>
+  <p class="lead">Cascade CMS 8.12 includes drag 'n drop Data Definition field reordering, a number of improvements to accessibility reporting, improved color contrast throughout the interface, an upgrade to Oracle JRE 1.8_202 and many other bug fixes and enhancements.</p>
+   <a class="btn btn-primary" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.12/requirements.html"><i class="far fa-check-square"> </i> View Requirements</a> </div>
+						
+
+
+<section id="notes">
+    <div class="page-header">
+      <h2>Notes</h2>
+    </div>
+        
+    
+              <a name="Features%2FImprovements"></a>
+            <h3>Features/Improvements</h3>
+          
+              <ul>
+<li>Data Definition groups and fields can now be reordered and restructured while preserving existing content. We've added <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html">drag-and-drop re-ordering</a> to help simplify Data Definition group and field reordering.</li>
+<li>Consecutive calls with <code>structuredData</code>, <code>getStructuredDataNode()</code>, or <code>getStructuredDataNodes()</code> will now be cached to improve rendering times.</li>
+<li>On-submit <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/content-checks.html">accessibility content checks</a> will now show a helpful message if they appear to be taking longer than expected.</li>
+<li>We've improved color contrast in various places throughout the application for better visibility and accessibility.</li>
+<li>To improve impact on system performance, applying workflow settings to multiple folders simultaneously will now run as a background task.</li>
+<li>We're doing less frequent recrawl requests of Siteimprove when publishing content from Cascade CMS. Individual asset publishes will still issue automatic recheck, but larger, bulk publishes will not recrawl your entire site as frequently.</li>
+</ul>
+          
+              <a name="Issues+Fixed"></a>
+            <h3>Issues Fixed</h3>
+          
+              <ul>
+<li><span class="fas fa-cloud icon-cloud-release">&#160;</span>&#160;Timestamps for page previews in the Accessibility Report&#160;will now show the correct date and time that the preview was generated.</li>
+<li>The <code>readAudits</code>&#160;<a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html">web services</a> operation will now handle the <code>groupname</code>, <code>rolename</code>, <code>startDate</code> and <code>endDate</code> options within the <code>auditParameters</code> request data.</li>
+<li>Addressed an issue where the <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-tools.html#query-api">Query API</a> would return inconsistent results when filtering by multiple Dynamic Metadata field or tag values.</li>
+<li><span class="fas fa-cloud icon-cloud-release">&#160;</span> Assets associated with an Accessibility Report record can now be fully purged from the recycle bin without error.</li>
+<li><span class="fas fa-cloud icon-cloud-release">&#160;</span> Addressed an issue where the length of Accessibility Report violation descriptions could exceed the database column length.</li>
+<li><span class="fas fa-cloud icon-cloud-release">&#160;</span> WCAG accessibility tests relating to CSS and overall page structure will no longer be reported in the on-submit <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/content-checks.html">accessibility content check</a>.</li>
+<li>When reading an asset with Structured Data nodes using Web Services, a&#160;<code>structured-data-node</code>&#160;will now be returned for all fields. This means that if a given asset is missing a value for a field, a&#160;<code>structured-data-node</code>&#160;with that field's default value will be returned, instead of the field being omitted from the response.</li>
+<li>Addressed an issue where under certain situations cached Index Block renderings would not properly update as assets were created and removed. We also reduced average system memory consumption by Index Block caches.</li>
+<li><a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/asset-naming-rules.html">Naming Rules</a> will now be applied properly when creating a <a href="https://www.hannonhill.com/cascadecms/latest/content-authoring/references.html">reference</a> to an existing asset.</li>
+<li>A JavaScript error will no longer appear when inserting/updating links and images within a WYSIWYG field.</li>
+<li>Dashboard widgets configured with a deleted Site will now display a message instructing the user to update the widget.</li>
+<li>Dashboard widgets will no longer become uneditable when configured with a Site to which the current user does not have explicit Site object READ/WRITE permissions.</li>
+<li>The <em>Mark as Reviewed</em> keyboard shortcut when viewing an asset has been changed from <code>w</code> to <code>s</code> to avoid conflicting with the <em>Workflows</em> shortcut when viewing a folder.</li>
+<li>When recovering a folder from the Trash, assets will be restored in order from the parent folder down to ensure cache paths are set correctly.</li>
+<li>Broadcast messages will once again remain visible until the user explicitly closes them.</li>
+<li>Read timeouts during <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/analytics/how-to-set-up-a-google-analytics-connector.html">Google Analytics Connector</a> syncing should occur less frequently.</li>
+<li>Folders can once again be recycled if they contain assets which are locked or have working copies.</li>
+<li>Notifications for Tasks with due dates will no longer be sent after the Task has been resolved or deleted.</li>
+<li>Content ownership will be preserved after an asset goes through workflow or a previous version is activated.</li>
+<li>It is no longer possible to schedule Broadcast Messages in the past, or with an end date that is before the start date.</li>
+<li>Asset chooser fields will now properly handle double quotes when displaying assets by their Title or Display Name.</li>
+<li>Copying Data Definitions and Shared Fields to another Site will no longer result in invalid paths.</li>
+<li>The Data Definition Builder will no longer become unusable when editing a Data Definition which references a nonexistent Shared Field.</li>
+<li>WYSIWYG Editor Configurations from another Site will now load when viewing a Data Definitions or when editing Pages/Blocks.</li>
+<li>Fields inside a Shared Field group will no longer lose their values when swapping out a page's Data Definition or Content Type.</li>
+<li>Empty content areas will no longer be tested for accessibility issues.</li>
+</ul>
+          </section>
+
+<section id="upgrade-guide">
+    <div class="page-header">
+      <h2>Upgrade Guide</h2>
+    </div>
+                  <ul>
+              <li><a href="#Structured+Data+Updates">Structured Data Updates</a></li>
+              <li><a href="#Increased+Storage+Requirements">Increased Storage Requirements</a></li>
+              <li><a href="#First+time+installation%3F">First time installation?</a></li>
+              <li><a href="#Upgrade+Steps">Upgrade Steps</a></li>
+              <li><a href="#Which+installer+should+I+use%3F">Which installer should I use?</a></li>
+            </ul>
+      
+    
+              <a name="Structured+Data+Updates"></a>
+            <h3>Structured Data Updates</h3>
+          
+              <p dir="auto">Accompanying the new Data Definition&#160;<a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html">drag-and-drop re-ordering</a> functionality is a background job which updates structured data associated with pages and blocks across the system. The duration of this job depends on the number of assets that need to be processed and the complexity of the structured data. This job must complete before the <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html">drag-and-drop re-ordering</a> functionality is available.</p>
+<p dir="auto">Progress of this job can be monitored in two ways:</p>
+<ul dir="auto" type="disc">
+<li type="disc">An&#160;<strong>Upgrade Structured Data</strong>&#160;task will be present in the&#160;<a href="https://www.hannonhill.com/cascadecms/latest/content-management/reports/background-tasks.html">Background Task report</a>&#160;where you can monitor the duration and status of the job.</li>
+<li type="disc">There is a section at the bottom of the System Information screen,&#160;<strong>Status of structured page and block content upgrade</strong>,&#160;which provides information about the status of the job.</li>
+</ul>
+          
+              <a name="Increased+Storage+Requirements"></a>
+            <h3>Increased Storage Requirements</h3>
+          
+              <p>This release introduces adjustments to Index Block caching wherein the cache can overflow to the local disk. This new overflow mechanism will require additional storage space on the application server. At this time, we are recommending an additional 5GB of storage for a total of 15GB (minimum) or 25GB (recommended) per our <a href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.12/requirements.html">latest requirements</a>.</p>
+          
+              <a name="First+time+installation%3F"></a>
+            <h3>First time installation?</h3>
+          
+                  <p>Be sure to <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/index.html" rel="noopener" target="_blank">import our default database schema</a> prior to installing Cascade CMS for the first time. Then follow the appropriate <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html" rel="noopener" target="_blank">installation instructions</a> for your environment.</p>
+      
+              <a name="Upgrade+Steps"></a>
+            <h3>Upgrade Steps</h3>
+          
+                  <ol>
+<li>Shut down your currently running Cascade CMS environment.</li>
+<li>Before you upgrade, we strongly recommend that you <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/db-backup.html" rel="noopener" target="_blank"> <strong>back-up your production database</strong></a> as well as <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/test-server.html">set up a test environment</a> and perform a trial run of the upgrade. All customers are entitled to a test license for this purpose.</li>
+<li>Read the release notes and upgrade guides for <strong>all releases</strong> between your version and the latest version.</li>
+<li>Check the table below to see which installer type is required.</li>
+</ol>
+      
+              <a name="Which+installer+should+I+use%3F"></a>
+            <h3>Which installer should I use?</h3>
+          
+              <p>With certain upgrade paths, a <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html">full installation</a> of Cascade CMS is required in order to ensure that the application has the latest required libraries. See the table below for a summary of which installer you should use based on the version from which you are upgrading. For any versions that do <strong>not</strong> require a full installation, using the <a href="#">ROOT.war upgrade method</a> is allowed.</p>
+<table class="table table-striped" summary="Find the version you intend to upgrade from in column one. The second column will tell you if that version requires a full upgrade or not."><caption>Upgrade Path</caption>
+<thead>
+<tr>
+<th>Upgrading From</th>
+<th>Full Installation Required</th>
+</tr>
+</thead>
+<tbody><!-- version -->
+<tr>
+<td>7.x</td>
+<td>Yes</td>
+</tr>
+<!-- version -->
+<tr>
+<td>8.0.x</td>
+<td>Yes</td>
+</tr>
+<!-- version -->
+<tr>
+<td>8.1.x</td>
+<td>Yes</td>
+</tr>
+<!-- version -->
+<tr>
+<td>8.2.x</td>
+<td>Yes</td>
+</tr>
+<!-- version -->
+<tr>
+<td>8.3</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>8.4.x</td>
+<td>Yes</td>
+</tr>
+<!-- version -->
+<tr>
+<td>8.5</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>8.6.x</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>8.7.x</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>8.8.x</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>8.9</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>8.9.1</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>8.10</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>8.11.x</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+          </section>
+
+
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=d95ad2e5ac1e00a7122d912b6d203425&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

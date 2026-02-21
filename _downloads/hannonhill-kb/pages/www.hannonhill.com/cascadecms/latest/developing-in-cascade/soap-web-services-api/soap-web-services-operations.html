@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>SOAP Web Services Operations - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html" rel="canonical"/>
+		<meta content="664a822e3211e3711c75b25ac2ea2ffe" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html">            Developing in Cascade    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/index.html">            SOAP Web Services API    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">SOAP Web Services Operations</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html">SOAP Web Services Operations</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Introduction to Web Services Operations" href="#IntroductiontoWebServicesOperations">Introduction to Web Services Operations</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Authentication" href="#Authentication">Authentication</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Operation Overview" href="#OperationOverview">Operation Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Read Operation" href="#ReadOperation">Read Operation</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Delete Operation" href="#DeleteOperation">Delete Operation</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Move Operation" href="#MoveOperation">Move Operation</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Publish Operation" href="#PublishOperation">Publish Operation</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Batch Operation" href="#BatchOperation">Batch Operation</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Workflow and Web Services Operations" href="#WorkflowandWebServicesOperations">Workflow and Web Services Operations</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Search Operation" href="#SearchOperation">Search Operation</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Authenticate Operation" href="#AuthenticateOperation">Authenticate Operation</a> </li>
+                                                                                    </ul>
+                    </li>
+                                    </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html">Developing in Cascade</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-changelog.html">SOAP Web Services Changelog</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html">SOAP Web Services Operations</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">SOAP Web Services API</span>
+        </div>
+        <header>
+                            <h1>SOAP Web Services Operations 
+                                        </h1>
+                    </header>
+      <a name="SOAP+Web+Services+Operations"></a>
+    
+                        
+                                                
+            <section aria-label="Introduction to Web Services Operations" class="anchor-heading" id="IntroductiontoWebServicesOperations">
+                                        <h2>Introduction to Web Services Operations     <a aria-label="Skip to Introduction to Web Services Operations" href="#IntroductiontoWebServicesOperations"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>When looking through the WSDL, you can find all of the operations available along with their responses at the top. Every operation is represented by an <code>&lt;element&gt;</code> block with the corresponding name for the operation; the response is simply the name of the operation with a "Response" suffix.</p>
+<p>The responses contain an "operationResult", which is described by the following complexType in the WSDL:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="operationResult"&gt;  
+  &lt;sequence&gt;  
+    &lt;element maxOccurs="1" name="success" type="xsd:string"&gt;&lt;/element&gt;  
+    &lt;element maxOccurs="1" name="message" nillable="true" type="xsd:string"&gt;&lt;/element&gt;                       
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>This WSDL describes that inside the corresponding element (i.e. "editReturn") will appear two more elements: "success", which will be either "true" or "false", and a "message" element that will contain a relevant message from the server (generally only non-nill when the operation failed).</p>
+                                        </section>
+                    
+                                                
+            <section aria-label="Authentication" class="anchor-heading" id="Authentication">
+                                        <h2>Authentication     <a aria-label="Skip to Authentication" href="#Authentication"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>For each operation, it is necessary to include authentication information. This is specified by the required "authentication" element seen in every request type. Looking further in the WSDL, we see the following:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="authentication"&gt;  
+  &lt;sequence&gt;  
+    &lt;element minOccurs="0" name="password" nillable="false" type="xsd:string"&gt;&lt;/element&gt;
+    &lt;element minOccurs="0" name="username" nillable="false" type="xsd:string"&gt;&lt;/element&gt;
+    &lt;element minOccurs="0" name="apiKey" nillable="false" type="xsd:string"&gt;&lt;/element&gt; 
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>This complex type corresponds to this authentication element. The authentication type must contain one of: username and password OR apiKey, which are each of the type String. This is used by Cascade CMS&#160;to authenticate the user making the SOAP request and to ensure that the user has the proper permissions to carry out that operation.</p>
+<p>Example:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;m:authentication&gt;  &#13;
+  &lt;m:username&gt;admin&lt;/m:username&gt;  &#13;
+  &lt;m:password&gt;admin&lt;/m:password&gt;  &#13;
+&lt;/m:authentication&gt;&#13;
+&#13;
+&lt;!-- OR --&gt;&#13;
+&#13;
+&lt;m:authentication&gt;  &#13;
+  &lt;m:apiKey&gt;27c03f58-7c79-45d1-aa8f-76d697bbb10d&lt;/m:apiKey&gt;  &#13;
+&lt;/m:authentication&gt;
+</code></pre>
+                                        </section>
+                    
+                                                
+            <section aria-label="Operation Overview" class="anchor-heading" id="OperationOverview">
+                                        <h2>Operation Overview     <a aria-label="Skip to Operation Overview" href="#OperationOverview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Creating and Editing are two very similar operations. Looking at the WSDL, we see both the "create" and "edit" operations take two sub-elements: authentication (discussed above) and asset. Asset is a universal classification for all Cascade CMS&#160;assets and for including workflow information (when necessary). Looking at the "asset" complexType , we see the following:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;!-- asset is an aggregate type that includes all possible Cascade CMS assets  
+     bundled with workflow configuration. When a user does not have the privileges to bypass  
+     workflow, this configuration is used to configure the step assignments of the workflow --&gt;
+&lt;complexType name="asset"&gt;  
+  &lt;sequence&gt;  
+    &lt;element maxOccurs="1" minOccurs="0" name="workflowConfiguration" type="impl:workflow-configuration"&gt;&lt;/element&gt;  
+    &lt;choice&gt;  
+      &lt;element maxOccurs="1" minOccurs="1" name="feedBlock" nillable="true" type="impl:feedBlock"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="indexBlock" nillable="true" type="impl:indexBlock"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="textBlock" nillable="true" type="impl:textBlock"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="xhtmlDataDefinitionBlock" nillable="true" type="impl:xhtmlDataDefinitionBlock"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="xmlBlock" nillable="true" type="impl:xmlBlock"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="file" nillable="true" type="impl:file"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="folder" nillable="true" type="impl:folder"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="page" nillable="true" type="impl:page"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="reference" nillable="true" type="impl:reference"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="xsltFormat" nillable="true" type="impl:xsltFormat"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="scriptFormat" nillable="true" type="impl:scriptFormat"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="symlink" nillable="true" type="impl:symlink"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="template" nillable="true" type="impl:template"&gt;&lt;/element&gt;
+      &lt;!-- admin area assets (must be manager or higher to access,
+         no workflowConfiguration needed --&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="user" nillable="true" type="impl:user"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="group" nillable="true" type="impl:group"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="role" nillable="true" type="impl:role"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="assetFactory" nillable="true" type="impl:assetFactory"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="assetFactoryContainer" nillable="true" type="impl:assetFactoryContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="contentType" nillable="true" type="impl:contentType"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="contentTypeContainer" nillable="true" type="impl:contentTypeContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="connectorContainer" nillable="true" type="impl:connectorContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="twitterConnector" nillable="true" type="impl:twitterConnector"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="facebookConnector" nillable="true" type="impl:facebookConnector"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="wordPressConnector" nillable="true" type="impl:wordPressConnector"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="googleAnalyticsConnector" nillable="true" type="impl:googleAnalyticsConnector"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="pageConfigurationSet" nillable="true" type="impl:pageConfigurationSet"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="pageConfigurationSetContainer" nillable="true" type="impl:pageConfigurationSetContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="dataDefinition" nillable="true" type="impl:dataDefinition"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="dataDefinitionContainer" nillable="true" type="impl:dataDefinitionContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="sharedField" nillable="true" type="impl:sharedField"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="sharedFieldContainer" nillable="true" type="impl:sharedFieldContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="metadataSet" nillable="true" type="impl:metadataSet"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="metadataSetContainer" nillable="true" type="impl:metadataSetContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="publishSet" nillable="true" type="impl:publishSet"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="publishSetContainer" nillable="true" type="impl:publishSetContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="target" nillable="true" type="impl:target"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="siteDestinationContainer" nillable="true" type="impl:siteDestinationContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="destination" nillable="true" type="impl:destination"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="fileSystemTransport" nillable="true" type="impl:fileSystemTransport"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="ftpTransport" nillable="true" type="impl:ftpTransport"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="databaseTransport" nillable="true" type="impl:databaseTransport"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="cloudTransport" nillable="true" type="impl:cloudTransport"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="transportContainer" nillable="true" type="impl:transportContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="workflowDefinition" nillable="true" type="impl:workflowDefinition"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="workflowDefinitionContainer" nillable="true" type="impl:workflowDefinitionContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="workflowEmail" nillable="true" type="impl:workflowEmail"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="workflowEmailContainer" nillable="true" type="impl:workflowEmailContainer"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="twitterFeedBlock" nillable="true" type="impl:twitterFeedBlock"&gt;&lt;/element&gt;
+      &lt;!-- other assets --&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="site" nillable="true" type="impl:site"&gt;&lt;/element&gt;
+      &lt;element maxOccurs="1" minOccurs="1" name="editorConfiguration" nillable="true" type="impl:editorConfiguration"&gt;&lt;/element&gt;
+    &lt;/choice&gt;  
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>First, there is the workflowConfiguration element. This is necessary when the user executing the SOAP request does not have the required permissions to bypass workflow, and the operation is subject to workflow. For more information about workflow and SOAP, please see <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html#WorkflowandWebServicesOperations">Workflow and Web Services Operations</a>.</p>
+<p>Next, there is the choice element that specifies that the user has a choice between all these assets, and each one corresponds to a specific asset type in Cascade CMS. Note that due to the choice element wrapping these elements and the maxOccurs="1" and minOccurs="1" attributes, only one asset may be specified at a time. If you wish to do bulk creation/editing, see the <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html#BatchOperation">Batch Operation</a>.</p>
+                                        </section>
+                    
+                                                
+            <section aria-label="Read Operation" class="anchor-heading" id="ReadOperation">
+                                        <h2>Read Operation     <a aria-label="Skip to Read Operation" href="#ReadOperation"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>All read operations conform to the following WSDL:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;element name="read"&gt;  
+    &lt;complexType&gt;  
+        &lt;sequence&gt;  
+            &lt;element name="authentication" type="impl:authentication"&gt;&lt;/element&gt;  
+            &lt;element name="identifier" type="impl:identifier"&gt;&lt;/element&gt;  
+        &lt;/sequence&gt;  
+    &lt;/complexType&gt;  
+&lt;/element&gt;
+</code></pre>
+                                    <p>Authentication has been discussed before, in the <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html#Authentication">Authentication</a> section.</p>
+<p>The identifier complex type is defined in the following WSDL:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="identifier"&gt;  
+  &lt;sequence&gt;  
+    &lt;choice&gt;  
+      &lt;element maxOccurs="1" name="id" type="xsd:string"&gt;&lt;/element&gt;  
+      &lt;element maxOccurs="1" name="path" type="impl:path"&gt;&lt;/element&gt;  
+    &lt;/choice&gt;  
+    &lt;element maxOccurs="1" minOccurs="1" name="type" type="impl:entityTypeString"&gt;&lt;/element&gt;  
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>An identifier is a composite type used to identify a single asset in Cascade CMS. It melds an ID or Path, and a type.</p>
+<p>When using a Path as an identifer, you must use a Path type, which is a string of the path, and a Site name or Site ID:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="path"&gt;  
+  &lt;sequence&gt;  
+    &lt;element maxOccurs="1" name="path" type="xsd:string"&gt;&lt;/element&gt;  
+    &lt;choice&gt;  
+      &lt;element maxOccurs="1" name="siteId" nillable="true" type="xsd:string"&gt;&lt;/element&gt;  
+      &lt;element maxOccurs="1" name="siteName" nillable="true" type="xsd:string"&gt;&lt;/element&gt;  
+    &lt;/choice&gt;  
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>The type is defined by the following enumeration:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;simpleType name="entityTypeString"&gt;
+    &lt;restriction base="xsd:string"&gt;
+        &lt;enumeration value="assetfactory"/&gt;
+        &lt;enumeration value="assetfactorycontainer"/&gt;
+        &lt;enumeration value="block"/&gt;
+        &lt;enumeration value="block_FEED"/&gt;
+        &lt;enumeration value="block_INDEX"/&gt;
+        &lt;enumeration value="block_TEXT"/&gt;
+        &lt;enumeration value="block_XHTML_DATADEFINITION"/&gt;
+        &lt;enumeration value="block_XML"/&gt;
+        &lt;enumeration value="block_TWITTER_FEED"/&gt;
+        &lt;enumeration value="connectorcontainer"/&gt;
+        &lt;enumeration value="twitterconnector"/&gt;
+        &lt;enumeration value="facebookconnector"/&gt;
+        &lt;enumeration value="wordpressconnector"/&gt;
+        &lt;enumeration value="googleanalyticsconnector"/&gt;
+        &lt;enumeration value="contenttype"/&gt;
+        &lt;enumeration value="contenttypecontainer"/&gt;
+        &lt;enumeration value="destination"/&gt;
+        &lt;enumeration value="editorconfiguration"/&gt;
+        &lt;enumeration value="file"/&gt;
+        &lt;enumeration value="folder"/&gt;
+        &lt;enumeration value="group"/&gt;
+        &lt;enumeration value="message"/&gt;
+        &lt;enumeration value="metadataset"/&gt;
+        &lt;enumeration value="metadatasetcontainer"/&gt;
+        &lt;enumeration value="page"/&gt;
+        &lt;enumeration value="pageconfigurationset"/&gt;
+        &lt;enumeration value="pageconfiguration"/&gt;
+        &lt;enumeration value="pageregion"/&gt;
+        &lt;enumeration value="pageconfigurationsetcontainer"/&gt;
+        &lt;enumeration value="publishset"/&gt;
+        &lt;enumeration value="publishsetcontainer"/&gt;
+        &lt;enumeration value="reference"/&gt;
+        &lt;enumeration value="role"/&gt;
+        &lt;enumeration value="datadefinition"/&gt;
+        &lt;enumeration value="datadefinitioncontainer"/&gt;
+        &lt;enumeration value="sharedfield"/&gt;
+        &lt;enumeration value="sharedfieldcontainer"/&gt;
+        &lt;enumeration value="format"/&gt;
+        &lt;enumeration value="format_XSLT"/&gt;
+        &lt;enumeration value="format_SCRIPT"/&gt;
+        &lt;enumeration value="site"/&gt;
+        &lt;enumeration value="sitedestinationcontainer"/&gt;
+        &lt;enumeration value="symlink"/&gt;
+        &lt;enumeration value="target"/&gt;
+        &lt;enumeration value="template"/&gt;
+        &lt;enumeration value="transport"/&gt;
+        &lt;enumeration value="transport_fs"/&gt;
+        &lt;enumeration value="transport_ftp"/&gt;
+        &lt;enumeration value="transport_db"/&gt;
+        &lt;enumeration value="transport_cloud"/&gt;
+        &lt;enumeration value="transportcontainer"/&gt;
+        &lt;enumeration value="user"/&gt;
+        &lt;enumeration value="workflow"/&gt;
+        &lt;enumeration value="workflowdefinition"/&gt;
+        &lt;enumeration value="workflowdefinitioncontainer"/&gt;
+        &lt;enumeration value="workflowemail"/&gt;
+        &lt;enumeration value="workflowemailcontainer"/&gt;
+    &lt;/restriction&gt;
+&lt;/simpleType&gt;
+</code></pre>
+                                        </section>
+                    
+                                                
+            <section aria-label="Delete Operation" class="anchor-heading" id="DeleteOperation">
+                                        <h2>Delete Operation     <a aria-label="Skip to Delete Operation" href="#DeleteOperation"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The delete operation is just like the read operation in that it contains an identifier. The WSDL describing the delete operation is as follows:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="delete"&gt;  
+  &lt;sequence&gt;  
+    &lt;element maxOccurs="1" minOccurs="0" name="workflowConfiguration" type="impl:workflow-configuration"&gt;&lt;/element&gt;  
+    &lt;element maxOccurs="1" minOccurs="1" name="identifier" type="impl:identifier"&gt;&lt;/element&gt;  
+    &lt;element maxOccurs="1" minOccurs="0" name="deleteParameters" type="impl:deleteParameters"&gt;&lt;/element&gt;
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>The delete operation contains workflow information and an identifier, which are discussed in the&#160;<a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html#WorkflowandWebServicesOperations">Workflow and Web Services Operations</a> and <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html#ReadOperation">Read Operation</a> sections, respectively.</p>
+                                        </section>
+                    
+                                                
+            <section aria-label="Move Operation" class="anchor-heading" id="MoveOperation">
+                                        <h2>Move Operation     <a aria-label="Skip to Move Operation" href="#MoveOperation"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The move operation is just like the delete operation in that it contains an identifier. The WSDL describing the move operation is as follows:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="move"&gt;
+  &lt;sequence&gt;
+    &lt;element maxOccurs="1" minOccurs="1" name="identifier" nillable="false" type="impl:identifier"&gt;&lt;/element&gt;
+    &lt;element maxOccurs="1" minOccurs="1" name="moveParameters" nillable="false" type="impl:moveParameters"&gt;&lt;/element&gt;
+    &lt;element maxOccurs="1" minOccurs="0" name="workflowConfiguration" nillable="false" type="impl:workflow-configuration"&gt;&lt;/element&gt;
+  &lt;/sequence&gt;
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>The move operation contains workflow information and an identifier, which are discussed in the&#160;<a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html#WorkflowandWebServicesOperations">Workflow and Web Services Operations</a> and <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html#ReadOperation">Read Operation</a> sections, respectively.</p>
+                                        </section>
+                    
+                                                
+            <section aria-label="Publish Operation" class="anchor-heading" id="PublishOperation">
+                                        <h2>Publish Operation     <a aria-label="Skip to Publish Operation" href="#PublishOperation"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The publish operation is very similar to the read and delete operation:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="publish"&gt;  
+  &lt;sequence&gt;  
+    &lt;element name="identifier" nillable="true" type="impl:identifier"&gt;&lt;/element&gt;  
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>This time the publish operation only takes an identifier and no workflow information. The identifier must reference only publishable assets: a file, folder, or page. Also, it is possible to specify a target, destination, or publish set by using the types target, destination, or publishset in the identifier. The user included in the authentication information must be of the publisher role or higher; otherwise they will not be able to publish and receive an response indicating a failure.</p>
+                                        </section>
+                    
+                                                
+            <section aria-label="Batch Operation" class="anchor-heading" id="BatchOperation">
+                                        <h2>Batch Operation     <a aria-label="Skip to Batch Operation" href="#BatchOperation"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The batch operation is a simple way of accomplishing multiple operations while only transmitting a single SOAP&#160;request/response. Here is the WSDL for the "batch" element:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;element name="batch"&gt;  
+  &lt;complexType&gt;  
+    &lt;sequence&gt;  
+      &lt;element maxOccurs="1" minOccurs="1" name="authentication" type="impl:authentication"&gt;&lt;/element&gt;  
+      &lt;element maxOccurs="unbounded" name="operation" type="impl:operation"&gt;&lt;/element&gt;  
+    &lt;/sequence&gt;  
+  &lt;/complexType&gt;  
+&lt;/element&gt;
+</code></pre>
+                                    <p><a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html#Authentication">Authentication</a> has already been discussed; what is important here is the ability to specify any number of "operation" elements, each of which map to the "operation" complex type:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="operation"&gt;  
+  &lt;choice&gt;  
+    &lt;element name="create" type="impl:create"&gt;&lt;/element&gt;  
+    &lt;element name="delete" type="impl:delete"&gt;&lt;/element&gt;  
+    &lt;element name="edit" type="impl:edit"&gt;&lt;/element&gt;  
+    &lt;element name="publish" type="impl:publish"&gt;&lt;/element&gt;  
+    &lt;element name="read" type="impl:read"&gt;&lt;/element&gt;  
+  &lt;/choice&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>The operation complex type is simply an aggregate of all the other operation types available.</p>
+<p>Here is a sample batch request:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;  
+  &lt;SOAP-ENV:Body&gt;  
+    &lt;m:batch xmlns:m="http://www.hannonhill.com/ws/ns/AssetOperationService"&gt;  
+      &lt;m:authentication&gt;  
+        &lt;m:password&gt;admin&lt;/m:password&gt;  
+        &lt;m:username&gt;admin&lt;/m:username&gt;  
+      &lt;/m:authentication&gt;  
+      &lt;m:operation&gt;  
+        &lt;m:create&gt;  
+          &lt;m:asset&gt;  
+            &lt;m:page&gt;  
+              &lt;m:name&gt;default&lt;/m:name&gt;  
+              &lt;m:parentFolderPath&gt;/intranet&lt;/m:parentFolderPath&gt;  
+              &lt;m:path&gt;/intranet/default&lt;/m:path&gt;  
+              &lt;m:metadata&gt;  
+                &lt;m:author&gt;Zach Bailey&lt;/m:author&gt;  
+              &lt;/m:metadata&gt;  
+              &lt;m:metadataSetId&gt;ROOT&lt;/m:metadataSetId&gt;  
+              &lt;m:shouldBePublished&gt;true&lt;/m:shouldBePublished&gt;  
+              &lt;m:shouldBeIndexed&gt;true&lt;/m:shouldBeIndexed&gt;  
+              &lt;m:xhtml&gt;&lt;![CDATA[&lt;p&gt;Welcome to my page!&lt;/p&gt;]]&gt;&lt;/m:xhtml&gt;  
+            &lt;/m:page&gt;  
+          &lt;/m:asset&gt;  
+        &lt;/m:create&gt;  
+        &lt;m:publish&gt;  
+          &lt;m:identifier&gt;  
+            &lt;m:path&gt;/intranet/default&lt;/m:path&gt;  
+            &lt;m:type&gt;page&lt;/m:type&gt;  
+          &lt;/m:identifier&gt;  
+        &lt;/m:publish&gt;  
+      &lt;/m:operation&gt;  
+    &lt;/m:batch&gt;  
+  &lt;/SOAP-ENV:Body&gt;  
+&lt;/SOAP-ENV:Envelope&gt;
+</code></pre>
+                                    <p>This batch request edits the /intranet/default page and then publishes those changes.</p>
+                                        </section>
+                    
+                                                
+            <section aria-label="Workflow and Web Services Operations" class="anchor-heading" id="WorkflowandWebServicesOperations">
+                                        <h2>Workflow and Web Services Operations     <a aria-label="Skip to Workflow and Web Services Operations" href="#WorkflowandWebServicesOperations"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>When a user making an edit, create, or delete request does not have the role/permission to bypass workflow, it is necessary to include workflow information in the request message.</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="workflow-configuration"&gt;  
+  &lt;sequence&gt;  
+    &lt;element maxOccurs="1" minOccurs="1" name="workflowName" type="xsd:string"&gt;&lt;/element&gt;  
+    &lt;choice&gt;  
+      &lt;element maxOccurs="1" minOccurs="1" name="workflowDefinitionId" type="xsd:string"&gt;&lt;/element&gt;  
+      &lt;element maxOccurs="1" minOccurs="1" name="workflowDefinitionPath" type="xsd:string"&gt;&lt;/element&gt;  
+    &lt;/choice&gt;  
+    &lt;element maxOccurs="1" minOccurs="1" name="workflowComments" type="xsd:string"&gt;&lt;/element&gt;  
+    &lt;element maxOccurs="1" minOccurs="0" name="workflowStepConfigurations" type="impl:workflow-step-configurations"&gt;&lt;/element&gt;  
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>This complex type allows the user to specify what to name the workflow instance and what workflow definition to use when instantiating workflow. Additionally, the user must provide workflow comments explaining the action and any workflow step configuration.</p>
+Configuring the Workflow Steps
+<p>The workflowStepConfigurations element corresponds to the following workflow-step-configurations complex type:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="workflow-step-configurations"&gt;  
+  &lt;sequence&gt;  
+    &lt;element maxOccurs="unbounded" name="workflowStepConfiguration" type="impl:workflow-step-configuration"&gt;&lt;/element&gt;  
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>This complex type is just a list of workflowStepConfiguration elements which correspond to workflow-step-configuration complex types:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="workflow-step-configuration"&gt;  
+  &lt;sequence&gt;  
+    &lt;element maxOccurs="1" minOccurs="1" name="stepIdentifier" type="xsd:string"&gt;&lt;/element&gt;  
+    &lt;element maxOccurs="1" minOccurs="1" name="stepAssignment" type="xsd:string"&gt;&lt;/element&gt;  
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>This allows the user to re-assign workflow steps with a given identifier (using the stepIdentifier element) to a given user or group (using the stepAssignment element). If no workflow step configurations are supplied, the workflow will be initialized with the default values for each step. If no default values are specified in the workflow definition, the user will receive an error explaining that the workflow's steps must be configured.</p>
+<h3>Transitioning Between Workflow Steps</h3>
+<p>Workflow steps can be transistions with web services using the performWorkflowTransition call. &#160;This call requires the workflowTransitionInformation complex type:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="workflowTransitionInformation"&gt;  
+  
+    &lt;sequence&gt;  
+  
+    &lt;!-- REQUIRED: The id of the workflow to perform the transition on --&gt;  
+  
+         &lt;element maxOccurs="1" minOccurs="1" name="workflowId" type="xsd:string"&gt;&lt;/element&gt;  
+  
+    &lt;!-- REQUIRED: The identifier of the action to transition to --&gt;  
+  
+         &lt;element maxOccurs="1" minOccurs="1" name="actionIdentifier" type="xsd:string"&gt;&lt;/element&gt;  
+  
+    &lt;!-- NOT REQUIRED: The user's comment about the transition taken --&gt;  
+  
+         &lt;element maxOccurs="1" minOccurs="0" name="transitionComment" nillable="true" type="xsd:string"&gt;&lt;/element&gt;  
+  
+    &lt;/sequence&gt;  
+  
+&lt;/complexType&gt;
+</code></pre>
+                                        </section>
+                    
+                                                
+            <section aria-label="Search Operation" class="anchor-heading" id="SearchOperation">
+                                        <h2>Search Operation     <a aria-label="Skip to Search Operation" href="#SearchOperation"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The search operation is defined by the following WSDL:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;element name="search"&gt;  
+  &lt;complexType&gt;  
+    &lt;sequence&gt;  
+      &lt;element name="authentication" type="impl:authentication"&gt;&lt;/element&gt;  
+      &lt;element name="searchInformation" type="impl:searchInformation"&gt;&lt;/element&gt;  
+    &lt;/sequence&gt;  
+  &lt;/complexType&gt;  
+&lt;/element&gt;
+</code></pre>
+                                    <p>This operation contains <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/soap-web-services-operations.html#Authentication">authentication</a> information and <code>searchInformation</code>.</p>
+<p>The <code>searchInformation</code> complex type, and related types, are defined as follows:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="searchInformation"&gt;
+  &lt;sequence&gt;
+    &lt;element maxOccurs="1" minOccurs="1" name="searchTerms" type="xsd:string"&gt;&lt;/element&gt;
+    &lt;!--Id or name of the site to search
+    NOT REQUIRED, if left blank, all sites will be searched--&gt;
+    &lt;element maxOccurs="1" minOccurs="0" name="siteId" nillable="false" type="xsd:string"&gt;&lt;/element&gt;
+    &lt;element maxOccurs="1" minOccurs="0" name="siteName" nillable="false" type="xsd:string"&gt;&lt;/element&gt;
+    &lt;!--Asset fields to search (e.g. name, title, content), see searchField simpleType for valid values
+    NOT REQUIRED--&gt;
+    &lt;element maxOccurs="1" minOccurs="0" name="searchFields" nillable="false" type="impl:searchFields"&gt;&lt;/element&gt;
+    &lt;!--Asset types to search (e.g. page, folder, site)
+    NOT REQUIRED, if left blank, all asset types will be searched--&gt;
+    &lt;element maxOccurs="1" minOccurs="0" name="searchTypes" nillable="false" type="impl:searchTypes"&gt;&lt;/element&gt;
+  &lt;/sequence&gt;
+&lt;/complexType&gt;
+&lt;complexType name="searchFields"&gt;
+  &lt;sequence&gt;
+    &lt;element maxOccurs="unbounded" minOccurs="0" name="searchField" nillable="false" type="impl:searchFieldString"&gt;&lt;/element&gt;
+  &lt;/sequence&gt;
+&lt;/complexType&gt;
+&lt;complexType name="searchTypes"&gt;
+  &lt;sequence&gt;
+    &lt;element maxOccurs="unbounded" minOccurs="0" name="searchType" nillable="false" type="impl:entityTypeString"&gt;&lt;/element&gt;
+  &lt;/sequence&gt;
+&lt;/complexType&gt;
+&lt;simpleType name="searchFieldString"&gt;
+  &lt;restriction base="xsd:string"&gt;
+    &lt;!--Basic fields--&gt;
+    &lt;enumeration value="name"/&gt;
+    &lt;enumeration value="path"/&gt;
+    &lt;enumeration value="createdBy"/&gt;
+    &lt;enumeration value="modifiedBy"/&gt;
+    &lt;!--Metadata fields--&gt;
+    &lt;enumeration value="displayName"/&gt;
+    &lt;enumeration value="title"/&gt;
+    &lt;enumeration value="summary"/&gt;
+    &lt;enumeration value="teaser"/&gt;
+    &lt;enumeration value="keywords"/&gt;
+    &lt;enumeration value="description"/&gt;
+    &lt;enumeration value="author"/&gt;
+    &lt;!--File content--&gt;
+    &lt;enumeration value="blob"/&gt;
+    &lt;!--Velocity Format content--&gt;
+    &lt;enumeration value="velocityFormatContent"/&gt;
+    &lt;!--WYSIWYG and Data Definition Page content, Text and XML Block content, Template content, XSLT Format content--&gt;
+    &lt;enumeration value="xml"/&gt;
+    &lt;!--Symlink link text field--&gt;
+    &lt;enumeration value="link"/&gt;
+  &lt;/restriction&gt;
+&lt;/simpleType&gt;
+</code></pre>
+                                    <p>This <code>searchInformation</code> complex type, and related types, contain all the fields that one would find in the Advanced Search screen from within the Cascade CMS&#160;web interface.</p>
+<p>When executing a&#160; search, Cascade CMS&#160;will return a Search Result object:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="searchResult"&gt;  
+  &lt;complexContent&gt;  
+    &lt;extension base="impl:operationResult"&gt;  
+      &lt;sequence&gt;  
+        &lt;element maxOccurs="1" minOccurs="1" name="matches" type="impl:search-matches"&gt;&lt;/element&gt;  
+      &lt;/sequence&gt;  
+    &lt;/extension&gt;  
+  &lt;/complexContent&gt;           
+&lt;/complexType&gt;
+</code></pre>
+                                    <p>This complex type contains a type called "search-matches", which is an array of identifiers:</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;complexType name="search-matches"&gt;  
+  &lt;sequence&gt;  
+    &lt;element maxOccurs="unbounded" minOccurs="0" name="match" type="impl:identifier"&gt;&lt;/element&gt;  
+  &lt;/sequence&gt;  
+&lt;/complexType&gt;
+</code></pre>
+                                        </section>
+                    
+                                                
+            <section aria-label="Authenticate Operation" class="anchor-heading" id="AuthenticateOperation">
+                                        <h2>Authenticate Operation     <a aria-label="Skip to Authenticate Operation" href="#AuthenticateOperation"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The authenticate operation relies on the same authentication type the other Asset Operations use:</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;element name="authenticate"&gt;  
+  &lt;complexType&gt;  
+    &lt;sequence&gt;  
+      &lt;element name="authentication" type="impl:authentication"&gt;&lt;/element&gt;  
+    &lt;/sequence&gt;  
+  &lt;/complexType&gt;  
+&lt;/element&gt;
+</code></pre>
+                                    <p>This authentication object contains username, password and apiKey elements; all of which are of type String. Either username and password OR apiKey are required.</p>
+<div class="alert alert-warning"><strong>Note</strong> -&#160;The Authenticate Operation is implemented in the Security Service, which is a different Cascade CMS&#160;Web Services Endpoint than the Endpoint used to accomplish the other operations (Asset Operation Handler). Make sure that when you are sending a request containing this operation that you are sending it to the correct endpoint (Security Service).</div>
+                                        </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=664a822e3211e3711c75b25ac2ea2ffe&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Smart Fields - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/what-are-smart-fields.html" rel="canonical"/>
+		<meta content="a4144e2f0a894fa5303760f5a6eeffa7" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/index.html">            Design in Cascade    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html">            Data Definitions    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Smart Fields</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/what-are-smart-fields.html">Smart Fields</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Creating Smart Fields" href="#CreatingSmartFields">Creating Smart Fields</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Example" href="#Example">Example</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Smart Fields and In-context Editing" href="#SmartFieldsandIn-contextEditing">Smart Fields and In-context Editing</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Smart Fields and Structured Data" href="#SmartFieldsandStructuredData">Smart Fields and Structured Data</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/index.html">Design in Cascade</a></li>
+                                                                                                                    <li><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/shared-fields.html">Shared Fields</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/what-are-smart-fields.html">Smart Fields</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/data-definition-xml-schema-reference.html">Data Definition XML Schema Reference</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Data Definitions</span>
+        </div>
+        <header>
+                            <h1>Smart Fields 
+                                        </h1>
+                    </header>
+      <a name="Smart+Fields"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>With Smart Fields, you can selectively show fields and field groups in a Data Definition based on values selected in checkbox, drop-down, radio, and multi-select fields.</p>
+<p>For example, you may choose to reveal a set of fields for contact information is a "Contact Information" checkbox is enabled. Or a "Column Type" radio field may reveal a WYSIWYG if "Text" is selected and an image chooser field if "Image" is selected.</p>
+<p>Required fields or fields with content validated with regular expressions but are hidden due to Smart Field rules are not validated on submit. This allows you to create conditionally-required and conditionally-validated fields in Data Definitions.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Creating Smart Fields" class="anchor-heading" id="CreatingSmartFields">
+                                        <h2>Creating Smart Fields     <a aria-label="Skip to Creating Smart Fields" href="#CreatingSmartFields"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Smart Fields are created by editing the <strong>Show Fields</strong> property for values in a checkbox, radio button, drop-down, or multi-select field and selecting which fields or field groups should be revealed when that value is selected.</p>
+<p>To set up Smart Fields in the Data Definition Builder:</p>
+<ol>
+<li>Create or edit your <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html">Data Definition</a>.</li>
+<li>Create or edit a checkbox, radio button, drop-down, or multi-select field.</li>
+<li>In the <strong>Show Fields</strong>&#160;field associated with each <strong>Value</strong>, select the field and/or field groups that should be shown when that value is selected.</li>
+</ol>
+<p>To set up Smart Fields in the XML view:</p>
+<ol>
+<li>Create or edit your <a href="https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html">Data Definition</a>.</li>
+<li>Add a <code>show-fields</code> attribute to the <code>&lt;item&gt;</code> containing the value that should reveal the other fields or groups or fields.</li>
+<li>Enter a comma-separated list of field identifiers. For fields inside of groups, use a slash <code>/</code> to indicate the group nesting, e.g. <code>group1/inside-field</code>.</li>
+</ol>
+<div class="alert alert-warning"><strong>Note</strong> - When editing a Data Definition, all fields are visible regardless of Smart Field rules. Help text below each field affected by Smart Field rules explains when these fields will be shown.</div>
+<div class="alert alert-success"><strong>Tip</strong> - When viewing a Data Definition, use the <strong>Apply Smart Field rules</strong>&#160;toggle to preview your form with Smart Field rules applied.</div>
+                                    </section>
+                    
+                                                
+            <section aria-label="Example" class="anchor-heading" id="Example">
+                                        <h2>Example     <a aria-label="Skip to Example" href="#Example"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>A use case that demonstrates a few different features of Smart Fields is a form with fields for an address including a "Country" dropdown and associated zip-code field.</p>
+<p>When the Country "United States" is selected, a "5 digit zip code" field could be revealed whereas when "Canada" is selected, a "6 character postal code" field could be shown. If the "Country" field has no value selected, both "5 digit zip code" and "6 character postal code" fields could be hidden.</p>
+                        <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-data-structure&gt;
+  ... other fields ...
+  &lt;text identifier="Country" type="dropdown"&gt;
+    &lt;dropdown-item show-fields="5-digit-zip" value="US"/&gt;
+    &lt;dropdown-item show-fields="6-char-postal" value="Canada"/&gt;
+    ... other countries ...
+  &lt;/text&gt;
+  &lt;text identifier="5-digit-zip" label="US Zip Code (5 digit)"/&gt;
+  &lt;text identifier="6-chart-postal" label="Canadian Postal Code (6 characters)"/&gt;
+&lt;/system-data-structure&gt;
+</code></pre>
+                                    <p>These rules can stack up as well. In the example above, we could have an "Include Address?" checkbox with the "Country" show-field selected. This would automatically cause the "Country" field, "5 digit zip code", and "6 character postal code" fields to be hidden by default when the "Show Address?" checkbox is unchecked, even if the "Country" field has a default value selected. This is because for the Smart Field rules, hidden fields count as if they had no value selected.</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-data-structure&gt;  
+  ... other fields ...  
+  &lt;text identifier="include-address" label="Include Address?" type="checkbox"&gt;  
+    &lt;checkbox-item show-fields="Country,..other address fields..." value="yes"/&gt;  
+    &lt;checkbox-item value="no"/&gt;  
+  &lt;/text&gt;  
+  ... other address fields ...  
+  &lt;text identifier="Country" type="dropdown"&gt;  
+    &lt;dropdown-item show-fields="5-digit-zip" value="US"/&gt;  
+    &lt;dropdown-item show-fields="6-char-postal" value="Canada"/&gt;  
+    ... other countries ...  
+  &lt;/text&gt;  
+  &lt;text identifier="5-digit-zip" label="US Zip Code (5 digit)"/&gt;  
+  &lt;text identifier="6-char-postal" label="Canadian Postal Code (6 characters)"/&gt;  
+&lt;/system-data-structure&gt;  
+</code></pre>
+                                    <p>Groups of fields can also be progressively disclosed, which would result in the group being hidden by default unless a specific value is selected. In the example above, the "Country", "5 digit zip code", and "6 character postal code" fields could be inside of "Address" group. Then, the "Include Address?" checkbox could have the "Address" group selected as a show-field.</p>
+                            <pre class="line-numbers">
+<code class="language-xml">
+&lt;system-data-structure&gt;  
+  ... other fields ...  
+  &lt;text identifier="include-address" label="Include Address?" type="checkbox"&gt;  
+    &lt;checkbox-item show-fields="Address" value="yes"/&gt;  
+    &lt;checkbox-item value="no"/&gt;  
+  &lt;/text&gt;  
+  &lt;group identifier="Address"&gt;  
+    ... other address fields ...  
+    &lt;text identifier="Country" type="dropdown"&gt;  
+      &lt;dropdown-item show-fields="5-digit-zip" value="US"/&gt;  
+      &lt;dropdown-item show-fields="6-char-postal" value="Canada"/&gt;  
+      ... other countries ...  
+    &lt;/text&gt;  
+    &lt;text identifier="5-digit-zip" label="US Zip Code (5 digit)"/&gt;  
+    &lt;text identifier="6-char-postal" label="Canadian Postal Code (6 characters)"/&gt;  
+  &lt;/group&gt;  
+&lt;/system-data-structure&gt;  
+</code></pre>
+                                        </section>
+                    
+                                                
+            <section aria-label="Smart Fields and In-context Editing" class="anchor-heading" id="SmartFieldsandIn-contextEditing">
+                                        <h2>Smart Fields and In-context Editing     <a aria-label="Skip to Smart Fields and In-context Editing" href="#SmartFieldsandIn-contextEditing"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>When editing a page in-context, only the fields selected to be editable in-context for a given region are included in Smart Field rules.</p>
+<p>For example, if only the "Address" group from the example above is selected to appear in an in-context editable region and the "Include Address?" checkbox is not selected, the "Address" group will be always visible. The Smart Field rules configured for the "Include Address?" field will be ignored because it's not included in the editable region.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Smart Fields and Structured Data" class="anchor-heading" id="SmartFieldsandStructuredData">
+                                        <h2>Smart Fields and Structured Data     <a aria-label="Skip to Smart Fields and Structured Data" href="#SmartFieldsandStructuredData"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Smart Field rules don't affect the structured data rendered on pages or in index blocks. This is important when writing Formats because you can assume all fields will always be visible.</p>
+<p>As a Format writer, you may need to check the values of fields you're using to reveal other fields. For example, a field such as the "Country" dropdown in the example above may have a value set but may not be shown due to the fact that "Include address?" is not checked. Before outputting the "Country" field in your format, you'll want to check the value of "Include Address?" instead of just checking for the presence of a value for the "Country" field.</p>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=a4144e2f0a894fa5303760f5a6eeffa7&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

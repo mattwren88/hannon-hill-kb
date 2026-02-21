@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Setting up a test environment - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/test-server.html" rel="canonical"/>
+		<meta content="327ce02ac0a80079338d0519b6b417cc" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">            Cascade Administration    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html">            Installation &amp; Upgrades    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Setting up a test environment</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/test-server.html">Setting up a test environment</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Prepare the test server" href="#Preparethetestserver">Prepare the test server</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Disable publishing to Destinations" href="#DisablepublishingtoDestinations">Disable publishing to Destinations</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Disable SMTP server emails" href="#DisableSMTPserveremails">Disable SMTP server emails</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Disable connectors" href="#Disableconnectors">Disable connectors</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Disable the Siteimprove integration" href="#DisabletheSiteimproveintegration">Disable the Siteimprove integration</a> </li>
+                                                                                                                                <li><a aria-label="Skip to Wrapping up" href="#Wrappingup">Wrapping up</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                                                                        </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">Cascade Administration</a></li>
+                                                                                                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsedatabase">+ Database</a>
+                            <ul class="navHighlighter collapse" id="collapsedatabase">
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/index.html">Database Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/mysql.html">Setting up the database (MySQL)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/oracle.html">Setting up the database (Oracle)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/sqlserver.html">Setting up the database (SQL Server)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/db-size-manage.html">Database Size Management Tips</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/db-backup.html">Creating a database backup</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/linux.html">Installation/Upgrade (ZIP)</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/windows.html">Installation/Upgrade (Windows)</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/macos.html">Installation/Upgrade (macOS)</a></li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsesystem-configuration">+ System Configuration</a>
+                            <ul class="navHighlighter collapse" id="collapsesystem-configuration">
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/securing-session-cookies.html">Securing session cookies</a></li>
+                                                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/index.html">System Configuration Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/update-license.html">Updating the license key</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/modify-heap-size.html">Modifying the Heap Size</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/modify-db.html">Modifying the Database Configuration</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/modify-thread-stack.html">Modifying the Thread Stack Size</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/load-balancing.html">Load Balancing</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/modify-ports.html">Modifying Application Ports</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/firewall.html">Firewall Considerations</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/email-proxy-support.html">Configuring outbound proxy support for system-generated emails</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/java-configuration.html">Configuring Cascade CMS to point to a Java installation</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/heap-dump-oom.html">Configuring the Heap Dump on Out of Memory option</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/upgrade-tomcat.html">Upgrading Tomcat independently of Cascade CMS</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/ssl-tls-configuration.html">SSL/TLS Configuration</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/force-ssl-tls.html">Forcing connections to use SSL/TLS</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/enabling-or-disabling-tls-versions.html">Enabling or Disabling TLS Versions</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/enabling-http-strict-transport-security-hsts.html">Enabling HTTP Strict Transport Security (HSTS)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/apache-2.4-proxy.html">Using Apache 2.4 to proxy Cascade CMS</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/logging-rotation-compression.html">Configuring Cascade CMS Log Rotation and Compression</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/windows-service.html">Add or remove the Windows service</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/configure-a-web-server-for-publishing.html">Configure a web server for publishing</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/migrate-server.html">Migrating Cascade CMS to a new server</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/test-server.html">Setting up a test environment</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/migration-tool.html">Migration Tool</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/cascade-8-upgrade-prep.html">Cascade CMS 8 Upgrade Prep Guide</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/running-cascade-cms-as-a-linux-service.html">Running Cascade CMS as a Linux service</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Installation &amp; Upgrades</span>
+        </div>
+        <header>
+                            <h1>Setting up a test environment 
+                                        </h1>
+                    </header>
+      <a name="Setting+up+a+test+environment"></a>
+    
+                        
+                                                
+            <section aria-label="Prepare the test server" class="anchor-heading" id="Preparethetestserver">
+                                        <h2>Prepare the test server     <a aria-label="Skip to Prepare the test server" href="#Preparethetestserver"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ol>
+<li>Install the latest version of Cascade CMS.</li>
+<li>Stop Cascade CMS (if it's running).</li>
+<li>Create a backup of your production database and import it as a new database.
+<ul>
+<li>Note: Organizations using MySQL should verify that the collation of the new database is configured properly according to <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/mysql.html">these instructions</a>.</li>
+</ul>
+</li>
+<li>Configure the test environment to point to the test database.</li>
+</ol>
+                                    </section>
+                    
+                                                
+            <section aria-label="Disable publishing to Destinations" class="anchor-heading" id="DisablepublishingtoDestinations">
+                                        <h2>Disable publishing to Destinations     <a aria-label="Skip to Disable publishing to Destinations" href="#DisablepublishingtoDestinations"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Run the following query on your test database to prevent assets from the test environment from being published to your production web server(s):</p>
+<pre><code>UPDATE cxml_destination SET isEnabled=0;</code></pre>
+<p>If you're testing the application using your production database and testing publishing, we recommend setting up a test Destination that points to a test/staging server.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Disable SMTP server emails" class="anchor-heading" id="DisableSMTPserveremails">
+                                        <h2>Disable SMTP server emails     <a aria-label="Skip to Disable SMTP server emails" href="#DisableSMTPserveremails"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Run the following query on your test database to prevent emails that use the SMTP configuration (such as LDAP sync emails) from being generated by the test server:</p>
+<pre><code>DELETE FROM cxml_preferences WHERE fieldName LIKE '%smtp%';</code></pre>
+                                    </section>
+                    
+                                                
+            <section aria-label="Disable connectors" class="anchor-heading" id="Disableconnectors">
+                                        <h2>Disable connectors     <a aria-label="Skip to Disable connectors" href="#Disableconnectors"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Run the following query on your test database to disable connections to connectors such as Google Analytics:</p>
+<pre><code>UPDATE cxml_connector SET isVerified =0;</code></pre>
+<p>You can selectively re-enable connectors under <strong>Manage Site &gt; Connectors</strong> in each site.</p>
+                                    </section>
+                    
+                                                
+            <section aria-label="Disable the Siteimprove integration" class="anchor-heading" id="DisabletheSiteimproveintegration">
+                                        <h2>Disable the Siteimprove integration     <a aria-label="Skip to Disable the Siteimprove integration" href="#DisabletheSiteimproveintegration"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>Run the following query on your test database to prevent the Siteimprove integration from running checks on pages in the test environment:</p>
+<pre><code>UPDATE cxml_preferences SET fieldValue = 'off' WHERE fieldName = 'system_pref_siteimprove_enabled';</code><br/><code>UPDATE cxml_preferences SET fieldValue = null WHERE fieldName = 'system_pref_siteimprove_token';</code></pre>
+                                    </section>
+                    
+                                                
+            <section aria-label="Wrapping up" class="anchor-heading" id="Wrappingup">
+                                        <h2>Wrapping up     <a aria-label="Skip to Wrapping up" href="#Wrappingup"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <ol>
+<li>Start Cascade CMS.</li>
+<li>Enter a valid license for your test server.
+<ul>
+<li>Note: Because the database was copied from production, the license for the production machine is stored in this database.</li>
+<li>If this is your first time setting up a test environment and you need a license, contact Hannon Hill Product Support and be sure to provide us with the internal hostname of the test server (which can be retrieved by entering the command <code>hostname</code> at the command prompt/terminal).</li>
+</ul>
+</li>
+<li>Navigate to <strong>Administration &gt; Preferences &gt; System &gt; General</strong>
+<ul>
+<li>Change the <strong>System URL</strong> to reflect the URL of your test environment.</li>
+<li>Change the <strong>System Name</strong> to indicate that the instance is a Test or Development instance.</li>
+<li>(Optional) Select a <strong>System Label Color</strong> for to visually distinguish your test environment from your production environment.</li>
+</ul>
+</li>
+</ol>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=327ce02ac0a80079338d0519b6b417cc&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

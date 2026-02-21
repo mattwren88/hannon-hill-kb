@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Buttons — Cascade CMS Knowledge Base
+   Semantic and utility button styles.
+   ========================================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    min-height: 2.25rem;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--color-button-border);
+    border-radius: var(--radius-md);
+    background: var(--color-button-bg);
+    color: var(--color-button-text);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: 1;
+    text-decoration: none;
+    transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.btn:hover {
+    background: var(--color-button-hover-bg);
+    border-color: var(--color-button-hover-border);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.btn--info {
+    background: var(--color-button-info-bg);
+    color: var(--color-button-info-text);
+    border-color: var(--color-button-info-border);
+}
+
+.btn--info:hover {
+    background: var(--color-button-info-hover-bg);
+}
+
+.btn--warning {
+    background: var(--color-button-warning-bg);
+    color: var(--color-button-warning-text);
+    border-color: var(--color-button-warning-border);
+}
+
+.btn--warning:hover {
+    background: var(--color-button-warning-hover-bg);
+}
+
+.btn--tip {
+    background: var(--color-button-tip-bg);
+    color: var(--color-button-tip-text);
+    border-color: var(--color-button-tip-border);
+}
+
+.btn--tip:hover {
+    background: var(--color-button-tip-hover-bg);
+}
+
+.btn--danger {
+    background: var(--color-button-danger-bg);
+    color: var(--color-button-danger-text);
+    border-color: var(--color-button-danger-border);
+}
+
+.btn--danger:hover {
+    background: var(--color-button-danger-hover-bg);
+}
+
+.btn--sm {
+    min-height: 1.875rem;
+    padding: 0.35rem 0.65rem;
+    font-size: var(--text-xs);
+}
+
+.btn--lg {
+    min-height: 2.75rem;
+    padding: 0.75rem 1.1rem;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: var(--space-md) 0 var(--space-lg);
+}

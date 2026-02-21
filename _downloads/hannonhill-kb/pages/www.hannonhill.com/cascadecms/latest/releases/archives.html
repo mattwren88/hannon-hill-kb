@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Release Archives - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+    
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://www.hannonhill.com/cascadecms/latest/releases/archives.html" rel="canonical"/>
+		<meta content="8aa307403211e371114dadd5c8115a60" name="id"/>
+	</head>
+	<body>
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<header>
+			<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+			
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/archives.html">Archives</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/changelog.html">Changelog</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/index.html">Knowledge Base</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		</header>
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">            Release Notes    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Release Archives</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3" role="complementary">
+						                                                                        
+						
+
+
+    <div id="sidebar">
+
+                                                    
+                        <h2>Support Policy</h2>
+                        
+                            <p>Support for specific Cascade Server versions reach their End of Life 1 year after the initial release of the version assuming a newer version exists to supplant it.</p>
+<p>EOL dates (past and upcoming) can be found on the right-hand side of the version listing.</p>
+<hr/>
+                    
+                                            
+                        
+                            
+<h2>FAQs</h2>
+<p><a href="https://www.hannonhill.com/cascadecms/latest/faqs/index.html">Browse advice and answers</a> from the Cascade CMS Product Support team related to common error messages, troubleshooting, development, security, and more.</p>
+<hr/>
+<h2>Upgrade Guide</h2>
+<p>Special instructions regarding each release can found within the <a href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">release notes</a> for that version.</p>
+
+                <hr/>                    
+                                            
+                        
+                            
+	<h2>Stay Informed</h2>
+	<p>Keep up to date with the latest and greatest for Cascade CMS.</p>
+	<p><a class="btn btn-primary btn-rounded" href="https://www.hannonhill.com/newsletter.html">Newsletter Sign-Up</a></p>
+
+                <hr/>                    
+                                            
+                        
+                            
+	<ul class="list-unstyled">
+		<li>
+			<i class="fas fa-rss">&#160;</i>
+			<a href="https://www.hannonhill.com/cascadecms/latest/releases/index.rss" title="RSS Feed">RSS Feed</a>
+		</li>
+		<li>
+			<i class="fab fa-facebook">&#160;</i>
+			<a href="https://www.facebook.com/HannonHillCorp" title="Like us on Facebook">Facebook</a>
+		</li>
+		<li>
+			<i class="fab fa-linkedin">&#160;</i>
+			<a href="https://www.linkedin.com/company/hannon-hill" title="Connect with us on LinkedIn">LinkedIn</a>
+		</li>
+		<li>
+			<i class="fab fa-instagram">&#160;</i>
+			<a href="https://www.instagram.com/hannonhill" title="Follow us on Instagram">Instagram</a>
+		</li>
+		<li>
+			<i class="fab fa-youtube">&#160;</i>
+			<a href="https://www.youtube.com/@HannonHill" title="Subscribe to us on YouTube">YouTube</a>
+		</li>
+		<li>
+			<i class="fab fa-slack">&#160;</i>
+			<a href="https://hannonhill-users.slack.com/" title="Join us on Slack">Hannon Hill Users Slack</a>
+		</li>
+	</ul>
+
+                                    
+        
+    </div>
+
+
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+						
+
+
+<h1>Release Archives</h1>
+
+
+<table class="table table-condensed table-striped table-hover" id="releaseNotes">
+  <caption class="hide">Information and links related to all releases of Cascade CMS.</caption>
+  <thead>
+    <tr>
+      <th scope="col" style="text-align: left;">Version</th>
+      <th scope="col" style="text-align: right;">End of Life</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+
+        
+            
+                            
+            
+                            
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 2025.2.2" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-2025.2.2/index.html">Cascade CMS 2025.2.2</a></td>
+          <td align="right"><span class="badge badge-success">10/10/2026</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                            
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 2025.2.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-2025.2.1/index.html">Cascade CMS 2025.2.1</a></td>
+          <td align="right"><span class="badge badge-success">07/29/2026</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                            
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 2025.2" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-2025.2/index.html">Cascade CMS 2025.2</a></td>
+          <td align="right"><span class="badge badge-success">06/30/2026</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.26" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.26.0/index.html">Cascade CMS 8.26</a></td>
+          <td align="right"><span class="badge badge-secondary">12/30/2025</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.25.0" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.25.0/index.html">Cascade CMS 8.25.0</a></td>
+          <td align="right"><span class="badge badge-secondary">09/18/2025</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.24.3" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24.3/index.html">Cascade CMS 8.24.3</a></td>
+          <td align="right"><span class="badge badge-secondary">03/27/2025</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.24.2" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24.2/index.html">Cascade CMS 8.24.2</a></td>
+          <td align="right"><span class="badge badge-secondary">01/30/2025</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.24.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24.1/index.html">Cascade CMS 8.24.1</a></td>
+          <td align="right"><span class="badge badge-secondary">01/12/2025</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.24" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24/index.html">Cascade CMS 8.24</a></td>
+          <td align="right"><span class="badge badge-secondary">01/05/2025</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.23" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.23/index.html">Cascade CMS 8.23</a></td>
+          <td align="right"><span class="badge badge-secondary">06/22/2024</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.22.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.22.1/index.html">Cascade CMS 8.22.1</a></td>
+          <td align="right"><span class="badge badge-secondary">03/20/2024</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.22" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.22/index.html">Cascade CMS 8.22</a></td>
+          <td align="right"><span class="badge badge-secondary">10/28/2023</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.21" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.21/index.html">Cascade CMS 8.21</a></td>
+          <td align="right"><span class="badge badge-secondary">07/27/2023</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.20" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.20/index.html">Cascade CMS 8.20</a></td>
+          <td align="right"><span class="badge badge-secondary">05/25/2023</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.19.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.19.1/index.html">Cascade CMS 8.19.1</a></td>
+          <td align="right"><span class="badge badge-secondary">04/13/2023</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.17" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.17/index.html">Cascade CMS 8.17</a></td>
+          <td align="right"><span class="badge badge-secondary">12/30/2021</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.16" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.16/index.html">Cascade CMS 8.16</a></td>
+          <td align="right"><span class="badge badge-secondary">08/14/2021</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.15.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.15.1/index.html">Cascade CMS 8.15.1</a></td>
+          <td align="right"><span class="badge badge-secondary">05/13/2021</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.15" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.15/index.html">Cascade CMS 8.15</a></td>
+          <td align="right"><span class="badge badge-secondary">04/28/2021</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.14" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.14/index.html">Cascade CMS 8.14</a></td>
+          <td align="right"><span class="badge badge-secondary">12/11/2020</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.13.2" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13.2/index.html">Cascade CMS 8.13.2</a></td>
+          <td align="right"><span class="badge badge-secondary">09/11/2020</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.13.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13.1/index.html">Cascade CMS 8.13.1</a></td>
+          <td align="right"><span class="badge badge-secondary">07/09/2020</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.13" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13/index.html">Cascade CMS 8.13</a></td>
+          <td align="right"><span class="badge badge-secondary">06/19/2020</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.12" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.12/index.html">Cascade CMS 8.12</a></td>
+          <td align="right"><span class="badge badge-secondary">04/01/2020</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.11.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11.1/index.html">Cascade CMS 8.11.1</a></td>
+          <td align="right"><span class="badge badge-secondary">12/06/2019</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.11" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11/index.html">Cascade CMS 8.11</a></td>
+          <td align="right"><span class="badge badge-secondary">10/31/2019</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.10" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.10/index.html">Cascade CMS 8.10</a></td>
+          <td align="right"><span class="badge badge-secondary">06/21/2019</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.9.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.9.1/index.html">Cascade CMS 8.9.1</a></td>
+          <td align="right"><span class="badge badge-secondary">05/18/2019</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.9" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.9/index.html">Cascade CMS 8.9</a></td>
+          <td align="right"><span class="badge badge-secondary">03/27/2019</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.8.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.8.1/index.html">Cascade CMS 8.8.1</a></td>
+          <td align="right"><span class="badge badge-secondary">01/25/2019</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.8" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.8/index.html">Cascade CMS 8.8</a></td>
+          <td align="right"><span class="badge badge-secondary">01/11/2019</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.7.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.7.1/index.html">Cascade CMS 8.7.1</a></td>
+          <td align="right"><span class="badge badge-secondary">12/12/2018</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.7" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.7/index.html">Cascade CMS 8.7</a></td>
+          <td align="right"><span class="badge badge-secondary">11/16/2018</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.6.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.6.1/index.html">Cascade CMS 8.6.1</a></td>
+          <td align="right"><span class="badge badge-secondary">09/15/2018</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.6" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.6/index.html">Cascade CMS 8.6</a></td>
+          <td align="right"><span class="badge badge-secondary">09/13/2018</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.5" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.5/index.html">Cascade CMS 8.5</a></td>
+          <td align="right"><span class="badge badge-secondary">07/21/2018</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.4.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.4.1/index.html">Cascade CMS 8.4.1</a></td>
+          <td align="right"><span class="badge badge-secondary">05/10/2018</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.4" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.4/index.html">Cascade CMS 8.4</a></td>
+          <td align="right"><span class="badge badge-secondary">04/21/2018</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.3" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.3/index.html">Cascade CMS 8.3</a></td>
+          <td align="right"><span class="badge badge-secondary">02/28/2018</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.2.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.2.1/index.html">Cascade CMS 8.2.1</a></td>
+          <td align="right"><span class="badge badge-secondary">02/08/2018</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.2" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.2/index.html">Cascade CMS 8.2</a></td>
+          <td align="right"><span class="badge badge-secondary">01/20/2018</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.1.1" href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.1.1/index.html">Cascade CMS 8.1.1</a></td>
+          <td align="right"><span class="badge badge-secondary">12/15/2017</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.1" href="https://www.hannonhill.com/cascadecms/latest/releases/8.1/index.html">Cascade CMS 8.1</a></td>
+          <td align="right"><span class="badge badge-secondary">11/11/2017</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.0.2" href="https://www.hannonhill.com/cascadecms/latest/releases/8.0.2/index.html">Cascade CMS 8.0.2</a></td>
+          <td align="right"><span class="badge badge-secondary">10/04/2017</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8.0.1" href="https://www.hannonhill.com/cascadecms/latest/releases/8.0.1/index.html">Cascade CMS 8.0.1</a></td>
+          <td align="right"><span class="badge badge-secondary">09/16/2017</span></td>
+        </tr>
+    
+        
+            
+                            
+            
+                    
+        <tr>
+          <td> <a aria-label="View the Release Notes for Cascade CMS 8" href="https://www.hannonhill.com/cascadecms/latest/releases/8.0/index.html">Cascade CMS 8</a></td>
+          <td align="right"><span class="badge badge-secondary">08/30/2017</span></td>
+        </tr>
+    
+  </tbody>
+</table>
+
+
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="container">
+					
+					<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=8aa307403211e371114dadd5c8115a60&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+				</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+		<script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

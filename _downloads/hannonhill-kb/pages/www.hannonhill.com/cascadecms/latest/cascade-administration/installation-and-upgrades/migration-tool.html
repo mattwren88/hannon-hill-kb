@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Migration Tool - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/migration-tool.html" rel="canonical"/>
+		<meta content="ea9bbdb20a894fa568b1ecd483c3e7da" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">            Cascade Administration    
+    </a></li>
+      
+        
+                           <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html">            Installation &amp; Upgrades    
+    </a></li>
+           <li aria-current="page" class="breadcrumb-item active">Migration Tool</li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						<a aria-controls="sidebar" aria-expanded="false" class="btn d-md-none sidebarButton mb-2" data-toggle="collapse" href="#sidebar" role="button">☰</a>
+<nav class="sidenav site-footer collapse d-md-block mb-2" id="sidebar">
+        <h3>In this Section</h3>
+    <ul class="list-unstyled list-group list-group-item mb-2">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li class="folder-item"><a aria-label="Section Topic" href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/migration-tool.html">Migration Tool</a>
+                        <ul class="navHighlighter">
+                                                                                                <li><a aria-label="Skip to Overview" href="#Overview">Overview</a> </li>
+                                                                                    </ul>
+                    </li>
+                                                                                            </ul>
+    
+        <ul class="list-unstyled list-group list-group-item">
+                            <li class="parent-folder"><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html">Cascade Administration</a></li>
+                                                                                                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsedatabase">+ Database</a>
+                            <ul class="navHighlighter collapse" id="collapsedatabase">
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/index.html">Database Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/mysql.html">Setting up the database (MySQL)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/oracle.html">Setting up the database (Oracle)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/sqlserver.html">Setting up the database (SQL Server)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/db-size-manage.html">Database Size Management Tips</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/db-backup.html">Creating a database backup</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/linux.html">Installation/Upgrade (ZIP)</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/windows.html">Installation/Upgrade (Windows)</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/macos.html">Installation/Upgrade (macOS)</a></li>
+                                                                    <li class="folder-item"><a aria-label="Scroll to Section" data-toggle="collapse" href="#collapsesystem-configuration">+ System Configuration</a>
+                            <ul class="navHighlighter collapse" id="collapsesystem-configuration">
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/securing-session-cookies.html">Securing session cookies</a></li>
+                                                                                                                                                                                        <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/index.html">System Configuration Overview</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/update-license.html">Updating the license key</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/modify-heap-size.html">Modifying the Heap Size</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/modify-db.html">Modifying the Database Configuration</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/modify-thread-stack.html">Modifying the Thread Stack Size</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/load-balancing.html">Load Balancing</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/modify-ports.html">Modifying Application Ports</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/firewall.html">Firewall Considerations</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/email-proxy-support.html">Configuring outbound proxy support for system-generated emails</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/java-configuration.html">Configuring Cascade CMS to point to a Java installation</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/heap-dump-oom.html">Configuring the Heap Dump on Out of Memory option</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/upgrade-tomcat.html">Upgrading Tomcat independently of Cascade CMS</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/ssl-tls-configuration.html">SSL/TLS Configuration</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/force-ssl-tls.html">Forcing connections to use SSL/TLS</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/enabling-or-disabling-tls-versions.html">Enabling or Disabling TLS Versions</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/enabling-http-strict-transport-security-hsts.html">Enabling HTTP Strict Transport Security (HSTS)</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/apache-2.4-proxy.html">Using Apache 2.4 to proxy Cascade CMS</a></li>
+                                                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/logging-rotation-compression.html">Configuring Cascade CMS Log Rotation and Compression</a></li>
+                                                                                        </ul>
+                        </li>
+                                                                                            <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/windows-service.html">Add or remove the Windows service</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/configure-a-web-server-for-publishing.html">Configure a web server for publishing</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/migrate-server.html">Migrating Cascade CMS to a new server</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/test-server.html">Setting up a test environment</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/migration-tool.html">Migration Tool</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/cascade-8-upgrade-prep.html">Cascade CMS 8 Upgrade Prep Guide</a></li>
+                                                                <li><a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/running-cascade-cms-as-a-linux-service.html">Running Cascade CMS as a Linux service</a></li>
+                                    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to toggle the sidebar's 'show' class based on window width
+        function toggleSidebar() {
+            var width = window.innerWidth;
+            var sidebar = document.getElementById('sidebar');
+            if (Math.max(width, 768) === width) { // Assumes 'md' breakpoint is at 768px
+                sidebar.classList.add('show');
+            } else {
+                sidebar.classList.remove('show');
+            }
+        }
+
+        // Run on initial load
+        toggleSidebar();
+
+        // Attach the function to the resize event listener
+        window.addEventListener('resize', toggleSidebar);
+    });
+</script>
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						
+						
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+</style>
+
+        <div class="card shadow-big  width" id="expand">
+                        <div class="icon-wrapper">
+        <i class="fa-solid col-visible-md fa-up-right-and-down-left-from-center" id="iconToggle" onclick="toggleWidthAndIcon()"></i>
+    </div>
+            <div class="flex">
+            <span class="badge badge-danger">Installation &amp; Upgrades</span>
+        </div>
+        <header>
+                            <h1>Migration Tool 
+                                        </h1>
+                    </header>
+      <a name="Migration+Tool"></a>
+    
+                        
+                                                
+            <section aria-label="Overview" class="anchor-heading" id="Overview">
+                                        <h2>Overview     <a aria-label="Skip to Overview" href="#Overview"><i class="fas fa-link icon-anchor-link"></i></a></h2>
+                        <p>The Migration Tool is available from Hannon Hill's GitHub repository:</p>
+<ul>
+<li><a href="https://github.com/hannonhill/Universal-Migration-Tool/releases" rel="noopener" target="_blank">Download <i class="fas fa-external-link-alt">&#160;</i></a></li>
+<li><a href="https://github.com/hannonhill/Universal-Migration-Tool/blob/master/README.md" rel="noopener" target="_blank">Installation instructions <i class="fas fa-external-link-alt">&#160;</i></a></li>
+</ul>
+<p>To utilize the tool after startup, open a web browser and type in <code>localhost:8081</code> in the address bar. You should see the following login screen.</p>
+<p><img alt="Login screen" class="img-polaroid" height="381" src="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/images/screen-shot-2016-09-06-at-2.54.02-pm.png" width="750"/></p>
+<p>Type the fully-qualified URL to your Cascade CMS instance into the first field. You will then type your username and password in the following fields. The Site Name dropdown will then populate with sites that are available in your Cascade CMS instance.</p>
+<p>Choose the site that you would like to migrate your content into and select Save and Next.</p>
+<p>You will then be presented with the screen to choose content from your computer that you would like to migrate.</p>
+<p>&#160; <img alt="Migration tool upload screen" class="img-polaroid" height="364" src="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/images/migration-upload.png" width="750"/></p>
+<p>Click on the Choose File button to choose a zip of the files that contain the content for migration. Once selected, click Save and Next.</p>
+<p><strong>Note</strong>: If you have already utilized the Migration Tool, radio options will appear to work with previous batches of content.</p>
+<p><img alt="Migration Tool - map links screenshot" class="img-polaroid" height="436" src="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/images/migration-tool-map-links.png" width="750"/></p>
+<p>The above screen will allow you to map where links for sections of content that are&#160; <strong>not</strong> being migrated should point.&#160;This is often helpful if you are migrating sections of content where you may be referencing the&#160;section using a relative link. If you are migrating all of your content in one migration, you can skip this screen by clicking Save and Next.</p>
+<p>If you have relative links in your content being migrated to content not being migrated, you will need to decide whether that section of content should point to a Cross Site link or an External Link.</p>
+<p>Use Cross Site link if the content will be or has been migrated into another site in Cascade CMS. Use External Link if the content will be maintained outside of Cascade CMS.</p>
+<p>If you choose Cross Site radio option, enter the Site Name. If you choose External Link radio option, enter the fully qualified URL.</p>
+<p>An example of the above would be ../athletics/some/link.html appearing in your content being migrated.</p>
+<p>If athletics section of your site will be managed in the Athletics site and migrated separately:</p>
+<ul>
+<li>Input athletics into the Root Level text box</li>
+<li>Select Cross Site</li>
+<li>Enter Athletics in the corresponding text box</li>
+<li>Select Add Mapping</li>
+</ul>
+<p>If athletics section of your site will be managed external to Cascade CMS:</p>
+<ul>
+<li>Input athletics into the Root Level text box</li>
+<li>Select&#160;External Link</li>
+<li>Enter <code>http://fullyQualifiedURLforAthleticsSite</code>&#160;(could even be something like <code>http://yourdomain.edu/athletics</code>)&#160;in the corresponding text box</li>
+<li>Select Add Mapping</li>
+</ul>
+<p>Once all of your mappings are complete, select Save and Next.</p>
+<p><img alt="migration tool screenshot of page type chooser" class="img-polaroid" height="401" src="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/images/screen-shot-2016-12-06-at-10.47.48-am.png" width="750"/></p>
+<p>The above screen will allow you to choose&#160;the page type (Content Type) from Cascade CMS that you would like your content to import into.</p>
+<p>Select the appropriate page type from the dropdown. In the Page Extensions text box, enter the extensions for the files in your content set that you would like converted to pages in Cascade CMS.</p>
+<p>The XHTML Block extensions field allows you to map file types in your import to become Cascade CMS blocks. It is alright&#160;to leave this field blank if no content should be converted to blocks.</p>
+<p>Once you have entered your selections, select Save and Next.</p>
+<p><img alt="Migration Tool xpath mappings screen" class="img-polaroid" height="426" src="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/images/migration-tool-xpath-mappings.png" width="750"/></p>
+<p>The above screen will now allow you to map specific sections of content to specific fields in your page type in Cascade CMS. You should use XPath to target specific areas of content within your page source code. You can learn more about XPath by reviewing tutorials about XPath. XPath is <strong>not&#160;</strong>native to Cascade CMS.</p>
+<p>Once you know your XPath, fill it into the text box below XPath. Then select the field you would like the content mapped to in the To Cascade Field dropdown. Select Add Mapping. Repeat this process as many times as necessary until all of your content areas are mapped.</p>
+<p>Static values can also be mapped to Cascade CMS fields. Simply change XPath in the dropdown to Static Value. You will then fill in the content you would like mapped to the Cascade CMS field in the corresponding text field.</p>
+<p><img alt="XPath mapping screen for migration tool" class="img-polaroid" height="431" src="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/images/migration-tool-xpath-mapping-screenshot2.png" width="750"/></p>
+<p>Three&#160;common mappings are for title, keywords, and description in the head of an html page.</p>
+<p>The following XPath can typically be used for those fields:</p>
+<ul>
+<li>Keywords: //meta[@name="keywords"]/@content</li>
+<li>Description: //meta[@name="description"]/@content</li>
+<li>Title: //title/text()</li>
+</ul>
+<p>To map images to File chooser fields:</p>
+<ul>
+<li>Target the element&#160;containing the <code>src</code> attribute that points to the image (do not target the <code>src</code> attribute directly)</li>
+<li>Ensure that the source files use relative image paths</li>
+</ul>
+<p>Once all are mapped, select Save and Next.</p>
+<p>The next screen will be the summary screen. The summary screen will present you with all of the information for what you selected to migrate. It will also have four different options for migrating content.</p>
+<ul>
+<li><label class="radio">Keep existing (adds numbers to the end of new asset names)</label>
+<ul>
+<li>This option is typically used if you have not migrated content to the site yet. This is great for testing mappings because it will produce the fastest migration process. If you have already migrated content, you may not want to use this option since it will create duplicate pages for content already migrated.</li>
+</ul>
+</li>
+<li><label class="radio">Overwrite existing (deletes and re-creates them)</label>
+<ul>
+<li>This option is typically used for migrating content if you have already migrated into the site previously and you needed to refine mappings. This will do a delete and recreate each page in the migration set.</li>
+</ul>
+</li>
+<li><label class="radio">Update existing (edits existing assets)</label>
+<ul>
+<li>This option is typically used for migrating content if you have already migrated into the site previously and you needed to refine mappings. This will do an edit to the page in the migration set. Please note: all content in the page being remigrated will be updated, not just specific fields. This is advantageous in case you had created new content outside of this site that links to content being remigrated. It will prevent broken links in those cases.</li>
+</ul>
+</li>
+<li><label class="radio">Skip existing (does nothing if asset already exists, always on for files)</label>
+<ul>
+<li>This option is typically used for migrating content that was left out of the original migration. Two commn use cases are the following: 1) You forgot to include a directory of content in your migration set and you have now added it into the original set of content being migrated. 2)There was a common error on pages being migrated that prevented them from being migrated. You have now fixed that error in all of the files and would like to rerun the tool over the migration set.</li>
+</ul>
+</li>
+</ul>
+<p>Once you have reviewed your mappings and selected the appropriate radio option, select&#160;Save and Next to start the migration process.</p>
+<p>You will now see all of your files and pages being imported into Cascade CMS.</p>
+                                    </section>
+                                     <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+  
+        </div>
+            
+    <script>
+      function toggleWidthAndIcon() {
+        var element = document.getElementById("expand");
+        var icon = document.getElementById("iconToggle");
+    
+        // Check if the content is currently full width
+        if (element.classList.contains("width-full")) {
+          // If yes, switch to "width" and update the icon to "expand"
+          element.classList.remove("width-full");
+          element.classList.add("width");
+          icon.classList.remove('fa-down-left-and-up-right-to-center');
+          icon.classList.add('fa-up-right-and-down-left-from-center');
+        } else {
+          // If not, switch to "width-full" and update the icon to "un-expand"
+          element.classList.remove("width");
+          element.classList.add("width-full");
+          icon.classList.remove('fa-up-right-and-down-left-from-center');
+          icon.classList.add('fa-down-left-and-up-right-to-center');
+        }
+      }
+    </script>
+    
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=ea9bbdb20a894fa568b1ecd483c3e7da&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

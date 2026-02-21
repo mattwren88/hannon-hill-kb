@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Publish Errors - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/index.html" rel="canonical"/>
+		<meta content="8c30e201c0a8002b38d978a442114ac6" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/faqs/index.html">            FAQs    
+    </a></li>
+      
+        
+                            <li class="breadcrumb-item active">            Publish Errors    
+    </li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<main class="col-sm-12 col-md-12" id="main-content" role="main">
+						
+						<div class="card shadow-big">
+    <h1>Publish Errors</h1>
+            <div class="grid gap1 auto-grid" style="--item-width: 270px;">
+                                    <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/folder-hierarchy-does-not-allow-this-asset-to-be-published.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">The folder hierarchy does not allow this asset to be published</h2>
+                                            </div>
+                    <p class="mb-1 break-word">This error message indicates that one or more of the parent folders of the asset you're attempting to publish is not enabled for publishing. Assets contained in folders not enabled for publishing are not publishable, even if they're set to publish at an individual level.To enable a folder for...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/asset-is-not-set-to-publish.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Asset is not set to publish. Please enable publishing for this asset and try again.</h2>
+                                            </div>
+                    <p class="mb-1 break-word">This error message indicates that the asset you're attempting to publish is not enabled for publishing. To enable the asset for publishing:
+
+Edit the asset.
+Select the Configure tab.
+Enable the Include when publishing option.
+Submit your changes.
+</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/not-authorized-to-schedule-future-publish-dates.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">You are not authorized to schedule future publish dates</h2>
+                                            </div>
+                    <p class="mb-1 break-word">As of Cascade CMS v8.2 the Start Date field publishes the asset at the selected date. If a user receives the following error during submission, that means their Site Role does not allow them to Publish:
+You are not authorized to schedule future publish dates. Please contact an administrator for...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/read-timed-out.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">SFTP: java.net.SocketTimeoutException: Read timed out</h2>
+                                            </div>
+                    <p class="mb-1 break-word">Users may see the following error message when attempting to publish to an SFTP server:
+com.hannonhill.cascade.model.publish.transmit.ShuttleRuntimeException: SFTP error occurred during SFTP Shuttle setup: Session.connect: java.net.SocketTimeoutException: Read timed out
+This error is typically...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/no-publishable-configurations.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">This asset cannot be published because there are no publishable configurations</h2>
+                                            </div>
+                    <p class="mb-1 break-word">When attempting to publish a page, the following message may appear in the interface:
+This asset cannot be published because there are no publishable configurations
+To resolve this, you must enable publishing for at least one of the Outputs for the page:
+
+While previewing the page, click Details...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/invalid-privatekey-error-when-publishing-via-sftp.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Invalid privatekey error when publishing via SFTP</h2>
+                                            </div>
+                    <p class="mb-1 break-word">When using SSH Key authentication for SFTP Transports, you may see the following errors when testing the Transport or when publishing to a Destination using the Transport:
+SFTP error occurred during SFTP Shuttle initialization: invalid privatekey: [x@xxxxxxx
+To resolve the issue, upload your SSH...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/permissions-issues-filesystem-transports.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Permissions issues when publishing to Filesystem Transports</h2>
+                                            </div>
+                    <p class="mb-1 break-word">To correct permission issues when using Filesystem Transports, you'll need to make sure that the boot script is updated accordingly. By default, the Tomcat container which Cascade CMS runs on will use a UMASK of 0027 which can lead to permission issues when trying to serve those files via a web...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/i-wont-open-a-connection-to-ip-address-1-only-to-ip-address-2.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">I won't open a connection to &lt;ip address 1&gt; (only to &lt;ip address 2&gt;)</h2>
+                                            </div>
+                    <p class="mb-1 break-word">When attempting to publish to an FTP server, users may encounter messages like the following:
+I won't open a connection to &lt;ip address 1&gt; (only to &lt;ip address 2&gt;)
+This error typically indicates that the underlying Transport is configured to use Active FTP while the target server only...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/problems-connecting-via-sftp-to-solarwinds-serv-u-servers.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Problems connecting via SFTP to Solarwinds Serv-U servers</h2>
+                                            </div>
+                    <p class="mb-1 break-word">When attempting to publish via SFTP to a Solarwinds Serv-U 15.3.2+ server, one or both of the following error messages may be seen in publish reports:
+SFTP error: connection resetSFTP error occurred during SFTP Shuttle initialization: Session.connect: java.io.IOException: End of IO Stream...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/no-destinations-or-wp-connectors-available.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">No Destinations or WordPress Connectors available</h2>
+                                            </div>
+                    <p class="mb-1 break-word">When attempting to publish a page, the following message may appear in the interface:
+You cannot publish (or unpublish) this asset because there are no Destinations or WordPress Connectors available.
+&#160;The following scenarios could be the cause of the message:
+
+There are Destinations...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/you-cannot-publish-or-unpublish-this-asset-because-there-are-no-destinations-or-wordpress-connectors-available.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">You cannot publish (or unpublish) this asset because there are no Destinations or WordPress Connectors available.</h2>
+                                            </div>
+                    <p class="mb-1 break-word">This error message means that the User trying to publish (or unpublish) does not belong to an applicable group in any of the Site's Destination settings.&#160;
+To solve:
+
+Click Manage Site and then select Destinations.
+Edit the Destination or Destinations to which the User needs to...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/could-not-connect-to-ftps-server-notafter.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Could not connect to FTPS server: NotAfter</h2>
+                                            </div>
+                    <p class="mb-1 break-word">When attempting to publish to an FTPS server, users may encounter messages like the following:
+Could not connect to FTPS server (your.cascadecms.host:990) : NotAfter: Sat May 30 06:00:00 EDT 2020
+This error indicates that the SSL/TLS certificate configured at the target FTPS server has expired....</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/could-not-put-file-with-path-file-path-onto-server-permission-denied.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Could not put file with path 'FILE_PATH' onto server: Permission denied</h2>
+                                            </div>
+                    <p class="mb-1 break-word">When publishing, users may see the following error message in their publish notifications:
+Error occurred during SFTP transport: Could not put file with path 'FILE_PATH' onto server: Permission denied
+This error indicates that the SFTP account being used to connect to the target server does not...</p>
+                </a>
+                                                                    <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/error-occurred-during-ftp-transport-accept-timed-out.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Error occurred during FTP transport: Accept timed out</h2>
+                                            </div>
+                    <p class="mb-1 break-word">Users may see the following error message when attempting to publish to a FTP server:
+Error occurred during FTP transport: Accept timed out
+This error is typically caused by the connection attempting to use Active mode as opposed to Passive mode when connecting to the target web server. To force...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/unsupported-or-unrecognized-ssl-message.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Unsupported or unrecognized SSL message</h2>
+                                            </div>
+                    <p class="mb-1 break-word">The following error may appear when publishing to a web server via FTPS:
+Could not connect to FTPS server (host:21) : Unsupported or unrecognized SSL message
+This error occurs when the FTPS Transport is configured to connect to a target server using explicit FTPS over port 21. Cascade CMS...</p>
+                </a>
+                                                <a class="list-group-item-action card shadow-big text-decoration-none" href="https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/could-not-put-file-with-path-path-onto-server-failure.html">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">Could not put file with path '&lt;path&gt;' onto server: Failure</h2>
+                                            </div>
+                    <p class="mb-1 break-word">When attempting to publish to an FTPS server, users may encounter messages like the following:
+Could not put file with path '&lt;path&gt;' onto server: Failure
+The most common cause for this error is that the target web server has run out of disk space. It is recommended to check (or have your...</p>
+                </a>
+                        </div>
+        <a aria-label="Back to top" class="scroll-container" href="#top">
+        <span class="scroll-container__icon">↑</span>
+    </a>
+
+</div>
+
+
+
+
+
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=8c30e201c0a8002b38d978a442114ac6&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

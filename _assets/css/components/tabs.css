@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Content Tabs — Cascade CMS Knowledge Base
+   Tab switcher for content variants (OS-specific, etc.)
+   ========================================================================== */
+
+.tabs {
+    margin: var(--space-lg) 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+/* ── Tab List ── */
+.tabs__list {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabs__tab {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-secondary);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    white-space: nowrap;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.tabs__tab:hover {
+    color: var(--color-text);
+}
+
+.tabs__tab--active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+/* ── Tab Panels ── */
+.tabs__panel {
+    display: none;
+    padding: var(--space-lg);
+}
+
+.tabs__panel--active {
+    display: block;
+}
+
+.tabs__panel > *:first-child {
+    margin-top: 0;
+}
+
+.tabs__panel > *:last-child {
+    margin-bottom: 0;
+}

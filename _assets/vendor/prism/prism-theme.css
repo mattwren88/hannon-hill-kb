@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Prism.js Custom Theme — Cascade CMS Knowledge Base
+   Uses CSS custom properties from tokens.css for light/dark support.
+   ========================================================================== */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: var(--color-code-text);
+    background: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: var(--leading-relaxed);
+    tab-size: 4;
+    hyphens: none;
+}
+
+pre[class*="language-"] {
+    overflow: auto;
+}
+
+/* Token Colors */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: var(--prism-comment);
+    font-style: italic;
+}
+
+.token.punctuation {
+    color: var(--prism-punctuation);
+}
+
+.token.namespace {
+    opacity: 0.7;
+}
+
+.token.property,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: var(--prism-property);
+}
+
+.token.boolean,
+.token.number {
+    color: var(--prism-number);
+}
+
+.token.tag {
+    color: var(--prism-tag);
+}
+
+.token.selector,
+.token.attr-name,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: var(--prism-attr-name);
+}
+
+.token.string,
+.token.attr-value {
+    color: var(--prism-string);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: var(--prism-operator);
+}
+
+.token.atrule,
+.token.keyword {
+    color: var(--prism-keyword);
+}
+
+.token.function,
+.token.class-name {
+    color: var(--prism-function);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: var(--prism-class);
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}

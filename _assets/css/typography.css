@@ -1,0 +1,284 @@
+/* ==========================================================================
+   Typography — Cascade CMS Knowledge Base
+   Headings, body text, lists, blockquotes, and inline styles.
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Mononoki';
+    src: url('../fonts/mononoki/mononoki-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mononoki';
+    src: url('../fonts/mononoki/mononoki-Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mononoki';
+    src: url('../fonts/mononoki/mononoki-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mononoki';
+    src: url('../fonts/mononoki/mononoki-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ── Headings ── */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-semibold);
+    color: var(--color-heading);
+    line-height: var(--leading-tight);
+}
+
+.content__body h1 {
+    font-size: var(--text-4xl);
+    margin-top: var(--space-3xl);
+    margin-bottom: var(--space-lg);
+}
+
+.content__body h2 {
+    font-size: var(--text-2xl);
+    margin-top: var(--space-3xl);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.content__body h3 {
+    font-size: var(--text-xl);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-sm);
+    &.steps__title{
+        margin-top: 0;
+    }
+}
+
+.content__body h4 {
+    font-size: var(--text-lg);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+}
+
+.content__body h5,
+.content__body h6 {
+    font-size: var(--text-base);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+}
+
+/* Heading anchors */
+.content__body h2[id],
+.content__body h3[id],
+.content__body h4[id] {
+    scroll-margin-top: calc(var(--header-height) + var(--space-lg));
+}
+
+/* ── Page Title ── */
+.content__header {
+    margin-bottom: var(--space-2xl);
+}
+
+.content__category-label {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-sm);
+}
+
+.content__title {
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-heading);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-md);
+}
+
+.content__description {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* ── Body Text ── */
+.content__body p {
+    margin-bottom: var(--space-lg);
+    line-height: var(--leading-relaxed);
+}
+
+.content__body strong {
+    font-weight: var(--weight-semibold);
+    color: var(--color-heading);
+}
+
+.content__body em {
+    font-style: italic;
+}
+
+/* ── Links ── */
+.content__body a {
+    color: var(--color-primary);
+    text-decoration: none;
+    /* border-bottom: 1px solid transparent; */
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.content__body a:hover {
+    border-bottom-color: var(--color-primary);
+}
+
+.content__body a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* External link indicator */
+.content__body a[href^="http"]:not([href*="hannonhill.com"])::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 3px;
+    vertical-align: middle;
+    background-color: currentColor;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+/* ── Lists ── */
+.content__body ul {
+    list-style: disc;
+    padding-left: var(--space-xl);
+    margin-bottom: var(--space-lg);
+}
+
+.content__body ol {
+    list-style: decimal;
+    padding-left: var(--space-xl);
+    margin-bottom: var(--space-lg);
+}
+
+.content__body li {
+    margin-bottom: var(--space-sm);
+    line-height: var(--leading-relaxed);
+}
+
+.content__body li > ul,
+.content__body li > ol {
+    margin-top: var(--space-sm);
+    margin-bottom: 0;
+}
+
+/* ── Blockquote ── */
+.content__body blockquote {
+    border-left: 3px solid var(--color-border);
+    padding-left: var(--space-lg);
+    margin: var(--space-lg) 0;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.content__body blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Inline Code ── */
+.content__body code:not([class*="language-"]) {
+    background: var(--color-code-inline-bg);
+    color: var(--color-code-inline-text);
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    padding: 0.15em 0.4em;
+    border-radius: var(--radius-sm);
+    word-break: break-word;
+}
+
+/* ── Horizontal Rule ── */
+.content__body hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-2xl) 0;
+}
+
+/* ── Images ── */
+.content__body img {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    margin: var(--space-lg) 0;
+}
+
+/* ── Page Footer / Pagination ── */
+.content__footer {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+.content__meta {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-xl);
+}
+
+.content__pagination {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.content__prev,
+.content__next {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.content__prev:hover,
+.content__next:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.content__prev span:first-child,
+.content__next span:first-child {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-tertiary);
+    font-weight: var(--weight-medium);
+}
+
+.content__prev span:last-child,
+.content__next span:last-child {
+    font-weight: var(--weight-medium);
+    color: var(--color-primary);
+}
+
+.content__next {
+    text-align: right;
+}

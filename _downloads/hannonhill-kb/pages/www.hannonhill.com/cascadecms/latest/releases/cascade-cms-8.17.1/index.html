@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Cascade CMS 8.17.1 - Cascade CMS Knowledge Base</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png" name="favicon" rel="shortcut icon" type="image/png"/>
+		
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/style.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/custom.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.css" rel="stylesheet"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.css" rel="stylesheet" type="text/css"/>
+  <link href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fontawesome-all.css" rel="stylesheet"/>
+  
+  <!-- Preload Font Awesome fonts -->
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" href="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+
+ <!-- Conditional comment for IE 7 -->
+<!--[if IE 7]>
+   <link rel="stylesheet" href="/_files/lib/bootstrap/font-awesome-ie7.css">
+<![endif]-->
+<link href="https://customer.cludo.com/css/templates/v2.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+		
+<!-- Google Tag Manager -->
+
+<script>
+  dataLayer = [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQQX65');</script>
+
+<!-- End Google Tag Manager -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/prettify.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-css.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-sql.js" type="text/javascript"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/lib/prettify/lang-yaml.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() { prettyPrint(); });
+</script>
+
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.17.1/index.html" rel="canonical"/>
+		<meta content="6a97bc6fc0a8002677e0bc0464d36fbb" name="id"/>
+	</head>
+	<body data-spy="scroll" data-target=".release-sidebar">
+	    <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="sr-only sr-only-focusable" href="#sidebar">Skip to sidebar / page navigation</a>
+		<!-- Google Tag Manager (noscript) --><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WQQX65" style="display:none;visibility:hidden" width="0"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+		
+
+<nav aria-labelledby="navbar-brand" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="https://www.hannonhill.com/cascadecms/latest/index.html" id="navbar-brand" name="brand"><img alt="Cascade CMS Logo" src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/_images/kb-logo-new.png"/></a>
+    <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation" class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+
+
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/archives.html">Archives</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/releases/changelog.html">Changelog</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/index.html">Knowledge Base</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://help.hannonhill.com/hc/en-us">Support</a></li>
+    
+        
+                
+        
+            <li class="nav-item"><a class="nav-link" href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+                </ul>
+            <nav>
+    <form class="form-inline search-bar" id="cludo-search-form-top" role="search">
+        <div class="search-box">
+        <input aria-label="Search" autocomplete="off" class="form-control form-control-sm search-input" id="searchBox" name="q" placeholder="Search..." type="search"/>
+        <a class="search-btn" href="#" id="cludo-voice-parent" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        </div>
+    </form>
+</nav>
+        </div>
+    </nav>
+
+
+		
+		<div class="container">
+			<div class="content-wrapper">
+				
+
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/index.html">            Home    
+    </a></li>
+      
+        
+               <li class="breadcrumb-item"><a href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">            Release Notes    
+    </a></li>
+      
+        
+                            <li class="breadcrumb-item active">            Cascade CMS 8.17.1    
+    </li>
+             
+    </ol>
+</nav>
+				<div class="row">
+					<div class="col-sm-12 col-md-3">
+						                                                                        
+						
+
+
+
+
+
+
+        
+                
+                
+                
+                
+    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                        
+                                    
+                            
+                                                                                                                                                                                                                        
+                                                
+                                                                                                                                                                                                                            
+                                                                                                                
+                                
+    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="sidenav release-sidebar" id="sidebar">
+        <nav class="release-sidenav list-group">
+            <a arial-label="Skip to Release Notes" class="list-group-item list-group-item-action" href="#notes"><i class="icon-chevron fas fa-chevron-right float-right"> </i> Notes</a>
+                        <a arial-label="Skip to Upgrade Guide" class="list-group-item list-group-item-action" href="#upgrade-guide"><i class="icon-chevron fas fa-chevron-right float-right"> </i> Upgrade Guide</a>
+            <a arial-label="Skip to Requirements" class="list-group-item list-group-item-action" href="#requirements"><i class="icon-chevron fas fa-chevron-right float-right"> </i> Requirements</a>
+                    </nav>
+        
+        <div class="release-stats card bg-light border-light" role="complementary">
+            <div class="card-body">
+                <div class="card-title">
+                    <h3>At a Glance</h3>
+                </div>
+                <div class="card-text">
+                    <dl>
+                        <dt>Released on</dt>
+                        <dd class="lead text-info">03/25/2021</dd>
+                                                        <dt>Features/Improvements</dt>
+    <dd class="lead text-info">8</dd>
+            <dt>Fixed</dt>
+    <dd class="lead text-info">17</dd>
+                        </dl>
+                                
+            <hr/>
+        <div class="release-pagination">
+        <p>
+                    Next Release: <a href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.18/index.html">8.18</a><br/>
+                            Previous Release: <a href="https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.17/index.html">8.17</a>
+                </p>
+        </div>
+                    </div>
+            </div>
+        </div>
+            </div>
+
+
+
+						
+						
+					</div>
+					<main class="col-sm-12 col-md-9" id="main-content" role="main">
+						<div class="jumbotron bg-light" id="release-hero">
+  <h1>Cascade CMS 8.17.1</h1>
+  <p class="lead">Cascade CMS version 8.17.1 includes support for SQL Server 2019, new notification duration settings, and various accessibility improvements and fixes.</p>
+  </div>
+
+						
+
+
+
+
+
+
+        
+                
+                
+                
+                
+    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                        
+                                    
+                            
+                                                                                                                                                                                                                        
+                                                
+                                                                                                                                                                                                                            
+                                                                                                                
+                                
+    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    
+        <section id="notes">
+        <div class="page-header">
+            <h2>Release Notes</h2>
+        </div>
+        
+        <h3>Features/Improvements</h3>
+    <ul>
+            <li>We've improved load times when editing Pages and Data Definition Blocks with complex implementations.</li>            <li>We've added accessibility improvements focused around the WCAG 1.3.1 and 1.3.2 guidelines to tables, icons and various other components throughout the application.</li>            <li>We've added WCAG 2.4.7 related accessibility improvements to buttons, links and various other components throughout the application.</li>            <li>Publish reports now feature more concise error reporting and will include errors that were encountered when attempting to remove empty directories on unpublish.</li>            <li>We've improved keyboard accessibility in the WYSIWYG and added WYSIWYG keyboard shortcuts to the shortcuts menu (Shift + ?).</li>            <li>Users can now adjust the duration of notifications displayed within the interface using a new <a href="https://www.hannonhill.com/cascadecms/latest/cascade-basics/account-settings.html#AccountSettings">user setting</a> called <em>Notification Duration</em>. Additionally, a progress bar is now displayed on the notification to indicate how much longer the notification will be visible on the screen.</li>            <li>Added support for SQL Server 2019. Support for SQL Server 2014 is deprecated and will be removed in the next on-premise release on or after 09/25/2021.</li>            <li>Added support for Microsoft JDBC driver for SQL Server environments.</li>        </ul>
+            <h3>Fixed</h3>
+    <ul>
+            <li>Starring a Role will no longer result in a <code>NullPointerException</code> error.</li>            <li>Addressed an issue where consecutive attempts to star an asset caused an error.</li>            <li>Fixed several issues related to replacing field groups with Shared Field groups in a Data Definition.</li>            <li>Fixed an issue where changing a radio field more than once while editing an asset would not trigger additional draft saves.</li>            <li>Fixed an issue with typeahead search when selecting a site in a chooser field.</li>            <li>Fixed an issue where file asset size would display as 0 bytes in after editing.</li>            <li>Addressed an issue where the context menu would stay open after performing an action from it or tabbing out of it.</li>            <li>It is now possible to search for WYSIWYG Editor Configurations in chooser fields.</li>            <li>Structured data group and field labels are now escaped to prevent from "bleeding" into the interface.</li>            <li>You can now apply advanced Custom Formats to <code>figure</code> elements in the WYSIWYG.</li>            <li>Fixed a background error when sending a Block through workflow containing a publish-working-copy trigger.</li>            <li>Addressed an issue with cached site permissions when removing a user from a Group or deleting a Group.</li>            <li>Asset Factories with the Create Resized Images plugin will no longer trigger a null error when used to create assets.</li>            <li>Addressed some styling issues in the CMS header.</li>            <li>Long task names will now be truncated in the Tasks widget on the Dashboard.</li>            <li>Working copies will now show their parent folder instead of the current version's parent folder if different.</li>            <li>Corrected an issue where MariaDB 10 was being reported as MySQL 5.5 on startup. Note: MariaDB is not an officially-supported database vendor. For supported platforms, please see the <strong>Requirements</strong> section for your release in the <a href="https://www.hannonhill.com/cascadecms/latest/releases/index.html">Release Notes</a>.</li>        </ul>
+        </section>
+    
+                    <section id="upgrade-guide">
+            <div class="page-header">
+              <h2>Upgrade Guide</h2>
+            </div>
+            <ul><li><a href="#New+driver+for+SQL+Server+installations">New driver for SQL Server installations</a></li><li><a href="#Potential+increased+upgrade+time+and+storage+requirements+for+SQL+Server+installations">Potential increased upgrade time and storage requirements for SQL Server installations</a></li><li><a href="#First+time+installation%3F">First time installation?</a></li><li><a href="#Upgrade+Steps">Upgrade Steps</a></li><li><a href="#Which+installer+should+I+use%3F">Which installer should I use?</a></li></ul><a name="New+driver+for+SQL+Server+installations"></a><h3>New driver for SQL Server installations</h3><p>Cascade CMS 8.17.1 uses the Microsoft JDBC Driver for connections to SQL Server databases. The <code></code>SQL Server <code>Context</code> template in the <em>tomcat/conf/context.xml </em>configuration file has been updated to accommodate the new driver.</p>
+<div class="alert alert-warning"><strong>Note</strong> - Please use the bundled <em>context.xml</em> configuration file when upgrading to 8.17.1 or make the necessary changes to the <code>driverClassName</code> and <code>url</code> attributes in your existing configuration file.</div><a name="Potential+increased+upgrade+time+and+storage+requirements+for+SQL+Server+installations"></a><h3>Potential increased upgrade time and storage requirements for SQL Server installations</h3><p>Cascade CMS 8.17.1 adds support for multi-lingual/Unicode characters throughout the system in Microsoft SQL Server databases by converting columns with the data type <code>varchar(max)</code> to <code>nvarchar(max)</code>. For databases with a large number of records in affected tables, particularly the <code>cxml_mail</code> table which stores user Notifications, this can significantly increase both the time and the database storage space required during this update.</p>
+<p>We recommend testing the upgrade in a test environment using a copy of your production database first, to assess the time and storage space for the database and <a href="https://docs.microsoft.com/en-us/sql/relational-databases/logs/troubleshoot-a-full-transaction-log-sql-server-error-9002?view=sql-server-ver15" rel="noopener" target="_blank">transaction log <span class="fas fa-external-link-alt">&#160;</span></a> required for it to complete.</p><a name="First+time+installation%3F"></a><h3>First time installation?</h3><p>Be sure to <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/index.html" rel="noopener" target="_blank">import our default database schema</a> prior to installing Cascade CMS for the first time. Then follow the appropriate <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html" rel="noopener" target="_blank">installation instructions</a> for your environment.</p><a name="Upgrade+Steps"></a><h3>Upgrade Steps</h3><ol>
+<li>Shut down your currently running Cascade CMS environment.</li>
+<li>Before you upgrade, we strongly recommend that you <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/db-backup.html" rel="noopener" target="_blank"> <strong>back-up your production database</strong></a> as well as <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/test-server.html">set up a test environment</a> and perform a trial run of the upgrade. All customers are entitled to a test license for this purpose.</li>
+<li>Read the release notes and upgrade guides for <strong>all releases</strong> between your version and the latest version.</li>
+<li>Check the table below to see which installer type is required.</li>
+</ol><a name="Which+installer+should+I+use%3F"></a><h3>Which installer should I use?</h3><p>With certain upgrade paths, a <a href="https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html" rel="noopener" target="_blank">full installation</a> of Cascade CMS is required in order to ensure that the application has the latest required libraries. See the table below for a summary of which installer you should use based on the version from which you are upgrading. For any versions that do <strong>not</strong> require a full installation, using the <a href="#" rel="noopener" target="_blank">ROOT.war upgrade method</a> is allowed.</p>
+<table class="table table-striped"><caption>Upgrade Path</caption>
+<thead>
+<tr>
+<th>Upgrading From</th>
+<th>Full Installation Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7.x</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>8.0.x - 8.17</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+        </section>
+                
+                        <section id="requirements">
+            <div class="page-header">
+                <h2>Requirements &amp; Supported Platforms</h2>
+            </div>
+            <h4><span style="color: inherit; font-family: inherit; font-size: 24.5px; line-height: 40px;">Server Requirements (for CMS deployment)</span></h4>
+<table class="table table-bordered"><caption>System requirements for Cascade CMS</caption>
+<thead>
+<tr>
+<td>&#160;</td>
+<th>Requirement</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>CPU</th>
+<td>
+<ul>
+<li>8-core (recommended)</li>
+<li>Quad core&#160;(minimum)</li>
+</ul>
+</td>
+<td>Cascade can be run in virtualized environments like VMware and Hyper-V.</td>
+</tr>
+<tr>
+<th>Memory</th>
+<td>
+<ul>
+<li>8GB RAM (recommended)</li>
+<li>6GB RAM (minimum)</li>
+</ul>
+</td>
+<td>It is recommended to allocate approximately 1/2 of the server&#8217;s total memory to Cascade CMS.</td>
+</tr>
+<tr>
+<th>Hard Drive Space</th>
+<td>
+<ul>
+<li>25GB (recommended)</li>
+<li>15GB (minimum)</li>
+</ul>
+</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<h4>Supported Platforms</h4>
+<table class="table table-bordered"><caption>Supported platforms for Cascade CMS.</caption>
+<thead>
+<tr>
+<td>&#160;</td>
+<th>Supported platform(s)</th>
+<th>Supported version(s)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Java platforms</th>
+<td>OpenJDK</td>
+<td>
+<ul>
+<li>OpenJDK 11.0.7</li>
+</ul>
+</td>
+<td>64-bit is <strong>recommended&#160;</strong>for all platforms.</td>
+</tr>
+<tr>
+<th rowspan="3">Operating System</th>
+<td>Microsoft Windows Server</td>
+<td>
+<ul>
+<li>2019</li>
+<li>2016</li>
+<li>2012 / 2012 R2</li>
+</ul>
+</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>Mac OS X Server</td>
+<td>
+<ul>
+<li>10.4 or later</li>
+</ul>
+</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>
+<ul>
+<li>64-bit (recommended)</li>
+<li>32-bit</li>
+</ul>
+</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<th rowspan="3">Databases<a href="#footnote1"><sup>1</sup></a></th>
+<td>MySQL</td>
+<td>
+<ul>
+<li>8</li>
+<li>5.7</li>
+<li>5.6</li>
+</ul>
+</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>Microsoft SQL Server</td>
+<td>
+<ul>
+<li>2019</li>
+<li>2017</li>
+<li>2016</li>
+<li>2014 (deprecated)</li>
+</ul>
+</td>
+<td>Support for SQL Server 2014 will be removed in the next on-premise release on or after 9/25/2021.</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>
+<ul>
+<li>19c</li>
+<li>18c</li>
+<li>12c</li>
+</ul>
+</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<th rowspan="4">Web servers</th>
+<td>Apache</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>Microsoft IIS</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>Sun Java System Web Server</td>
+<td>&#160;</td>
+<td>Formerly Netscape Enterprise Server.</td>
+</tr>
+<tr>
+<td>Zeus Web Server</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<th rowspan="4">Web browsers</th>
+<td>Chrome</td>
+<td>
+<ul>
+<li>Chrome 50+</li>
+</ul>
+</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>
+<ul>
+<li>Edge</li>
+<li>Internet Explorer 11</li>
+</ul>
+</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>Mozilla Firefox</td>
+<td>
+<ul>
+<li>Firefox 45+</li>
+</ul>
+</td>
+<td><br/><br/></td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>
+<ul>
+<li>Safari 8+</li>
+</ul>
+</td>
+<td><br/><br/></td>
+</tr>
+</tbody>
+</table>
+<sup><a id="footnote1"></a>1</sup> Support is maintained for up to 3 versions from each database vendor. When support for a new database version is added, support for the oldest version is deprecated and will be removed in the first on-premise release 6 months on or after the date of deprecation.
+        </section>
+            
+
+
+
+						
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="footer-wrapper ">
+    <div class="cludo-feedback"></div> 
+<hr/>
+<div class="footer-container">
+    <div class="footer-left">
+        <img alt="cascade cms icon" class="footer-logo" src="https://www.hannonhill.com/cascadecms/latest/_files/images/apple-touch-icon-57x57.png"/>
+        
+                <p class="" id="site-copyright">All content <a aria-hidden="true" class="quickedit" href="https://hannonhill.cascadecms.com/entity/open.act?id=6a97bc6fc0a8002677e0bc0464d36fbb&amp;type=page" tabindex="-1" target="_blank">©</a> 2026 <a href="https://www.hannonhill.com/index.html">Hannon Hill</a></p>
+        
+        
+    </div>
+    <div class="footer-right">
+         <ul>
+            <li><a href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About us</a></li>
+            <li><a href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a></li>
+            <li><a href="https://www.hannonhill.com/documents/index.html">Compliance</a></li>
+            <li><a href="https://www.hannonhill.com/resources/index.html">Resources</a></li>
+            <li><a href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a></li>
+            <li><a href="https://www.hannonhill.com/cascadecms/latest/sitemap.html">Site Index</a></li>
+            <li><a href="https://github.com/hannonhill">Github</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+			</footer>
+		</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/bootstrap.min.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/lib/bootstrap/scrollspy.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/application.js"></script>
+<script src="https://www.hannonhill.com/cascadecms/latest/_files/_redesign/prism/prism.js" type="text/javascript"></script>
+<script src="https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+var CludoSearch;
+(function () {
+    var cludoSettings = {
+        customerId: 10001479,
+        engineId: 10002755,
+        searchUrl: 'https://www.hannonhill.com/cascadecms/latest/search.html',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'cludo-search-form-top'],
+        hideSearchFilters: true,
+        focusOnResultsAfterSearch: true,
+        type: 'inline',
+        template: 'InlineBasic',
+        disableAutocomplete: true,
+        <!--enableVoiceSearch: true-->
+    };
+    CludoSearch = new Cludo(cludoSettings);
+    CludoSearch.init();
+})();
+</script>
+<!--Cludo Experiences-->
+<script data-cid="10001479" defer="defer" id="cludo-experience-manager" src="https://customer.cludo.com/scripts/bundles/experiences/manager.js"></script>
+<!--[if lte IE 9]>
+    <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+<![endif]-->
+
+
+		
+		
+<script type="text/javascript">
+    piAId = '1002';
+    piCId = '1003';
+    
+    (function() {
+        function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+    })();
+</script>
+<script type="text/javascript">
+  sAId = "1";
+  sCId = "4";
+
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = (('https:' == document.location.protocol) ? "https://ssl" : "http://cdn") + ".spectate.com/s.js";
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+
+	    <script async="true" src="https://live.clive.cloud/page-views/track/12"></script>
+		
+	</body>
+</html>

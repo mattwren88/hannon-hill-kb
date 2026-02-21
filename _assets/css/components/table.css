@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Tables — Cascade CMS Knowledge Base
+   Clean, responsive tables with striped/bordered variants.
+   ========================================================================== */
+
+.table-wrapper {
+    margin: var(--space-lg) 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.table {
+    width: 100%;
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+}
+
+.table th,
+.table td {
+    padding: var(--space-sm) var(--space-md);
+    text-align: left;
+    vertical-align: top;
+}
+
+.table th {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-secondary);
+    border-bottom: 2px solid var(--color-border);
+    white-space: nowrap;
+}
+
+.table td {
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── Striped ── */
+.table--striped tbody tr:nth-child(even) {
+    background: var(--color-bg-secondary);
+}
+
+/* ── Bordered ── */
+.table--bordered th,
+.table--bordered td {
+    border: 1px solid var(--color-border);
+}
+
+/* ── Hover ── */
+.table tbody tr {
+    transition: background var(--transition-fast);
+}
+
+.table tbody tr:hover {
+    background: var(--color-bg-tertiary);
+}
+
+/* ── Inline code in tables ── */
+.table code {
+    font-size: 0.85em;
+}
+
+/* ── Content body tables (auto-styled) ── */
+.content__body table {
+    width: 100%;
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    margin: var(--space-lg) 0;
+    border-collapse: collapse;
+}
+
+.content__body table th,
+.content__body table td {
+    padding: var(--space-sm) var(--space-md);
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.content__body table th {
+    font-weight: var(--weight-semibold);
+    color: var(--color-heading);
+    border-bottom: 2px solid var(--color-border);
+}

@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Cards — Cascade CMS Knowledge Base
+   Feature cards and link cards with icons, inspired by Claude/Anthropic docs.
+   Supports: card grids (2-col, 3-col), full-width highlight cards,
+   active/selected state, and responsive stacking.
+   ========================================================================== */
+
+/* ── Card Grid Container ── */
+.card-grid {
+    display: grid;
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+}
+
+.card-grid--2col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card-grid--3col {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+    .card-grid--2col,
+    .card-grid--3col {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .card-grid--3col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ── Base Card ── */
+.card {
+    display: block;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg);
+    text-decoration: none;
+    color: inherit;
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.card:hover {
+    border-color: var(--color-card-hover-border);
+    box-shadow: var(--color-card-hover-shadow);
+    transform: translateY(-1px);
+}
+
+.card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Active / selected state (like Claude's blue-bordered card) */
+.card--active {
+    border-color: var(--color-card-active-border);
+    box-shadow: var(--color-card-active-shadow);
+}
+
+/* ── Card Icon ── */
+.card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: var(--space-md);
+    color: var(--color-card-icon);
+}
+
+.card__icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ── Card Content ── */
+.card__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--color-heading);
+    margin-bottom: var(--space-sm);
+    line-height: var(--leading-tight);
+}
+
+.card__description {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin: 0;
+}
+
+/* ── Full-width Highlight Card ── */
+.card--highlight {
+    padding: var(--space-xl);
+}
+
+.card--highlight .card__title {
+    font-size: var(--text-xl);
+}
+
+.card--highlight .card__description {
+    font-size: var(--text-base);
+}
+
+/* ── Compact variant (tighter padding, smaller icon) ── */
+.card--compact {
+    padding: var(--space-md);
+}
+
+.card--compact .card__icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: var(--space-sm);
+}
+
+.card--compact .card__icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.card--compact .card__title {
+    font-size: var(--text-base);
+}
+
+.card--compact .card__description {
+    font-size: var(--text-sm);
+}
+
+/* ── Card with arrow indicator (linked cards) ── */
+.card--link {
+    position: relative;
+}
+
+.card--link::after {
+    content: '';
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-text-tertiary);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    transition: background-color var(--transition-fast);
+}
+
+.card--link:hover::after {
+    background-color: var(--color-primary);
+}
+
+/* ── Section Header (optional, for card grid sections) ── */
+.card-section__heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-semibold);
+    color: var(--color-heading);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
