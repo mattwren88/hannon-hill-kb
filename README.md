@@ -24,6 +24,13 @@ Local documentation site for Cascade CMS content, generated from `data.json` and
 - `scripts/build-kb-review-queue.mjs`: Match live downloads to local docs pages
 - `scripts/apply-live-component-updates.mjs`: Apply component updates using the review queue
 
+## Current Pages
+
+- Showcase: `_examples/component-showcase.html`
+- Date Tool Essentials: `docs/developing-in-cascade/script-formats/date-tool-essentials/index.html`
+- Query Tool Directives: `docs/developing-in-cascade/script-formats/query-tool-directives/index.html`
+- Velocity Best Practices: `docs/developing-in-cascade/script-formats/velocity-best-practices/index.html`
+
 ## Requirements
 
 - Node.js 18+ (uses native `fetch`)
