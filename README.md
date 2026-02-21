@@ -26,10 +26,19 @@ Local documentation site for Cascade CMS content, generated from `data.json` and
 
 ## Current Pages
 
+Local paths:
+
 - Showcase: `_examples/component-showcase.html`
 - Date Tool Essentials: `docs/developing-in-cascade/script-formats/date-tool-essentials/index.html`
 - Query Tool Directives: `docs/developing-in-cascade/script-formats/query-tool-directives/index.html`
 - Velocity Best Practices: `docs/developing-in-cascade/script-formats/velocity-best-practices/index.html`
+
+Published URLs:
+
+- Showcase: [Component Showcase](https://mattwren88.github.io/hannon-hill-kb/_examples/component-showcase.html)
+- Date Tool Essentials: [Date Tool Essentials](https://mattwren88.github.io/hannon-hill-kb/developing-in-cascade/script-formats/date-tool-essentials/)
+- Query Tool Directives: [Query Tool Directives](https://mattwren88.github.io/hannon-hill-kb/developing-in-cascade/script-formats/query-tool-directives/)
+- Velocity Best Practices: [Velocity Best Practices](https://mattwren88.github.io/hannon-hill-kb/developing-in-cascade/script-formats/velocity-best-practices/)
 
 ## Requirements
 
