@@ -502,6 +502,7 @@ function renderSharedHead({ title, description, assetRoot, includeTocCss }) {
   <link rel="stylesheet" href="${assetRoot}_assets/css/utilities.css">
   <link rel="stylesheet" href="${assetRoot}_assets/css/print.css" media="print">
   <link rel="stylesheet" href="${assetRoot}_assets/vendor/prism/prism-theme.css">
+  <link rel="stylesheet" href="${assetRoot}_assets/css/transitions.css">
 </head>`;
 }
 

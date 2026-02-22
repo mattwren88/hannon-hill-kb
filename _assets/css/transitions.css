@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Page Transitions — Cascade CMS Knowledge Base
+   View Transitions API: animates only the <main> content area.
+   Falls back gracefully (instant navigation) on unsupported browsers.
+   ========================================================================== */
+
+@view-transition {
+    navigation: auto;
+}
+
+@keyframes vt-slide-out {
+    to {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes vt-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+::view-transition-old(main-content) {
+    animation: 200ms ease-out vt-slide-out;
+}
+
+::view-transition-new(main-content) {
+    animation: 250ms ease-out vt-slide-in;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(main-content),
+    ::view-transition-new(main-content) {
+        animation: none;
+    }
+}

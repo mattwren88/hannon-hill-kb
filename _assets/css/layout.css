@@ -186,6 +186,7 @@ html[data-theme="dark"] .header__logo-img--dark {
     padding: var(--space-2xl) var(--space-2xl);
     display: flex;
     justify-content: center;
+    view-transition-name: main-content;
 }
 
 .content {
