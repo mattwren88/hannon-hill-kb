@@ -47,7 +47,7 @@
 }
 
 .callout__content p {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     line-height: var(--leading-relaxed);
     color: var(--color-text-secondary);
     margin-bottom: 0;

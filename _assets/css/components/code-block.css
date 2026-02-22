@@ -26,7 +26,7 @@
 .code-block__filename {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
-    color: var(--color-text-tertiary);
+    color: var(--color-heading);
     font-weight: var(--weight-medium);
 }
 
@@ -41,7 +41,7 @@
     gap: var(--space-xs);
     padding: 4px var(--space-sm);
     font-size: var(--text-xs);
-    color: var(--color-text-tertiary);
+    color: var(--color-heading);
     border-radius: var(--radius-sm);
     transition: color var(--transition-fast), background var(--transition-fast);
 }

@@ -110,141 +110,1145 @@
           <h1 class="content__title">Query Tool Directives</h1>
         </header>
         <div class="content__body">
-          <h2 id="developing-in-cascade-script-formats-query-tool-directives-section-1">Overview</h2>
-<p>Introduced in Cascade CMS 8.26, Query Directives are an alternative to the .execute() method on the Query API. They process results one asset at a time instead of loading everything into a list, which means they can handle up to 100,000 results (compared to the 2,000 limit with .execute()). There are three directives:</p>
-<p>#queryexecute &amp;#8211; iterate over results and output content for each asset #queryfilter &amp;#8211; apply custom filtering logic before maxResults() is applied #querysortvalue &amp;#8211; define a custom sort value before maxResults() is applied</p>
-<p>All three use the same basic pattern: pass a query object and an asset variable, write your logic in the body, and close with #end. Tip: Use $enabledCustomDirectives to check which custom directives are available in your CMS environment.</p>
-
+<h2 id="developing-in-cascade-script-formats-query-tool-directives-section-1">Overview</h2>
+                        <p>Introduced in Cascade CMS 8.26, Query Directives are an alternative to the&#160;<code>.execute()</code>&#160;method on the Query API. They process results one asset at a time instead of loading everything into a list, which means they can handle up to&#160;<strong>100,000</strong>&#160;results (compared to the 2,000 limit with&#160;<code>.execute()</code>).</p>
+<p>There are three directives:</p>
+<ul>
+<li><code>#queryexecute</code>&#160;&#8211; iterate over results and output content for each asset</li>
+<li><code>#queryfilter</code>&#160;&#8211; apply custom filtering logic before&#160;<code>maxResults()</code>&#160;is applied</li>
+<li><code>#querysortvalue</code>&#160;&#8211; define a custom sort value before&#160;<code>maxResults()</code>&#160;is applied</li>
+</ul>
+<p>All three use the same basic pattern: pass a query object and an asset variable, write your logic in the body, and close with&#160;<code>#end</code>.</p>
+<div class="callout callout--tip">
+  <div class="callout__content">
+    <p class="callout__title">Tip</p>
+    <p>Use <code>$enabledCustomDirectives</code> to check which custom directives are available in your CMS environment.</p>
+  </div>
+</div>
+                                    
 <h2 id="developing-in-cascade-script-formats-query-tool-directives-section-2">When to use directives</h2>
-<p>Quick decision guide: .execute() vs directives</p>
-<p>Scenario Use</p>
-<p>Results under 2,000 with no custom filtering or sorting .execute()</p>
-<p>Need more than 2,000 results #queryexecute</p>
-<p>Need to filter on values not available via built-in query methods #queryfilter</p>
-<p>Need to sort by structured data, dynamic metadata, or computed values #querysortvalue</p>
-<p>Under 2,000 results but need custom filtering or sorting #queryfilter / #querysortvalue + .execute()</p>
-<p>Large dataset with custom filter + sort + output All three combined</p>
-
+                        <div class="table-wrapper">
+  <table class="table table--striped"><caption>Quick decision guide: .execute() vs directives</caption>
+<thead>
+<tr>
+<th scope="col">Scenario</th>
+<th scope="col">Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Results under 2,000 with no custom filtering or sorting</td>
+<td><code>.execute()</code></td>
+</tr>
+<tr>
+<td>Need more than 2,000 results</td>
+<td><code>#queryexecute</code></td>
+</tr>
+<tr>
+<td>Need to filter on values not available via built-in query methods</td>
+<td><code>#queryfilter</code></td>
+</tr>
+<tr>
+<td>Need to sort by structured data, dynamic metadata, or computed values</td>
+<td><code>#querysortvalue</code></td>
+</tr>
+<tr>
+<td>Under 2,000 results but need custom filtering or sorting</td>
+<td><code>#queryfilter</code> / <code>#querysortvalue</code> + <code>.execute()</code></td>
+</tr>
+<tr>
+<td>Large dataset with custom filter + sort + output</td>
+<td>All three combined</td>
+</tr>
+</tbody>
+</table>
+</div>
+                                    
 <h2 id="developing-in-cascade-script-formats-query-tool-directives-section-3">#queryexecute</h2>
-<p>Replaces the .execute() + #foreach pattern. The directive iterates over results directly, processing one asset at a time. Supports maxResults() up to 100,000. Available arguments for #queryexecute.</p>
-<p>Argument Type Description</p>
-<p>query SearchQueryrequired A query object.</p>
-<p>asset Objectrequired Populated automatically by the system. Points to a new asset on each iteration, while the old asset gets cleared to save memory.</p>
-<p>body Logicrequired Logic to execute and output for each asset.</p>
-<p>Important: Unlike #foreach, this directive clears the previous asset from memory on each iteration. This means $foreach.count, $foreach.hasNext, $foreach.index, and other loop variables are not available. If you need a counter or first-iteration check, manage it yourself with a #set variable. Basic usage Build a query, then pass it to #queryexecute instead of calling .execute(). ## Build the query (do NOT call .execute()) #set ($query = $_.query().byContentType(&quot;Article&quot;).maxResults(10).sortBy(&quot;startDate&quot;).sortDirection(&quot;desc&quot;))</p>
-<p>## Iterate with the directive #queryexecute($query, $page) &lt;h3&gt;$page.metadata.title&lt;/h3&gt; &lt;p&gt;$page.metadata.summary&lt;/p&gt; #end Sitemap generation Query directives are well suited for sitemaps where the result set can be very large. #set ($query = $_.query().byContentType(&quot;Default-Page&quot;).indexableOnly(true).preloadDynamicMetadata()) &lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt; #queryexecute($query, $page) &lt;url&gt; &lt;loc&gt;https://yoursite.com${page.path}.html&lt;/loc&gt; &lt;/url&gt; #end &lt;/urlset&gt; Large datasets with preloaded data When working with structured data across many results, preload it on the query to avoid per-asset database round trips. #set ($query = $_.query().byContentType(&quot;Event&quot;).preloadStructuredData().maxResults(5000).sortBy(&quot;startDate&quot;).sortDirection(&quot;asc&quot;))</p>
-<p>#queryexecute($query, $event) #set ($start = $event.getStructuredDataNode(&quot;startDateTime&quot;).textValue) #set ($title = $event.metadata.title) &lt;div class=&quot;event-card&quot;&gt; &lt;h3&gt;$title&lt;/h3&gt; &lt;span&gt;$start&lt;/span&gt; &lt;/div&gt; #end Cross-site query Query across all sites for assets using a shared Content Type. #set ($query = $_.query().byContentType(&quot;site://Global/Shared Page&quot;).searchAcrossAllSites().preloadDynamicMetadata().maxResults(10000))</p>
-<p>#queryexecute($query, $page) &lt;li&gt; &lt;a href=&quot;${page.link}&quot;&gt;${page.metadata.title}&lt;/a&gt; &lt;small&gt;(${page.siteName})&lt;/small&gt; &lt;/li&gt; #end JSON feed Since loop variables aren&#39;t available, use a flag variable like $isFirstIteration for comma separation in JSON output. #set($query = $_.query().byContentType(&quot;Event&quot;).preloadStructuredData().sortBy(&quot;startDate&quot;)) #set($isFirstIteration = true)</p>
-<p>[ #queryexecute($query, $event) #if(!$isFirstIteration),#end #set($title = $_EscapeTool.java($event.metadata.title.trim())) #set($date = $event.getStructuredDataNode(&quot;event-date&quot;).textValue) { &quot;title&quot;: &quot;${title}&quot;, &quot;date&quot;: &quot;${date}&quot;, &quot;url&quot;: &quot;[system-asset]${event.link}[/system-asset]&quot; } #set($isFirstIteration = false) #end ] The key pattern: #if(!$isFirstIteration),#end outputs a comma before every entry except the first, replacing what you&#39;d normally do with $foreach.hasNext.</p>
+                        <p>Replaces the <code>.execute()</code> + <code>#foreach</code> pattern. The directive iterates over results directly, processing one asset at a time. Supports <code>maxResults()</code> up to <strong>100,000</strong>.</p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Available arguments for #queryexecute.</caption>
+<thead>
+<tr>
+<th scope="col">Argument</th>
+<th scope="col">Type</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td>SearchQuery<br/>required</td>
+<td>A query object.</td>
+</tr>
+<tr>
+<td>asset</td>
+<td>Object<br/>required</td>
+<td>Populated automatically by the system. Points to a new asset on each iteration, while the old asset gets cleared to save memory.</td>
+</tr>
+<tr>
+<td><em>body</em></td>
+<td>Logic<br/>required</td>
+<td>Logic to execute and output for each asset.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout callout--warning">
+  <div class="callout__content">
+    <p class="callout__title">Important</p>
+    <p>Unlike <code>#foreach</code>, this directive clears the previous asset from memory on each iteration. This means <code>$foreach.count</code>, <code>$foreach.hasNext</code>, <code>$foreach.index</code>, and other loop variables are <strong>not available</strong>. If you need a counter or first-iteration check, manage it yourself with a <code>#set</code> variable.</p>
+  </div>
+</div>
+<h3>Basic usage</h3>
+<p>Build a query, then pass it to <code>#queryexecute</code> instead of calling <code>.execute()</code>.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Build the query (do NOT call .execute())
+#set ($query = $_.query().byContentType("Article").maxResults(10).sortBy("startDate").sortDirection("desc"))
 
+## Iterate with the directive
+#queryexecute($query, $page)
+  &lt;h3&gt;$page.metadata.title&lt;/h3&gt;
+  &lt;p&gt;$page.metadata.summary&lt;/p&gt;
+#end</code></pre>
+</div>
+<h3>Sitemap generation</h3>
+<p>Query directives are well suited for sitemaps where the result set can be very large.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Default-Page").indexableOnly(true).preloadDynamicMetadata())
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  #queryexecute($query, $page)
+    &lt;url&gt;
+      &lt;loc&gt;https://yoursite.com${page.path}.html&lt;/loc&gt;
+    &lt;/url&gt;
+  #end
+&lt;/urlset&gt;</code></pre>
+</div>
+<h3>Large datasets with preloaded data</h3>
+<p>When working with structured data across many results, preload it on the query to avoid per-asset database round trips.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Event").preloadStructuredData().maxResults(5000).sortBy("startDate").sortDirection("asc"))
+
+#queryexecute($query, $event)
+  #set ($start = $event.getStructuredDataNode("startDateTime").textValue)
+  #set ($title = $event.metadata.title)
+  &lt;div class="event-card"&gt;
+    &lt;h3&gt;$title&lt;/h3&gt;
+    &lt;span&gt;$start&lt;/span&gt;
+  &lt;/div&gt;
+#end</code></pre>
+</div>
+<h3>Cross-site query</h3>
+<p>Query across all sites for assets using a shared Content Type.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("site://Global/Shared Page").searchAcrossAllSites().preloadDynamicMetadata().maxResults(10000))
+
+#queryexecute($query, $page)
+  &lt;li&gt;
+    &lt;a href="${page.link}"&gt;${page.metadata.title}&lt;/a&gt;
+    &lt;small&gt;(${page.siteName})&lt;/small&gt;
+  &lt;/li&gt;
+#end</code></pre>
+</div>
+<h3>JSON feed</h3>
+<p>Since loop variables aren't available, use a flag variable like <code>$isFirstIteration</code> for comma separation in JSON output.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set($query = $_.query().byContentType("Event").preloadStructuredData().sortBy("startDate"))
+#set($isFirstIteration = true)
+
+[
+#queryexecute($query, $event)
+    #if(!$isFirstIteration),#end
+    #set($title = $_EscapeTool.java($event.metadata.title.trim()))
+    #set($date  = $event.getStructuredDataNode("event-date").textValue)
+    {
+        "title": "${title}",
+        "date":  "${date}",
+        "url":   ""
+    }
+    #set($isFirstIteration = false)
+#end
+]</code></pre>
+</div>
+<p>The key pattern: <code>#if(!$isFirstIteration),#end</code> outputs a comma before every entry except the first, replacing what you'd normally do with <code>$foreach.hasNext</code>.</p>
+                                    
 <h2 id="developing-in-cascade-script-formats-query-tool-directives-section-4">#queryfilter</h2>
-<p>Executes body logic on each asset matching a query before maxResults() is applied. If the body logic returns true, the asset is included in the results. Available arguments for #queryfilter.</p>
-<p>Argument Type Description</p>
-<p>query SearchQueryrequired A query object.</p>
-<p>asset Objectrequired Populated automatically by the system. Points to a new asset on each iteration, while the old asset gets cleared to save memory.</p>
-<p>body Logicrequired Logic to execute. Must return the exact string true to include the asset.</p>
-<p>Note: Built-in filtering methods result in faster performance and this directive should only be used for scenarios where there is no built-in method. For example, .bySiteName will be faster than using #queryfilter with Site name comparison logic. Tip: You can move your logic into #queryexecute temporarily to test the functionality and ensure that your body logic returns the exact string true. Tip: The preferred way to return a value from the filter body is to use #set to capture the result, then output it: #queryfilter($query, $asset) #set($result = $asset.path.contains(&quot;index&quot;)) $result #end This pattern handles negation and multiple conditions cleanly without needing #if/true/#end. Filter by path pattern Only include index pages from the query results. #set ($query = $_.query().byContentType(&quot;Article&quot;))</p>
-<p>#queryfilter($query, $asset) $asset.path.contains(&quot;index&quot;) #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.metadata.title}&lt;/li&gt; #end Filter by structured data value Include only assets where a structured data checkbox has a specific value. This is useful for multi-value fields where built-in methods can&#39;t filter directly. #set ($query = $_.query().byContentType(&quot;News&quot;).preloadStructuredData())</p>
-<p>#queryfilter($query, $asset) $asset.getStructuredDataNode(&quot;details/is-featured&quot;).textValue.contains(&quot;Yes&quot;) #end</p>
-<p>#queryexecute($query, $page) &lt;div class=&quot;featured-news&quot;&gt; &lt;h3&gt;${page.metadata.title}&lt;/h3&gt; &lt;p&gt;${page.metadata.summary}&lt;/p&gt; &lt;/div&gt; #end Filter by dynamic metadata Include only assets where a dynamic metadata field matches a condition. #set ($query = $_.query().byContentType(&quot;Page&quot;).preloadDynamicMetadata())</p>
-<p>#queryfilter($query, $asset) $asset.metadata.getDynamicField(&quot;display-in-nav&quot;).value.contains(&quot;Yes&quot;) #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;&lt;a href=&quot;${page.link}&quot;&gt;${page.metadata.displayName}&lt;/a&gt;&lt;/li&gt; #end Filter by empty or populated field Use $_PropertyTool.isNotEmpty() to include only assets where a field has a value. Negate it to find assets where a field is empty. ## Only pages where the author field is populated #set ($query = $_.query().byContentType(&quot;Article&quot;))</p>
-<p>#queryfilter($query, $asset) $_PropertyTool.isNotEmpty($asset.metadata.author) #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.metadata.title} &amp;mdash; ${page.metadata.author}&lt;/li&gt; #end To find assets where a field is empty, negate the check with #set: #queryfilter($query, $asset) #set($result = !$_PropertyTool.isNotEmpty($asset.metadata.author)) $result #end Multiple conditions Use #set to combine conditions with &amp;&amp; or ||. The result is captured as a boolean and output directly. #set ($query = $_.query().byContentType(&quot;Article&quot;).preloadStructuredData())</p>
-<p>#queryfilter($query, $asset) #set($result = $asset.path.contains(&quot;index&quot;) &amp;&amp; $asset.getStructuredDataNode(&quot;details/is-featured&quot;).textValue.contains(&quot;Yes&quot;)) $result #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.metadata.title}&lt;/li&gt; #end OR logic works the same way: #queryfilter($query, $asset) #set($result = $asset.metadata.title.contains(&quot;News&quot;) || $asset.metadata.title.contains(&quot;Events&quot;)) $result #end Exclude pattern To exclude assets matching a condition, negate the check. #set ($query = $_.query().byContentType(&quot;Article&quot;))</p>
-<p>#queryfilter($query, $asset) #set($result = !$asset.path.contains(&quot;/archive/&quot;)) $result #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.metadata.title}&lt;/li&gt; #end</p>
+                        <p>Executes body logic on each asset matching a query <em>before</em> <code>maxResults()</code> is applied. If the body logic returns <code>true</code>, the asset is included in the results.</p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Available arguments for #queryfilter.</caption>
+<thead>
+<tr>
+<th scope="col">Argument</th>
+<th scope="col">Type</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td>SearchQuery<br/>required</td>
+<td>A query object.</td>
+</tr>
+<tr>
+<td>asset</td>
+<td>Object<br/>required</td>
+<td>Populated automatically by the system. Points to a new asset on each iteration, while the old asset gets cleared to save memory.</td>
+</tr>
+<tr>
+<td><em>body</em></td>
+<td>Logic<br/>required</td>
+<td>Logic to execute. Must return the exact string <code>true</code> to include the asset.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout callout--warning">
+  <div class="callout__content">
+    <p class="callout__title">Note</p>
+    <p>Built-in filtering methods result in faster performance and this directive should only be used for scenarios where there is no built-in method. For example, <code>.bySiteName</code> will be faster than using <code>#queryfilter</code> with Site name comparison logic.</p>
+  </div>
+</div>
+<div class="callout callout--tip">
+  <div class="callout__content">
+    <p class="callout__title">Tip</p>
+    <p>You can move your logic into <code>#queryexecute</code> temporarily to test the functionality and ensure that your body logic returns the exact string <code>true</code>.</p>
+  </div>
+</div>
+<div class="callout callout--tip">
+  <div class="callout__content">
+    <p class="callout__title">Tip</p>
+    <p>The preferred way to return a value from the filter body is to use <code>#set</code> to capture the result, then output it:
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#queryfilter($query, $asset)
+  #set($result = $asset.path.contains("index"))
+  $result
+#end</code></pre>
+</div>
+This pattern handles negation and multiple conditions cleanly without needing <code>#if</code>/<code>true</code>/<code>#end</code>.</p>
+  </div>
+</div>
+<h3>Filter by path pattern</h3>
+<p>Only include index pages from the query results.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article"))
 
+#queryfilter($query, $asset)
+  $asset.path.contains("index")
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+<h3>Filter by structured data value</h3>
+<p>Include only assets where a structured data checkbox has a specific value. This is useful for multi-value fields where built-in methods can't filter directly.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("News").preloadStructuredData())
+
+#queryfilter($query, $asset)
+  $asset.getStructuredDataNode("details/is-featured").textValue.contains("Yes")
+#end
+
+#queryexecute($query, $page)
+  &lt;div class="featured-news"&gt;
+    &lt;h3&gt;${page.metadata.title}&lt;/h3&gt;
+    &lt;p&gt;${page.metadata.summary}&lt;/p&gt;
+  &lt;/div&gt;
+#end</code></pre>
+</div>
+<h3>Filter by dynamic metadata</h3>
+<p>Include only assets where a dynamic metadata field matches a condition.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Page").preloadDynamicMetadata())
+
+#queryfilter($query, $asset)
+  $asset.metadata.getDynamicField("display-in-nav").value.contains("Yes")
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;&lt;a href="${page.link}"&gt;${page.metadata.displayName}&lt;/a&gt;&lt;/li&gt;
+#end</code></pre>
+</div>
+<h3>Filter by empty or populated field</h3>
+<p>Use <code>$_PropertyTool.isNotEmpty()</code> to include only assets where a field has a value. Negate it to find assets where a field is empty.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Only pages where the author field is populated
+#set ($query = $_.query().byContentType("Article"))
+
+#queryfilter($query, $asset)
+  $_PropertyTool.isNotEmpty($asset.metadata.author)
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.metadata.title} &amp;mdash; ${page.metadata.author}&lt;/li&gt;
+#end</code></pre>
+</div>
+<p>To find assets where a field is <em>empty</em>, negate the check with <code>#set</code>:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#queryfilter($query, $asset)
+  #set($result = !$_PropertyTool.isNotEmpty($asset.metadata.author))
+  $result
+#end</code></pre>
+</div>
+<h3>Multiple conditions</h3>
+<p>Use <code>#set</code> to combine conditions with <code>&amp;&amp;</code> or <code>||</code>. The result is captured as a boolean and output directly.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").preloadStructuredData())
+
+#queryfilter($query, $asset)
+  #set($result = $asset.path.contains("index") &amp;&amp; $asset.getStructuredDataNode("details/is-featured").textValue.contains("Yes"))
+  $result
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+<p>OR logic works the same way:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#queryfilter($query, $asset)
+  #set($result = $asset.metadata.title.contains("News") || $asset.metadata.title.contains("Events"))
+  $result
+#end</code></pre>
+</div>
+<h3>Exclude pattern</h3>
+<p>To exclude assets matching a condition, negate the check.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article"))
+
+#queryfilter($query, $asset)
+  #set($result = !$asset.path.contains("/archive/"))
+  $result
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+                                    
 <h2 id="developing-in-cascade-script-formats-query-tool-directives-section-5">#querysortvalue</h2>
-<p>Executes body logic on each asset to determine the sort value before maxResults() is applied. This is an alternative to .sortBy() and can be used with both #queryexecute and .execute(). Available arguments for #querysortvalue.</p>
-<p>Argument Type Description</p>
-<p>query SearchQueryrequired A query object.</p>
-<p>asset Objectrequired Populated automatically by the system. Points to a new asset on each iteration, while the old asset gets cleared to save memory.</p>
-<p>body Logicrequired Logic to execute. The return value is used as the sort key.</p>
-<p>Note: Built-in sorting methods result in faster performance. For example, .sortBy(&quot;name&quot;) will be faster than using #querysortvalue with $asset.name as the logic. Tips:</p>
-<p>This directive sorts by string only. When sorting numbers, use $_NumberTool.withPadding to ensure results sort correctly. This directive respects the value passed into .sortDirection() on the query.</p>
-<p>Sort by metadata title #set ($query = $_.query().byContentType(&quot;Article&quot;))</p>
-<p>#querysortvalue($query, $asset) $asset.metadata.title #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.metadata.title}&lt;/li&gt; #end Sort by structured data text field Sort by a text value stored in structured data rather than a metadata field. #set ($query = $_.query().byContentType(&quot;Article&quot;).preloadStructuredData().sortDirection(&quot;asc&quot;))</p>
-<p>#querysortvalue($query, $asset) $asset.getStructuredDataNode(&quot;title&quot;).textValue #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.getStructuredDataNode(&quot;title&quot;).textValue}&lt;/li&gt; #end Numeric sorting with $_NumberTool.withPadding Since #querysortvalue sorts by string, numeric values need padding to sort correctly (e.g., &quot;5&quot; would sort after &quot;10&quot; without padding). #set ($query = $_.query().byContentType(&quot;Course&quot;).preloadStructuredData().sortDirection(&quot;asc&quot;))</p>
-<p>#querysortvalue($query, $asset) $_NumberTool.withPadding($asset.getStructuredDataNode(&quot;course-number&quot;).textValue) #end</p>
-<p>#queryexecute($query, $course) &lt;li&gt;${course.getStructuredDataNode(&quot;course-number&quot;).textValue} - ${course.metadata.title}&lt;/li&gt; #end Multi-level sorting Since sorting is string-based, you can concatenate multiple values to sort by more than one field. The first value acts as the primary sort, the second as the tiebreaker, and so on. Alphabetical by last name, then first name #set ($query = $_.query().byContentType(&quot;Staff&quot;).preloadStructuredData().sortDirection(&quot;asc&quot;))</p>
-<p>#querysortvalue($query, $asset) $asset.getStructuredDataNode(&quot;last-name&quot;).textValue $asset.getStructuredDataNode(&quot;first-name&quot;).textValue #end</p>
-<p>#queryexecute($query, $person) &lt;li&gt;${person.getStructuredDataNode(&quot;last-name&quot;).textValue}, ${person.getStructuredDataNode(&quot;first-name&quot;).textValue}&lt;/li&gt; #end By department number, then course name #set ($query = $_.query().byContentType(&quot;Course&quot;).preloadStructuredData().sortDirection(&quot;asc&quot;))</p>
-<p>#querysortvalue($query, $asset) $_NumberTool.withPadding($asset.getStructuredDataNode(&quot;department-number&quot;).textValue) $asset.metadata.title #end</p>
-<p>#queryexecute($query, $course) &lt;li&gt;${course.getStructuredDataNode(&quot;department-number&quot;).textValue} - ${course.metadata.title}&lt;/li&gt; #end Note the $_NumberTool.withPadding on the department number. Without it, department &quot;5&quot; would sort after &quot;10&quot; since it&#39;s comparing strings. By author, then title #set ($query = $_.query().byContentType(&quot;Article&quot;).sortDirection(&quot;asc&quot;).maxResults(50))</p>
-<p>#querysortvalue($query, $asset) $asset.metadata.author $asset.metadata.title #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.metadata.author} &amp;mdash; ${page.metadata.title}&lt;/li&gt; #end Sort by date stored in structured data Date strings like 01-15-2024 02:30:00 PM won&#39;t sort chronologically as plain strings because the month comes first. Convert the value to epoch milliseconds with $_DateTool so the sort is truly chronological. #set ($query = $_.query().byContentType(&quot;Event&quot;).preloadStructuredData().sortDirection(&quot;desc&quot;).maxResults(20))</p>
-<p>#querysortvalue($query, $asset) #set ($dt = $asset.getStructuredDataNode(&quot;event-date&quot;).textValue) #if($_PropertyTool.isNotEmpty($dt)) #set ($date = $_DateTool.toDate(&quot;MM-dd-yyyy hh:mm:ss a&quot;, $dt)) ${date.getTime()} #else 0 #end #end</p>
-<p>#queryexecute($query, $event) &lt;li&gt; ${event.metadata.title} &lt;span&gt;${event.getStructuredDataNode(&quot;event-date&quot;).textValue}&lt;/span&gt; &lt;/li&gt; #end The format string passed to $_DateTool.toDate() must match the format stored in your data definition. Adjust it to match your field&#39;s format. Sort descending The directive respects .sortDirection(). Set it on the query object before using #querysortvalue. #set ($query = $_.query().byContentType(&quot;News&quot;).sortDirection(&quot;desc&quot;))</p>
-<p>#querysortvalue($query, $asset) $asset.metadata.title #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.metadata.title}&lt;/li&gt; #end</p>
+                        <p>Executes body logic on each asset to determine the sort value <em>before</em> <code>maxResults()</code> is applied. This is an alternative to <code>.sortBy()</code> and can be used with both <code>#queryexecute</code> and <code>.execute()</code>.</p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Available arguments for #querysortvalue.</caption>
+<thead>
+<tr>
+<th scope="col">Argument</th>
+<th scope="col">Type</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td>SearchQuery<br/>required</td>
+<td>A query object.</td>
+</tr>
+<tr>
+<td>asset</td>
+<td>Object<br/>required</td>
+<td>Populated automatically by the system. Points to a new asset on each iteration, while the old asset gets cleared to save memory.</td>
+</tr>
+<tr>
+<td><em>body</em></td>
+<td>Logic<br/>required</td>
+<td>Logic to execute. The return value is used as the sort key.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout callout--warning">
+  <div class="callout__content">
+    <p class="callout__title">Note</p>
+    <p>Built-in sorting methods result in faster performance. For example, <code>.sortBy("name")</code> will be faster than using <code>#querysortvalue</code> with <code>$asset.name</code> as the logic.</p>
+  </div>
+</div>
+<div class="callout callout--tip">
+  <div class="callout__content">
+    <p class="callout__title">Tips</p>
+    <p><ul>
+<li>This directive sorts by <strong>string</strong> only. When sorting numbers, use <code>$_NumberTool.withPadding</code> to ensure results sort correctly.</li>
+<li>This directive respects the value passed into <code>.sortDirection()</code> on the query.</li>
+</ul></p>
+  </div>
+</div>
+<h3>Sort by metadata title</h3>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article"))
 
+#querysortvalue($query, $asset)
+  $asset.metadata.title
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+<h3>Sort by structured data text field</h3>
+<p>Sort by a text value stored in structured data rather than a metadata field.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").preloadStructuredData().sortDirection("asc"))
+
+#querysortvalue($query, $asset)
+  $asset.getStructuredDataNode("title").textValue
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.getStructuredDataNode("title").textValue}&lt;/li&gt;
+#end</code></pre>
+</div>
+<h3>Numeric sorting with $_NumberTool.withPadding</h3>
+<p>Since <code>#querysortvalue</code> sorts by string, numeric values need padding to sort correctly (e.g., "5" would sort after "10" without padding).</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Course").preloadStructuredData().sortDirection("asc"))
+
+#querysortvalue($query, $asset)
+  $_NumberTool.withPadding($asset.getStructuredDataNode("course-number").textValue)
+#end
+
+#queryexecute($query, $course)
+  &lt;li&gt;${course.getStructuredDataNode("course-number").textValue} - ${course.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+<h3>Multi-level sorting</h3>
+<p>Since sorting is string-based, you can concatenate multiple values to sort by more than one field. The first value acts as the primary sort, the second as the tiebreaker, and so on.</p>
+<h4>Alphabetical by last name, then first name</h4>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Staff").preloadStructuredData().sortDirection("asc"))
+
+#querysortvalue($query, $asset)
+  $asset.getStructuredDataNode("last-name").textValue $asset.getStructuredDataNode("first-name").textValue
+#end
+
+#queryexecute($query, $person)
+  &lt;li&gt;${person.getStructuredDataNode("last-name").textValue}, ${person.getStructuredDataNode("first-name").textValue}&lt;/li&gt;
+#end</code></pre>
+</div>
+<h4>By department number, then course name</h4>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Course").preloadStructuredData().sortDirection("asc"))
+
+#querysortvalue($query, $asset)
+  $_NumberTool.withPadding($asset.getStructuredDataNode("department-number").textValue) $asset.metadata.title
+#end
+
+#queryexecute($query, $course)
+  &lt;li&gt;${course.getStructuredDataNode("department-number").textValue} - ${course.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+<p>Note the <code>$_NumberTool.withPadding</code> on the department number. Without it, department "5" would sort after "10" since it's comparing strings.</p>
+<h4>By author, then title</h4>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").sortDirection("asc").maxResults(50))
+
+#querysortvalue($query, $asset)
+  $asset.metadata.author $asset.metadata.title
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.metadata.author} &amp;mdash; ${page.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+<h3>Sort by date stored in structured data</h3>
+<p>Date strings like <code>01-15-2024 02:30:00 PM</code> won't sort chronologically as plain strings because the month comes first. Convert the value to epoch milliseconds with <code>$_DateTool</code> so the sort is truly chronological.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Event").preloadStructuredData().sortDirection("desc").maxResults(20))
+
+#querysortvalue($query, $asset)
+  #set ($dt = $asset.getStructuredDataNode("event-date").textValue)
+  #if($_PropertyTool.isNotEmpty($dt))
+    #set ($date = $_DateTool.toDate("MM-dd-yyyy hh:mm:ss a", $dt))
+    ${date.getTime()}
+  #else
+    0
+  #end
+#end
+
+#queryexecute($query, $event)
+  &lt;li&gt;
+    ${event.metadata.title}
+    &lt;span&gt;${event.getStructuredDataNode("event-date").textValue}&lt;/span&gt;
+  &lt;/li&gt;
+#end</code></pre>
+</div>
+<p>The format string passed to <code>$_DateTool.toDate()</code> must match the format stored in your data definition. Adjust it to match your field's format.</p>
+<h3>Sort descending</h3>
+<p>The directive respects <code>.sortDirection()</code>. Set it on the query object before using <code>#querysortvalue</code>.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("News").sortDirection("desc"))
+
+#querysortvalue($query, $asset)
+  $asset.metadata.title
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+                                    
 <h2 id="developing-in-cascade-script-formats-query-tool-directives-section-6">Combining directives</h2>
-<p>All three directives can be used together on the same query. The order of operations is: #queryfilter runs first to narrow the results, then #querysortvalue determines the sort order, and finally #queryexecute outputs the results up to the maxResults() limit. Full example: filtered, sorted event listing Query all events, filter to only featured ones, sort by a structured data date field, and output the first 50. ## Build the query #set ($query = $_.query().byContentType(&quot;Event&quot;).preloadStructuredData().sortDirection(&quot;asc&quot;).maxResults(50))</p>
-<p>## Filter: only featured events #queryfilter($query, $asset) $asset.getStructuredDataNode(&quot;is-featured&quot;).textValue.contains(&quot;Yes&quot;) #end</p>
-<p>## Sort: by event date stored in structured data #querysortvalue($query, $asset) $asset.getStructuredDataNode(&quot;event-date&quot;).textValue #end</p>
-<p>## Output &lt;ul&gt; #queryexecute($query, $event) &lt;li&gt; &lt;strong&gt;${event.metadata.title}&lt;/strong&gt; &lt;span&gt;${event.getStructuredDataNode(&quot;event-date&quot;).textValue}&lt;/span&gt; &lt;/li&gt; #end &lt;/ul&gt; Date range filter with chronological sorting Filter to events within a specific date range and sort them chronologically. The filter parses each date into epoch milliseconds for comparison, and the sort does the same for ordering. #set ($query = $_.query().byContentType(&quot;Event&quot;).preloadStructuredData().sortDirection(&quot;asc&quot;).maxResults(100)) #set ($rangeStart = $_DateTool.toDate(&quot;yyyy-MM-dd&quot;, &quot;2024-01-01&quot;).getTime()) #set ($rangeEnd = $_DateTool.toDate(&quot;yyyy-MM-dd&quot;, &quot;2024-12-31&quot;).getTime())</p>
-<p>## Filter: only events in 2024 #queryfilter($query, $asset) #set ($dt = $asset.getStructuredDataNode(&quot;event-date&quot;).textValue) #if($_PropertyTool.isNotEmpty($dt)) #set ($ts = $_DateTool.toDate(&quot;MM-dd-yyyy hh:mm:ss a&quot;, $dt).getTime()) #if($ts &gt;= $rangeStart &amp;&amp; $ts &lt;= $rangeEnd) true #end #end #end</p>
-<p>## Sort: chronological by event date #querysortvalue($query, $asset) #set ($dt = $asset.getStructuredDataNode(&quot;event-date&quot;).textValue) #if($_PropertyTool.isNotEmpty($dt)) #set ($date = $_DateTool.toDate(&quot;MM-dd-yyyy hh:mm:ss a&quot;, $dt)) ${date.getTime()} #else 0 #end #end</p>
-<p>## Output with formatted date #queryexecute($query, $event) #set ($dt = $event.getStructuredDataNode(&quot;event-date&quot;).textValue) #set ($date = $_DateTool.toDate(&quot;MM-dd-yyyy hh:mm:ss a&quot;, $dt)) #set ($formatted = $_DateTool.format(&quot;MMMM d, yyyy&quot;, $date)) &lt;li&gt; &lt;strong&gt;${event.metadata.title}&lt;/strong&gt; &lt;span&gt;$formatted&lt;/span&gt; &lt;/li&gt; #end</p>
+                        
+<p>All three directives can be used together on the same query. The order of operations is: <code>#queryfilter</code> runs first to narrow the results, then <code>#querysortvalue</code> determines the sort order, and finally <code>#queryexecute</code> outputs the results up to the <code>maxResults()</code> limit.</p>
+<h3>Full example: filtered, sorted event listing</h3>
+<p>Query all events, filter to only featured ones, sort by a structured data date field, and output the first 50.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Build the query
+#set ($query = $_.query().byContentType("Event").preloadStructuredData().sortDirection("asc").maxResults(50))
+
+## Filter: only featured events
+#queryfilter($query, $asset)
+  $asset.getStructuredDataNode("is-featured").textValue.contains("Yes")
+#end
+
+## Sort: by event date stored in structured data
+#querysortvalue($query, $asset)
+  $asset.getStructuredDataNode("event-date").textValue
+#end
+
+## Output
+&lt;ul&gt;
+#queryexecute($query, $event)
+  &lt;li&gt;
+    &lt;strong&gt;${event.metadata.title}&lt;/strong&gt;
+    &lt;span&gt;${event.getStructuredDataNode("event-date").textValue}&lt;/span&gt;
+  &lt;/li&gt;
+#end
+&lt;/ul&gt;</code></pre>
+</div>
+<h3>Date range filter with chronological sorting</h3>
+<p>Filter to events within a specific date range and sort them chronologically. The filter parses each date into epoch milliseconds for comparison, and the sort does the same for ordering.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Event").preloadStructuredData().sortDirection("asc").maxResults(100))
+#set ($rangeStart = $_DateTool.toDate("yyyy-MM-dd", "2024-01-01").getTime())
+#set ($rangeEnd = $_DateTool.toDate("yyyy-MM-dd", "2024-12-31").getTime())
+
+## Filter: only events in 2024
+#queryfilter($query, $asset)
+  #set ($dt = $asset.getStructuredDataNode("event-date").textValue)
+  #if($_PropertyTool.isNotEmpty($dt))
+    #set ($ts = $_DateTool.toDate("MM-dd-yyyy hh:mm:ss a", $dt).getTime())
+    #if($ts &gt;= $rangeStart &amp;&amp; $ts &lt;= $rangeEnd)
+      true
+    #end
+  #end
+#end
+
+## Sort: chronological by event date
+#querysortvalue($query, $asset)
+  #set ($dt = $asset.getStructuredDataNode("event-date").textValue)
+  #if($_PropertyTool.isNotEmpty($dt))
+    #set ($date = $_DateTool.toDate("MM-dd-yyyy hh:mm:ss a", $dt))
+    ${date.getTime()}
+  #else
+    0
+  #end
+#end
+
+## Output with formatted date
+#queryexecute($query, $event)
+  #set ($dt = $event.getStructuredDataNode("event-date").textValue)
+  #set ($date = $_DateTool.toDate("MM-dd-yyyy hh:mm:ss a", $dt))
+  #set ($formatted = $_DateTool.format("MMMM d, yyyy", $date))
+  &lt;li&gt;
+    &lt;strong&gt;${event.metadata.title}&lt;/strong&gt;
+    &lt;span&gt;$formatted&lt;/span&gt;
+  &lt;/li&gt;
+#end</code></pre>
+</div>
 
 <h2 id="developing-in-cascade-script-formats-query-tool-directives-section-7">In-depth examples</h2>
+                        
 <p>These examples demonstrate advanced patterns that build on the basics above. They reference a Content Type with the following fields. Adapt the content type path and field names to match your own setup.</p>
-<p>Structured data: title (text), event-date (datetime in MM-dd-yyyy hh:mm:ss a format), asset-chooser (page chooser) Dynamic metadata: multiselect (multi-select), checkbox (checkbox), department (dropdown), radio (radio), noindex (radio) Standard metadata: title, author, displayName, summary, description, teaser, keywords, startDate, endDate</p>
-<p>Filtering Filter by all values in a multi-select field</p>
-<p>Check that a multi-value field contains every expected value using multiple .contains() calls joined with &amp;&amp;. #set ($query = $_.query().byContentType(&quot;Article&quot;).preloadDynamicMetadata().maxResults(-1))</p>
-<p>#queryfilter($query, $asset) #set ($cb = $asset.metadata.getDynamicField(&quot;checkbox&quot;).value) #set($result = $cb.contains(&quot;Easy&quot;) &amp;&amp; $cb.contains(&quot;Fast&quot;) &amp;&amp; $cb.contains(&quot;Cheap&quot;)) $result #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.metadata.title}&lt;/li&gt; #end</p>
-<p>Combine structured data, dynamic metadata, and standard metadata</p>
-<p>Filter using fields from three different sources in one condition. Preload both structured data and dynamic metadata on the query. #set ($query = $_.query().byContentType(&quot;Article&quot;).preloadStructuredData().preloadDynamicMetadata().maxResults(-1))</p>
-<p>#queryfilter($query, $asset) #set($result = $_PropertyTool.isNotEmpty($asset.getStructuredDataNode(&quot;event-date&quot;).textValue) &amp;&amp; $asset.metadata.getDynamicField(&quot;checkbox&quot;).value.contains(&quot;Easy&quot;) &amp;&amp; $asset.getStructuredDataNode(&quot;title&quot;).textValue.contains(&quot;Guide&quot;)) $result #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.getStructuredDataNode(&quot;title&quot;).textValue}&lt;/li&gt; #end</p>
-<p>Sorting Sort by field value, then by date chronologically</p>
-<p>Concatenate a text field with epoch milliseconds for a two-level sort. The text field acts as the primary sort, and the date as the tiebreaker. #set ($query = $_.query().byContentType(&quot;Event&quot;).preloadStructuredData().preloadDynamicMetadata().sortDirection(&quot;asc&quot;).maxResults(30))</p>
-<p>#querysortvalue($query, $asset) #set ($group = $asset.metadata.getDynamicField(&quot;department&quot;).value) #set ($dt = $asset.getStructuredDataNode(&quot;event-date&quot;).textValue) #if($_PropertyTool.isNotEmpty($dt)) #set ($date = $_DateTool.toDate(&quot;MM-dd-yyyy hh:mm:ss a&quot;, $dt)) ${group} ${date.getTime()} #else ${group} 0 #end #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.metadata.getDynamicField(&quot;department&quot;).value} &amp;mdash; ${page.metadata.title}&lt;/li&gt; #end</p>
-<p>Combined Most recent pages in a filtered category</p>
-<p>Combine #queryfilter to narrow by category, #querysortvalue to sort by date descending, and maxResults(10) to take only the top 10. #set ($query = $_.query().byContentType(&quot;Article&quot;).preloadStructuredData().sortDirection(&quot;desc&quot;).maxResults(10))</p>
-<p>#queryfilter($query, $asset) $asset.metadata.title.contains(&quot;Science&quot;) #end</p>
-<p>#querysortvalue($query, $asset) #set ($dt = $asset.getStructuredDataNode(&quot;event-date&quot;).textValue) #if($_PropertyTool.isNotEmpty($dt)) #set ($date = $_DateTool.toDate(&quot;MM-dd-yyyy hh:mm:ss a&quot;, $dt)) ${date.getTime()} #else 0 #end #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt;${page.metadata.title}&lt;/li&gt; #end</p>
-<p>Three-field filter with two-field sort</p>
-<p>Filter on three conditions (dynamic metadata + standard metadata), then sort by two concatenated fields. #set ($query = $_.query().byContentType(&quot;Article&quot;).preloadStructuredData().preloadDynamicMetadata().sortDirection(&quot;asc&quot;).maxResults(25))</p>
-<p>#queryfilter($query, $asset) #set($result = $asset.metadata.getDynamicField(&quot;checkbox&quot;).value.contains(&quot;Fast&quot;) &amp;&amp; $asset.metadata.getDynamicField(&quot;noindex&quot;).value.contains(&quot;No&quot;) &amp;&amp; $_PropertyTool.isNotEmpty($asset.metadata.summary)) $result #end</p>
-<p>#querysortvalue($query, $asset) $asset.metadata.getDynamicField(&quot;department&quot;).value $asset.metadata.author #end</p>
-<p>#queryexecute($query, $page) &lt;li&gt; ${page.metadata.getDynamicField(&quot;department&quot;).value} &amp;mdash; ${page.metadata.author} &amp;mdash; ${page.metadata.title} &lt;/li&gt; #end</p>
-<p>Group results under dynamic headers</p>
-<p>Sort by the grouping field so identical values are adjacent, then detect when the value changes to insert a header. #set ($query = $_.query().byContentType(&quot;Article&quot;).preloadDynamicMetadata().sortDirection(&quot;asc&quot;).maxResults(50))</p>
-<p>#querysortvalue($query, $asset) $asset.metadata.getDynamicField(&quot;department&quot;).value $asset.metadata.title #end</p>
-<p>#set ($currentGroup = &quot;&quot;) #queryexecute($query, $page) #set ($group = $page.metadata.getDynamicField(&quot;department&quot;).value) #if($group != $currentGroup) &lt;h3&gt;$group&lt;/h3&gt; #set ($currentGroup = $group) #end &lt;li&gt;${page.metadata.title}&lt;/li&gt; #end</p>
-<p>Advanced patterns Aggregate counts by field value</p>
-<p>Use a map to count how many pages have each value in a field. Arithmetic (+) only works inside #set directives, not inside method arguments like .put(). #set ($query = $_.query().byContentType(&quot;Article&quot;).preloadDynamicMetadata().maxResults(-1)) #set ($counts = {&quot;Yes&quot;: 0, &quot;No&quot;: 0, &quot;Maybe&quot;: 0})</p>
-<p>#queryexecute($query, $page) #set ($val = $page.metadata.getDynamicField(&quot;radio&quot;).value) #if($val.contains(&quot;Yes&quot;)) #set ($n = $counts.get(&quot;Yes&quot;) + 1) #set ($dummy = $counts.put(&quot;Yes&quot;, $n)) #elseif($val.contains(&quot;No&quot;)) #set ($n = $counts.get(&quot;No&quot;) + 1) #set ($dummy = $counts.put(&quot;No&quot;, $n)) #elseif($val.contains(&quot;Maybe&quot;)) #set ($n = $counts.get(&quot;Maybe&quot;) + 1) #set ($dummy = $counts.put(&quot;Maybe&quot;, $n)) #end #end Yes: $counts.get(&quot;Yes&quot;), No: $counts.get(&quot;No&quot;), Maybe: $counts.get(&quot;Maybe&quot;)</p>
-<p>Parse, sort, and format dates for display</p>
-<p>Filter to pages with a date, sort chronologically using epoch milliseconds, then format the date for readable output with $_DateTool.format(). #set ($query = $_.query().byContentType(&quot;Event&quot;).preloadStructuredData().sortDirection(&quot;desc&quot;).maxResults(15))</p>
-<p>#queryfilter($query, $asset) $_PropertyTool.isNotEmpty($asset.getStructuredDataNode(&quot;event-date&quot;).textValue) #end</p>
-<p>#querysortvalue($query, $asset) #set ($dt = $asset.getStructuredDataNode(&quot;event-date&quot;).textValue) #set ($date = $_DateTool.toDate(&quot;MM-dd-yyyy hh:mm:ss a&quot;, $dt)) ${date.getTime()} #end</p>
-<p>#queryexecute($query, $event) #set ($dt = $event.getStructuredDataNode(&quot;event-date&quot;).textValue) #set ($date = $_DateTool.toDate(&quot;MM-dd-yyyy hh:mm:ss a&quot;, $dt)) #set ($formatted = $_DateTool.format(&quot;MMMM d, yyyy&quot;, $date)) &lt;li&gt; &lt;strong&gt;${event.metadata.title}&lt;/strong&gt; &lt;span&gt;$formatted&lt;/span&gt; &lt;/li&gt; #end</p>
-<p>Count pages per category using a map</p>
-<p>Define a map of categories with initial counts of zero. Iterate all pages, check each category, and increment the count. Output the breakdown with #foreach on the map entries. #set ($query = $_.query().byContentType(&quot;Article&quot;).maxResults(-1)) #set ($cats = {&quot;Technology&quot;: 0, &quot;Science&quot;: 0, &quot;Education&quot;: 0, &quot;Healthcare&quot;: 0, &quot;Business&quot;: 0})</p>
-<p>#queryexecute($query, $page) #set ($t = $page.metadata.title) #foreach($cat in $cats.keySet()) #if($t.contains($cat)) #set ($n = $cats.get($cat) + 1) #set ($dummy = $cats.put($cat, $n)) #end #end #end</p>
-<p>&lt;ul&gt; #foreach($entry in $cats.entrySet()) &lt;li&gt;$entry.key: $entry.value&lt;/li&gt; #end &lt;/ul&gt;</p>
+<ul>
+<li><strong>Structured data</strong>: <code>title</code> (text), <code>event-date</code> (datetime in <code>MM-dd-yyyy hh:mm:ss a</code> format), <code>asset-chooser</code> (page chooser)</li>
+<li><strong>Dynamic metadata</strong>: <code>multiselect</code> (multi-select), <code>checkbox</code> (checkbox), <code>department</code> (dropdown), <code>radio</code> (radio), <code>noindex</code> (radio)</li>
+<li><strong>Standard metadata</strong>: title, author, displayName, summary, description, teaser, keywords, startDate, endDate</li>
+</ul>
+<h3>Filtering</h3>
+<div class="accordion">
+  <button class="accordion__trigger" aria-expanded="false" aria-controls="live-acc-1">
+    <span class="accordion__title">Filter by all values in a multi-select field</span>
+    <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </button>
+  <div class="accordion__panel" id="live-acc-1" role="region" hidden>
+    <div class="accordion__content">
+<p>Check that a multi-value field contains every expected value using multiple <code>.contains()</code> calls joined with <code>&amp;&amp;</code>.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").preloadDynamicMetadata().maxResults(-1))
+
+#queryfilter($query, $asset)
+  #set ($cb = $asset.metadata.getDynamicField("checkbox").value)
+  #set($result = $cb.contains("Easy") &amp;&amp; $cb.contains("Fast") &amp;&amp; $cb.contains("Cheap"))
+  $result
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+    </div>
+  </div>
+</div>
+<div class="accordion">
+  <button class="accordion__trigger" aria-expanded="false" aria-controls="live-acc-2">
+    <span class="accordion__title">Combine structured data, dynamic metadata, and standard metadata</span>
+    <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </button>
+  <div class="accordion__panel" id="live-acc-2" role="region" hidden>
+    <div class="accordion__content">
+<p>Filter using fields from three different sources in one condition. Preload both structured data and dynamic metadata on the query.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").preloadStructuredData().preloadDynamicMetadata().maxResults(-1))
+
+#queryfilter($query, $asset)
+  #set($result = $_PropertyTool.isNotEmpty($asset.getStructuredDataNode("event-date").textValue) &amp;&amp; $asset.metadata.getDynamicField("checkbox").value.contains("Easy") &amp;&amp; $asset.getStructuredDataNode("title").textValue.contains("Guide"))
+  $result
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.getStructuredDataNode("title").textValue}&lt;/li&gt;
+#end</code></pre>
+</div>
+    </div>
+  </div>
+</div>
+<h3>Sorting</h3>
+<div class="accordion">
+  <button class="accordion__trigger" aria-expanded="false" aria-controls="live-acc-3">
+    <span class="accordion__title">Sort by field value, then by date chronologically</span>
+    <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </button>
+  <div class="accordion__panel" id="live-acc-3" role="region" hidden>
+    <div class="accordion__content">
+<p>Concatenate a text field with epoch milliseconds for a two-level sort. The text field acts as the primary sort, and the date as the tiebreaker.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Event").preloadStructuredData().preloadDynamicMetadata().sortDirection("asc").maxResults(30))
+
+#querysortvalue($query, $asset)
+  #set ($group = $asset.metadata.getDynamicField("department").value)
+  #set ($dt = $asset.getStructuredDataNode("event-date").textValue)
+  #if($_PropertyTool.isNotEmpty($dt))
+    #set ($date = $_DateTool.toDate("MM-dd-yyyy hh:mm:ss a", $dt))
+    ${group} ${date.getTime()}
+  #else
+    ${group} 0
+  #end
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.metadata.getDynamicField("department").value} &amp;mdash; ${page.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+    </div>
+  </div>
+</div>
+<h3>Combined</h3>
+<div class="accordion">
+  <button class="accordion__trigger" aria-expanded="false" aria-controls="live-acc-4">
+    <span class="accordion__title">Most recent pages in a filtered category</span>
+    <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </button>
+  <div class="accordion__panel" id="live-acc-4" role="region" hidden>
+    <div class="accordion__content">
+<p>Combine <code>#queryfilter</code> to narrow by category, <code>#querysortvalue</code> to sort by date descending, and <code>maxResults(10)</code> to take only the top 10.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").preloadStructuredData().sortDirection("desc").maxResults(10))
+
+#queryfilter($query, $asset)
+  $asset.metadata.title.contains("Science")
+#end
+
+#querysortvalue($query, $asset)
+  #set ($dt = $asset.getStructuredDataNode("event-date").textValue)
+  #if($_PropertyTool.isNotEmpty($dt))
+    #set ($date = $_DateTool.toDate("MM-dd-yyyy hh:mm:ss a", $dt))
+    ${date.getTime()}
+  #else
+    0
+  #end
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;${page.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+    </div>
+  </div>
+</div>
+<div class="accordion">
+  <button class="accordion__trigger" aria-expanded="false" aria-controls="live-acc-5">
+    <span class="accordion__title">Three-field filter with two-field sort</span>
+    <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </button>
+  <div class="accordion__panel" id="live-acc-5" role="region" hidden>
+    <div class="accordion__content">
+<p>Filter on three conditions (dynamic metadata + standard metadata), then sort by two concatenated fields.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").preloadStructuredData().preloadDynamicMetadata().sortDirection("asc").maxResults(25))
+
+#queryfilter($query, $asset)
+  #set($result = $asset.metadata.getDynamicField("checkbox").value.contains("Fast") &amp;&amp; $asset.metadata.getDynamicField("noindex").value.contains("No") &amp;&amp; $_PropertyTool.isNotEmpty($asset.metadata.summary))
+  $result
+#end
+
+#querysortvalue($query, $asset)
+  $asset.metadata.getDynamicField("department").value $asset.metadata.author
+#end
+
+#queryexecute($query, $page)
+  &lt;li&gt;
+    ${page.metadata.getDynamicField("department").value} &amp;mdash;
+    ${page.metadata.author} &amp;mdash;
+    ${page.metadata.title}
+  &lt;/li&gt;
+#end</code></pre>
+</div>
+    </div>
+  </div>
+</div>
+<div class="accordion">
+  <button class="accordion__trigger" aria-expanded="false" aria-controls="live-acc-6">
+    <span class="accordion__title">Group results under dynamic headers</span>
+    <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </button>
+  <div class="accordion__panel" id="live-acc-6" role="region" hidden>
+    <div class="accordion__content">
+<p>Sort by the grouping field so identical values are adjacent, then detect when the value changes to insert a header.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").preloadDynamicMetadata().sortDirection("asc").maxResults(50))
+
+#querysortvalue($query, $asset)
+  $asset.metadata.getDynamicField("department").value $asset.metadata.title
+#end
+
+#set ($currentGroup = "")
+#queryexecute($query, $page)
+  #set ($group = $page.metadata.getDynamicField("department").value)
+  #if($group != $currentGroup)
+    &lt;h3&gt;$group&lt;/h3&gt;
+    #set ($currentGroup = $group)
+  #end
+  &lt;li&gt;${page.metadata.title}&lt;/li&gt;
+#end</code></pre>
+</div>
+    </div>
+  </div>
+</div>
+<h3>Advanced patterns</h3>
+<div class="accordion">
+  <button class="accordion__trigger" aria-expanded="false" aria-controls="live-acc-7">
+    <span class="accordion__title">Aggregate counts by field value</span>
+    <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </button>
+  <div class="accordion__panel" id="live-acc-7" role="region" hidden>
+    <div class="accordion__content">
+<p>Use a map to count how many pages have each value in a field. Arithmetic (<code>+</code>) only works inside <code>#set</code> directives, not inside method arguments like <code>.put()</code>.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").preloadDynamicMetadata().maxResults(-1))
+#set ($counts = {"Yes": 0, "No": 0, "Maybe": 0})
+
+#queryexecute($query, $page)
+  #set ($val = $page.metadata.getDynamicField("radio").value)
+  #if($val.contains("Yes"))
+    #set ($n = $counts.get("Yes") + 1)
+    #set ($dummy = $counts.put("Yes", $n))
+  #elseif($val.contains("No"))
+    #set ($n = $counts.get("No") + 1)
+    #set ($dummy = $counts.put("No", $n))
+  #elseif($val.contains("Maybe"))
+    #set ($n = $counts.get("Maybe") + 1)
+    #set ($dummy = $counts.put("Maybe", $n))
+  #end
+#end
+Yes: $counts.get("Yes"), No: $counts.get("No"), Maybe: $counts.get("Maybe")</code></pre>
+</div>
+    </div>
+  </div>
+</div>
+<div class="accordion">
+  <button class="accordion__trigger" aria-expanded="false" aria-controls="live-acc-8">
+    <span class="accordion__title">Parse, sort, and format dates for display</span>
+    <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </button>
+  <div class="accordion__panel" id="live-acc-8" role="region" hidden>
+    <div class="accordion__content">
+<p>Filter to pages with a date, sort chronologically using epoch milliseconds, then format the date for readable output with <code>$_DateTool.format()</code>.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Event").preloadStructuredData().sortDirection("desc").maxResults(15))
+
+#queryfilter($query, $asset)
+  $_PropertyTool.isNotEmpty($asset.getStructuredDataNode("event-date").textValue)
+#end
+
+#querysortvalue($query, $asset)
+  #set ($dt = $asset.getStructuredDataNode("event-date").textValue)
+  #set ($date = $_DateTool.toDate("MM-dd-yyyy hh:mm:ss a", $dt))
+  ${date.getTime()}
+#end
+
+#queryexecute($query, $event)
+  #set ($dt = $event.getStructuredDataNode("event-date").textValue)
+  #set ($date = $_DateTool.toDate("MM-dd-yyyy hh:mm:ss a", $dt))
+  #set ($formatted = $_DateTool.format("MMMM d, yyyy", $date))
+  &lt;li&gt;
+    &lt;strong&gt;${event.metadata.title}&lt;/strong&gt;
+    &lt;span&gt;$formatted&lt;/span&gt;
+  &lt;/li&gt;
+#end</code></pre>
+</div>
+    </div>
+  </div>
+</div>
+<div class="accordion">
+  <button class="accordion__trigger" aria-expanded="false" aria-controls="live-acc-9">
+    <span class="accordion__title">Count pages per category using a map</span>
+    <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </button>
+  <div class="accordion__panel" id="live-acc-9" role="region" hidden>
+    <div class="accordion__content">
+<p>Define a map of categories with initial counts of zero. Iterate all pages, check each category, and increment the count. Output the breakdown with <code>#foreach</code> on the map entries.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").maxResults(-1))
+#set ($cats = {"Technology": 0, "Science": 0, "Education": 0, "Healthcare": 0, "Business": 0})
+
+#queryexecute($query, $page)
+  #set ($t = $page.metadata.title)
+  #foreach($cat in $cats.keySet())
+    #if($t.contains($cat))
+      #set ($n = $cats.get($cat) + 1)
+      #set ($dummy = $cats.put($cat, $n))
+    #end
+  #end
+#end
+
+&lt;ul&gt;
+#foreach($entry in $cats.entrySet())
+  &lt;li&gt;$entry.key: $entry.value&lt;/li&gt;
+#end
+&lt;/ul&gt;</code></pre>
+</div>
+    </div>
+  </div>
+</div>
 
 <h2 id="developing-in-cascade-script-formats-query-tool-directives-section-8">Migration guide</h2>
-<p>Converting an existing .execute() pattern to use directives is straightforward. Before: .execute() + #foreach #set ($results = $_.query().byContentType(&quot;Article&quot;).maxResults(10).sortBy(&quot;startDate&quot;).sortDirection(&quot;desc&quot;).execute())</p>
-<p>#foreach ($page in $results) &lt;h3&gt;$page.metadata.title&lt;/h3&gt; &lt;p&gt;$page.metadata.summary&lt;/p&gt; #end After: #queryexecute #set ($query = $_.query().byContentType(&quot;Article&quot;).maxResults(10).sortBy(&quot;startDate&quot;).sortDirection(&quot;desc&quot;))</p>
-<p>#queryexecute($query, $page) &lt;h3&gt;$page.metadata.title&lt;/h3&gt; &lt;p&gt;$page.metadata.summary&lt;/p&gt; #end Key changes:</p>
-<p>Remove .execute() from the query chain. Replace #foreach ($page in $results) with #queryexecute($query, $page). The body stays the same.</p>
-<p>Before: .execute() with manual filtering #set ($list = $_.query().byContentType(&quot;News&quot;).preloadStructuredData().execute())</p>
-<p>#foreach ($page in $list) #if ($page.getStructuredDataNode(&quot;details/is-featured&quot;).textValue.contains(&quot;Yes&quot;)) &lt;div&gt;$page.metadata.title&lt;/div&gt; #end #end After: #queryfilter + #queryexecute #set ($query = $_.query().byContentType(&quot;News&quot;).preloadStructuredData())</p>
-<p>#queryfilter($query, $asset) $asset.getStructuredDataNode(&quot;details/is-featured&quot;).textValue.contains(&quot;Yes&quot;) #end</p>
-<p>#queryexecute($query, $page) &lt;div&gt;$page.metadata.title&lt;/div&gt; #end Key changes:</p>
-<p>Remove .execute() and the #foreach/#if block. Move the condition into #queryfilter. The body must return the exact string true. Use #queryexecute for the output, now with only matching results.</p>
-<p>Tip: With #queryfilter, the filtering happens before maxResults() is applied. This means you get the correct number of matching results, rather than filtering down from a potentially truncated list.</p>
+                        <p>Converting an existing <code>.execute()</code> pattern to use directives is straightforward.</p>
+<h3>Before: .execute() + #foreach</h3>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($results = $_.query().byContentType("Article").maxResults(10).sortBy("startDate").sortDirection("desc").execute())
+
+#foreach ($page in $results)
+  &lt;h3&gt;$page.metadata.title&lt;/h3&gt;
+  &lt;p&gt;$page.metadata.summary&lt;/p&gt;
+#end</code></pre>
+</div>
+<h3>After: #queryexecute</h3>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("Article").maxResults(10).sortBy("startDate").sortDirection("desc"))
+
+#queryexecute($query, $page)
+  &lt;h3&gt;$page.metadata.title&lt;/h3&gt;
+  &lt;p&gt;$page.metadata.summary&lt;/p&gt;
+#end</code></pre>
+</div>
+<p>Key changes:</p>
+<ol>
+<li>Remove <code>.execute()</code> from the query chain.</li>
+<li>Replace <code>#foreach ($page in $results)</code> with <code>#queryexecute($query, $page)</code>.</li>
+<li>The body stays the same.</li>
+</ol>
+<h3>Before: .execute() with manual filtering</h3>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($list = $_.query().byContentType("News").preloadStructuredData().execute())
+
+#foreach ($page in $list)
+  #if ($page.getStructuredDataNode("details/is-featured").textValue.contains("Yes"))
+    &lt;div&gt;$page.metadata.title&lt;/div&gt;
+  #end
+#end</code></pre>
+</div>
+<h3>After: #queryfilter + #queryexecute</h3>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($query = $_.query().byContentType("News").preloadStructuredData())
+
+#queryfilter($query, $asset)
+  $asset.getStructuredDataNode("details/is-featured").textValue.contains("Yes")
+#end
+
+#queryexecute($query, $page)
+  &lt;div&gt;$page.metadata.title&lt;/div&gt;
+#end</code></pre>
+</div>
+<p>Key changes:</p>
+<ol>
+<li>Remove <code>.execute()</code> and the <code>#foreach</code>/<code>#if</code> block.</li>
+<li>Move the condition into <code>#queryfilter</code>. The body must return the exact string <code>true</code>.</li>
+<li>Use <code>#queryexecute</code> for the output, now with only matching results.</li>
+</ol>
+<div class="callout callout--tip">
+  <div class="callout__content">
+    <p class="callout__title">Tip</p>
+    <p>With <code>#queryfilter</code>, the filtering happens <em>before</em> <code>maxResults()</code> is applied. This means you get the correct number of matching results, rather than filtering down from a potentially truncated list.</p>
+  </div>
+</div>
         </div>
         <footer class="content__footer">
   <div class="content__meta">

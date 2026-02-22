@@ -1,0 +1,906 @@
+{
+  "generatedAt": "2026-02-21T19:36:29.515Z",
+  "sourceManifest": "_downloads/hannonhill-kb/manifest.json",
+  "docsRoot": "docs",
+  "counts": {
+    "manifestEntries": 415,
+    "localDocs": 305,
+    "matched": 284,
+    "unmatchedKb": 130,
+    "unmatchedLocal": 21
+  },
+  "matched": [
+    {
+      "key": "developing-in-cascade/script-formats/date-tool-essentials",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/date-tool-essentials.html",
+      "kbTitle": "Date Tool Essentials - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/date-tool-essentials.html",
+      "localDocPath": "docs/developing-in-cascade/script-formats/date-tool-essentials/index.html",
+      "status": "pending"
+    },
+    {
+      "key": "developing-in-cascade/script-formats/query-tool-directives",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/query-tool-directives.html",
+      "kbTitle": "Query Tool Directives - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/query-tool-directives.html",
+      "localDocPath": "docs/developing-in-cascade/script-formats/query-tool-directives/index.html",
+      "status": "pending"
+    },
+    {
+      "key": "developing-in-cascade/script-formats/velocity-best-practices",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-best-practices.html",
+      "kbTitle": "Best practices for performance - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-best-practices.html",
+      "localDocPath": "docs/developing-in-cascade/script-formats/velocity-best-practices/index.html",
+      "status": "pending"
+    }
+  ],
+  "unmatchedKb": [
+    {
+      "key": "cascade-administration",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/index.html",
+      "kbTitle": "Cascade Administration - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/index.html"
+    },
+    {
+      "key": "cascade-administration/administration-tools",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/administration-tools/index.html",
+      "kbTitle": "Administration Tools - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/administration-tools/index.html"
+    },
+    {
+      "key": "cascade-administration/authentication",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/index.html",
+      "kbTitle": "Authentication - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/index.html"
+    },
+    {
+      "key": "cascade-administration/authentication/ldap",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/ldap/index.html",
+      "kbTitle": "LDAP/Active Directory Authentication - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/authentication/ldap/index.html"
+    },
+    {
+      "key": "cascade-administration/connectors",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/index.html",
+      "kbTitle": "Connectors and Integrations - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/index.html"
+    },
+    {
+      "key": "cascade-administration/connectors/analytics",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/analytics/index.html",
+      "kbTitle": "Analytics - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/analytics/index.html"
+    },
+    {
+      "key": "cascade-administration/connectors/content-export",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/content-export/index.html",
+      "kbTitle": "Content Export - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/content-export/index.html"
+    },
+    {
+      "key": "cascade-administration/connectors/digital-asset-management-dam",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/digital-asset-management-dam/index.html",
+      "kbTitle": "Digital Asset Management (DAM) - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/digital-asset-management-dam/index.html"
+    },
+    {
+      "key": "cascade-administration/connectors/web-governance",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/web-governance/index.html",
+      "kbTitle": "Web Governance - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/connectors/web-governance/index.html"
+    },
+    {
+      "key": "cascade-administration/database-tools",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/database-tools/index.html",
+      "kbTitle": "Database Tools - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/database-tools/index.html"
+    },
+    {
+      "key": "cascade-administration/installation-and-upgrades",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html",
+      "kbTitle": "Installation &amp; Upgrades - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/index.html"
+    },
+    {
+      "key": "cascade-administration/installation-and-upgrades/database",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/index.html",
+      "kbTitle": "Database - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/database/index.html"
+    },
+    {
+      "key": "cascade-administration/installation-and-upgrades/system-configuration",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/index.html",
+      "kbTitle": "System Configuration - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/installation-and-upgrades/system-configuration/index.html"
+    },
+    {
+      "key": "cascade-administration/permissions",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/index.html",
+      "kbTitle": "Permissions - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/permissions/index.html"
+    },
+    {
+      "key": "cascade-administration/sites",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-administration/sites/index.html",
+      "kbTitle": "Sites - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-administration/sites/index.html"
+    },
+    {
+      "key": "cascade-basics/search",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/cascade-basics/search/index.html",
+      "kbTitle": "Search - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/cascade-basics/search/index.html"
+    },
+    {
+      "key": "content-authoring",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/index.html",
+      "kbTitle": "Content Authoring - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/index.html"
+    },
+    {
+      "key": "content-authoring/accessibility",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/accessibility/index.html",
+      "kbTitle": "Accessibility - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/accessibility/index.html"
+    },
+    {
+      "key": "content-authoring/advanced-code-editor",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/advanced-code-editor/index.html",
+      "kbTitle": "Advanced Code Editor - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/advanced-code-editor/index.html"
+    },
+    {
+      "key": "content-authoring/asset-factories",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/asset-factories/index.html",
+      "kbTitle": "Asset Factories - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/asset-factories/index.html"
+    },
+    {
+      "key": "content-authoring/asset-factories/plugins",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/asset-factories/plugins/index.html",
+      "kbTitle": "Asset Factory Plugins - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/asset-factories/plugins/index.html"
+    },
+    {
+      "key": "content-authoring/blocks",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/blocks/index.html",
+      "kbTitle": "Blocks - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/blocks/index.html"
+    },
+    {
+      "key": "content-authoring/external-links",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/external-links/index.html",
+      "kbTitle": "External Links - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/external-links/index.html"
+    },
+    {
+      "key": "content-authoring/files",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/files/index.html",
+      "kbTitle": "Files - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/files/index.html"
+    },
+    {
+      "key": "content-authoring/folders",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/folders/index.html",
+      "kbTitle": "Folders - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/folders/index.html"
+    },
+    {
+      "key": "content-authoring/pages",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/pages/index.html",
+      "kbTitle": "Pages - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/pages/index.html"
+    },
+    {
+      "key": "content-authoring/publishing",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/publishing/index.html",
+      "kbTitle": "Publishing - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/publishing/index.html"
+    },
+    {
+      "key": "content-authoring/wysiwyg-editor-configurations",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-authoring/wysiwyg-editor-configurations/index.html",
+      "kbTitle": "WYSIWYG Editor Configurations - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-authoring/wysiwyg-editor-configurations/index.html"
+    },
+    {
+      "key": "content-management",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-management/index.html",
+      "kbTitle": "Content Management - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-management/index.html"
+    },
+    {
+      "key": "content-management/reports",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-management/reports/index.html",
+      "kbTitle": "Reports - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-management/reports/index.html"
+    },
+    {
+      "key": "content-management/workflows",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-management/workflows/index.html",
+      "kbTitle": "Workflows - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-management/workflows/index.html"
+    },
+    {
+      "key": "content-management/workflows/workflow-triggers",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/content-management/workflows/workflow-triggers/index.html",
+      "kbTitle": "Workflow Triggers - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/content-management/workflows/workflow-triggers/index.html"
+    },
+    {
+      "key": "design-in-cascade",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/design-in-cascade/index.html",
+      "kbTitle": "Design in Cascade - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/design-in-cascade/index.html"
+    },
+    {
+      "key": "design-in-cascade/configurations",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/design-in-cascade/configurations/index.html",
+      "kbTitle": "Configurations - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/design-in-cascade/configurations/index.html"
+    },
+    {
+      "key": "design-in-cascade/content-types",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/design-in-cascade/content-types/index.html",
+      "kbTitle": "Content Types - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/design-in-cascade/content-types/index.html"
+    },
+    {
+      "key": "design-in-cascade/data-definitions",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html",
+      "kbTitle": "Data Definitions - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/design-in-cascade/data-definitions/index.html"
+    },
+    {
+      "key": "design-in-cascade/metadata-sets",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/design-in-cascade/metadata-sets/index.html",
+      "kbTitle": "Metadata Sets - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/design-in-cascade/metadata-sets/index.html"
+    },
+    {
+      "key": "design-in-cascade/templates",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/design-in-cascade/templates/index.html",
+      "kbTitle": "Templates - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/design-in-cascade/templates/index.html"
+    },
+    {
+      "key": "developing-in-cascade",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html",
+      "kbTitle": "Developing in Cascade - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/developing-in-cascade/index.html"
+    },
+    {
+      "key": "developing-in-cascade/internal-cascade-api",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/internal-cascade-api/index.html",
+      "kbTitle": "Internal Cascade API - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/developing-in-cascade/internal-cascade-api/index.html"
+    },
+    {
+      "key": "developing-in-cascade/rest-api",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/rest-api/index.html",
+      "kbTitle": "REST API - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/developing-in-cascade/rest-api/index.html"
+    },
+    {
+      "key": "developing-in-cascade/script-formats",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/index.html",
+      "kbTitle": "Formats - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/index.html"
+    },
+    {
+      "key": "developing-in-cascade/soap-web-services-api",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/index.html",
+      "kbTitle": "SOAP Web Services - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/developing-in-cascade/soap-web-services-api/index.html"
+    },
+    {
+      "key": "faqs",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/faqs/index.html",
+      "kbTitle": "FAQs - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/faqs/index.html"
+    },
+    {
+      "key": "faqs/common-errors",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/faqs/common-errors/index.html",
+      "kbTitle": "Common Error Messages - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/faqs/common-errors/index.html"
+    },
+    {
+      "key": "faqs/database-errors",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/faqs/database-errors/index.html",
+      "kbTitle": "Database Errors - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/faqs/database-errors/index.html"
+    },
+    {
+      "key": "faqs/development",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/faqs/development/index.html",
+      "kbTitle": "Development - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/faqs/development/index.html"
+    },
+    {
+      "key": "faqs/general",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/faqs/general/index.html",
+      "kbTitle": "General / How To - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/faqs/general/index.html"
+    },
+    {
+      "key": "faqs/publish-errors",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/faqs/publish-errors/index.html",
+      "kbTitle": "Publish Errors - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/faqs/publish-errors/index.html"
+    },
+    {
+      "key": "faqs/security",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/faqs/security/index.html",
+      "kbTitle": "Security - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/faqs/security/index.html"
+    },
+    {
+      "key": "faqs/troubleshooting",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/faqs/troubleshooting/index.html",
+      "kbTitle": "Troubleshooting - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/faqs/troubleshooting/index.html"
+    },
+    {
+      "key": "faqs/wysiwyg",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/faqs/wysiwyg/index.html",
+      "kbTitle": "WYSIWYG - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/faqs/wysiwyg/index.html"
+    },
+    {
+      "key": "releases",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/index.html",
+      "kbTitle": "Release Notes - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/index.html"
+    },
+    {
+      "key": "releases/8.0",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/8.0/index.html",
+      "kbTitle": "Cascade CMS 8 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/8.0/index.html"
+    },
+    {
+      "key": "releases/8.0.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/8.0.1/index.html",
+      "kbTitle": "Cascade CMS 8.0.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/8.0.1/index.html"
+    },
+    {
+      "key": "releases/8.0.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/8.0.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.0.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/8.0.1/requirements.html"
+    },
+    {
+      "key": "releases/8.0.2",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/8.0.2/index.html",
+      "kbTitle": "Cascade CMS 8.0.2 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/8.0.2/index.html"
+    },
+    {
+      "key": "releases/8.0.2/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/8.0.2/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.0.2 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/8.0.2/requirements.html"
+    },
+    {
+      "key": "releases/8.0/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/8.0/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.0 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/8.0/requirements.html"
+    },
+    {
+      "key": "releases/8.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/8.1/index.html",
+      "kbTitle": "Cascade CMS 8.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/8.1/index.html"
+    },
+    {
+      "key": "releases/8.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/8.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/8.1/requirements.html"
+    },
+    {
+      "key": "releases/archives",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/archives.html",
+      "kbTitle": "Release Archives - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/archives.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.1.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.1.1/index.html",
+      "kbTitle": "Cascade CMS 8.1.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.1.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.1.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.1.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.1.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.1.1/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.10",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.10/index.html",
+      "kbTitle": "Cascade CMS 8.10 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.10/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.10/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.10/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.10 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.10/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.11",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11/index.html",
+      "kbTitle": "Cascade CMS 8.11 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.11.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11.1/index.html",
+      "kbTitle": "Cascade CMS 8.11.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.11.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for 8.11.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11.1/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.11/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.11 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.11/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.12",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.12/index.html",
+      "kbTitle": "Cascade CMS 8.12 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.12/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.12/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.12/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for 8.12 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.12/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.13",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13/index.html",
+      "kbTitle": "Cascade CMS 8.13 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.13.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13.1/index.html",
+      "kbTitle": "Cascade CMS 8.13.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.13.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for 8.13 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13.1/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.13.2",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13.2/index.html",
+      "kbTitle": "Cascade CMS 8.13.2 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13.2/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.13/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for 8.13 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.13/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.14",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.14/index.html",
+      "kbTitle": "Cascade CMS 8.14 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.14/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.15",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.15/index.html",
+      "kbTitle": "Cascade CMS 8.15 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.15/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.15.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.15.1/index.html",
+      "kbTitle": "Cascade CMS 8.15.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.15.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.15.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.15.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for 8.15.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.15.1/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.16",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.16/index.html",
+      "kbTitle": "Cascade CMS 8.16 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.16/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.16/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.16/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for 8.16 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.16/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.17",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.17/index.html",
+      "kbTitle": "Cascade CMS 8.17 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.17/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.17.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.17.1/index.html",
+      "kbTitle": "Cascade CMS 8.17.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.17.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.17/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.17/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for 8.17 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.17/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.18",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.18/index.html",
+      "kbTitle": "Cascade CMS 8.18 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.18/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.19",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.19/index.html",
+      "kbTitle": "Cascade CMS 8.19 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.19/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.19.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.19.1/index.html",
+      "kbTitle": "Cascade CMS 8.19.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.19.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.2",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.2/index.html",
+      "kbTitle": "Cascade CMS 8.2 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.2/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.2.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.2.1/index.html",
+      "kbTitle": "Cascade CMS 8.2.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.2.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.2.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.2.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.2.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.2.1/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.2/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.2/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.2 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.2/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.20",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.20/index.html",
+      "kbTitle": "Cascade CMS 8.20 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.20/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.21",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.21/index.html",
+      "kbTitle": "Cascade CMS 8.21 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.21/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.22",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.22/index.html",
+      "kbTitle": "Cascade CMS 8.22 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.22/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.22.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.22.1/index.html",
+      "kbTitle": "Cascade CMS 8.22.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.22.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.23",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.23/index.html",
+      "kbTitle": "Cascade CMS 8.23 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.23/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.24",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24/index.html",
+      "kbTitle": "Cascade CMS 8.24 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.24.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24.1/index.html",
+      "kbTitle": "Cascade CMS 8.24.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.24.2",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24.2/index.html",
+      "kbTitle": "Cascade CMS 8.24.2 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24.2/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.24.3",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24.3/index.html",
+      "kbTitle": "Cascade CMS 8.24.3 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.24.3/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.25.0",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.25.0/index.html",
+      "kbTitle": "Cascade CMS 8.25.0 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.25.0/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.26.0",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.26.0/index.html",
+      "kbTitle": "Cascade CMS 8.26 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.26.0/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.3",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.3/index.html",
+      "kbTitle": "Cascade CMS 8.3 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.3/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.3/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.3/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.3 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.3/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.4",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.4/index.html",
+      "kbTitle": "Cascade CMS 8.4 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.4/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.4.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.4.1/index.html",
+      "kbTitle": "Cascade CMS 8.4.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.4.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.4.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.4.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.4.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.4.1/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.4/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.4/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.4 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.4/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.5",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.5/index.html",
+      "kbTitle": "Cascade CMS 8.5 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.5/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.5/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.5/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.5 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.5/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.6",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.6/index.html",
+      "kbTitle": "Cascade CMS 8.6 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.6/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.6.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.6.1/index.html",
+      "kbTitle": "Cascade CMS 8.6.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.6.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.6.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.6.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.6.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.6.1/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.6/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.6/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.6 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.6/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.7",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.7/index.html",
+      "kbTitle": "Cascade CMS 8.7 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.7/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.7.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.7.1/index.html",
+      "kbTitle": "Cascade CMS 8.7.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.7.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.7.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.7.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.7.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.7.1/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.7/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.7/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.7 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.7/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.8",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.8/index.html",
+      "kbTitle": "Cascade CMS 8.8 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.8/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.8.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.8.1/index.html",
+      "kbTitle": "Cascade CMS 8.8.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.8.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.8.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.8.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.8.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.8.1/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.8/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.8/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.8 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.8/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.9",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.9/index.html",
+      "kbTitle": "Cascade CMS 8.9 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.9/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.9.1",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.9.1/index.html",
+      "kbTitle": "Cascade CMS 8.9.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.9.1/index.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.9.1/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.9.1/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.9.1 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.9.1/requirements.html"
+    },
+    {
+      "key": "releases/cascade-cms-8.9/requirements",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.9/requirements.html",
+      "kbTitle": "Requirements &amp; Supported Platforms for v8.9 - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/cascade-cms-8.9/requirements.html"
+    },
+    {
+      "key": "releases/changelog",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/releases/changelog.html",
+      "kbTitle": "Changelog - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/releases/changelog.html"
+    },
+    {
+      "key": "search",
+      "kbUrl": "https://www.hannonhill.com/cascadecms/latest/search.html",
+      "kbTitle": "Search - Cascade CMS Knowledge Base",
+      "downloadedHtmlPath": "pages/www.hannonhill.com/cascadecms/latest/search.html"
+    }
+  ],
+  "unmatchedLocal": [
+    {
+      "key": "_archive/how-to-set-up-a-spectate-connector",
+      "localDocPath": "docs/_archive/how-to-set-up-a-spectate-connector/index.html"
+    },
+    {
+      "key": "_archive/how-to-set-up-a-twitter-connector",
+      "localDocPath": "docs/_archive/how-to-set-up-a-twitter-connector/index.html"
+    },
+    {
+      "key": "_archive/what-is-the-locator-tool",
+      "localDocPath": "docs/_archive/what-is-the-locator-tool/index.html"
+    },
+    {
+      "key": "_cascade/base-assets/faq-article",
+      "localDocPath": "docs/_cascade/base-assets/faq-article/index.html"
+    },
+    {
+      "key": "cascade-administration/authentication/ldap/index",
+      "localDocPath": "docs/cascade-administration/authentication/ldap/index/index.html"
+    },
+    {
+      "key": "content-authoring/asset-factories/plugins/index",
+      "localDocPath": "docs/content-authoring/asset-factories/plugins/index/index.html"
+    },
+    {
+      "key": "content-management/workflows/workflow-triggers/index",
+      "localDocPath": "docs/content-management/workflows/workflow-triggers/index/index.html"
+    },
+    {
+      "key": "developing-in-cascade/rest-api/placeholders/auth",
+      "localDocPath": "docs/developing-in-cascade/rest-api/placeholders/auth/index.html"
+    },
+    {
+      "key": "developing-in-cascade/rest-api/placeholders/identifier",
+      "localDocPath": "docs/developing-in-cascade/rest-api/placeholders/identifier/index.html"
+    },
+    {
+      "key": "developing-in-cascade/rest-api/placeholders/wsdl",
+      "localDocPath": "docs/developing-in-cascade/rest-api/placeholders/wsdl/index.html"
+    },
+    {
+      "key": "faqs/common-errors/index",
+      "localDocPath": "docs/faqs/common-errors/index/index.html"
+    },
+    {
+      "key": "faqs/database-errors/could-not-acquire-change-log-lock-or-waiting-for-changelog-lock...",
+      "localDocPath": "docs/faqs/database-errors/could-not-acquire-change-log-lock-or-waiting-for-changelog-lock.../index.html"
+    },
+    {
+      "key": "faqs/database-errors/index",
+      "localDocPath": "docs/faqs/database-errors/index/index.html"
+    },
+    {
+      "key": "faqs/development/index",
+      "localDocPath": "docs/faqs/development/index/index.html"
+    },
+    {
+      "key": "faqs/general/index",
+      "localDocPath": "docs/faqs/general/index/index.html"
+    },
+    {
+      "key": "faqs/index",
+      "localDocPath": "docs/faqs/index/index.html"
+    },
+    {
+      "key": "faqs/publish-errors/index",
+      "localDocPath": "docs/faqs/publish-errors/index/index.html"
+    },
+    {
+      "key": "faqs/security/index",
+      "localDocPath": "docs/faqs/security/index/index.html"
+    },
+    {
+      "key": "faqs/security/remember-me-cookied-login-vulnerabilities",
+      "localDocPath": "docs/faqs/security/remember-me-cookied-login-vulnerabilities/index.html"
+    },
+    {
+      "key": "faqs/troubleshooting/index",
+      "localDocPath": "docs/faqs/troubleshooting/index/index.html"
+    },
+    {
+      "key": "faqs/wysiwyg/index",
+      "localDocPath": "docs/faqs/wysiwyg/index/index.html"
+    }
+  ]
+}

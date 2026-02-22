@@ -94,8 +94,37 @@ function escHtml(str) {
 
 function languageLabel(language) {
   if (language === "velocity") return "Velocity";
+  if (language === "markup") return "Markup";
+  if (language === "json") return "JSON";
+  if (language === "sql") return "SQL";
   if (language === "plain") return "Plaintext";
   return language.charAt(0).toUpperCase() + language.slice(1);
+}
+
+function inferLanguageFromCode(code) {
+  const text = String(code || "");
+  const trimmed = text.trim();
+
+  if (
+    /#(set|if|elseif|else|foreach|end|macro|parse|include|import|queryexecute|queryfilter|querysortvalue)\b/i.test(trimmed) ||
+    /\$[A-Za-z_][A-Za-z0-9_.]*/.test(trimmed)
+  ) {
+    return "velocity";
+  }
+
+  if (/<\/?[a-z][^>]*>/i.test(trimmed) || /&lt;\/?[a-z][^&]*&gt;/i.test(text)) {
+    return "markup";
+  }
+
+  if ((trimmed.startsWith("{") || trimmed.startsWith("[")) && /:\s*/.test(trimmed)) {
+    return "json";
+  }
+
+  if (/\bSELECT\b[\s\S]*\bFROM\b/i.test(trimmed)) {
+    return "sql";
+  }
+
+  return "plain";
 }
 
 function cleanCode(codeHtml) {
@@ -127,12 +156,18 @@ function extractLiveBody(liveHtml) {
 
 function replaceWithComponentCodeBlocks(html) {
   return html.replace(
-    /<pre[^>]*>\s*<button[^>]*>[\s\S]*?<\/button>\s*<code class="[^"]*language-([a-z0-9-]+)[^"]*">([\s\S]*?)<\/code>\s*<\/pre>/gi,
-    (_m, langRaw, codeInner) => {
-      let language = String(langRaw || "velocity").toLowerCase();
+    /<pre[^>]*>\s*(?:<button[^>]*>[\s\S]*?<\/button>\s*)?<code(?:\s+class="([^"]*)")?[^>]*>([\s\S]*?)<\/code>\s*<\/pre>/gi,
+    (_m, codeClassRaw, codeInner) => {
+      const codeClass = String(codeClassRaw || "");
+      const langMatch = codeClass.match(/(?:^|\s)language-([a-z0-9-]+)(?:\s|$)/i);
+      let language = String((langMatch && langMatch[1]) || "").toLowerCase();
+      const cleaned = cleanCode(codeInner);
+      const inferredLanguage = inferLanguageFromCode(cleaned);
+      if (!language || language === "none" || language === "plain") {
+        language = inferredLanguage;
+      }
       if (!language || language === "none") language = "plain";
       const label = languageLabel(language);
-      const cleaned = cleanCode(codeInner);
       return `<div class="code-block">
   <div class="code-block__header">
     <span class="code-block__language">${label}</span>
