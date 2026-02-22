@@ -8,7 +8,7 @@
     src: url('../fonts/mononoki/mononoki-Regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
 }
 
 @font-face {
@@ -16,7 +16,7 @@
     src: url('../fonts/mononoki/mononoki-Italic.otf') format('opentype');
     font-weight: 400;
     font-style: italic;
-    font-display: swap;
+    font-display: optional;
 }
 
 @font-face {
@@ -24,7 +24,7 @@
     src: url('../fonts/mononoki/mononoki-Bold.otf') format('opentype');
     font-weight: 700;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
 }
 
 @font-face {
@@ -32,7 +32,7 @@
     src: url('../fonts/mononoki/mononoki-BoldItalic.otf') format('opentype');
     font-weight: 700;
     font-style: italic;
-    font-display: swap;
+    font-display: optional;
 }
 
 /* ── Headings ── */
