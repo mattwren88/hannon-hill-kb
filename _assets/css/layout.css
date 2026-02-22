@@ -336,7 +336,7 @@ html[data-theme="dark"] .header__logo-img--dark {
 
     /* Reset back-to-top to viewport edge (TOC column is hidden at this breakpoint) */
     .back-to-top {
-        right: var(--space-xl);
+        right: var(--space-sm);
     }
 
     /* Shift pull tab left when panel is open */
@@ -346,7 +346,7 @@ html[data-theme="dark"] .header__logo-img--dark {
 
     /* Shift back-to-top button left when TOC panel is open */
     .toc--mobile-open ~ .back-to-top {
-        right: calc(280px + var(--space-xl));
+        right: calc(280px + var(--space-sm));
     }
 }
 

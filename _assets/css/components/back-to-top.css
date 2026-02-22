@@ -13,7 +13,7 @@
 .back-to-top {
     position: fixed;
     bottom: var(--space-xl);
-    right: calc(var(--toc-width) + var(--space-xl));
+    right: calc(var(--toc-width) + var(--space-xs));
     z-index: calc(var(--z-toc-mobile) - 1);
 
     display: flex;
