@@ -340,7 +340,7 @@ html[data-theme="dark"] {
     --weight-bold: 700;
 
     /* Layout */
-    --sidebar-width: 260px;
+    --sidebar-width: 300px;
     --toc-width: 220px;
     --content-max-width: 780px;
     --header-height: 60px;
