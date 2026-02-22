@@ -6,14 +6,8 @@
    ========================================================================== */
 
 @keyframes back-to-top-reveal {
-    from {
-        opacity: 0;
-        pointer-events: none;
-    }
-    to {
-        opacity: 1;
-        pointer-events: auto;
-    }
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 .back-to-top {
@@ -35,7 +29,7 @@
     color: var(--color-text-secondary);
 
     opacity: 0;
-    pointer-events: none;
+    pointer-events: auto;
 
     animation: back-to-top-reveal linear both;
     animation-timeline: scroll(root);
@@ -61,6 +55,5 @@
     .back-to-top {
         animation: none;
         opacity: 0;
-        pointer-events: none;
     }
 }
