@@ -255,10 +255,9 @@ html[data-theme="dark"] .header__logo-img--dark {
 }
 
 .toc-toggle svg {
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     writing-mode: horizontal-tb;
-    transition: transform var(--transition-fast);
 }
 
 /* ── Mobile Sidebar Overlay ── */
@@ -338,10 +337,6 @@ html[data-theme="dark"] .header__logo-img--dark {
     /* Shift pull tab left when panel is open */
     .toc--mobile-open ~ .toc-toggle {
         right: 280px;
-    }
-
-    .toc--mobile-open ~ .toc-toggle svg {
-        transform: rotate(180deg);
     }
 }
 
