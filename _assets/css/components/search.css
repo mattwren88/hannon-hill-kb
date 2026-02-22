@@ -63,6 +63,12 @@
     color: var(--color-text-tertiary);
 }
 
+.search-overlay__input:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
 .search-overlay__shortcut {
     font-family: var(--font-body);
     font-size: var(--text-xs);
