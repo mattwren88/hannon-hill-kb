@@ -208,7 +208,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--color-code-inline-bg);
     color: var(--color-code-inline-text);
     font-family: var(--font-mono);
-    font-size: 0.875em;
+    font-size: var(--font-size-code-inline);
     padding: 0.15em 0.4em;
     border-radius: var(--radius-sm);
     word-break: break-word;
