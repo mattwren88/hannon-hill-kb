@@ -152,15 +152,6 @@
     display: block;
 }
 
-/* ── Thin Footer Strip ── */
-.code-block__footer {
-    height: 9px;
-    border-top: 1px solid var(--color-border);
-    background:
-        linear-gradient(90deg, color-mix(in srgb, var(--color-border) 35%, transparent), transparent 40%),
-        color-mix(in srgb, var(--color-code-header-bg) 72%, var(--color-code-bg) 28%);
-}
-
 /* ── Simple pre/code without wrapper (fallback) ── */
 .content__body pre:not(.code-block__pre) {
     margin: var(--space-lg) 0;

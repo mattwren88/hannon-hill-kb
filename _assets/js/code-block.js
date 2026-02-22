@@ -14,14 +14,6 @@
         return normalized.split('\n').length;
     }
 
-    function hasDirectChildWithClass(parent, className) {
-        if (!parent) return false;
-        for (var i = 0; i < parent.children.length; i += 1) {
-            if (parent.children[i].classList.contains(className)) return true;
-        }
-        return false;
-    }
-
     function decorateCodeBlocks() {
         var pres = document.querySelectorAll('.code-block__pre');
 
@@ -51,13 +43,6 @@
             body.appendChild(gutter);
             body.appendChild(pre);
 
-            var block = body.closest('.code-block');
-            if (block && !hasDirectChildWithClass(block, 'code-block__footer')) {
-                var footer = document.createElement('div');
-                footer.className = 'code-block__footer';
-                footer.setAttribute('aria-hidden', 'true');
-                block.appendChild(footer);
-            }
         });
     }
 
