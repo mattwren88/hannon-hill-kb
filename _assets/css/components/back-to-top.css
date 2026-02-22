@@ -14,7 +14,7 @@
     position: fixed;
     bottom: var(--space-xl);
     right: var(--space-xl);
-    z-index: calc(var(--z-sidebar) - 1);
+    z-index: calc(var(--z-toc-mobile) - 1);
 
     display: flex;
     align-items: center;
