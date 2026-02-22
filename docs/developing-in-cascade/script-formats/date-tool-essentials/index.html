@@ -485,110 +485,851 @@
           <h1 class="content__title">Date Tool Essentials</h1>
         </header>
         <div class="content__body">
-          <h2 id="developing-in-cascade-script-formats-date-tool-essentials-section-1">Overview</h2>
-<p>The Date Tool lets you retrieve, parse, format, and compare date/time values in Velocity. It is especially useful when you are working with Unix timestamps in milliseconds (such as Index Block XML values), normalizing mixed time zones from feeds, or formatting human-readable dates for display.</p>
-<p>Convert Unix timestamps in milliseconds to Java Dates. Parse formatted strings into Dates with toDate(). Format Dates for display with format(). Compare two dates using difference().</p>
-
+<h2 id="developing-in-cascade-script-formats-date-tool-essentials-section-1">Overview</h2>
+                        <p>The Date Tool lets you retrieve, parse, format, and compare date/time values in Velocity. It is especially useful when you are working with Unix timestamps in milliseconds (such as Index Block XML values), normalizing mixed time zones from feeds, or formatting human-readable dates for display.</p>
+<ul>
+<li>Convert Unix timestamps in milliseconds to Java Dates.</li>
+<li>Parse formatted strings into Dates with <code>toDate()</code>.</li>
+<li>Format Dates for display with <code>format()</code>.</li>
+<li>Compare two dates using <code>difference()</code>.</li>
+</ul>
+                                    
 <h2 id="developing-in-cascade-script-formats-date-tool-essentials-section-2">.getDate() vs .toDate()</h2>
-<p>Use .getDate() when you already have a Unix timestamp in milliseconds (for example, from metadata like $currentPage.metadata.startDate) and need a Java Date for formatting or comparison. If you omit the argument, getDate() returns the current moment. If your input is a human-readable date string (like 03-21-2024), use .toDate() instead. The pattern you pass must match the string exactly; if it does not, you will get null rather than a parsed date. A quick rule: numeric Unix timestamps go to getDate(), formatted strings go to toDate(). Keep your patterns consistent so your parsing and display stay in sync. These two are easy to mix up: getDate() expects (or defaults to) a numeric timestamp and hands you back a Date object, while toDate() converts a string to a Date object by matching the syntax in the string with your pattern. Quick compare: getDate vs toDate.</p>
-<p>Method Input When to use</p>
-<p>$_DateTool.getDate() Unix timestamp in milliseconds Convert a numeric timestamp to a Date for formatting or comparison.</p>
-<p>$_DateTool.toDate() Formatted date string + pattern Parse a human-readable date string into a Date.</p>
-<p>Pitfall - getDate() expects milliseconds. If you pass seconds, your date will land near 1970. .getDate examples Many $currentPage properties already return Date objects, so you can format them directly without conversion: ## These already return Date objects - no conversion needed $currentPage.lastPublishedOn ## Date of last publish $currentPage.createdOn ## Date asset was created $currentPage.lastModified ## Date of last modification</p>
-<p>## Get the current date/time $_DateTool.getDate() Format these dates directly: ## Format the last published date for a byline Published $_DateTool.format(&quot;MMM d, yyyy&quot;, $currentPage.lastPublishedOn) ## Output: Published Jan 15, 2026</p>
-<p>## Format creation date Created $_DateTool.format(&quot;MMMM d, yyyy&quot;, $currentPage.createdOn) ## Output: Created January 10, 2026 Data Definition date/time fields store timestamps as strings, so you need to convert them with getDate() before formatting: ## Format a date/time field from a Data Definition #set ($dateNode = $currentPage.getStructuredDataNode(&quot;date-time&quot;).textValue)#set ($eventDate = $_DateTool.getDate($dateNode))$_DateTool.format(&quot;MMMM d, yyyy&quot;, $eventDate) ## Output: March 15, 2026 .toDate examples Use toDate() when you have a date as a string and need to parse it into a Date object: ## Parse a date string - pattern must match the input format exactly #set ($dateString = &quot;03-21-2024&quot;) #set ($date = $_DateTool.toDate(&quot;MM-dd-yyyy&quot;, $dateString)) $_DateTool.format(&quot;MMMM d, yyyy&quot;, $date) ## Output: March 21, 2024 ## ISO-style date format (common in feeds and APIs) #set ($shipDateString = &quot;2024-07-05&quot;) #set ($shipDate = $_DateTool.toDate(&quot;yyyy-MM-dd&quot;, $shipDateString)) $_DateTool.format(&quot;MMM d, yyyy&quot;, $shipDate) ## Output: Jul 5, 2024 ## Date with time - useful for event timestamps #set ($stamp = &quot;2024-07-05 14:30:00&quot;) #set ($stampDate = $_DateTool.toDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, $stamp)) $_DateTool.format(&quot;EEEE, MMM d &#39;at&#39; h:mma&quot;, $stampDate) ## Output: Friday, Jul 5 at 2:30PM Real-world scenarios Event listing with metadata dates: ## Display event start date from page metadata #set ($startMillis = $currentPage.metadata.startDate) #if ($startMillis &amp;&amp; $startMillis &gt; 0) #set ($eventDate = $_DateTool.getDate($startMillis)) &lt;time datetime=&quot;$_DateTool.format(&#39;yyyy-MM-dd&#39;, $eventDate)&quot;&gt; $_DateTool.format(&quot;MMMM d, yyyy&quot;, $eventDate) &lt;/time&gt; #end News article with published date: ## Format last published date for byline #set ($pubDate = $_DateTool.getDate($currentPage.lastPublishedOn)) Published $_DateTool.format(&quot;MMM d, yyyy&quot;, $pubDate) Working with Index Blocks Processing dates from Index Block XML: ## Index Block provides timestamps in milliseconds #foreach ($page in $_XPathTool.selectNodes($contentRoot, &quot;//system-page&quot;)) #set ($lastMod = $_XPathTool.selectSingleNode($page, &quot;last-modified-on&quot;)) #set ($lastModDate = $_DateTool.getDate($lastMod.value))</p>
-<p>&lt;li&gt; $_XPathTool.selectSingleNode($page, &quot;title&quot;).value - Updated $_DateTool.format(&quot;M/d/yy&quot;, $lastModDate) &lt;/li&gt; #end Filtering Index Block results by date: ## Show only items modified in the last 30 days #set ($now = $_DateTool.getDate()) #foreach ($page in $_XPathTool.selectNodes($contentRoot, &quot;//system-page&quot;)) #set ($lastModMillis = $_XPathTool.selectSingleNode($page, &quot;last-modified-on&quot;).value) #set ($lastModDate = $_DateTool.getDate($lastModMillis)) #set ($diff = $_DateTool.difference($lastModDate, $now))</p>
-<p>#if ($diff.days &lt;= 30) ## Display this item #end #end Handling edge cases Null-safe date handling: ## Always check for null before formatting #set ($startMillis = $currentPage.metadata.startDate) #if ($startMillis &amp;&amp; $startMillis &gt; 0) #set ($startDate = $_DateTool.getDate($startMillis)) $_DateTool.format(&quot;MMMM d, yyyy&quot;, $startDate) #else Date not set #end Pattern mismatch returns null: ## toDate returns null if pattern doesn&#39;t match input #set ($input = &quot;March 15, 2024&quot;) #set ($wrongPattern = $_DateTool.toDate(&quot;MM-dd-yyyy&quot;, $input)) ## null #set ($rightPattern = $_DateTool.toDate(&quot;MMMM d, yyyy&quot;, $input)) ## works</p>
-<p>#if (!$rightPattern) Could not parse date #end Empty string handling: ## Empty strings also return null #set ($emptyDate = &quot;&quot;) #set ($parsed = $_DateTool.toDate(&quot;yyyy-MM-dd&quot;, $emptyDate))</p>
-<p>#if (!$parsed) No date provided #end</p>
+                        <p>Use <code>.getDate()</code> when you already have a Unix timestamp in milliseconds (for example, from metadata like <code>$currentPage.metadata.startDate) and need a Java Date for formatting or
+                                    comparison. If you omit the argument,
+                                    getDate()</code> returns the current moment.</p>
+<p>If your input is a human-readable date string (like <code>03-21-2024</code>), use <code>.toDate()</code> instead. The pattern you pass must match the string exactly; if it does not, you will get <code>null</code> rather than a parsed date.</p>
+<p>A quick rule: numeric Unix timestamps go to <code>getDate()</code>, formatted strings go to <code>toDate()</code>. Keep your patterns consistent so your parsing and display stay in sync.</p>
+<p>These two are easy to mix up: <code>getDate()</code> expects (or defaults to) a numeric timestamp and hands you back a Date object, while <code>toDate()</code> converts a string <em>to</em> a Date object by matching the syntax in the string with your pattern.</p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Quick compare: getDate vs toDate.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Input</th>
+<th scope="col">When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_DateTool.getDate()</code></td>
+<td>Unix timestamp in milliseconds</td>
+<td>Convert a numeric timestamp to a Date for formatting or comparison.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.toDate()</code></td>
+<td>Formatted date string + pattern</td>
+<td>Parse a human-readable date string into a Date.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Pitfall</strong> - <code>getDate()</code> expects milliseconds. If you pass seconds, your date will land near 1970.</p>
+<h3 id="GetDateExamples">.getDate examples</h3>
+<p>Many <code>$currentPage</code> properties already return Date objects, so you can format them directly without conversion:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## These already return Date objects - no conversion needed
+$currentPage.lastPublishedOn    ## Date of last publish
+$currentPage.createdOn          ## Date asset was created
+$currentPage.lastModified       ## Date of last modification
 
+## Get the current date/time
+$_DateTool.getDate()</code></pre>
+</div>
+<p>Format these dates directly:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Format the last published date for a byline
+Published $_DateTool.format("MMM d, yyyy", $currentPage.lastPublishedOn)
+## Output: Published Jan 15, 2026
+
+## Format creation date
+Created $_DateTool.format("MMMM d, yyyy", $currentPage.createdOn)
+## Output: Created January 10, 2026</code></pre>
+</div>
+<p>Data Definition date/time fields store timestamps as strings, so you need to convert them with <code>getDate()</code> before formatting:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Format a date/time field from a Data Definition
+#set ($dateNode = $currentPage.getStructuredDataNode("date-time").textValue)
+#set ($eventDate = $_DateTool.getDate($dateNode))
+
+$_DateTool.format("MMMM d, yyyy", $eventDate)
+## Output: March 15, 2026</code></pre>
+</div>
+<h3 id="ToDateExamples">.toDate examples</h3>
+<p>Use <code>toDate()</code> when you have a date as a string and need to parse it into a Date object:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Parse a date string - pattern must match the input format exactly
+#set ($dateString = "03-21-2024")
+#set ($date = $_DateTool.toDate("MM-dd-yyyy", $dateString))
+$_DateTool.format("MMMM d, yyyy", $date)
+## Output: March 21, 2024</code></pre>
+</div>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## ISO-style date format (common in feeds and APIs)
+#set ($shipDateString = "2024-07-05")
+#set ($shipDate = $_DateTool.toDate("yyyy-MM-dd", $shipDateString))
+$_DateTool.format("MMM d, yyyy", $shipDate)
+## Output: Jul 5, 2024</code></pre>
+</div>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Date with time - useful for event timestamps
+#set ($stamp = "2024-07-05 14:30:00")
+#set ($stampDate = $_DateTool.toDate("yyyy-MM-dd HH:mm:ss", $stamp))
+$_DateTool.format("EEEE, MMM d 'at' h:mma", $stampDate)
+## Output: Friday, Jul 5 at 2:30PM</code></pre>
+</div>
+<h3 id="RealWorldScenarios">Real-world scenarios</h3>
+<p>Event listing with metadata dates:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Display event start date from page metadata
+#set ($startMillis = $currentPage.metadata.startDate)
+#if ($startMillis &amp;&amp; $startMillis &gt; 0)
+  #set ($eventDate = $_DateTool.getDate($startMillis))
+  &lt;time datetime="$_DateTool.format('yyyy-MM-dd', $eventDate)"&gt;
+    $_DateTool.format("MMMM d, yyyy", $eventDate)
+  &lt;/time&gt;
+#end</code></pre>
+</div>
+<p>News article with published date:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Format last published date for byline
+#set ($pubDate = $_DateTool.getDate($currentPage.lastPublishedOn))
+Published $_DateTool.format("MMM d, yyyy", $pubDate)</code></pre>
+</div>
+<h3 id="IndexBlockPatterns">Working with Index Blocks</h3>
+<p>Processing dates from Index Block XML:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Index Block provides timestamps in milliseconds
+#foreach ($page in $_XPathTool.selectNodes($contentRoot, "//system-page"))
+  #set ($lastMod = $_XPathTool.selectSingleNode($page, "last-modified-on"))
+  #set ($lastModDate = $_DateTool.getDate($lastMod.value))
+
+  &lt;li&gt;
+    $_XPathTool.selectSingleNode($page, "title").value
+    - Updated $_DateTool.format("M/d/yy", $lastModDate)
+  &lt;/li&gt;
+#end</code></pre>
+</div>
+<p>Filtering Index Block results by date:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Show only items modified in the last 30 days
+#set ($now = $_DateTool.getDate())
+#foreach ($page in $_XPathTool.selectNodes($contentRoot, "//system-page"))
+  #set ($lastModMillis = $_XPathTool.selectSingleNode($page, "last-modified-on").value)
+  #set ($lastModDate = $_DateTool.getDate($lastModMillis))
+  #set ($diff = $_DateTool.difference($lastModDate, $now))
+
+  #if ($diff.days &lt;= 30)
+    ## Display this item
+  #end
+#end</code></pre>
+</div>
+<h3 id="EdgeCases">Handling edge cases</h3>
+<p>Null-safe date handling:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Always check for null before formatting
+#set ($startMillis = $currentPage.metadata.startDate)
+#if ($startMillis &amp;&amp; $startMillis &gt; 0)
+  #set ($startDate = $_DateTool.getDate($startMillis))
+  $_DateTool.format("MMMM d, yyyy", $startDate)
+#else
+  Date not set
+#end</code></pre>
+</div>
+<p>Pattern mismatch returns null:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## toDate returns null if pattern doesn't match input
+#set ($input = "March 15, 2024")
+#set ($wrongPattern = $_DateTool.toDate("MM-dd-yyyy", $input))  ## null
+#set ($rightPattern = $_DateTool.toDate("MMMM d, yyyy", $input)) ## works
+
+#if (!$rightPattern)
+  Could not parse date
+#end</code></pre>
+</div>
+<p>Empty string handling:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Empty strings also return null
+#set ($emptyDate = "")
+#set ($parsed = $_DateTool.toDate("yyyy-MM-dd", $emptyDate))
+
+#if (!$parsed)
+  No date provided
+#end</code></pre>
+</div>
+                                    
 <h2 id="developing-in-cascade-script-formats-date-tool-essentials-section-3">Using difference()</h2>
-<p>difference() returns a Comparison object that describes the distance between two dates. When printed, it renders a human-readable value (like 5 months), and it also includes structured fields like days, months, relative, and full. Parsing dates for comparison Most real-world use starts by converting a string into a Date. Keep the format string aligned with your input (this is the part that usually breaks). #set ($today = $_DateTool.getDate())</p>
-<p>## Example input: &quot;07-04-26&quot; (MM-dd-yy) #set ($manualDate = &quot;07-04-26&quot;) #set ($targetDate = $_DateTool.toDate(&quot;MM-dd-yy&quot;, $manualDate))</p>
-<p>$today ## Wed Jan 14 14:36:28 EST 2026 $targetDate ## Sat Jul 04 00:00:00 EDT 2026 Basic example: distance between two dates Use difference(dateA, dateB) when you want the distance between two dates. This is best for countdowns, &amp;#8220;time since&amp;#8221; labels, or comparisons used in logic. #set ($today = $_DateTool.getDate()) #set ($manualDate = &quot;07-04-26&quot;) #set ($targetDate = $_DateTool.toDate(&quot;MM-dd-yy&quot;, $manualDate))</p>
-<p>## Compare today to the target date #set ($difference = $_DateTool.difference($today, $targetDate))</p>
-<p>$today ## Wed Jan 14 14:36:28 EST 2026 $targetDate ## Sat Jul 04 00:00:00 EDT 2026 $difference ## 5 months Useful fields on the Comparison object The returned object is more than just a string. These are the fields you&amp;#8217;ll actually use in templates and UI labels: $difference.abbr ## 5 mos $difference.difference ## 5 months $difference.relative ## 5 months later $difference.full ## 5 months 2 weeks 6 days 8 hours 23 minutes ...</p>
-<p>$difference.days ## 170 $difference.weeks ## 24 $difference.months ## 5 $difference.years ## 0</p>
-<p>$difference.class ## class org.apache.velocity.tools.generic.ComparisonDateTool$Comparison Branching UI label: &amp;#8220;Still coming up&amp;#8221; vs &amp;#8220;Happened&amp;#8221; For simple branching logic, days is the easiest field to work with. Just be consistent about argument order. In the example below, a positive number means the target date is in the future (relative to today). #set ($today = $_DateTool.getDate()) #set ($manualDate = &quot;07-04-26&quot;) #set ($targetDate = $_DateTool.toDate(&quot;MM-dd-yy&quot;, $manualDate)) #set ($difference = $_DateTool.difference($today, $targetDate))</p>
-<p>#if ($difference.days &gt;= 0) Still coming up (in $difference.abbr) #else Happened ($difference.abbr ago) #end Tip: For &amp;#8220;ago&amp;#8221; labels, you can also use $difference.abs() if you want a cleaner positive duration (example: 5 months instead of -5 months).</p>
+                        
+<p><code>difference()</code> returns a <strong>Comparison</strong> object that describes the distance between two dates. When printed, it renders a human-readable value (like <code>5 months</code>), and it also includes structured fields like <code>days</code>, <code>months</code>, <code>relative</code>, and <code>full</code>.</p>
+<h3 id="DifferenceParseDates">Parsing dates for comparison</h3>
+<p>Most real-world use starts by converting a string into a Date. Keep the format string aligned with your input (this is the part that usually breaks).</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($today = $_DateTool.getDate())
+
+## Example input: "07-04-26" (MM-dd-yy)
+#set ($manualDate = "07-04-26")
+#set ($targetDate = $_DateTool.toDate("MM-dd-yy", $manualDate))
+
+$today       ## Wed Jan 14 14:36:28 EST 2026
+$targetDate  ## Sat Jul 04 00:00:00 EDT 2026</code></pre>
+</div>
+<h3 id="DifferenceBasic">Basic example: distance between two dates</h3>
+<p>Use <code>difference(dateA, dateB)</code> when you want the distance between two dates. This is best for countdowns, “time since” labels, or comparisons used in logic.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($today = $_DateTool.getDate())
+#set ($manualDate = "07-04-26")
+#set ($targetDate = $_DateTool.toDate("MM-dd-yy", $manualDate))
+
+## Compare today to the target date
+#set ($difference = $_DateTool.difference($today, $targetDate))
+
+$today       ## Wed Jan 14 14:36:28 EST 2026
+$targetDate  ## Sat Jul 04 00:00:00 EDT 2026
+$difference  ## 5 months</code></pre>
+</div>
+<h3 id="DifferenceUsefulFields">Useful fields on the Comparison object</h3>
+<p>The returned object is more than just a string. These are the fields you’ll actually use in templates and UI labels:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">$difference.abbr         ## 5 mos
+$difference.difference    ## 5 months
+$difference.relative      ## 5 months later
+$difference.full          ## 5 months 2 weeks 6 days 8 hours 23 minutes ...
+
+$difference.days          ## 170
+$difference.weeks         ## 24
+$difference.months        ## 5
+$difference.years         ## 0
+
+$difference.class         ## class org.apache.velocity.tools.generic.ComparisonDateTool$Comparison</code></pre>
+</div>
+<h3 id="DifferenceBranchingLabel">Branching UI label: “Still coming up” vs “Happened”</h3>
+<p>For simple branching logic, <code>days</code> is the easiest field to work with. Just be consistent about argument order. In the example below, a positive number means the target date is in the future (relative to today).</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($today = $_DateTool.getDate())
+#set ($manualDate = "07-04-26")
+#set ($targetDate = $_DateTool.toDate("MM-dd-yy", $manualDate))
+#set ($difference = $_DateTool.difference($today, $targetDate))
+
+#if ($difference.days &gt;= 0)
+  Still coming up (in $difference.abbr)
+#else
+  Happened ($difference.abbr ago)
+#end</code></pre>
+</div>
+<p>Tip: For “ago” labels, you can also use <code>$difference.abs()</code> if you want a cleaner positive duration (example: <code>5 months</code> instead of <code>-5 months</code>).</p>
 
 <h2 id="developing-in-cascade-script-formats-date-tool-essentials-section-4">whenIs() basics</h2>
-<p>whenIs() answers the more human question: &amp;#8220;When is A relative to B?&amp;#8221; It also returns a Comparison object, but the output is naturally directional (earlier / later), which is great for client-facing labels. No-arg usage: &amp;#8220;now&amp;#8221; ## today is January 13, 2026 in this example #set ($today = $_DateTool.getDate())</p>
-<p>#set ($whenIs = $_DateTool.whenIs($today)) $whenIs ## now Comparing two dates (both directions) Argument order matters. Swapping them flips earlier vs later. #set ($today = $_DateTool.getDate())</p>
-<p>#set ($manualDate = &quot;July 4, 2026&quot;) #set ($targetDate = $_DateTool.toDate(&quot;MMMM dd, yyyy&quot;, $manualDate))</p>
-<p>$targetDate ## Sat Jul 04 00:00:00 EDT 2026</p>
-<p>## Target compared to today #set ($whenIsA = $_DateTool.whenIs($targetDate, $today)) $whenIsA ## 5 months earlier</p>
-<p>## Today compared to target #set ($whenIsB = $_DateTool.whenIs($today, $targetDate)) $whenIsB ## 5 months later Useful fields (same Comparison object) Same object structure as difference(), but the human strings are usually what you want to show clients (relative, abbr, full). $whenIsB.abbr ## 5 mos later $whenIsB.relative ## 5 months later $whenIsB.difference ## 5 months $whenIsB.full ## 5 months 3 weeks 7 hours ... later</p>
-<p>$whenIsB.days ## 171 $whenIsB.months ## 5 $whenIsB.years ## 0</p>
-<p>$whenIsB.class ## class org.apache.velocity.tools.generic.ComparisonDateTool$Comparison Branching UI label: &amp;#8220;didn&amp;#8217;t happen yet&amp;#8221; vs &amp;#8220;you missed it&amp;#8221; This is a clean pattern for client-friendly messaging. Just decide what &amp;#8220;positive&amp;#8221; means for your argument order and stick to it. #set ($today = $_DateTool.getDate()) #set ($manualDate = &quot;July 4, 2026&quot;) #set ($targetDate = $_DateTool.toDate(&quot;MMMM dd, yyyy&quot;, $manualDate))</p>
-<p>## &quot;today relative to target&quot; #set ($whenIs = $_DateTool.whenIs($today, $targetDate))</p>
-<p>#if ($whenIs.days &gt; 0) Didn&#39;t happen yet ($whenIs.abbr) #else You missed it ($whenIs.abbr) #end</p>
+                        <p><code>whenIs()</code> answers the more human question: “When is A relative to B?” It also returns a <strong>Comparison</strong> object, but the output is naturally directional (<code>earlier</code> / <code>later</code>), which is great for client-facing labels.</p>
+<h3 id="WhenIsNow">No-arg usage: “now”</h3>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## today is January 13, 2026 in this example
+#set ($today = $_DateTool.getDate())
 
+#set ($whenIs = $_DateTool.whenIs($today))
+$whenIs
+## now</code></pre>
+</div>
+<h3 id="WhenIsCompareTwoDates">Comparing two dates (both directions)</h3>
+<p>Argument order matters. Swapping them flips <code>earlier</code> vs <code>later</code>.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($today = $_DateTool.getDate())
+
+#set ($manualDate = "July 4, 2026")
+#set ($targetDate = $_DateTool.toDate("MMMM dd, yyyy", $manualDate))
+
+$targetDate
+## Sat Jul 04 00:00:00 EDT 2026
+
+## Target compared to today
+#set ($whenIsA = $_DateTool.whenIs($targetDate, $today))
+$whenIsA
+## 5 months earlier
+
+## Today compared to target
+#set ($whenIsB = $_DateTool.whenIs($today, $targetDate))
+$whenIsB
+## 5 months later</code></pre>
+</div>
+<h3 id="WhenIsUsefulFields">Useful fields (same Comparison object)</h3>
+<p>Same object structure as <code>difference()</code>, but the human strings are usually what you want to show clients (<code>relative</code>, <code>abbr</code>, <code>full</code>).</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">$whenIsB.abbr        ## 5 mos later
+$whenIsB.relative     ## 5 months later
+$whenIsB.difference   ## 5 months
+$whenIsB.full         ## 5 months 3 weeks 7 hours ... later
+
+$whenIsB.days         ## 171
+$whenIsB.months       ## 5
+$whenIsB.years        ## 0
+
+$whenIsB.class        ## class org.apache.velocity.tools.generic.ComparisonDateTool$Comparison</code></pre>
+</div>
+<h3 id="WhenIsBranchingLabel">Branching UI label: “didn’t happen yet” vs “you missed it”</h3>
+<p>This is a clean pattern for client-friendly messaging. Just decide what “positive” means for your argument order and stick to it.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($today = $_DateTool.getDate())
+#set ($manualDate = "July 4, 2026")
+#set ($targetDate = $_DateTool.toDate("MMMM dd, yyyy", $manualDate))
+
+## "today relative to target"
+#set ($whenIs = $_DateTool.whenIs($today, $targetDate))
+
+#if ($whenIs.days &gt; 0)
+  Didn't happen yet ($whenIs.abbr)
+#else
+  You missed it ($whenIs.abbr)
+#end</code></pre>
+</div>
+                                    
 <h2 id="developing-in-cascade-script-formats-date-tool-essentials-section-5">getCalendar basics</h2>
-<p>getCalendar() returns a Java Calendar object representing the current date and time in Cascade&amp;#8217;s configured time zone. Use it when you need to read specific parts of &amp;#8220;now&amp;#8221; (year, month, day, weekday, hour) as numeric values for logic. #set ($cal = $_DateTool.getCalendar())</p>
-<p>## Calendar field IDs (numbers) are used by: ## $cal.get(fieldId)</p>
-<p>$cal.get(1) ## YEAR ## Example output: 2026</p>
-<p>$cal.get(2) ## MONTH (zero-based: January = 0) ## Example output: 0</p>
-<p>$cal.get(5) ## DAY_OF_MONTH ## Example output: 15</p>
-<p>$cal.get(7) ## DAY_OF_WEEK (Sunday = 1 ... Saturday = 7) ## Example output: 5</p>
-<p>$cal.get(11) ## HOUR_OF_DAY (0&amp;#8211;23) ## Example output: 15 These numeric field IDs are standard Java Calendar constants. You&amp;#8217;ll typically only need a small subset of them when working with getCalendar().</p>
-<p>Field ID Meaning Notes</p>
-<p>1 YEAR 4-digit year</p>
-<p>2 MONTH Zero-based: January = 0</p>
-<p>5 DAY_OF_MONTH 1&amp;#8211;31</p>
-<p>6 DAY_OF_YEAR 1&amp;#8211;365/366</p>
-<p>7 DAY_OF_WEEK Sunday = 1, Saturday = 7</p>
-<p>9 AM_PM 0 = AM, 1 = PM</p>
-<p>11 HOUR_OF_DAY 24-hour clock (0&amp;#8211;23)</p>
-<p>12 MINUTE 0&amp;#8211;59</p>
-<p>Important: getCalendar() is best treated as a read-only helper in Cascade. For date math or comparisons, use difference() or whenIs(). For formatting, use format().</p>
+                        <p><code>getCalendar()</code> returns a Java <code>Calendar</code> object representing the current date and time in Cascade’s configured time zone. Use it when you need to read specific parts of “now” (year, month, day, weekday, hour) as numeric values for logic.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($cal = $_DateTool.getCalendar())
 
+## Calendar field IDs (numbers) are used by:
+## $cal.get(fieldId)
+
+$cal.get(1)  ## YEAR
+## Example output: 2026
+
+$cal.get(2)  ## MONTH (zero-based: January = 0)
+## Example output: 0
+
+$cal.get(5)  ## DAY_OF_MONTH
+## Example output: 15
+
+$cal.get(7)  ## DAY_OF_WEEK (Sunday = 1 ... Saturday = 7)
+## Example output: 5
+
+$cal.get(11) ## HOUR_OF_DAY (0–23)
+## Example output: 15</code></pre>
+</div>
+<p>These numeric field IDs are standard Java Calendar constants. You’ll typically only need a small subset of them when working with <code>getCalendar()</code>.</p>
+<div class="table-wrapper">
+  <table class="table table--striped">
+<thead>
+<tr>
+<th>Field ID</th>
+<th>Meaning</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>YEAR</td>
+<td>4-digit year</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>MONTH</td>
+<td>Zero-based: January = <code>0</code></td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>DAY_OF_MONTH</td>
+<td>1–31</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>DAY_OF_YEAR</td>
+<td>1–365/366</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>DAY_OF_WEEK</td>
+<td>Sunday = <code>1</code>, Saturday = <code>7</code></td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td>AM_PM</td>
+<td><code>0</code> = AM, <code>1</code> = PM</td>
+</tr>
+<tr>
+<td><code>11</code></td>
+<td>HOUR_OF_DAY</td>
+<td>24-hour clock (0–23)</td>
+</tr>
+<tr>
+<td><code>12</code></td>
+<td>MINUTE</td>
+<td>0–59</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Important:</strong> <code>getCalendar()</code> is best treated as a read-only helper in Cascade. For date math or comparisons, use <code>difference()</code> or <code>whenIs()</code>. For formatting, use <code>format()</code>.</p>
+                                    
 <h2 id="developing-in-cascade-script-formats-date-tool-essentials-section-6">Formatting output</h2>
-<p>Keep your output consistent by reusing a small set of format strings. Popular options include:</p>
-<p>MMMM d, yyyy MMM d, yyyy yyyy-MM-dd yyyyMMdd EEEE, MMMM d, yyyy &#39;at&#39; h:mma</p>
-<p>yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX (ISO 8601 with offset) HH:mm (24-hour) and h:mma (12-hour) &#39;Week&#39; w, yyyy (week number)</p>
-<p>Common symbols: Common date format symbols</p>
-<p>Symbol Meaning Variations / examples</p>
-<p>y Year y=2024 yy=24 yyyy=2024</p>
-<p>M Month (1-12) M=8 MM=08 MMM=Aug MMMM=August</p>
-<p>d Day of month d=5 dd=05</p>
-<p>E Day name E=Wed EEE=Wed EEEE=Wednesday</p>
-<p>H Hour 0-23 H=9 HH=09</p>
-<p>h Hour 1-12 h=9 hh=09</p>
-<p>m Minute m=3 mm=03</p>
-<p>s Second s=7 ss=07</p>
-<p>a AM/PM marker a=AM</p>
-<p>z Time zone abbreviation z=EDT zzzz=Eastern Daylight Time</p>
-<p>X ISO 8601 offset X=-5 XX=-0500 XXX=-05:00</p>
-<p>w Week of year w=34 ww=34</p>
-<p>Practical examples using the same timestamp: #set ($stamp = &quot;2024-08-21 13:45:00&quot;) #set ($date = $_DateTool.toDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, $stamp))</p>
-<p>$_DateTool.format(&quot;MMMM d, yyyy&quot;, $date) ## August 21, 2024</p>
-<p>$_DateTool.format(&quot;EEE, MMM d &#39;at&#39; h:mma&quot;, $date) ## Wed, Aug 21 at 1:45PM</p>
-<p>$_DateTool.format(&quot;z&quot;, $date) ## EDT$_DateTool.format(&quot;zzzz&quot;, $date)## Eastern Daylight Time</p>
+                        <p>Keep your output consistent by reusing a small set of format strings. Popular options include:</p>
+<ul>
+<li><code>MMMM d, yyyy</code></li>
+<li><code>MMM d, yyyy</code></li>
+<li><code>yyyy-MM-dd</code></li>
+<li><code>yyyyMMdd</code></li>
+<li><code>EEEE, MMMM d, yyyy 'at'
+                                                h:mma
+                                        </code></li>
+<li><code>yyyy-MM-dd'T'HH:mm:ssXXX</code> (ISO 8601 with offset)</li>
+<li><code>HH:mm</code> (24-hour) and <code>h:mma</code> (12-hour)</li>
+<li><code>'Week' w, yyyy</code> (week number)</li>
+</ul>
+<p>Common symbols:</p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Common date format symbols</caption>
+<thead>
+<tr>
+<th scope="col">Symbol</th>
+<th scope="col">Meaning</th>
+<th scope="col">Variations / examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>y</code></td>
+<td>Year</td>
+<td>y=2024 <br> yy=24 <br> yyyy=2024</td>
+</tr>
+<tr>
+<td><code>M</code></td>
+<td>Month (1-12)</td>
+<td>M=8 <br> MM=08 <br> MMM=Aug <br> MMMM=August</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>Day of month</td>
+<td>d=5 <br> dd=05</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td>Day name</td>
+<td>E=Wed <br> EEE=Wed <br> EEEE=Wednesday</td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>Hour 0-23</td>
+<td>H=9 <br> HH=09</td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td>Hour 1-12</td>
+<td>h=9 <br> hh=09</td>
+</tr>
+<tr>
+<td><code>m</code></td>
+<td>Minute</td>
+<td>m=3 <br> mm=03</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>Second</td>
+<td>s=7 <br> ss=07</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>AM/PM marker</td>
+<td>a=AM</td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td>Time zone abbreviation</td>
+<td>z=EDT <br> zzzz=Eastern Daylight Time</td>
+</tr>
+<tr>
+<td><code>X</code></td>
+<td>ISO 8601 offset</td>
+<td>X=-5 <br> XX=-0500 <br> XXX=-05:00</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>Week of year</td>
+<td>w=34 <br> ww=34</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Practical examples using the same timestamp:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($stamp = "2024-08-21 13:45:00")
+#set ($date = $_DateTool.toDate("yyyy-MM-dd HH:mm:ss", $stamp))
 
+$_DateTool.format("MMMM d, yyyy", $date)
+## August 21, 2024
+
+$_DateTool.format("EEE, MMM d 'at' h:mma", $date)
+## Wed, Aug 21 at 1:45PM
+
+$_DateTool.format("z", $date)
+## EDT
+
+$_DateTool.format("zzzz", $date)
+## Eastern Daylight Time</code></pre>
+</div>
+                                    
 <h2 id="developing-in-cascade-script-formats-date-tool-essentials-section-7">Handling time zones</h2>
-<p>Feeds frequently include timestamps paired with separate time zone identifiers (for example, 2024-08-21 13:00:00 with America/Chicago). If you format those dates using your server&#39;s default time zone, event times can appear hours off. To display the correct local time, you need to explicitly apply each event&#39;s time zone when formatting. In most cases (all Cascade Cloud environments and most on-prem environments), you can pass a time zone string directly to $_DateTool.getTimeZone().getTimeZone(): #set ($startDate = $currentPage.createdOn)</p>
-<p>## Default server time zone $_DateTool.format(&#39;EE MMM dd HH:mm:ss z yyyy&#39;, $startDate) ## Output: Wed Aug 21 14:08:26 EDT 2019</p>
-<p>## Converted to UTC $_DateTool.format(&#39;EE MMM dd HH:mm:ss z yyyy&#39;, $startDate, $_DateTool.getLocale(), $_DateTool.getTimeZone().getTimeZone(&quot;UTC&quot;)) ## Output: Wed Aug 21 18:08:26 UTC 2019</p>
-<p>## Converted to Pacific time $_DateTool.format(&#39;EE MMM dd HH:mm:ss z yyyy&#39;, $startDate, $_DateTool.getLocale(), $_DateTool.getTimeZone().getTimeZone(&quot;America/Los_Angeles&quot;)) ## Output: Wed Aug 21 11:08:26 PDT 2019 In some on-premise instances, this call may throw an exception like the following due to a missing JVM startup parameter:VelocityException: ASTMethod.execute() : exception invoking method &#39;getTimeZone&#39; in class sun.util.calendar.ZoneInfo You can verify whether your instance has this restriction by testing these two calls: ## This works on all instances - returns a ZoneInfo object $_DateTool.getTimeZone()</p>
-<p>## This fails on some on-prem instances $_DateTool.getTimeZone().getTimeZone(&quot;UTC&quot;) If $_DateTool.getTimeZone().getTimeZone(&quot;UTC&quot;) fails with an error, see Troubleshooting: Zone Info for the fix. You can also consider the workaround listed in the following section (&quot;reflection&quot;). On-premises workaround (reflection) This approach uses Java reflection to access the TimeZone class directly. It can work in the event that you don&#39;t have the ability to add the JVM parameter as specified above. ## Get the TimeZone class via reflection #set ($tzClass = $_DateTool.getTimeZone().getClass().forName(&quot;java.util.TimeZone&quot;))</p>
-<p>## Create a TimeZone object for UTC #set ($utcTz = $tzClass.getMethod(&quot;getTimeZone&quot;, $tzClass.forName(&quot;java.lang.String&quot;)).invoke(null, &quot;UTC&quot;))</p>
-<p>## Format a date in UTC $_DateTool.format(&#39;EE MMM dd HH:mm:ss z yyyy&#39;, $currentPage.createdOn, $_DateTool.getLocale(), $utcTz) ## Output: Wed Aug 21 18:08:26 UTC 2019 Processing feeds with mixed time zones When processing a JSON feed where each event has its own time zone, use the reflection approach with a dynamic zone value: ## Assume feed fields: $event.start (yyyy-MM-dd HH:mm:ss), $event.timezone (e.g., America/Chicago)</p>
-<p>## Set up the TimeZone class reference once #set ($tzClass = $_DateTool.getTimeZone().getClass().forName(&quot;java.util.TimeZone&quot;))</p>
-<p>#foreach ($event in $events) ## Get the TimeZone for this event #set ($eventTz = $tzClass.getMethod(&quot;getTimeZone&quot;, $tzClass.forName(&quot;java.lang.String&quot;)).invoke(null, $event.timezone))</p>
-<p>## Parse the date string #set ($parser = $_DateTool.getDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;, $_DateTool.getLocale(), $eventTz)) #set ($startDate = $parser.parse($event.start))</p>
-<p>## Format with the event&#39;s time zone $_DateTool.format(&quot;MMM d, yyyy &#39;at&#39; h:mma z&quot;, $startDate, $_DateTool.getLocale(), $eventTz) ## Example output: Aug 21, 2024 at 1:00PM CDT #end Validating time zone IDs Time zone strings like America/Chicago or America/New_York must match Java&#39;s recognized identifiers. To see all valid IDs: #set ($tzClass = $_DateTool.getTimeZone().getClass().forName(&quot;java.util.TimeZone&quot;)) #set ($allIds = $tzClass.getMethod(&quot;getAvailableIDs&quot;, null).invoke(null, null)) $_ListTool.toList($allIds) This returns a list of all accepted time zone identifiers. As long as your feed&#39;s time zone values appear in this list, they will work with the examples above.</p>
+                        <p>Feeds frequently include timestamps paired with separate time zone identifiers (for example, <code>2024-08-21 13:00:00</code> with <code>America/Chicago</code>). If you format those dates using your server's default time zone, event times can appear hours off. To display the correct local time, you need to explicitly apply each event's time zone when formatting.</p>
+<p>In most cases (all Cascade Cloud environments and most on-prem environments), you can pass a time zone string directly to <code>$_DateTool.getTimeZone().getTimeZone()</code>:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($startDate = $currentPage.createdOn)
 
+## Default server time zone
+$_DateTool.format('EE MMM dd HH:mm:ss z yyyy', $startDate)
+## Output: Wed Aug 21 14:08:26 EDT 2019
+
+## Converted to UTC
+$_DateTool.format('EE MMM dd HH:mm:ss z yyyy', $startDate, $_DateTool.getLocale(), $_DateTool.getTimeZone().getTimeZone("UTC"))
+## Output: Wed Aug 21 18:08:26 UTC 2019
+
+## Converted to Pacific time
+$_DateTool.format('EE MMM dd HH:mm:ss z yyyy', $startDate, $_DateTool.getLocale(), $_DateTool.getTimeZone().getTimeZone("America/Los_Angeles"))
+## Output: Wed Aug 21 11:08:26 PDT 2019</code></pre>
+</div>
+<p>In some on-premise instances, this call may throw an exception like the following due to a missing JVM startup parameter:<br><code>VelocityException: ASTMethod.execute() : exception invoking method 'getTimeZone' in class sun.util.calendar.ZoneInfo</code></p>
+<p>You can verify whether your instance has this restriction by testing these two calls:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## This works on all instances - returns a ZoneInfo object
+$_DateTool.getTimeZone()
+
+## This fails on some on-prem instances
+$_DateTool.getTimeZone().getTimeZone("UTC")</code></pre>
+</div>
+<div class="callout callout--info">
+  <div class="callout__content">
+    <p>If <code>$_DateTool.getTimeZone().getTimeZone("UTC")</code> fails with an error, see <a href="https://www.hannonhill.com/cascadecms/latest/faqs/common-errors/exception-invoking-method-getavailableids-in-class-sun.util.calendar.zoneinfo.html">Troubleshooting: Zone Info</a> for the fix. You can also consider the workaround listed in the following section ("reflection").</p>
+  </div>
+</div>
+<h3 id="ReflectionWorkaround">On-premises workaround (reflection)</h3>
+<p>This approach uses Java reflection to access the <code>TimeZone</code> class directly. It can work in the event that you don't have the ability to add the JVM parameter as specified above.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Get the TimeZone class via reflection
+#set ($tzClass = $_DateTool.getTimeZone().getClass().forName("java.util.TimeZone"))
+
+## Create a TimeZone object for UTC
+#set ($utcTz = $tzClass.getMethod("getTimeZone", $tzClass.forName("java.lang.String")).invoke(null, "UTC"))
+
+## Format a date in UTC
+$_DateTool.format('EE MMM dd HH:mm:ss z yyyy', $currentPage.createdOn, $_DateTool.getLocale(), $utcTz)
+## Output: Wed Aug 21 18:08:26 UTC 2019</code></pre>
+</div>
+<h3 id="FeedExample">Processing feeds with mixed time zones</h3>
+<p>When processing a JSON feed where each event has its own time zone, use the reflection approach with a dynamic zone value:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Assume feed fields: $event.start (yyyy-MM-dd HH:mm:ss), $event.timezone (e.g., America/Chicago)
+
+## Set up the TimeZone class reference once
+#set ($tzClass = $_DateTool.getTimeZone().getClass().forName("java.util.TimeZone"))
+
+#foreach ($event in $events)
+  ## Get the TimeZone for this event
+  #set ($eventTz = $tzClass.getMethod("getTimeZone", $tzClass.forName("java.lang.String")).invoke(null, $event.timezone))
+
+  ## Parse the date string
+  #set ($parser = $_DateTool.getDateFormat("yyyy-MM-dd HH:mm:ss", $_DateTool.getLocale(), $eventTz))
+  #set ($startDate = $parser.parse($event.start))
+
+  ## Format with the event's time zone
+  $_DateTool.format("MMM d, yyyy 'at' h:mma z", $startDate, $_DateTool.getLocale(), $eventTz)
+  ## Example output: Aug 21, 2024 at 1:00PM CDT
+#end</code></pre>
+</div>
+<h3 id="ValidatingTimezones">Validating time zone IDs</h3>
+<p>Time zone strings like <code>America/Chicago</code> or <code>America/New_York</code> must match Java's recognized identifiers. To see all valid IDs:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($tzClass = $_DateTool.getTimeZone().getClass().forName("java.util.TimeZone"))
+#set ($allIds = $tzClass.getMethod("getAvailableIDs", null).invoke(null, null))
+$_ListTool.toList($allIds)</code></pre>
+</div>
+<p>This returns a list of all accepted time zone identifiers. As long as your feed's time zone values appear in this list, they will work with the examples above.</p>
+                                    
 <h2 id="developing-in-cascade-script-formats-date-tool-essentials-section-8">Sorting by date</h2>
-<p>Once you have dates, you&#39;ll often need to sort content chronologically. Cascade offers a few approaches depending on your data source. Index Block sorting The simplest approach is to configure sorting directly in the Index Block asset. Under the block&#39;s settings, you can sort by system properties like Last Modified Date, Created Date, or Start Date (for pages with date metadata). This handles sorting before your Velocity code runs. Sorting with $_.query() The $_.query() tool lets you query assets directly in Velocity and sort the results by date fields. Use sortBy() to specify the field and sortDirection() for ascending or descending order. ## Query articles sorted by last modified date (newest first) #set ($results = $_.query().byContentType(&quot;Article&quot;).sortBy(&quot;modified&quot;).sortDirection(&quot;desc&quot;).execute())</p>
-<p>#foreach ($page in $results) $page.name - $_DateTool.format(&quot;MMM d, yyyy&quot;, $page.lastModified) #end Available date fields for sortBy(): created, modified, startDate, endDate, and reviewDate. ## Sort events by start date (ascending) #set ($events = $_.query().byContentType(&quot;Event&quot;).sortBy(&quot;startDate&quot;).sortDirection(&quot;asc&quot;).execute()) Sorting with $_SortTool When you need to sort a collection in Velocity, use $_SortTool. This is useful when working with structured data or when you need custom sort logic. ## Sort a list of pages by lastModified (ascending) #set ($sorted = $_SortTool.sort($pages, &quot;lastModified&quot;))</p>
-<p>## Sort descending (newest first) #set ($sorted = $_SortTool.sort($pages, &quot;lastModified:desc&quot;))</p>
-<p>## Sort by a metadata date field #set ($sorted = $_SortTool.sort($pages, &quot;metadata.startDate:desc&quot;)) Sorting with XPath When processing Index Block XML, you can sort nodes directly in your XPath expression using sort-by. Date fields from Index Blocks are Unix timestamps in milliseconds, which sort numerically. ## Sort pages by last-modified-on, newest first #set ($pages = $_XPathTool.selectNodes( $contentRoot, &quot;//system-page[sort-by(last-modified-on, &#39;number&#39;, &#39;descending&#39;)]&quot; ))</p>
-<p>#foreach ($page in $pages) #set ($lastMod = $_XPathTool.selectSingleNode($page, &quot;last-modified-on&quot;).value) #set ($date = $_DateTool.getDate($lastMod)) $_DateTool.format(&quot;MMM d, yyyy&quot;, $date) #end For metadata date fields stored as timestamps, use the same numeric sort: ## Sort by a dynamic metadata date field (e.g., event start date) #set ($events = $_XPathTool.selectNodes( $contentRoot, &quot;//system-page[sort-by(dynamic-metadata[name=&#39;start-date&#39;]/value, &#39;number&#39;, &#39;ascending&#39;)]&quot; ))</p>
+                        <p>Once you have dates, you'll often need to sort content chronologically. Cascade offers a few approaches depending on your data source.</p>
+<h3 id="IndexBlockSorting">Index Block sorting</h3>
+<p>The simplest approach is to configure sorting directly in the Index Block asset. Under the block's settings, you can sort by system properties like <strong>Last Modified Date</strong>, <strong>Created Date</strong>, or <strong>Start Date</strong> (for pages with date metadata). This handles sorting before your Velocity code runs.</p>
+<h3 id="QueryToolSorting">Sorting with $_.query()</h3>
+<p>The <code>$_.query()</code> tool lets you query assets directly in Velocity and sort the results by date fields. Use <code>sortBy()</code> to specify the field and <code>sortDirection()</code> for ascending or descending order.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Query articles sorted by last modified date (newest first)
+#set ($results = $_.query().byContentType("Article").sortBy("modified").sortDirection("desc").execute())
+
+#foreach ($page in $results)
+  $page.name - $_DateTool.format("MMM d, yyyy", $page.lastModified)
+#end</code></pre>
+</div>
+<p>Available date fields for <code>sortBy()</code>: <code>created</code>, <code>modified</code>, <code>startDate</code>, <code>endDate</code>, and <code>reviewDate</code>.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Sort events by start date (ascending)
+#set ($events = $_.query().byContentType("Event").sortBy("startDate").sortDirection("asc").execute())</code></pre>
+</div>
+<h3 id="SortToolSorting">Sorting with $_SortTool</h3>
+<p>When you need to sort a collection in Velocity, use <code>$_SortTool</code>. This is useful when working with structured data or when you need custom sort logic.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Sort a list of pages by lastModified (ascending)
+#set ($sorted = $_SortTool.sort($pages, "lastModified"))
+
+## Sort descending (newest first)
+#set ($sorted = $_SortTool.sort($pages, "lastModified:desc"))
+
+## Sort by a metadata date field
+#set ($sorted = $_SortTool.sort($pages, "metadata.startDate:desc"))</code></pre>
+</div>
+<h3 id="XPathSorting">Sorting with XPath</h3>
+<p>When processing Index Block XML, you can sort nodes directly in your XPath expression using <code>sort-by</code>. Date fields from Index Blocks are Unix timestamps in milliseconds, which sort numerically.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Sort pages by last-modified-on, newest first
+#set ($pages = $_XPathTool.selectNodes(
+  $contentRoot,
+  "//system-page[sort-by(last-modified-on, 'number', 'descending')]"
+))
+
+#foreach ($page in $pages)
+  #set ($lastMod = $_XPathTool.selectSingleNode($page, "last-modified-on").value)
+  #set ($date = $_DateTool.getDate($lastMod))
+  $_DateTool.format("MMM d, yyyy", $date)
+#end</code></pre>
+</div>
+<p>For metadata date fields stored as timestamps, use the same numeric sort:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Sort by a dynamic metadata date field (e.g., event start date)
+#set ($events = $_XPathTool.selectNodes(
+  $contentRoot,
+  "//system-page[sort-by(dynamic-metadata[name='start-date']/value, 'number', 'ascending')]"
+))</code></pre>
+</div>
         </div>
         <footer class="content__footer">
   <div class="content__meta">
-    <span>Last updated: February 21, 2026</span>
+    <span>Last updated: February 22, 2026</span>
   </div>
   <nav class="content__pagination">
     <a href="../../rest-api/placeholders/wsdl/" class="content__prev"><span>Previous</span><span>The {wsdl} placeholder</span></a>
@@ -606,7 +1347,8 @@
     </aside>
 
     <button class="toc-toggle" aria-label="Table of contents" aria-expanded="false">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      <span>Contents</span>
     </button>
   </div>
 

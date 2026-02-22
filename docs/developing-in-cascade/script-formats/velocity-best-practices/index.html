@@ -485,19 +485,155 @@
           <h1 class="content__title">Best practices for performance</h1>
         </header>
         <div class="content__body">
-          <h2 id="developing-in-cascade-script-formats-velocity-best-practices-section-1">Working with choosers</h2>
-<p>When working with choosers, it is important to save repeated .asset calls to a variable and then access that variable&#39;s methods directly. Failure to do so will result in multiple round trips to the database when only a single round trip is necessary. Consider the following Velocity code which accesses an image file that has been selected in a chooser: #set ($image = $currentPage.getStructuredDataNode(&quot;image&quot;))## one database round trip#set ($imageLink = $image.asset.link)## another database round trip#set ($imageFileSize = $image.asset.fileSize) ## another database round trip#set ($imageWidth = $image.asset.dimensions.width)## another database round trip#set ($imageHeight = $image.asset.dimensions.height) As indicated by the comments, each line with .asset is having to fetch the image from the database (forcing a round trip from the app to the database and back). Rather than doing this, the code can be simplified by saving the chosen asset to a variable and then accessing methods of that variable: ## one database round trip#set ($selectedImage = $currentPage.getStructuredDataNode(&quot;image&quot;).asset) #set ($imageLink =$selectedImage.link) #set ($imageFileSize = $selectedImage.fileSize)#set ($imageWidth = $selectedImage.dimensions.width)#set ($imageHeight = $selectedImage.dimensions.height)</p>
-
+<h2 id="developing-in-cascade-script-formats-velocity-best-practices-section-1">Working with choosers</h2>
+                        <p>When working with choosers, it is important to save repeated <code>.asset</code> calls to a variable and then access that variable's methods directly. Failure to do so will result in multiple round trips to the database when only a single round trip is necessary.</p>
+<p>Consider the following Velocity code which accesses an image file that has been selected in a chooser: </p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($image = $currentPage.getStructuredDataNode("image"))
+## one database round trip
+#set ($imageLink = $image.asset.link)
+## another database round trip
+#set ($imageFileSize = $image.asset.fileSize)
+## another database round trip
+#set ($imageWidth = $image.asset.dimensions.width)
+## another database round trip
+#set ($imageHeight = $image.asset.dimensions.height)</code></pre>
+</div>
+<p>As indicated by the comments, each line with <code>.asset</code> is having to fetch the image from the database (forcing a round trip from the app to the database and back). </p>
+<p>Rather than doing this, the code can be simplified by saving the chosen asset to a variable and then accessing methods of that variable:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## one database round trip
+#set ($selectedImage = $currentPage.getStructuredDataNode("image").asset)
+#set ($imageLink =$selectedImage.link)
+#set ($imageFileSize = $selectedImage.fileSize)
+#set ($imageWidth = $selectedImage.dimensions.width)
+#set ($imageHeight = $selectedImage.dimensions.height)</code></pre>
+</div>
+                                    
 <h2 id="developing-in-cascade-script-formats-velocity-best-practices-section-2">Importing Formats</h2>
-<p>#import directives in Formats require a round trip from the app to the database and back again. This is necessary in order for the app to retrieve the contents of the Format being imported at runtime. Due to this fact, it is important to limit the number of #import directives as much as possible in order to keep transformation times performant. Consider the following sample code snippet below which imports 3 Formats. Each of the imported Formats contains a single macro. ## one database round trip#import (&quot;_cms/formats/shared/macros/stripTags&quot;)## another database round trip#import (&quot;_cms/formats/shared/macros/escapeAll&quot;)## another database round trip#import (&quot;_cms/formats/shared/macros/makeAccessible&quot;) While this type of setup is clean and makes things very straightforward to manage (a single Format contains a single macro with a corresponding name), it requires 3 round trips to the database during the transformation of any Page on which the main Format is attached. In order to prevent repeated #import calls like this, macros should instead be combined into fewer Formats so that fewer #import directives are needed. Continuing the example from above, the macros from the 3 separate Formats indicated above can be combined into a single Format (we&#39;ll name it utility for the purposes of this sample). Then, rather than importing 3 separate Formats to get access to the 3 individual macros, a single line will do the trick: ## one database round trip#import (&quot;_cms/formats/shared/macros/utility&quot;) Now, rather than making multiple trips back and forth to the database (adding to overall render times), only one trip is required and the main Format automatically has access to all of the macros needed for the transformation.</p>
-
+                        <p> <code>#import</code> directives in Formats require a round trip from the app to the database and back again. This is necessary in order for the app to retrieve the contents of the Format being imported at runtime. Due to this fact, it is important to limit the number of <code>#import</code> directives as much as possible in order to keep transformation times performant. </p>
+<p>Consider the following sample code snippet below which imports 3 Formats. Each of the imported Formats contains a single macro.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## one database round trip
+#import ("_cms/formats/shared/macros/stripTags")
+## another database round trip
+#import ("_cms/formats/shared/macros/escapeAll")
+## another database round trip
+#import ("_cms/formats/shared/macros/makeAccessible")</code></pre>
+</div>
+<p>While this type of setup is clean and makes things very straightforward to manage (a single Format contains a single macro with a corresponding name), it requires 3 round trips to the database during the transformation of any Page on which the main Format is attached.</p>
+<p>In order to prevent repeated <code>#import</code> calls like this, macros should instead be combined into fewer Formats so that fewer <code>#import</code> directives are needed.</p>
+<p>Continuing the example from above, the macros from the 3 separate Formats indicated above can be combined into a single Format (we'll name it <code>utility</code> for the purposes of this sample). Then, rather than importing 3 separate Formats to get access to the 3 individual macros, a single line will do the trick:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## one database round trip
+#import ("_cms/formats/shared/macros/utility")</code></pre>
+</div>
+<p>Now, rather than making multiple trips back and forth to the database (adding to overall render times), only one trip is required and the main Format automatically has access to all of the macros needed for the transformation.<code></code></p>
+                                    
 <h2 id="developing-in-cascade-script-formats-velocity-best-practices-section-3">Using the Query API</h2>
-<p>Accessing Structured Data and Dynamic Metadata When working with the Query API, if you&#39;re accessing Structured Data or Dynamic Metadata fields for the queried assets, you should utilize the corresponding $_.query().preloadStructuredData and/or $_.query().preloadDynamicMetadata methods for a performance boost. Preloading Structured Data Consider the following code which loads 500 &quot;events&quot;: #set ($events = $_.query().byContentType(&quot;event&quot;).execute())#foreach ($event in $events) ## database round trip (x 500) #set($start = $event.getStructuredDataNode(&quot;startDateTime&quot;).textValue) #set($end = $event.getStructuredDataNode(&quot;endDateTime&quot;).textValue) #set($details = $event.getStructuredDataNode(&quot;details&quot;).textValue) #set($link = $event.getStructuredDataNode(&quot;additional&quot;).getChild(&quot;link&quot;).textValue)## additional logic here#end In the foreach loop here, the application will be required to make a database round trip for each of the 500 results in order to gather each asset&#39;s Structured Data. By adding the &quot;preload&quot; method to the query as seen below: #set ($events = $_.query().byContentType(&quot;event&quot;).preloadStructuredData().execute()) The initial query execution will take longer (since the application is gathering the related Structured Data for all 500 results upfront), but accessing this data in the foreach loop for each asset will be exponentially faster as the data is already in memory. Preloading Dynamic Metadata Similar to above, you can preload dynamic metadata as well. Consider the following code in a scenario where the query is returning 500 assets: #set ($events = $_.query().byContentType(&quot;event&quot;).execute())#foreach ($event in $events) ## database round trip (x 500) #set($showInNavMenu = $event.metadata.getDynamicField(&quot;display-in-nav&quot;).value) #set($alternateTitle = $event.metadata.getDynamicField(&quot;alternate title&quot;).value)## additional logic here #end In order to increase performance, we can change the query line as follows which will preload the necessary dynamic metadata fields: #set ($events = $_.query().byContentType(&quot;event&quot;).preloadDynamicMetadata().execute()) This will force the app to load all of the metadata fields upfront which prevents the repeated database round trips within the foreach loop. Leveraging the #queryexecute directive The #queryexecute directive is an alternative to the .execute() method of the Query API. The main benefits of using this directive are as follows:</p>
-<p>It bypasses the 2,000 asset limitation of the .execute() method (allowing for querying up to 100,000 assets). On each iteration, the previous asset in stored in memory is removed from memory to allow for the processing of the remaining assets without hampering performance.</p>
+                        <h2>Accessing Structured Data and Dynamic Metadata</h2>
+<p>When working with the Query API, if you're accessing Structured Data or Dynamic Metadata fields for the queried assets, you should utilize the corresponding <code>$_.query().preloadStructuredData</code> and/or <code>$_.query().preloadDynamicMetadata</code> methods for a performance boost. </p>
+<h3>Preloading Structured Data</h3>
+<p>Consider the following code which loads 500 "events":</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($events = $_.query().byContentType("event").execute())
+#foreach ($event in $events)
+ ## database round trip (x 500)
+ #set($start = $event.getStructuredDataNode("startDateTime").textValue)
+ #set($end = $event.getStructuredDataNode("endDateTime").textValue)
+ #set($details = $event.getStructuredDataNode("details").textValue)
+ #set($link = $event.getStructuredDataNode("additional").getChild("link").textValue)
+## additional logic here
+#end</code></pre>
+</div>
+<p>In the <code>foreach</code> loop here, the application will be required to make a database round trip for each of the 500 results in order to gather each asset's Structured Data. </p>
+<p>By adding the "preload" method to the query as seen below:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($events = $_.query().byContentType("event").preloadStructuredData().execute())</code></pre>
+</div>
+<p>The initial query execution will take longer (since the application is gathering the related Structured Data for all 500 results upfront), but accessing this data in the <code>foreach</code> loop for each asset will be exponentially faster as the data is already in memory. </p>
+<h3>Preloading Dynamic Metadata</h3>
+<p>Similar to above, you can preload dynamic metadata as well. Consider the following code in a scenario where the query is returning 500 assets:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($events = $_.query().byContentType("event").execute())
+#foreach ($event in $events)
+ ## database round trip (x 500)
+ #set($showInNavMenu = $event.metadata.getDynamicField("display-in-nav").value)
+ #set($alternateTitle = $event.metadata.getDynamicField("alternate title").value)
+## additional logic here
+#end</code></pre>
+</div>
+<p>In order to increase performance, we can change the query line as follows which will preload the necessary dynamic metadata fields:</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">#set ($events = $_.query().byContentType("event").preloadDynamicMetadata().execute())</code></pre>
+</div>
+<p>This will force the app to load all of the metadata fields upfront which prevents the repeated database round trips within the <code>foreach</code> loop.</p>
+<h2>Leveraging the #queryexecute directive</h2>
+<p>The <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/tools/query-api.html#queryexecute"><code>#queryexecute</code></a> directive is an alternative to the <code>.execute()</code> method of the <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-tools.html#QueryAPI">Query API</a>. The main benefits of using this directive are as follows:</p>
+<ul>
+<li>It bypasses the 2,000 asset limitation of the <code>.execute()</code> method (allowing for querying up to 100,000 assets).</li>
+<li>On each iteration, the previous asset in stored in memory is removed from memory to allow for the processing of the remaining assets without hampering performance.</li>
+</ul>
         </div>
         <footer class="content__footer">
   <div class="content__meta">
-    <span>Last updated: February 21, 2026</span>
+    <span>Last updated: February 22, 2026</span>
   </div>
   <nav class="content__pagination">
     <a href="../query-tool-directives/" class="content__prev"><span>Previous</span><span>Query Tool Directives</span></a>
@@ -515,7 +651,8 @@
     </aside>
 
     <button class="toc-toggle" aria-label="Table of contents" aria-expanded="false">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      <span>Contents</span>
     </button>
   </div>
 
