@@ -244,10 +244,9 @@ html[data-theme="dark"] .header__logo-img--dark {
     font-size: var(--text-xs);
     font-family: var(--font-heading);
     font-weight: var(--weight-medium);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.04em;
     writing-mode: vertical-rl;
-    transition: background var(--transition-fast), color var(--transition-fast);
+    transition: background var(--transition-fast), color var(--transition-fast), right var(--transition-fast);
 }
 
 .toc-toggle:hover {
@@ -259,6 +258,7 @@ html[data-theme="dark"] .header__logo-img--dark {
     width: 16px;
     height: 16px;
     writing-mode: horizontal-tb;
+    transition: transform var(--transition-fast);
 }
 
 /* ── Mobile Sidebar Overlay ── */
@@ -313,12 +313,12 @@ html[data-theme="dark"] .header__logo-img--dark {
         display: flex;
     }
 
-    /* TOC as slide-in panel from the right */
-    .toc--mobile-open {
+    /* TOC panel — hidden off-screen by default, slides in when open */
+    .toc {
         display: block;
         position: fixed;
         top: var(--header-height);
-        right: 0;
+        right: -280px;
         bottom: 0;
         z-index: var(--z-toc-mobile);
         width: 280px;
@@ -328,6 +328,20 @@ html[data-theme="dark"] .header__logo-img--dark {
         border-left: 1px solid var(--color-border);
         box-shadow: var(--shadow-lg);
         padding: var(--space-lg);
+        transition: right var(--transition-fast);
+    }
+
+    .toc--mobile-open {
+        right: 0;
+    }
+
+    /* Shift pull tab left when panel is open */
+    .toc--mobile-open ~ .toc-toggle {
+        right: 280px;
+    }
+
+    .toc--mobile-open ~ .toc-toggle svg {
+        transform: rotate(180deg);
     }
 }
 
