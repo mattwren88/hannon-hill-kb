@@ -42,8 +42,9 @@
   <link rel="stylesheet" href="./_assets/css/print.css" media="print">
   <link rel="stylesheet" href="./_assets/vendor/prism/prism-theme.css">
   <link rel="stylesheet" href="./_assets/css/transitions.css">
+  <link rel="stylesheet" href="./_assets/css/components/back-to-top.css">
 </head>
-<body>
+<body id="top">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <header class="header" role="banner">
     <div class="header__left">
@@ -1332,5 +1333,11 @@ Yes: $counts.get("Yes"), No: $counts.get("No"), Maybe: $counts.get("Maybe")</cod
   <script src="./_assets/js/accordion.js" defer></script>
   <script src="./_assets/js/code-block.js" defer></script>
   <script src="./_assets/js/search.js" defer></script>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
 </body>
 </html>
