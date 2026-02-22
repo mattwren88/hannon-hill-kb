@@ -334,6 +334,11 @@ html[data-theme="dark"] .header__logo-img--dark {
         right: 0;
     }
 
+    /* Reset back-to-top to viewport edge (TOC column is hidden at this breakpoint) */
+    .back-to-top {
+        right: var(--space-xl);
+    }
+
     /* Shift pull tab left when panel is open */
     .toc--mobile-open ~ .toc-toggle {
         right: 280px;
