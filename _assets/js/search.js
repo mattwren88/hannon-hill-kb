@@ -13,6 +13,7 @@
     var input = overlay.querySelector('.search-overlay__input');
     var results = overlay.querySelector('.search-overlay__results');
     var backdrop = overlay.querySelector('.search-overlay__backdrop');
+    var liveRegion = overlay.querySelector('.search-overlay__live');
 
     var searchIndex = null;
     var searchData = null;
@@ -151,6 +152,7 @@
                 isLoading = false;
                 clearElement(results);
                 results.appendChild(createMessage('Start typing to search...', 'search-overlay__empty'));
+                if (liveRegion) liveRegion.textContent = '';
 
                 if (input.value.trim()) {
                     performSearch(input.value.trim());
@@ -187,6 +189,7 @@
 
         if (matches.length === 0) {
             results.appendChild(createMessage('No results found for \u201c' + query + '\u201d', 'search-overlay__empty'));
+            if (liveRegion) liveRegion.textContent = 'No results found';
             highlightedIndex = -1;
             return;
         }
@@ -229,6 +232,7 @@
             results.appendChild(link);
         });
 
+        if (liveRegion) liveRegion.textContent = shown.length + ' result' + (shown.length === 1 ? '' : 's') + ' found';
         highlightedIndex = 0;
     }
 
