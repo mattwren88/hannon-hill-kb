@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="hannonhillkbcomponentsystem">Hannon Hill KB (Component System)</h1>
+
+<p>Local documentation site for Cascade CMS content, styled with a reusable component system.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+<li><a href="https://nodejs.org/">Node.js</a> (v18 or later)</li>
+<li>npm (included with Node.js)</li>
+</ul>
+
+<h2 id="gettingstarted">Getting Started</h2>
+
+<pre><code class="bash"># Clone the repo
+git clone https://github.com/mattwren88/hannon-hill-kb.git
+cd hannon-hill-kb
+
+# Install dependencies
+npm install
+
+# Build the CSS bundle
+npm run build:css
+</code></pre>
+
+<p>Open <code>index.html</code> in a browser to view the site locally.</p>
+
+<h2 id="development">Development</h2>
+
+<h3 id="cssbuild">CSS Build</h3>
+
+<p>All individual CSS files are bundled into a single <code>_assets/css/bundle.min.css</code> via <a href="https://postcss.org/">PostCSS</a>. The entry point is <code>_assets/css/main.css</code>, which imports every stylesheet in the correct load order.</p>
+
+<p><strong>Build once:</strong></p>
+
+<pre><code class="bash">npm run build:css
+</code></pre>
+
+<p><strong>Watch for changes</strong> (auto-rebuilds on save):</p>
+
+<pre><code class="bash">npm run watch:css
+</code></pre>
+
+<p>If you use VS Code, the watch task starts automatically when you open the project (configured in <code>.vscode/tasks.json</code>).</p>
+
+<h3 id="addingoreditingcss">Adding or Editing CSS</h3>
+
+<ol>
+<li>Edit the source files in <code>_assets/css/</code> (never edit <code>bundle.min.css</code> directly)</li>
+<li>If adding a new CSS file, add an <code>@import</code> line to <code>_assets/css/main.css</code></li>
+<li>Run <code>npm run build:css</code> or let the watcher rebuild automatically</li>
+</ol>
+
+<h3 id="postcssplugins">PostCSS Plugins</h3>
+
+<p>The PostCSS config lives in <code>config/postcss.config.js</code> and uses:</p>
+
+<ul>
+<li><strong>postcss-import</strong> — resolves <code>@import</code> statements into a single file</li>
+<li><strong>cssnano</strong> — minifies the output</li>
+</ul>
+
+<h2 id="projectstructure">Project Structure</h2>
+
+<pre><code>cascadecms-docs/
+├── index.html                    Homepage
+├── velocity-tools.html           Article
+├── date-tool-essentials.html     Article
+├── query-tool-directives.html    Article
+├── velocity-best-practices.html  Article
+├── component-showcase.html       Visual design system reference
+├── search-index.json             Lunr.js search index
+├── package.json                  npm scripts and dependencies
+├── config/
+│   └── postcss.config.js         PostCSS plugin configuration
+├── .vscode/
+│   └── tasks.json                VS Code auto-build task
+└── _assets/
+    ├── css/
+    │   ├── main.css              PostCSS entry (imports all stylesheets)
+    │   ├── bundle.min.css        Built output (do not edit)
+    │   ├── print.css             Print-only styles
+    │   ├── tokens.css            Design tokens (light/dark themes)
+    │   ├── reset.css / layout.css / typography.css
+    │   └── components/           Per-component stylesheets
+    ├── js/                       Behavior scripts
+    ├── vendor/                   Prism.js, Lunr.js
+    └── fonts/
+        ├── mononoki/             Monospace code font
+        └── plus-jakarta-sans/    Heading font (self-hosted)
+</code></pre>
+
+<h2 id="pages">Pages</h2>
+
+<p>Local paths:</p>
+
+<ul>
+<li>Homepage: <code>index.html</code></li>
+<li>Velocity Tools: <code>velocity-tools.html</code></li>
+<li>Date Tool Essentials: <code>date-tool-essentials.html</code></li>
+<li>Query Tool Directives: <code>query-tool-directives.html</code></li>
+<li>Velocity Best Practices: <code>velocity-best-practices.html</code></li>
+<li>Showcase: <code>component-showcase.html</code></li>
+</ul>
+
+<p>Published URLs:</p>
+
+<ul>
+<li><a href="https://mattwren88.github.io/hannon-hill-kb/">Homepage</a></li>
+<li><a href="https://mattwren88.github.io/hannon-hill-kb/velocity-tools.html">Velocity Tools</a></li>
+<li><a href="https://mattwren88.github.io/hannon-hill-kb/date-tool-essentials.html">Date Tool Essentials</a></li>
+<li><a href="https://mattwren88.github.io/hannon-hill-kb/query-tool-directives.html">Query Tool Directives</a></li>
+<li><a href="https://mattwren88.github.io/hannon-hill-kb/velocity-best-practices.html">Velocity Best Practices</a></li>
+<li><a href="https://mattwren88.github.io/hannon-hill-kb/component-showcase.html">Component Showcase</a></li>
+</ul>
+
+<h2 id="designsystem">Design System</h2>
+
+<p>Core tokens: <code>_assets/css/tokens.css</code></p>
+
+<p>Shared layout: <code>reset.css</code>, <code>layout.css</code>, <code>typography.css</code></p>
+
+<p>Component styles cover: sidebar, breadcrumb, TOC, cards, callouts, accordions, tabs, steps, tables, code blocks, tooltips, badges, buttons, theme toggle, search overlay, footer.</p>
+
+<p>Component behaviors: sidebar mobile drawer, theme persistence (light/dark/system), search overlay, TOC generation, accordion, code-block copy/line-numbers, tab switching.</p>
+
+<p>Use <code>component-showcase.html</code> as the canonical visual reference.</p>
+
+<h2 id="gitremote">Git Remote</h2>
+
+<ul>
+<li><code>origin</code>: <code>https://github.com/mattwren88/hannon-hill-kb.git</code></li>
+<li>GitHub Pages: <code>https://mattwren88.github.io/hannon-hill-kb/</code></li>
+</ul>
+
+</body>
+</html>
+

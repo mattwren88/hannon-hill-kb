@@ -1,0 +1,14 @@
+{
+  "name": "cascadecms-docs",
+  "private": true,
+  "scripts": {
+    "build:css": "postcss _assets/css/main.css -o _assets/css/bundle.min.css --config config",
+    "watch:css": "postcss _assets/css/main.css -o _assets/css/bundle.min.css --watch --config config"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "cssnano": "^7.0.6"
+  }
+}
