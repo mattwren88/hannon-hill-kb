@@ -37,7 +37,7 @@ html[data-theme="light"] {
     /* ── Code ── */
     --color-code-bg: #FCFDFF;
     --color-code-text: #1A1D27;
-    --color-code-inline-bg: #F6F8FB;
+    --color-code-inline-bg: #eaebec;
     --color-code-inline-text: #C01555;
     --color-code-header-bg: #F7F9FC;
 
@@ -316,8 +316,8 @@ html[data-theme="dark"] {
     --space-3xl: 4rem;
 
     /* Typography */
-    --font-heading: 'Poppins', system-ui, -apple-system, sans-serif;
-    --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-body: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
     --font-mono: 'Mononoki', 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Cascadia Code', Consolas, monospace;
 
     --text-xs: 0.75rem;
@@ -328,7 +328,7 @@ html[data-theme="dark"] {
     --text-2xl: 1.5rem;
     --text-3xl: 1.875rem;
     --text-4xl: 2.25rem;
-    --font-size-code-inline: 0.875em;
+    --font-size-code-inline: var(--text-base);
 
     --leading-tight: 1.25;
     --leading-normal: 1.6;
@@ -340,8 +340,8 @@ html[data-theme="dark"] {
     --weight-bold: 700;
 
     /* Layout */
-    --sidebar-width: 300px;
-    --toc-width: 220px;
+    --sidebar-width: 320px;
+    --toc-width: 300px;
     --content-max-width: 780px;
     --header-height: 60px;
 

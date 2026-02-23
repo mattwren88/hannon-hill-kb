@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity Tools - Cascade CMS Knowledge Base</title>
+  <meta name="description" content="Cascade CMS's Velocity Tools are a collection of functions that can be used to retrieve and manipulate content in conjunction with Apache Velocity Template Language.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <script>
+  (function () {
+    var pref = localStorage.getItem('theme-preference');
+    var theme;
+    if (pref === 'dark') { theme = 'dark'; }
+    else if (pref === 'light') { theme = 'light'; }
+    else { theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+  </script>
+  <link rel="stylesheet" href="./_assets/css/tokens.css">
+  <link rel="stylesheet" href="./_assets/css/reset.css">
+  <link rel="stylesheet" href="./_assets/css/layout.css">
+  <link rel="stylesheet" href="./_assets/css/typography.css">
+  <link rel="stylesheet" href="./_assets/css/components/sidebar.css">
+  <link rel="stylesheet" href="./_assets/css/components/toc.css">
+  <link rel="stylesheet" href="./_assets/css/components/breadcrumb.css">
+  <link rel="stylesheet" href="./_assets/css/components/code-block.css">
+  <link rel="stylesheet" href="./_assets/css/components/callout.css">
+  <link rel="stylesheet" href="./_assets/css/components/accordion.css">
+  <link rel="stylesheet" href="./_assets/css/components/steps.css">
+  <link rel="stylesheet" href="./_assets/css/components/tabs.css">
+  <link rel="stylesheet" href="./_assets/css/components/table.css">
+  <link rel="stylesheet" href="./_assets/css/components/search.css">
+  <link rel="stylesheet" href="./_assets/css/components/theme-toggle.css">
+  <link rel="stylesheet" href="./_assets/css/components/cards.css">
+  <link rel="stylesheet" href="./_assets/css/components/footer.css">
+  <link rel="stylesheet" href="./_assets/css/components/buttons.css">
+  <link rel="stylesheet" href="./_assets/css/components/badges.css">
+  <link rel="stylesheet" href="./_assets/css/components/tooltip.css">
+  <link rel="stylesheet" href="./_assets/css/utilities.css">
+  <link rel="stylesheet" href="./_assets/css/print.css" media="print">
+  <link rel="stylesheet" href="./_assets/vendor/prism/prism-theme.css">
+  <link rel="stylesheet" href="./_assets/css/transitions.css">
+  <link rel="stylesheet" href="./_assets/css/components/back-to-top.css">
+</head>
+<body id="top">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="header" role="banner">
+    <div class="header__left">
+      <button class="header__menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="./" class="header__logo"><span style="color: var(--color-primary-vivid); font-weight: 700;">Cascade</span>&nbsp;CMS Docs</a>
+    </div>
+    <nav class="header__nav" aria-label="Top navigation">
+      <a href="#" class="header__nav-link header__nav-link--active">Knowledge Base</a>
+      <a href="#" class="header__nav-link">Release Notes</a>
+      <a href="#" class="header__nav-link">Support</a>
+    </nav>
+    <div class="header__right">
+      <button class="header__search-trigger" aria-label="Search documentation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="header__search-text">Search...</span>
+        <kbd class="header__search-kbd">⌘K</kbd>
+      </button>
+      <div class="theme-toggle">
+        <button class="theme-toggle__button" aria-label="Toggle color theme" aria-expanded="false" aria-haspopup="true">
+          <svg class="theme-toggle__icon theme-toggle__icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--system" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </button>
+        <div class="theme-toggle__dropdown" role="menu" hidden>
+          <button class="theme-toggle__option" role="menuitem" data-theme="light">Light</button>
+          <button class="theme-toggle__option" role="menuitem" data-theme="dark">Dark</button>
+          <button class="theme-toggle__option theme-toggle__option--active" role="menuitem" data-theme="system">System</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay"></div>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="Documentation navigation">
+      <nav class="sidebar__nav">
+        <div class="sidebar__section">
+  <button class="sidebar__category" aria-expanded="true">
+    Script Formats
+    <svg class="sidebar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+  <ul class="sidebar__pages">
+    <li><a href="./velocity-tools.html" class="sidebar__link sidebar__link--active" aria-current="page">Velocity Tools</a></li>
+    <li><a href="./date-tool-essentials.html" class="sidebar__link">Date Tool Essentials</a></li>
+    <li><a href="./query-tool-directives.html" class="sidebar__link">Query Tool Directives</a></li>
+    <li><a href="./velocity-best-practices.html" class="sidebar__link">Best Practices for Performance</a></li>
+  </ul>
+</div>
+      </nav>
+    </aside>
+
+    <main id="main-content" class="main">
+      <article class="content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item"><a href="./" class="breadcrumb__link">Home</a></li>
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Velocity Tools</li>
+  </ol>
+</nav>
+        <header class="content__header">
+          <span class="content__category-label">Developing In Cascade</span>
+          <h1 class="content__title">Velocity Tools</h1>
+        </header>
+        <div class="content__body">
+<p>Cascade CMS's Velocity Tools are a collection of functions that can be used to retrieve and manipulate content in conjunction with <a href="https://velocity.apache.org/engine/2.0/user-guide.html">Apache Velocity Template Language</a>.</p>
+
+<h2 id="GlobalVariables">Global Variables</h2>
+<p>These variables are available in every Velocity Format without any additional setup.</p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Global variables available in Velocity Formats.</caption>
+<thead>
+<tr>
+<th scope="col">Variable</th>
+<th scope="col">Output Type</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$contentRoot</code></td>
+<td>Element</td>
+<td>Returns a JDOM Element containing the XML supplied for the current region.</td>
+</tr>
+<tr>
+<td><code>$currentPage</code></td>
+<td>PageAPIAdapter</td>
+<td>Returns the current page as an API object.</td>
+</tr>
+<tr>
+<td><code>$currentPagePath</code></td>
+<td>String</td>
+<td>Returns the path of the current page.</td>
+</tr>
+<tr>
+<td><code>$currentPageSiteName</code></td>
+<td>String</td>
+<td>Returns the name of the current page's site.</td>
+</tr>
+<tr>
+<td><code>$enabledCustomDirectives</code></td>
+<td>ArrayList</td>
+<td>Returns all available custom directives in the CMS environment.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="LocatorTool">Locator Tool</h2>
+<p>The Locator Tool retrieves assets at a given path as API objects. Optionally, a site name can be specified to locate assets in a different site. <span class="badge badge--info">Added in 7.4</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Locator Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_.locate(path, type)</code></td>
+<td><code>path</code> (String), <code>type</code> (String)</td>
+<td>Locates an asset at the given path with the specified type. Valid types: <code>block</code>, <code>file</code>, <code>folder</code>, <code>format</code>, <code>page</code>, <code>reference</code>, <code>symlink</code>.</td>
+</tr>
+<tr>
+<td><code>$_.locate(path, type, site)</code></td>
+<td><code>path</code> (String), <code>type</code> (String), <code>site</code> (String)</td>
+<td>Locates an asset at the given path with the specified type in the specified site.</td>
+</tr>
+<tr>
+<td><code>$_.locateBlock(path)</code></td>
+<td><code>path</code> (String)</td>
+<td>Locates a Block at the given path.</td>
+</tr>
+<tr>
+<td><code>$_.locateFile(path)</code></td>
+<td><code>path</code> (String)</td>
+<td>Locates a File at the given path.</td>
+</tr>
+<tr>
+<td><code>$_.locateFolder(path)</code></td>
+<td><code>path</code> (String)</td>
+<td>Locates a Folder at the given path.</td>
+</tr>
+<tr>
+<td><code>$_.locateFormat(path)</code></td>
+<td><code>path</code> (String)</td>
+<td>Locates a Format at the given path.</td>
+</tr>
+<tr>
+<td><code>$_.locateLinkable(path)</code></td>
+<td><code>path</code> (String)</td>
+<td>Locates a Page, File, or External Link at the given path.</td>
+</tr>
+<tr>
+<td><code>$_.locatePage(path)</code></td>
+<td><code>path</code> (String)</td>
+<td>Locates a Page at the given path.</td>
+</tr>
+<tr>
+<td><code>$_.locateReference(path)</code></td>
+<td><code>path</code> (String)</td>
+<td>Locates a Reference at the given path.</td>
+</tr>
+<tr>
+<td><code>$_.locateSymlink(path)</code></td>
+<td><code>path</code> (String)</td>
+<td>Locates an External Link at the given path.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Each method also accepts an optional second parameter for site name (e.g. <code>$_.locatePage(path, site)</code>) to locate assets in a different site.</p>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Locate a page in the current site
+#set ($aboutPage = $_.locatePage("/about"))
+
+## Locate a file in a different site
+#set ($logo = $_.locateFile("/images/logo.png", "Global"))
+
+## Locate using the generic method
+#set ($myBlock = $_.locate("/blocks/header", "block"))</code></pre>
+</div>
+
+<h2 id="QueryAPI">Query API</h2>
+<p>The Query API allows you to construct queries using chained methods to filter and retrieve assets from the CMS. Start by creating a query object, choose a query type, set optional filters and sorting, then execute.</p>
+
+<h3 id="QueryConstruction">Query construction</h3>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Primary query methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_.query().byContentType(name)</code></td>
+<td><code>name</code> (String)</td>
+<td>Query assets by Content Type name.</td>
+</tr>
+<tr>
+<td><code>$_.query().byMetadataSet(name)</code></td>
+<td><code>name</code> (String)</td>
+<td>Query assets by Metadata Set name.</td>
+</tr>
+<tr>
+<td><code>$_.query().byDataDefinition(name)</code></td>
+<td><code>name</code> (String)</td>
+<td>Query assets by Data Definition name.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="QueryFilters">Filters</h3>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Query filter methods for narrowing results.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.bySiteName(name)</code></td>
+<td><code>name</code> (String)</td>
+<td>Restrict results to a specific site.</td>
+</tr>
+<tr>
+<td><code>.byFolderPath(path)</code></td>
+<td><code>path</code> (String)</td>
+<td>Restrict results to assets within the specified folder path.</td>
+</tr>
+<tr>
+<td><code>.hasAnyPaths(paths)</code></td>
+<td><code>paths</code> (String...)</td>
+<td>Filter results to assets matching any of the specified paths.</td>
+</tr>
+<tr>
+<td><code>.hasMetadata(field, value)</code></td>
+<td><code>field</code> (String), <code>value</code> (String)</td>
+<td>Filter by a metadata field matching a specific value.</td>
+</tr>
+<tr>
+<td><code>.hasAnyMetadataValues(field, values)</code></td>
+<td><code>field</code> (String), <code>values</code> (String...)</td>
+<td>Filter by a metadata field matching any of the specified values.</td>
+</tr>
+<tr>
+<td><code>.hasStructuredData(path, value)</code></td>
+<td><code>path</code> (String), <code>value</code> (String)</td>
+<td>Filter by a structured data field matching a specific value.</td>
+</tr>
+<tr>
+<td><code>.hasAnyStructuredDataValues(path, values)</code></td>
+<td><code>path</code> (String), <code>values</code> (String...)</td>
+<td>Filter by a structured data field matching any of the specified values.</td>
+</tr>
+<tr>
+<td><code>.hasStructuredDataByFieldId(id, value)</code></td>
+<td><code>id</code> (String), <code>value</code> (String)</td>
+<td>Filter by a structured data field ID matching a specific value.</td>
+</tr>
+<tr>
+<td><code>.hasAnyStructuredDataValuesByFieldId(id, values)</code></td>
+<td><code>id</code> (String), <code>values</code> (String...)</td>
+<td>Filter by a structured data field ID matching any of the specified values.</td>
+</tr>
+<tr>
+<td><code>.hasTag(tag)</code></td>
+<td><code>tag</code> (String)</td>
+<td>Filter results to assets with the specified tag.</td>
+</tr>
+<tr>
+<td><code>.hasAnyTags(tags)</code></td>
+<td><code>tags</code> (String...)</td>
+<td>Filter results to assets with any of the specified tags.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="AssetTypeFilters">Asset type filters</h3>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Methods to include or restrict by asset type.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.includeBlocks()</code></td>
+<td>Include Block assets in results.</td>
+</tr>
+<tr>
+<td><code>.blocksOnly()</code></td>
+<td>Return only Block assets.</td>
+</tr>
+<tr>
+<td><code>.includeFiles()</code></td>
+<td>Include File assets in results.</td>
+</tr>
+<tr>
+<td><code>.filesOnly()</code></td>
+<td>Return only File assets.</td>
+</tr>
+<tr>
+<td><code>.includeFolders()</code></td>
+<td>Include Folder assets in results.</td>
+</tr>
+<tr>
+<td><code>.foldersOnly()</code></td>
+<td>Return only Folder assets.</td>
+</tr>
+<tr>
+<td><code>.includePages()</code></td>
+<td>Include Page assets in results.</td>
+</tr>
+<tr>
+<td><code>.pagesOnly()</code></td>
+<td>Return only Page assets.</td>
+</tr>
+<tr>
+<td><code>.includeSymlinks()</code></td>
+<td>Include External Link assets in results.</td>
+</tr>
+<tr>
+<td><code>.symlinksOnly()</code></td>
+<td>Return only External Link assets.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="AdditionalQueryOptions">Additional options</h3>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Additional query options.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.indexableOnly()</code></td>
+<td>Include only indexable assets in results.</td>
+</tr>
+<tr>
+<td><code>.publishableOnly()</code></td>
+<td>Include only publishable assets in results.</td>
+</tr>
+<tr>
+<td><code>.preloadDynamicMetadata()</code></td>
+<td>Preload dynamic metadata fields to avoid individual database trips per asset.</td>
+</tr>
+<tr>
+<td><code>.preloadStructuredData()</code></td>
+<td>Preload structured data to avoid individual database trips per asset.</td>
+</tr>
+<tr>
+<td><code>.searchAcrossAllSites()</code></td>
+<td>Expand the query to search all sites, not just the current one.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="SortingAndLimiting">Sorting and limiting</h3>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Query sorting and result limiting.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.sortBy(field)</code></td>
+<td><code>field</code> (String)</td>
+<td>Sort results by the specified field. Valid values: <code>author</code>, <code>created</code>, <code>description</code>, <code>displayName</code>, <code>endDate</code>, <code>keywords</code>, <code>modified</code>, <code>name</code>, <code>path</code>, <code>reviewDate</code>, <code>startDate</code>, <code>summary</code>, <code>title</code>, <code>teaser</code>.</td>
+</tr>
+<tr>
+<td><code>.sortDirection(dir)</code></td>
+<td><code>dir</code> (String)</td>
+<td>Set sort order. Valid values: <code>asc</code>, <code>desc</code>.</td>
+</tr>
+<tr>
+<td><code>.maxResults(n)</code></td>
+<td><code>n</code> (int)</td>
+<td>Limit the number of results. Default is 100, maximum is 2,000 for <code>.execute()</code> and 100,000 for <code>#queryexecute</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="QueryExample">Example</h3>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Query all pages with the "news" content type, sorted by start date descending
+#set ($newsItems = $_.query()
+  .byContentType("news")
+  .pagesOnly()
+  .sortBy("startDate")
+  .sortDirection("desc")
+  .maxResults(10)
+  .execute()
+)
+#foreach ($item in $newsItems)
+  &lt;h3&gt;$item.metadata.title&lt;/h3&gt;
+  &lt;p&gt;$item.metadata.summary&lt;/p&gt;
+#end</code></pre>
+</div>
+
+<h3 id="QueryDirectives">Custom directives</h3>
+<p>The Query API supports three custom directives for advanced processing. See <a href="./query-tool-directives.html">Query Tool Directives</a> for detailed usage.</p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Custom query directives.</caption>
+<thead>
+<tr>
+<th scope="col">Directive</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#queryfilter</code></td>
+<td>Execute logic on each asset before <code>maxResults</code> is applied, allowing custom filtering.</td>
+</tr>
+<tr>
+<td><code>#querysortvalue</code></td>
+<td>Determine the sort value for each asset using custom logic.</td>
+</tr>
+<tr>
+<td><code>#queryexecute</code></td>
+<td>Execute on each asset with support for up to 100,000 results. Assets are loaded one at a time to conserve memory.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="DateTool">Date Tool</h2>
+<p>The Date Tool handles date retrieval, formatting, and comparison. See <a href="./date-tool-essentials.html">Date Tool Essentials</a> for in-depth usage patterns. <span class="badge badge--info">Added in 6.2</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Date Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Return Type</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_DateTool.difference(date1, date2)</code></td>
+<td><code>date1</code> (Date), <code>date2</code> (Date)</td>
+<td>ComparisonDateTool</td>
+<td>Returns the difference between two dates.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.format(format, date)</code></td>
+<td><code>format</code> (String), <code>date</code> (Date)</td>
+<td>String</td>
+<td>Formats a date using the specified format string.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.getCalendar()</code></td>
+<td>&mdash;</td>
+<td>Calendar</td>
+<td>Returns the current date and time as a Calendar object.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.getDate()</code></td>
+<td>&mdash; or <code>timestamp</code> (long)</td>
+<td>Date</td>
+<td>Returns a Date object. Without arguments returns the current date; with a Unix timestamp in milliseconds, converts it to a Date.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.getDay()</code></td>
+<td>&mdash;</td>
+<td>Integer</td>
+<td>Returns the day of the month from the current date.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.getMonth()</code></td>
+<td>&mdash;</td>
+<td>Integer</td>
+<td>Returns the month from the current date (0 = January in Java).</td>
+</tr>
+<tr>
+<td><code>$_DateTool.getTime()</code></td>
+<td>&mdash;</td>
+<td>long</td>
+<td>Returns the current time as a number (Unix timestamp in milliseconds).</td>
+</tr>
+<tr>
+<td><code>$_DateTool.getValue(field, date)</code></td>
+<td><code>field</code> (String), <code>date</code> (Date)</td>
+<td>Integer</td>
+<td>Returns the specified Calendar field value from a date.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.getYear()</code></td>
+<td>&mdash;</td>
+<td>Integer</td>
+<td>Returns the year from the current date.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.toDate(format, string)</code></td>
+<td><code>format</code> (String), <code>string</code> (String)</td>
+<td>Date</td>
+<td>Converts a formatted date string to a Date object using the specified format pattern.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.toDays(timestamp)</code></td>
+<td><code>timestamp</code> (long)</td>
+<td>long</td>
+<td>Converts a timestamp to days since epoch.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.toHours(timestamp)</code></td>
+<td><code>timestamp</code> (long)</td>
+<td>long</td>
+<td>Converts a timestamp to hours since epoch.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.toMinutes(timestamp)</code></td>
+<td><code>timestamp</code> (long)</td>
+<td>long</td>
+<td>Converts a timestamp to minutes since epoch.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.toMonths(timestamp)</code></td>
+<td><code>timestamp</code> (long)</td>
+<td>long</td>
+<td>Converts a timestamp to months since epoch.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.toSeconds(timestamp)</code></td>
+<td><code>timestamp</code> (long)</td>
+<td>long</td>
+<td>Converts a timestamp to seconds since epoch.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.toWeeks(timestamp)</code></td>
+<td><code>timestamp</code> (long)</td>
+<td>long</td>
+<td>Converts a timestamp to weeks since epoch.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.toYears(timestamp)</code></td>
+<td><code>timestamp</code> (long)</td>
+<td>long</td>
+<td>Converts a timestamp to years since epoch.</td>
+</tr>
+<tr>
+<td><code>$_DateTool.whenIs(date)</code></td>
+<td><code>date</code> (Date)</td>
+<td>String</td>
+<td>Returns a human-readable description of the time difference (e.g. "3 days ago").</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="DisplayTool">Display Tool</h2>
+<p>The Display Tool provides methods to control the display of references and format strings. <span class="badge badge--info">Added in 6.10</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Display Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_DisplayTool.alt(value, alternate)</code></td>
+<td><code>value</code> (Object), <code>alternate</code> (Object)</td>
+<td>Returns the value if not null, otherwise returns the alternate.</td>
+</tr>
+<tr>
+<td><code>$_DisplayTool.br(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Prepends newlines with <code>&lt;br/&gt;</code> tags.</td>
+</tr>
+<tr>
+<td><code>$_DisplayTool.capitalize(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Capitalizes the first letter of the string.</td>
+</tr>
+<tr>
+<td><code>$_DisplayTool.cell(text, length)</code></td>
+<td><code>text</code> (String), <code>length</code> (int)</td>
+<td>Truncates or pads the string to the given length.</td>
+</tr>
+<tr>
+<td><code>$_DisplayTool.list(list, separator)</code></td>
+<td><code>list</code> (Collection), <code>separator</code> (String)</td>
+<td>Joins the list items with the specified separator.</td>
+</tr>
+<tr>
+<td><code>$_DisplayTool.message(format, args)</code></td>
+<td><code>format</code> (String), <code>args</code> (Object...)</td>
+<td>Formats a message string with the specified values.</td>
+</tr>
+<tr>
+<td><code>$_DisplayTool.plural(count, singular, plural)</code></td>
+<td><code>count</code> (int), <code>singular</code> (String), <code>plural</code> (String)</td>
+<td>Returns the singular or plural form based on count.</td>
+</tr>
+<tr>
+<td><code>$_DisplayTool.space(count)</code></td>
+<td><code>count</code> (int)</td>
+<td>Generates the specified number of spaces.</td>
+</tr>
+<tr>
+<td><code>$_DisplayTool.stripTags(html)</code></td>
+<td><code>html</code> (String)</td>
+<td>Removes HTML tags from the string.</td>
+</tr>
+<tr>
+<td><code>$_DisplayTool.truncate(text, length)</code></td>
+<td><code>text</code> (String), <code>length</code> (int)</td>
+<td>Truncates the string to the specified length. Supports an optional suffix and word-boundary truncation.</td>
+</tr>
+<tr>
+<td><code>$_DisplayTool.uncapitalize(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Uncapitalizes the first letter of the string.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="EscapeTool">Escape Tool</h2>
+<p>The Escape Tool provides methods for escaping content for various output contexts and accessing special characters. <span class="badge badge--info">Added in 6.10</span></p>
+
+<h3 id="SpecialCharacters">Special characters</h3>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Escape Tool special character methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Alias</th>
+<th scope="col">Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_EscapeTool.getB()</code></td>
+<td><code>getBackslash()</code></td>
+<td><code>\</code></td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.getD()</code></td>
+<td><code>getDollar()</code></td>
+<td><code>$</code></td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.getE()</code></td>
+<td><code>getExclamation()</code></td>
+<td><code>!</code></td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.getH()</code></td>
+<td><code>getHash()</code></td>
+<td><code>#</code></td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.getN()</code></td>
+<td><code>getNewLine()</code></td>
+<td><code>\n</code></td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.getQ()</code></td>
+<td><code>getQuote()</code></td>
+<td><code>"</code></td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.getS()</code></td>
+<td><code>getSingleQuote()</code></td>
+<td><code>'</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="EscapeMethods">Escape methods</h3>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Escape and unescape methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_EscapeTool.html(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Escapes characters for safe use in HTML content.</td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.javascript(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Escapes characters for safe use in JavaScript strings.</td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.xml(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Escapes characters for safe use in XML content.</td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.url(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Encodes a string for use in a URL.</td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.unicode(hex)</code></td>
+<td><code>hex</code> (String)</td>
+<td>Converts a hex code to its Unicode character equivalent.</td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.unescapeHtml(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Unescapes HTML entities back to their original characters.</td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.unescapeJavaScript(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Unescapes JavaScript escape sequences.</td>
+</tr>
+<tr>
+<td><code>$_EscapeTool.unescapeXml(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Unescapes XML entities back to their original characters.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="FieldTool">Field Tool</h2>
+<p>The Field Tool provides access to Java public constant values via reflection. <span class="badge badge--info">Added in 7.0</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Field Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_FieldTool.in(className)</code></td>
+<td><code>className</code> (String or Class)</td>
+<td>Returns an object providing access to the class's public static variables.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Access the Integer.MAX_VALUE constant
+#set ($maxInt = $_FieldTool.in("java.lang.Integer").MAX_VALUE)</code></pre>
+</div>
+
+<h2 id="JsonTool">Json Tool</h2>
+<p>The Json Tool allows you to consume remote JSON resources and work with the resulting data in Velocity.</p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Json Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Return Type</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_JsonTool.fetch(url)</code></td>
+<td><code>url</code> (String)</td>
+<td>HashMap or ArrayList</td>
+<td>Fetches JSON from the given URL and returns it as a HashMap (for objects) or ArrayList (for arrays).</td>
+</tr>
+<tr>
+<td><code>$_JsonTool.fetchWithApiKey(url, key)</code></td>
+<td><code>url</code> (String), <code>key</code> (String)</td>
+<td>HashMap or ArrayList</td>
+<td>Fetches JSON from the given URL using the specified API key in the Authorization header.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Fetch a JSON API and iterate over results
+#set ($data = $_JsonTool.fetch("https://api.example.com/items"))
+#foreach ($item in $data)
+  &lt;p&gt;$item.get("name")&lt;/p&gt;
+#end</code></pre>
+</div>
+
+<h2 id="ListTool">List Tool</h2>
+<p>The List Tool performs common operations on lists and arrays.</p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>List Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_ListTool.removeNull(list, property)</code></td>
+<td><code>list</code> (List), <code>property</code> (String)</td>
+<td>Removes items from the list that do not have the specified property or have a null value for it.</td>
+</tr>
+<tr>
+<td><code>$_ListTool.reverse(list)</code></td>
+<td><code>list</code> (List)</td>
+<td>Returns the list in reverse order.</td>
+</tr>
+<tr>
+<td><code>$_ListTool.shuffle(list)</code></td>
+<td><code>list</code> (List)</td>
+<td>Returns the list in a randomized order.</td>
+</tr>
+<tr>
+<td><code>$_ListTool.toList(array)</code></td>
+<td><code>array</code> (Array)</td>
+<td>Converts an array to a list.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="MathTool">Math Tool</h2>
+<p>The Math Tool provides mathematical operations and number conversions. <span class="badge badge--info">Added in 6.10</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Math Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_MathTool.abs(n)</code></td>
+<td><code>n</code> (Number)</td>
+<td>Returns the absolute value.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.add(a, b)</code></td>
+<td><code>a</code> (Number), <code>b</code> (Number)</td>
+<td>Returns the sum of two numbers.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.ceil(n)</code></td>
+<td><code>n</code> (Number)</td>
+<td>Rounds up to the nearest integer.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.div(a, b)</code></td>
+<td><code>a</code> (Number), <code>b</code> (Number)</td>
+<td>Returns the result of division.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.floor(n)</code></td>
+<td><code>n</code> (Number)</td>
+<td>Rounds down to the nearest integer.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.getRandom()</code></td>
+<td>&mdash;</td>
+<td>Returns a random number between 0.0 and 1.0.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.idiv(a, b)</code></td>
+<td><code>a</code> (Number), <code>b</code> (Number)</td>
+<td>Returns the result of integer division.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.max(a, b)</code></td>
+<td><code>a</code> (Number), <code>b</code> (Number)</td>
+<td>Returns the greater of two numbers.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.min(a, b)</code></td>
+<td><code>a</code> (Number), <code>b</code> (Number)</td>
+<td>Returns the lesser of two numbers.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.mod(a, b)</code></td>
+<td><code>a</code> (Number), <code>b</code> (Number)</td>
+<td>Returns the modulus (remainder).</td>
+</tr>
+<tr>
+<td><code>$_MathTool.mul(a, b)</code></td>
+<td><code>a</code> (Number), <code>b</code> (Number)</td>
+<td>Returns the product of two numbers.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.pow(a, b)</code></td>
+<td><code>a</code> (Number), <code>b</code> (Number)</td>
+<td>Returns the first number raised to the power of the second.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.random(a, b)</code></td>
+<td><code>a</code> (Number), <code>b</code> (Number)</td>
+<td>Returns a random number between the two specified numbers.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.round(n)</code></td>
+<td><code>n</code> (Number)</td>
+<td>Rounds to the nearest integer.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.roundTo(places, n)</code></td>
+<td><code>places</code> (int), <code>n</code> (Number)</td>
+<td>Rounds to the specified number of decimal places.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.sub(a, b)</code></td>
+<td><code>a</code> (Number), <code>b</code> (Number)</td>
+<td>Returns the difference of two numbers.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.toDouble(n)</code></td>
+<td><code>n</code> (Object)</td>
+<td>Converts the value to a Double.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.toInteger(n)</code></td>
+<td><code>n</code> (Object)</td>
+<td>Converts the value to an Integer.</td>
+</tr>
+<tr>
+<td><code>$_MathTool.toNumber(n)</code></td>
+<td><code>n</code> (Object)</td>
+<td>Converts the value to a Number.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="NumberTool">Number Tool</h2>
+<p>The Number Tool formats numeric data for display. <span class="badge badge--info">Added in 6.10</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Number Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_NumberTool.currency(n)</code></td>
+<td><code>n</code> (Number)</td>
+<td>Formats the number as currency (e.g. <code>$1,234.56</code>).</td>
+</tr>
+<tr>
+<td><code>$_NumberTool.format(pattern, n)</code></td>
+<td><code>pattern</code> (String), <code>n</code> (Number)</td>
+<td>Formats the number using the specified pattern.</td>
+</tr>
+<tr>
+<td><code>$_NumberTool.integer(n)</code></td>
+<td><code>n</code> (Number)</td>
+<td>Formats the number as an integer.</td>
+</tr>
+<tr>
+<td><code>$_NumberTool.isNumeric(value)</code></td>
+<td><code>value</code> (Object)</td>
+<td>Returns true if the value can be parsed as a number.</td>
+</tr>
+<tr>
+<td><code>$_NumberTool.number(n)</code></td>
+<td><code>n</code> (Number)</td>
+<td>Formats as a number with grouping separators.</td>
+</tr>
+<tr>
+<td><code>$_NumberTool.percent(n)</code></td>
+<td><code>n</code> (Number)</td>
+<td>Formats the number as a percentage.</td>
+</tr>
+<tr>
+<td><code>$_NumberTool.toNumber(text)</code></td>
+<td><code>text</code> (String)</td>
+<td>Parses a formatted number string back into a Number object.</td>
+</tr>
+<tr>
+<td><code>$_NumberTool.withPadding(n, width)</code></td>
+<td><code>n</code> (Number), <code>width</code> (int)</td>
+<td>Pads the number with leading zeros to the specified width.</td>
+</tr>
+<tr>
+<td><code>$_NumberTool.sortable(n)</code></td>
+<td><code>n</code> (Number)</td>
+<td>Generates a string representation suitable for lexicographic sorting of numbers.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="PropertyTool">Property Tool</h2>
+<p>The Property Tool lets you inspect and evaluate object properties at runtime. <span class="badge badge--info">Added in 7.4</span></p>
+
+<h3 id="TypeChecking">Type checking</h3>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Property Tool type-checking methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_PropertyTool.isArray(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Returns true if the object is an array.</td>
+</tr>
+<tr>
+<td><code>$_PropertyTool.isIterable(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Returns true if the object is iterable.</td>
+</tr>
+<tr>
+<td><code>$_PropertyTool.isList(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Returns true if the object is a list.</td>
+</tr>
+<tr>
+<td><code>$_PropertyTool.isMap(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Returns true if the object is a map.</td>
+</tr>
+<tr>
+<td><code>$_PropertyTool.isSet(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Returns true if the object is a set.</td>
+</tr>
+<tr>
+<td><code>$_PropertyTool.isString(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Returns true if the object is a string.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="ValueChecking">Value checking</h3>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Property Tool value-checking methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_PropertyTool.isEmpty(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Returns true if the object is null, empty, or whitespace-only.</td>
+</tr>
+<tr>
+<td><code>$_PropertyTool.isNotEmpty(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Returns true if the object is not null or empty.</td>
+</tr>
+<tr>
+<td><code>$_PropertyTool.isNull(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Returns true if the object is null.</td>
+</tr>
+<tr>
+<td><code>$_PropertyTool.isNotNull(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Returns true if the object is not null.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="OutputMethods">Output methods</h3>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Property Tool output methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_PropertyTool.outputFirstNotEmpty(values)</code></td>
+<td><code>values</code> (Object...)</td>
+<td>Returns the first value that is not empty from the given arguments.</td>
+</tr>
+<tr>
+<td><code>$_PropertyTool.outputProperties(obj)</code></td>
+<td><code>obj</code> (Object)</td>
+<td>Lists all available properties and methods on the object. Useful for debugging.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="RegexTool">Regex Tool</h2>
+<p>The Regex Tool allows you to work with regular expressions in Velocity. <span class="badge badge--info">Added in 8.16</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Regex Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Return Type</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_RegexTool.compile(pattern)</code></td>
+<td><code>pattern</code> (String)</td>
+<td>Pattern</td>
+<td>Compiles a regular expression string into a Pattern object for matching and replacement operations.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Compile a regex and use it for matching
+#set ($pattern = $_RegexTool.compile("[0-9]+"))
+#set ($matcher = $pattern.matcher("Order 12345"))
+#if ($matcher.find())
+  Order number: $matcher.group()
+#end</code></pre>
+</div>
+
+<h2 id="SerializerTool">Serializer Tool</h2>
+<p>The Serializer Tool converts JDOM Elements to XML strings or JSON. <span class="badge badge--info">Added in 6.2</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Serializer Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Return Type</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_SerializerTool.serialize(element)</code></td>
+<td><code>element</code> (Element)</td>
+<td>String</td>
+<td>Converts a JDOM Element to an XML string.</td>
+</tr>
+<tr>
+<td><code>$_SerializerTool.toJson(input)</code></td>
+<td><code>input</code> (Element, String, or Map)</td>
+<td>String</td>
+<td>Converts an Element, XML string, or Map to a JSON string.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Convert the page's XML to a JSON string
+#set ($json = $_SerializerTool.toJson($contentRoot))
+&lt;script&gt;
+  var pageData = $json;
+&lt;/script&gt;</code></pre>
+</div>
+
+<h2 id="SortTool">Sort Tool</h2>
+<p>The Sort Tool sorts lists of JDOM Elements with support for multiple sort criteria. <span class="badge badge--info">Added in 6.2</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>Sort Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_SortTool.addSortCriterion(xpath, language, dataType, order, caseOrder)</code></td>
+<td><code>xpath</code> (String), <code>language</code> (String), <code>dataType</code> (String), <code>order</code> (String), <code>caseOrder</code> (String)</td>
+<td>Configures a sort criterion. <code>dataType</code> can be <code>text</code> or <code>number</code>. <code>order</code> can be <code>ascending</code> or <code>descending</code>. <code>caseOrder</code> can be <code>upper-first</code> or <code>lower-first</code>.</td>
+</tr>
+<tr>
+<td><code>$_SortTool.sort(list)</code></td>
+<td><code>list</code> (List)</td>
+<td>Returns the list sorted according to the configured criteria.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="StringTool">String Tool</h2>
+<p>The String Tool provides methods for finding and extracting content within strings. <span class="badge badge--info">Added in 6.2</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>String Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Return Type</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_StringTool.generateUUID()</code></td>
+<td>&mdash;</td>
+<td>String</td>
+<td>Generates a random UUID string.</td>
+</tr>
+<tr>
+<td><code>$_StringTool.getStringBuilder()</code></td>
+<td>&mdash;</td>
+<td>StringBuilder</td>
+<td>Returns a new StringBuilder instance for building strings efficiently.</td>
+</tr>
+<tr>
+<td><code>$_StringTool.substringAfter(text, needle)</code></td>
+<td><code>text</code> (String), <code>needle</code> (String)</td>
+<td>String</td>
+<td>Returns the portion of the string after the first occurrence of the needle.</td>
+</tr>
+<tr>
+<td><code>$_StringTool.substringBefore(text, needle)</code></td>
+<td><code>text</code> (String), <code>needle</code> (String)</td>
+<td>String</td>
+<td>Returns the portion of the string before the first occurrence of the needle.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="XPathTool">XPath Tool</h2>
+<p>The XPath Tool queries JDOM XML trees using XPath expressions. <span class="badge badge--info">Added in 6.2</span></p>
+<div class="table-wrapper">
+  <table class="table table--striped"><caption>XPath Tool methods.</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Parameters</th>
+<th scope="col">Return Type</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_XPathTool.selectNodes(xpath, element)</code></td>
+<td><code>xpath</code> (String), <code>element</code> (Element)</td>
+<td>List</td>
+<td>Returns a list of nodes matching the XPath expression.</td>
+</tr>
+<tr>
+<td><code>$_XPathTool.selectSingleNode(xpath, element)</code></td>
+<td><code>xpath</code> (String), <code>element</code> (Element)</td>
+<td>Object</td>
+<td>Returns the first node matching the XPath expression.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="code-block">
+  <div class="code-block__header">
+    <span class="code-block__language">Velocity</span>
+    <button class="code-block__copy" aria-label="Copy code">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__pre"><code class="language-velocity">## Select all "item" elements from the content XML
+#set ($items = $_XPathTool.selectNodes("//item", $contentRoot))
+#foreach ($item in $items)
+  &lt;p&gt;$item.getChildText("title")&lt;/p&gt;
+#end
+
+## Select a single element
+#set ($header = $_XPathTool.selectSingleNode("/system-data-structure/header", $contentRoot))
+$header.text</code></pre>
+</div>
+
+        </div>
+        <footer class="content__footer">
+  <div class="content__meta">
+    <span>Last updated: February 22, 2026</span>
+  </div>
+  <nav class="content__pagination" aria-label="Article navigation">
+
+    <a href="./date-tool-essentials.html" class="content__next"><span>Next</span><span>Date Tool Essentials</span></a>
+  </nav>
+</footer>
+      </article>
+    </main>
+
+    <aside class="toc" aria-label="Table of contents">
+      <div class="toc__sticky">
+        <h2 class="toc__title">ON THIS PAGE</h2>
+        <nav class="toc__nav"></nav>
+      </div>
+    </aside>
+
+    <button class="toc-toggle" aria-label="Table of contents" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+    </button>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <nav class="site-footer__primary" aria-label="Footer primary links">
+      <a class="site-footer__primary-link" href="https://www.hannonhill.com/cascadecms/latest/">Documentation Home</a>
+      <a class="site-footer__primary-link" href="https://www.hannonhill.com/cascadecms/latest/release-notes/index.html">Release Notes</a>
+      <a class="site-footer__primary-link" href="https://support.hannonhill.com/">Support</a>
+      <a class="site-footer__primary-link" href="https://www.hannonhill.com/cascadecms/latest/rss/index.html">RSS</a>
+    </nav>
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">All content &copy; 2026 Hannon Hill. All rights reserved.</p>
+      <nav class="site-footer__links" aria-label="Footer links">
+        <a class="site-footer__link" href="https://www.hannonhill.com/about-us">About Us</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/careers">Careers</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/compliance">Compliance</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/resources">Resources</a>
+        <a class="site-footer__link" href="https://hannonhill.ideas.aha.io/">Idea Portal</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/site-index">Site Index</a>
+        <a class="site-footer__link" href="https://github.com/hannonhill">Github</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/accessibility-policy">Accessibility</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/privacy-policy">Privacy Policy</a>
+        <a class="site-footer__link" href="https://www.hannonhill.com/legal">Legal</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+  <div class="search-overlay" role="dialog" aria-modal="true" aria-label="Search documentation" data-search-index="./search-index.json" hidden>
+    <div class="search-overlay__backdrop"></div>
+    <div class="search-overlay__dialog">
+      <div class="search-overlay__header">
+        <svg class="search-overlay__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="search" class="search-overlay__input" placeholder="Search documentation..." autocomplete="off">
+        <kbd class="search-overlay__shortcut">ESC</kbd>
+      </div>
+      <div class="search-overlay__live" role="status" aria-live="polite" aria-atomic="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;"></div>
+      <div class="search-overlay__results"><div class="search-overlay__empty">Start typing to search...</div></div>
+      <div class="search-overlay__footer"><span>Navigate with <kbd>&uarr;</kbd><kbd>&darr;</kbd></span><span>Open with <kbd>&crarr;</kbd></span></div>
+    </div>
+  </div>
+
+  <script src="./_assets/vendor/prism/prism.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-markup.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-css.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-javascript.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-java.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-python.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-json.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-bash.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-yaml.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-sql.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-markup-templating.min.js" defer></script>
+  <script src="./_assets/vendor/prism/prism-velocity.min.js" defer></script>
+  <script src="./_assets/vendor/lunr/lunr.min.js" defer></script>
+  <script src="./_assets/js/theme.js" defer></script>
+  <script src="./_assets/js/sidebar.js" defer></script>
+  <script src="./_assets/js/toc.js" defer></script>
+  <script src="./_assets/js/tabs.js" defer></script>
+  <script src="./_assets/js/accordion.js" defer></script>
+  <script src="./_assets/js/code-block.js" defer></script>
+  <script src="./_assets/js/search.js" defer></script>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
+</body>
+</html>

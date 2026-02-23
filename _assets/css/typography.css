@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content__body h2 {
-    font-size: var(--text-2xl);
+    font-size: var(--text-3xl);
     margin-top: var(--space-xl);
     margin-bottom: var(--space-md);
     padding-bottom: var(--space-sm);
@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 .content__body h3[id],
 .content__body h4[id] {
     /* scroll-margin-top: calc(var(--header-height) + var(--space-lg)); */
-    scroll-margin-top: calc(var(--header-height) + var(--space-sm));
+    scroll-margin-top: var(--header-height);
 }
 
 /* ── Page Title ── */
@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Body Text ── */
 .content__body p {
     margin-bottom: var(--space-lg);
-    line-height: var(--leading-relaxed);
+    line-height: var(--leading-normal);
 }
 
 .content__body strong {
@@ -182,7 +182,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .content__body li {
     margin-bottom: var(--space-sm);
-    line-height: var(--leading-relaxed);
+    line-height: var(--leading-tight);
 }
 
 .content__body li > ul,

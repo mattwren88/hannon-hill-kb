@@ -23,7 +23,8 @@
 .toc__link {
     display: block;
     padding: 4px 0 4px var(--space-md);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
+    font-weight: 600;
     color: var(--color-badge-text);
     line-height: var(--leading-normal);
     border-left: 2px solid transparent;
@@ -44,6 +45,7 @@
 .toc__link--h3 {
     padding-left: calc(var(--space-md) + var(--space-sm));
     font-size: var(--text-xs);
+    font-weight: 200;
 }
 
 /* ── Mobile TOC Dropdown ── */

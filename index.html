@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cascade CMS Knowledge Base</title>
-  <meta name="description" content="Entry page for the Hannon Hill KB project showcase and core script-format articles.">
+  <title>Knowledge Base — Cascade CMS Knowledge Base</title>
+  <meta name="description" content="The Cascade CMS Knowledge Base. Choose a category to get started or search for a topic.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
   <script>
   (function () {
     var pref = localStorage.getItem('theme-preference');
@@ -42,6 +42,18 @@
   <link rel="stylesheet" href="./_assets/vendor/prism/prism-theme.css">
   <link rel="stylesheet" href="./_assets/css/transitions.css">
   <link rel="stylesheet" href="./_assets/css/components/back-to-top.css">
+  <style>
+    .two-col-lists {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+    @media (max-width: 768px) {
+      .two-col-lists {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body id="top">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -83,18 +95,115 @@
   <div class="docs-layout docs-layout--two-column">
     <aside class="sidebar" aria-label="Documentation navigation">
       <nav class="sidebar__nav">
+
         <div class="sidebar__section">
-          <button class="sidebar__category" aria-expanded="true">
-            Current Pages
+          <button class="sidebar__category" aria-expanded="false">
+            Cascade Basics
             <svg class="sidebar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
           <ul class="sidebar__pages">
-            <li><a href="./component-showcase.html" class="sidebar__link">Component Showcase</a></li>
+            <li><a href="#" class="sidebar__link">Creating Content</a></li>
+            <li><a href="#" class="sidebar__link">Drafts and Working Copies</a></li>
+            <li><a href="#" class="sidebar__link">Search</a></li>
+            <li><a href="#" class="sidebar__link">Asset Types</a></li>
+            <li><a href="#" class="sidebar__link">Moving and Copying Assets</a></li>
+            <li><a href="#" class="sidebar__link">Trashing and Recycling</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar__section">
+          <button class="sidebar__category" aria-expanded="false">
+            Content Authoring
+            <svg class="sidebar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <ul class="sidebar__pages">
+            <li><a href="#" class="sidebar__link">WYSIWYG Editor</a></li>
+            <li><a href="#" class="sidebar__link">Tags</a></li>
+            <li><a href="#" class="sidebar__link">Publishing</a></li>
+            <li><a href="#" class="sidebar__link">Unpublishing</a></li>
+            <li><a href="#" class="sidebar__link">Scheduled Publishing</a></li>
+            <li><a href="#" class="sidebar__link">Metadata</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar__section">
+          <button class="sidebar__category" aria-expanded="false">
+            Design in Cascade
+            <svg class="sidebar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <ul class="sidebar__pages">
+            <li><a href="#" class="sidebar__link">Templates</a></li>
+            <li><a href="#" class="sidebar__link">Content Types</a></li>
+            <li><a href="#" class="sidebar__link">Data Definitions</a></li>
+            <li><a href="#" class="sidebar__link">Metadata Sets</a></li>
+            <li><a href="#" class="sidebar__link">Configuration Sets</a></li>
+            <li><a href="#" class="sidebar__link">Blocks</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar__section">
+          <button class="sidebar__category" aria-expanded="false">
+            Developing in Cascade
+            <svg class="sidebar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <ul class="sidebar__pages">
+            <li><a href="./velocity-tools.html" class="sidebar__link">Velocity Tools</a></li>
             <li><a href="./date-tool-essentials.html" class="sidebar__link">Date Tool Essentials</a></li>
             <li><a href="./query-tool-directives.html" class="sidebar__link">Query Tool Directives</a></li>
             <li><a href="./velocity-best-practices.html" class="sidebar__link">Velocity Best Practices</a></li>
+            <li><a href="#" class="sidebar__link">REST API</a></li>
+            <li><a href="#" class="sidebar__link">SOAP Web Services</a></li>
+            <li><a href="#" class="sidebar__link">Internal Cascade API</a></li>
           </ul>
         </div>
+
+        <div class="sidebar__section">
+          <button class="sidebar__category" aria-expanded="false">
+            Content Management
+            <svg class="sidebar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <ul class="sidebar__pages">
+            <li><a href="#" class="sidebar__link">Workflows</a></li>
+            <li><a href="#" class="sidebar__link">Reports</a></li>
+            <li><a href="#" class="sidebar__link">Content Inventory Report</a></li>
+            <li><a href="#" class="sidebar__link">Asset Factories</a></li>
+            <li><a href="#" class="sidebar__link">Recycle Bin</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar__section">
+          <button class="sidebar__category" aria-expanded="false">
+            Cascade Administration
+            <svg class="sidebar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <ul class="sidebar__pages">
+            <li><a href="#" class="sidebar__link">Sites</a></li>
+            <li><a href="#" class="sidebar__link">Users</a></li>
+            <li><a href="#" class="sidebar__link">Groups</a></li>
+            <li><a href="#" class="sidebar__link">Roles</a></li>
+            <li><a href="#" class="sidebar__link">Permissions</a></li>
+            <li><a href="#" class="sidebar__link">Connectors</a></li>
+            <li><a href="#" class="sidebar__link">Announcements</a></li>
+            <li><a href="#" class="sidebar__link">Snippets</a></li>
+            <li><a href="#" class="sidebar__link">LDAP/Active Directory</a></li>
+            <li><a href="#" class="sidebar__link">Authentication</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar__section">
+          <button class="sidebar__category" aria-expanded="false">
+            Resources
+            <svg class="sidebar__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <ul class="sidebar__pages">
+            <li><a href="#" class="sidebar__link">Release Notes</a></li>
+            <li><a href="#" class="sidebar__link">FAQs</a></li>
+            <li><a href="#" class="sidebar__link">Idea Portal</a></li>
+            <li><a href="#" class="sidebar__link">Site Index</a></li>
+            <li><a href="./component-showcase.html" class="sidebar__link">Component Showcase</a></li>
+          </ul>
+        </div>
+
       </nav>
     </aside>
 
@@ -102,40 +211,128 @@
       <article class="content">
         <header class="content__header">
           <span class="content__category-label">Knowledge Base</span>
-          <h1 class="content__title">Hannon Hill KB Project Home</h1>
-          <p class="content__description">Quick access to the component showcase and currently curated script-format articles.</p>
+          <h1 class="content__title">Welcome to the Cascade CMS Knowledge Base</h1>
+          <p class="content__description">Choose a category below to get started, or search for a topic using the search bar.</p>
         </header>
 
         <div class="content__body">
-          <div class="callout callout--info">
-            <div class="callout__icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+
+          <!-- 9-card category grid -->
+          <div class="card-grid card-grid--3col">
+
+            <a href="#" class="card card--link">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+              </div>
+              <h3 class="card__title">Cascade Basics</h3>
+              <p class="card__description">Learn the basics including how to create content, save drafts, and search the system.</p>
+            </a>
+
+            <a href="#" class="card card--link">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+              </div>
+              <h3 class="card__title">Content Authoring</h3>
+              <p class="card__description">Find information about creating and publishing assets here.</p>
+            </a>
+
+            <a href="#" class="card card--link">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+              </div>
+              <h3 class="card__title">Design in Cascade</h3>
+              <p class="card__description">Learn about Templates and Content Types that make up the design of a page.</p>
+            </a>
+
+            <a href="#" class="card card--link">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <h3 class="card__title">Developing in Cascade</h3>
+              <p class="card__description">Resources for writing Formats in Velocity, using the REST API, SOAP Web Services, and the internal Cascade API.</p>
+            </a>
+
+            <a href="#" class="card card--link">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </div>
+              <h3 class="card__title">Content Management</h3>
+              <p class="card__description">Ensure the quality of your content with Workflows, Reports, and more.</p>
+            </a>
+
+            <a href="#" class="card card--link">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"></path></svg>
+              </div>
+              <h3 class="card__title">Cascade Administration</h3>
+              <p class="card__description">Learn about Sites, Permissions, and integrating with third-party programs with Connectors.</p>
+            </a>
+
+            <a href="#" class="card card--link">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>
+              </div>
+              <h3 class="card__title">Idea Portal</h3>
+              <p class="card__description">Help us build the things you want! Submit ideas to the product team and give feedback on ideas in the works.</p>
+            </a>
+
+            <a href="#" class="card card--link">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+              </div>
+              <h3 class="card__title">Release Notes</h3>
+              <p class="card__description">Check out the improvements and fixes for each release of Cascade CMS and learn how to upgrade.</p>
+            </a>
+
+            <a href="#" class="card card--link">
+              <div class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              </div>
+              <h3 class="card__title">FAQs</h3>
+              <p class="card__description">Find answers to common questions and error messages from the Cascade CMS support team.</p>
+            </a>
+
+          </div>
+
+          <!-- Featured section -->
+          <hr>
+
+          <h2>Featured</h2>
+
+          <h3><a href="#">Announcements</a></h3>
+          <p>Announcements allow administrators to create and display messages to users working in the CMS.</p>
+
+          <h3><a href="#">Velocity Tools</a></h3>
+          <p>Cascade CMS's Velocity Tools are a collection of functions that can be used to retrieve and manipulate content in conjunction with Apache Velocity Template Language.</p>
+
+          <h3><a href="#">LDAP/Active Directory Authentication</a></h3>
+          <p>LDAP/Active Directory integration allows you to import and sync Users from an LDAP server, programmatically assign those Users to Groups and Roles, and specify how those Users authenticate when logging into Cascade CMS.</p>
+
+          <!-- Popular and New -->
+          <hr>
+
+          <div class="two-col-lists">
+            <div>
+              <h2>Popular</h2>
+              <ul>
+                <li><a href="#">Tags</a></li>
+                <li><a href="#">Velocity Tools</a></li>
+                <li><a href="#">Siteimprove Integration</a></li>
+                <li><a href="#">Workflows</a></li>
+              </ul>
             </div>
-            <div class="callout__content">
-              <p class="callout__title">Project Navigation</p>
-              <p>Use the cards below to jump directly to the four active pages in this repo.</p>
+            <div>
+              <h2>New</h2>
+              <ul>
+                <li><a href="./query-tool-directives.html">Query Tool Directives</a></li>
+                <li><a href="#">Snippets</a></li>
+                <li><a href="./date-tool-essentials.html">Date Tool Essentials</a></li>
+                <li><a href="#">Content Inventory Report</a></li>
+                <li><a href="#">The {auth} placeholder</a></li>
+              </ul>
             </div>
           </div>
 
-          <h2>Featured Pages</h2>
-          <div class="card-grid card-grid--2col">
-            <a href="./component-showcase.html" class="card card--link">
-              <h3 class="card__title">Component Showcase</h3>
-              <p class="card__description">Visual reference for all UI components and patterns.</p>
-            </a>
-            <a href="./date-tool-essentials.html" class="card card--link">
-              <h3 class="card__title">Date Tool Essentials</h3>
-              <p class="card__description">Date formatting, parsing, and comparison examples.</p>
-            </a>
-            <a href="./query-tool-directives.html" class="card card--link">
-              <h3 class="card__title">Query Tool Directives</h3>
-              <p class="card__description">Directive patterns and in-depth query examples.</p>
-            </a>
-            <a href="./velocity-best-practices.html" class="card card--link">
-              <h3 class="card__title">Velocity Best Practices</h3>
-              <p class="card__description">Performance and maintainability guidance for formats.</p>
-            </a>
-          </div>
         </div>
       </article>
     </main>
@@ -144,24 +341,24 @@
   <footer class="site-footer" role="contentinfo">
     <div class="site-footer__inner">
       <nav class="site-footer__primary" aria-label="Footer primary links">
-        <a class="site-footer__primary-link" href="https://www.hannonhill.com/cascadecms/latest/">Documentation Home</a>
-        <a class="site-footer__primary-link" href="https://www.hannonhill.com/cascadecms/latest/release-notes/index.html">Release Notes</a>
-        <a class="site-footer__primary-link" href="https://support.hannonhill.com/">Support</a>
-        <a class="site-footer__primary-link" href="https://www.hannonhill.com/cascadecms/latest/rss/index.html">RSS</a>
+        <a class="site-footer__primary-link" href="#">Documentation Home</a>
+        <a class="site-footer__primary-link" href="#">Release Notes</a>
+        <a class="site-footer__primary-link" href="https://help.hannonhill.com/hc/en-us">Support</a>
+        <a class="site-footer__primary-link" href="#">RSS</a>
       </nav>
       <div class="site-footer__bottom">
         <p class="site-footer__copyright">All content &copy; 2026 Hannon Hill. All rights reserved.</p>
         <nav class="site-footer__links" aria-label="Footer links">
-          <a class="site-footer__link" href="https://www.hannonhill.com/about-us">About Us</a>
-          <a class="site-footer__link" href="https://www.hannonhill.com/careers">Careers</a>
-          <a class="site-footer__link" href="https://www.hannonhill.com/compliance">Compliance</a>
-          <a class="site-footer__link" href="https://www.hannonhill.com/resources">Resources</a>
-          <a class="site-footer__link" href="https://hannonhill.ideas.aha.io/">Idea Portal</a>
-          <a class="site-footer__link" href="https://www.hannonhill.com/site-index">Site Index</a>
+          <a class="site-footer__link" href="https://www.hannonhill.com/about-us/about-hannon-hill.html">About Us</a>
+          <a class="site-footer__link" href="https://www.hannonhill.com/about-us/join-our-team/index.html">Careers</a>
+          <a class="site-footer__link" href="https://www.hannonhill.com/documents/index.html">Compliance</a>
+          <a class="site-footer__link" href="https://www.hannonhill.com/resources/index.html">Resources</a>
+          <a class="site-footer__link" href="https://portal.productboard.com/gp4tteft4txh4nde2tnnnybl">Idea Portal</a>
+          <a class="site-footer__link" href="#">Site Index</a>
           <a class="site-footer__link" href="https://github.com/hannonhill">Github</a>
-          <a class="site-footer__link" href="https://www.hannonhill.com/accessibility-policy">Accessibility</a>
-          <a class="site-footer__link" href="https://www.hannonhill.com/privacy-policy">Privacy Policy</a>
-          <a class="site-footer__link" href="https://www.hannonhill.com/legal">Legal</a>
+          <a class="site-footer__link" href="#">Accessibility</a>
+          <a class="site-footer__link" href="#">Privacy Policy</a>
+          <a class="site-footer__link" href="#">Legal</a>
         </nav>
       </div>
     </div>
