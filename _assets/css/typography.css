@@ -96,6 +96,43 @@ h1, h2, h3, h4, h5, h6 {
     scroll-margin-top: var(--header-height);
 }
 
+/* Heading anchor link icon */
+.heading-anchor {
+    display: inline-flex;
+    align-items: center;
+    margin-left: var(--space-sm);
+    color: var(--color-text-tertiary);
+    opacity: 0.2;
+    vertical-align: middle;
+    transition: opacity var(--transition-normal), color var(--transition-normal), transform var(--transition-normal);
+    border-bottom: none !important;
+}
+
+.content__body h2:hover .heading-anchor,
+.content__body h3:hover .heading-anchor {
+    opacity: 0.5;
+}
+
+.heading-anchor:hover {
+    opacity: 1;
+    color: var(--color-primary);
+    transform: scale(1.15);
+}
+
+.heading-anchor:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+    opacity: 1;
+    color: var(--color-primary);
+}
+
+.heading-anchor--copied {
+    opacity: 1;
+    color: var(--color-success, #16a34a);
+    transform: scale(1.15);
+}
+
 /* ── Page Title ── */
 .content__header {
     margin-bottom: var(--space-2xl);

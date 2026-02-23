@@ -464,6 +464,17 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/_assets\/js\/heading-anchor.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/_assets\/js\/heading-anchor-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/_assets\/js\/search.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -862,6 +873,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/query-tool-directives.html",
+      "oF" : 0
+    },
+    "\/README.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/README.html",
       "oF" : 0
     },
     "\/README.md" : {
