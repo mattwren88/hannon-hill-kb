@@ -11,20 +11,20 @@
     border-radius: var(--radius-lg);
 }
 
-.table {
+.hh-table {
     width: 100%;
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
 }
 
-.table th,
-.table td {
+.hh-table th,
+.hh-table td {
     padding: var(--space-sm) var(--space-md);
     text-align: left;
     vertical-align: top;
 }
 
-.table th {
+.hh-table th {
     font-family: var(--font-heading);
     font-weight: var(--weight-semibold);
     font-size: var(--text-xs);
@@ -36,41 +36,41 @@
     white-space: nowrap;
 }
 
-.table td {
+.hh-table td {
     border-bottom: 1px solid var(--color-border-light);
 }
 
-.table tbody tr:last-child td {
+.hh-table tbody tr:last-child td {
     border-bottom: none;
 }
 
 /* ── Striped ── */
-.table--striped tbody tr:nth-child(even) {
+.hh-table-striped tbody tr:nth-child(even) {
     background: var(--color-bg-secondary);
 }
 
 /* ── Bordered ── */
-.table--bordered th,
-.table--bordered td {
+.hh-table-bordered th,
+.hh-table-bordered td {
     border: 1px solid var(--color-border);
 }
 
 /* ── Hover ── */
-.table tbody tr {
+.hh-table tbody tr {
     transition: background var(--transition-fast);
 }
 
-.table tbody tr:hover {
+.hh-table tbody tr:hover {
     background: var(--color-bg-tertiary);
 }
 
 /* ── Inline code in tables ── */
-.table code {
+.hh-table code {
     font-size: 0.85em;
 }
 
 /* ── Content body tables (auto-styled) ── */
-.content__body table {
+.hh-content-body table {
     width: 100%;
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
@@ -78,15 +78,15 @@
     border-collapse: collapse;
 }
 
-.content__body table th,
-.content__body table td {
+.hh-content-body table th,
+.hh-content-body table td {
     padding: var(--space-sm) var(--space-md);
     text-align: left;
     vertical-align: top;
     border-bottom: 1px solid var(--color-border-light);
 }
 
-.content__body table th {
+.hh-content-body table th {
     font-weight: var(--weight-semibold);
     color: var(--color-heading);
     border-bottom: 2px solid var(--color-border);

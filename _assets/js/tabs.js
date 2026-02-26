@@ -6,13 +6,13 @@
 (function () {
     'use strict';
 
-    var tabContainers = document.querySelectorAll('.tabs, .code-block');
+    var tabContainers = document.querySelectorAll('.hh-tabs, .hh-code-block');
 
     tabContainers.forEach(function (container) {
-        var tablist = container.querySelector('[role="tablist"], .tabs__list, .code-block__tabs');
+        var tablist = container.querySelector('[role="tablist"], .hh-tabs-list, .hh-code-block-tabs');
         if (!tablist) return;
 
-        var tabs = tablist.querySelectorAll('[role="tab"], .tabs__tab, .code-block__tab');
+        var tabs = tablist.querySelectorAll('[role="tab"], .hh-tabs-tab, .hh-code-block-tab');
         if (tabs.length === 0) return;
 
         // Gather panels
@@ -23,7 +23,7 @@
             if (!panel) {
                 // Find panel by index if no aria-controls
                 var index = Array.prototype.indexOf.call(tabs, tab);
-                var allPanels = container.querySelectorAll('[role="tabpanel"], .tabs__panel, .code-block__panel');
+                var allPanels = container.querySelectorAll('[role="tabpanel"], .hh-tabs-panel, .hh-code-block-panel');
                 panel = allPanels[index] || null;
             }
             panels.push(panel);
@@ -33,14 +33,14 @@
             tabs.forEach(function (tab, i) {
                 var isActive = i === index;
                 tab.setAttribute('aria-selected', String(isActive));
-                tab.classList.toggle('tabs__tab--active', isActive);
-                tab.classList.toggle('code-block__tab--active', isActive);
+                tab.classList.toggle('hh-tabs-tab-active', isActive);
+                tab.classList.toggle('hh-code-block-tab-active', isActive);
                 tab.setAttribute('tabindex', isActive ? '0' : '-1');
 
                 if (panels[i]) {
                     panels[i].hidden = !isActive;
-                    panels[i].classList.toggle('tabs__panel--active', isActive);
-                    panels[i].classList.toggle('code-block__panel--active', isActive);
+                    panels[i].classList.toggle('hh-tabs-panel-active', isActive);
+                    panels[i].classList.toggle('hh-code-block-panel-active', isActive);
                 }
             });
         }

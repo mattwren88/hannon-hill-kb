@@ -6,8 +6,8 @@
     'use strict';
 
     var sidebar = document.querySelector('.sidebar');
-    var menuToggle = document.querySelector('.header__menu-toggle');
-    var overlay = document.querySelector('.sidebar-overlay');
+    var menuToggle = document.querySelector('.hh-header-menu-toggle');
+    var overlay = document.querySelector('.hh-sidebar-overlay');
 
     if (!sidebar) return;
 
@@ -46,12 +46,12 @@
     }
 
     // ── Category Expand/Collapse ──
-    var categories = sidebar.querySelectorAll('.sidebar__category');
-    categories.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            var expanded = btn.getAttribute('aria-expanded') === 'true';
-            btn.setAttribute('aria-expanded', String(!expanded));
-            var pages = btn.nextElementSibling;
+    var categories = sidebar.querySelectorAll('.hh-sidebar-category');
+    categories.forEach(function (hh-btn) {
+        hh-btn.addEventListener('click', function () {
+            var expanded = hh-btn.getAttribute('aria-expanded') === 'true';
+            hh-btn.setAttribute('aria-expanded', String(!expanded));
+            var pages = hh-btn.nextElementSibling;
             if (pages) {
                 if (expanded) collapsePages(pages);
                 else expandPages(pages);
@@ -61,16 +61,16 @@
 
     // ── Active Page Highlighting ──
     var currentPath = window.location.pathname;
-    var links = sidebar.querySelectorAll('.sidebar__link');
+    var links = sidebar.querySelectorAll('.hh-sidebar-link');
     links.forEach(function (link) {
         if (link.getAttribute('href') === currentPath || link.href === window.location.href) {
-            link.classList.add('sidebar__link--active');
+            link.classList.add('hh-sidebar-link-active');
             link.setAttribute('aria-current', 'page');
 
             // Expand parent category
-            var section = link.closest('.sidebar__section');
+            var section = link.closest('.hh-sidebar-section');
             if (section) {
-                var cat = section.querySelector('.sidebar__category');
+                var cat = section.querySelector('.hh-sidebar-category');
                 if (cat) {
                     cat.setAttribute('aria-expanded', 'true');
                     var pages = cat.nextElementSibling;
@@ -81,7 +81,7 @@
     });
 
     // Ensure expanded groups have natural height after initial paint.
-    var pageGroups = sidebar.querySelectorAll('.sidebar__pages');
+    var pageGroups = sidebar.querySelectorAll('.hh-sidebar-pages');
     pageGroups.forEach(function (pages) {
         if (!pages.hidden) {
             pages.style.maxHeight = '';
@@ -91,9 +91,9 @@
 
     // ── Mobile Drawer ──
     function openSidebar() {
-        sidebar.classList.add('sidebar--open');
+        sidebar.classList.add('hh-sidebar-open');
         if (overlay) {
-            overlay.classList.add('sidebar-overlay--visible');
+            overlay.classList.add('hh-sidebar-overlay-visible');
             overlay.style.display = 'block';
         }
         if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
@@ -102,9 +102,9 @@
     }
 
     function closeSidebar() {
-        sidebar.classList.remove('sidebar--open');
+        sidebar.classList.remove('hh-sidebar-open');
         if (overlay) {
-            overlay.classList.remove('sidebar-overlay--visible');
+            overlay.classList.remove('hh-sidebar-overlay-visible');
             setTimeout(function () { overlay.style.display = 'none'; }, 250);
         }
         if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
@@ -113,7 +113,7 @@
 
     if (menuToggle) {
         menuToggle.addEventListener('click', function () {
-            var isOpen = sidebar.classList.contains('sidebar--open');
+            var isOpen = sidebar.classList.contains('hh-sidebar-open');
             isOpen ? closeSidebar() : openSidebar();
         });
     }
@@ -123,7 +123,7 @@
     }
 
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && sidebar.classList.contains('sidebar--open')) {
+        if (e.key === 'Escape' && sidebar.classList.contains('hh-sidebar-open')) {
             closeSidebar();
             if (menuToggle) menuToggle.focus();
         }

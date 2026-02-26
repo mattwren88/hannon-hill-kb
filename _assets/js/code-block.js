@@ -15,10 +15,10 @@
     }
 
     function decorateCodeBlocks() {
-        var pres = document.querySelectorAll('.code-block__pre');
+        var pres = document.querySelectorAll('.hh-code-block-pre');
 
         pres.forEach(function (pre) {
-            if (pre.parentElement && pre.parentElement.classList.contains('code-block__body')) {
+            if (pre.parentElement && pre.parentElement.classList.contains('hh-code-block-body')) {
                 return;
             }
 
@@ -26,15 +26,15 @@
             var lineCount = countLinesFromCode(codeEl);
 
             var body = document.createElement('div');
-            body.className = 'code-block__body';
+            body.className = 'hh-code-block-body';
 
             var gutter = document.createElement('div');
-            gutter.className = 'code-block__gutter';
+            gutter.className = 'hh-code-block-gutter';
             gutter.setAttribute('aria-hidden', 'true');
 
             for (var i = 1; i <= lineCount; i += 1) {
                 var n = document.createElement('span');
-                n.className = 'code-block__line-number';
+                n.className = 'hh-code-block-line-number';
                 n.textContent = String(i);
                 gutter.appendChild(n);
             }
@@ -46,7 +46,7 @@
         });
     }
 
-    var copyButtons = document.querySelectorAll('.code-block__copy');
+    var copyButtons = document.querySelectorAll('.hh-code-block-copy');
 
     function createCopyIcon() {
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -95,13 +95,13 @@
 
     decorateCodeBlocks();
 
-    copyButtons.forEach(function (btn) {
+    copyButtons.forEach(function (hh-btn) {
         // Store original children
-        var originalChildren = Array.prototype.slice.call(btn.childNodes).map(function (n) { return n.cloneNode(true); });
+        var originalChildren = Array.prototype.slice.call(hh-btn.childNodes).map(function (n) { return n.cloneNode(true); });
 
-        btn.addEventListener('click', function () {
-            var block = btn.closest('.code-block');
-            var activePanel = block.querySelector('.code-block__panel--active') || block;
+        hh-btn.addEventListener('click', function () {
+            var block = hh-btn.closest('.hh-code-block');
+            var activePanel = block.querySelector('.hh-code-block-panel-active') || block;
             var codeEl = activePanel.querySelector('code');
 
             if (!codeEl) return;
@@ -123,21 +123,21 @@
             });
 
             function showCopied() {
-                btn.classList.add('code-block__copy--copied');
+                hh-btn.classList.add('hh-code-block-copy-copied');
 
                 // Replace content with check icon + "Copied!"
-                while (btn.firstChild) btn.removeChild(btn.firstChild);
-                btn.appendChild(createCheckIcon());
+                while (hh-btn.firstChild) hh-btn.removeChild(hh-btn.firstChild);
+                hh-btn.appendChild(createCheckIcon());
                 var span = document.createElement('span');
                 span.textContent = 'Copied!';
-                btn.appendChild(span);
+                hh-btn.appendChild(span);
 
                 setTimeout(function () {
-                    while (btn.firstChild) btn.removeChild(btn.firstChild);
+                    while (hh-btn.firstChild) hh-btn.removeChild(hh-btn.firstChild);
                     originalChildren.forEach(function (child) {
-                        btn.appendChild(child.cloneNode(true));
+                        hh-btn.appendChild(child.cloneNode(true));
                     });
-                    btn.classList.remove('code-block__copy--copied');
+                    hh-btn.classList.remove('hh-code-block-copy-copied');
                 }, 2000);
             }
         });

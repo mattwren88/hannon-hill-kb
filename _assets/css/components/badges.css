@@ -3,8 +3,8 @@
    Inline status labels for content metadata.
    ========================================================================== */
 
-.badge,
-.pill {
+.hh-badge,
+.hh-pill {
     display: inline-flex;
     align-items: center;
     gap: 0.35em;
@@ -21,38 +21,38 @@
     vertical-align: middle;
 }
 
-.badge--info,
-.pill--info {
+.hh-badge-info,
+.hh-pill-info {
     background: var(--color-badge-info-bg);
     color: var(--color-badge-info-text);
 }
 
-.badge--warning,
-.pill--warning {
+.hh-badge-warning,
+.hh-pill-warning {
     background: var(--color-badge-warning-bg);
     color: var(--color-badge-warning-text);
 }
 
-.badge--tip,
-.pill--tip {
+.hh-badge-tip,
+.hh-pill-tip {
     background: var(--color-badge-tip-bg);
     color: var(--color-badge-tip-text);
 }
 
-.badge--danger,
-.pill--danger {
+.hh-badge-danger,
+.hh-pill-danger {
     background: var(--color-badge-danger-bg);
     color: var(--color-badge-danger-text);
 }
 
-.badge--outline,
-.pill--outline {
+.hh-badge-outline,
+.hh-pill-outline {
     background: transparent;
 }
 
-.badge + .badge,
-.badge + .pill,
-.pill + .badge,
-.pill + .pill {
+.hh-badge + .hh-badge,
+.hh-badge + .hh-pill,
+.hh-pill + .hh-badge,
+.hh-pill + .hh-pill {
     margin-left: var(--space-xs);
 }

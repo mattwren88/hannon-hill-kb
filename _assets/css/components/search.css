@@ -3,7 +3,7 @@
    Cmd+K search modal with Lunr.js integration.
    ========================================================================== */
 
-.search-overlay {
+.hh-search-overlay {
     position: fixed;
     inset: 0;
     z-index: var(--z-search);
@@ -13,13 +13,13 @@
     padding-top: 15vh;
 }
 
-.search-overlay__backdrop {
+.hh-search-overlay-backdrop {
     position: absolute;
     inset: 0;
     background: var(--color-search-backdrop);
 }
 
-.search-overlay__dialog {
+.hh-search-overlay-dialog {
     position: relative;
     width: 100%;
     max-width: 580px;
@@ -35,7 +35,7 @@
 }
 
 /* ── Search Header ── */
-.search-overlay__header {
+.hh-search-overlay-header {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
@@ -43,14 +43,14 @@
     border-bottom: 1px solid var(--color-border);
 }
 
-.search-overlay__icon {
+.hh-search-overlay-icon {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
     color: var(--color-text-tertiary);
 }
 
-.search-overlay__input {
+.hh-search-overlay-input {
     flex: 1;
     border: none;
     outline: none;
@@ -59,17 +59,17 @@
     color: var(--color-text);
 }
 
-.search-overlay__input::placeholder {
+.hh-search-overlay-input::placeholder {
     color: var(--color-text-tertiary);
 }
 
-.search-overlay__input:focus-visible {
+.hh-search-overlay-input:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
     border-radius: var(--radius-sm);
 }
 
-.search-overlay__shortcut {
+.hh-search-overlay-shortcut {
     font-family: var(--font-body);
     font-size: var(--text-xs);
     padding: 2px 8px;
@@ -81,20 +81,20 @@
 }
 
 /* ── Search Results ── */
-.search-overlay__results {
+.hh-search-overlay-results {
     flex: 1;
     overflow-y: auto;
     padding: var(--space-sm);
 }
 
-.search-overlay__empty {
+.hh-search-overlay-empty {
     padding: var(--space-2xl) var(--space-lg);
     text-align: center;
     color: var(--color-text-tertiary);
     font-size: var(--text-sm);
 }
 
-.search-overlay__loading {
+.hh-search-overlay-loading {
     padding: var(--space-2xl) var(--space-lg);
     text-align: center;
     color: var(--color-text-tertiary);
@@ -102,7 +102,7 @@
 }
 
 /* ── Individual Result ── */
-.search-result {
+.hh-search-result {
     display: block;
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-md);
@@ -110,12 +110,12 @@
     text-decoration: none;
 }
 
-.search-result:hover,
-.search-result--highlighted {
+.hh-search-result:hover,
+.hh-search-result-highlighted {
     background: var(--color-search-result-hover);
 }
 
-.search-result__title {
+.hh-search-result-title {
     display: block;
     font-weight: var(--weight-medium);
     font-size: var(--text-sm);
@@ -123,21 +123,21 @@
     margin-bottom: 2px;
 }
 
-.search-result__category {
+.hh-search-result-category {
     display: block;
     font-size: var(--text-xs);
     color: var(--color-text-tertiary);
     margin-bottom: 2px;
 }
 
-.search-result__excerpt {
+.hh-search-result-excerpt {
     display: block;
     font-size: var(--text-xs);
     color: var(--color-text-secondary);
     line-height: var(--leading-normal);
 }
 
-.search-result__excerpt mark {
+.hh-search-result-excerpt mark {
     background: var(--color-search-highlight);
     color: var(--color-primary);
     border-radius: 2px;
@@ -145,7 +145,7 @@
 }
 
 /* ── Search Footer ── */
-.search-overlay__footer {
+.hh-search-overlay-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -155,7 +155,7 @@
     color: var(--color-text-tertiary);
 }
 
-.search-overlay__footer kbd {
+.hh-search-overlay-footer kbd {
     display: inline-block;
     padding: 1px 5px;
     margin: 0 2px;
@@ -167,11 +167,11 @@
 }
 
 @media (max-width: 767px) {
-    .search-overlay {
+    .hh-search-overlay {
         padding-top: var(--space-md);
     }
 
-    .search-overlay__dialog {
+    .hh-search-overlay-dialog {
         max-height: calc(100vh - var(--space-xl));
         border-radius: var(--radius-lg);
     }

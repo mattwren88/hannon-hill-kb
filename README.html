@@ -5,27 +5,22 @@
 </head>
 <body>
 
-<h1 id="hannonhillkbcomponentsystem">Hannon Hill KB (Component System)</h1>
+<h1 id="cascadecmsknowledgebase">Cascade CMS Knowledge Base</h1>
 
-<p>Local documentation site for Cascade CMS content, styled with a reusable component system.</p>
+<p>Documentation site for Cascade CMS, built with a hand-crafted component system using vanilla CSS, vanilla JavaScript, and static HTML.</p>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
 <ul>
-<li><a href="https://nodejs.org/">Node.js</a> (v18 or later)</li>
+<li><a href="https://nodejs.org/">Node.js</a> (v18+)</li>
 <li>npm (included with Node.js)</li>
 </ul>
 
 <h2 id="gettingstarted">Getting Started</h2>
 
-<pre><code class="bash"># Clone the repo
-git clone https://github.com/mattwren88/hannon-hill-kb.git
+<pre><code class="bash">git clone https://github.com/mattwren88/hannon-hill-kb.git
 cd hannon-hill-kb
-
-# Install dependencies
 npm install
-
-# Build the CSS bundle
 npm run build:css
 </code></pre>
 
@@ -35,16 +30,10 @@ npm run build:css
 
 <h3 id="cssbuild">CSS Build</h3>
 
-<p>All individual CSS files are bundled into a single <code>_assets/css/bundle.min.css</code> via <a href="https://postcss.org/">PostCSS</a>. The entry point is <code>_assets/css/main.css</code>, which imports every stylesheet in the correct load order.</p>
+<p>All source CSS files are bundled into <code>_assets/css/bundle.min.css</code> via <a href="https://postcss.org/">PostCSS</a>. The entry point is <code>_assets/css/main.css</code>, which imports every stylesheet in the correct load order.</p>
 
-<p><strong>Build once:</strong></p>
-
-<pre><code class="bash">npm run build:css
-</code></pre>
-
-<p><strong>Watch for changes</strong> (auto-rebuilds on save):</p>
-
-<pre><code class="bash">npm run watch:css
+<pre><code class="bash">npm run build:css       # Build once
+npm run watch:css       # Watch for changes (auto-rebuilds on save)
 </code></pre>
 
 <p>If you use VS Code, the watch task starts automatically when you open the project (configured in <code>.vscode/tasks.json</code>).</p>
@@ -59,7 +48,7 @@ npm run build:css
 
 <h3 id="postcssplugins">PostCSS Plugins</h3>
 
-<p>The PostCSS config lives in <code>config/postcss.config.js</code> and uses:</p>
+<p>Config: <code>config/postcss.config.js</code></p>
 
 <ul>
 <li><strong>postcss-import</strong> — resolves <code>@import</code> statements into a single file</li>
@@ -69,68 +58,296 @@ npm run build:css
 <h2 id="projectstructure">Project Structure</h2>
 
 <pre><code>cascadecms-docs/
-├── index.html                    Homepage
-├── velocity-tools.html           Article
-├── date-tool-essentials.html     Article
-├── query-tool-directives.html    Article
-├── velocity-best-practices.html  Article
-├── component-showcase.html       Visual design system reference
-├── search-index.json             Lunr.js search index
-├── package.json                  npm scripts and dependencies
+├── index.html                       Homepage
+├── velocity-tools.html              Article
+├── date-tool-essentials.html        Article
+├── query-tool-directives.html       Article
+├── velocity-best-practices.html     Article
+├── component-showcase.html          Visual design system reference
+├── search-index.json                Lunr.js pre-built search index
+├── package.json                     npm scripts and dependencies
 ├── config/
-│   └── postcss.config.js         PostCSS plugin configuration
+│   └── postcss.config.js            PostCSS plugin configuration
 ├── .vscode/
-│   └── tasks.json                VS Code auto-build task
+│   └── tasks.json                   VS Code auto-build task
+├── docs/
+│   └── plans/                       Design planning documents
 └── _assets/
-    ├── css/
-    │   ├── main.css              PostCSS entry (imports all stylesheets)
-    │   ├── bundle.min.css        Built output (do not edit)
-    │   ├── print.css             Print-only styles
-    │   ├── tokens.css            Design tokens (light/dark themes)
-    │   ├── reset.css / layout.css / typography.css
-    │   └── components/           Per-component stylesheets
-    ├── js/                       Behavior scripts
-    ├── vendor/                   Prism.js, Lunr.js
-    └── fonts/
-        ├── mononoki/             Monospace code font
-        └── plus-jakarta-sans/    Heading font (self-hosted)
+    ├── css/                         Stylesheets (source)
+    │   ├── main.css                 PostCSS entry point (imports all files)
+    │   ├── bundle.min.css           Built output — do not edit
+    │   ├── tokens.css               Design tokens (colors, spacing, typography, light/dark themes)
+    │   ├── reset.css                Minimal CSS reset (box-sizing, smooth scroll, antialiasing)
+    │   ├── layout.css               3-column grid, header, sidebar, TOC, responsive breakpoints
+    │   ├── typography.css           Headings, body text, links, lists, blockquotes, code, pagination
+    │   ├── utilities.css            Helpers: sr-only, text alignment, margins, display
+    │   ├── transitions.css          View Transitions API (page-to-page fade/slide)
+    │   ├── print.css                Print stylesheet (single column, expanded accordions)
+    │   └── components/              Per-component stylesheets (see below)
+    ├── js/                          Behavior scripts (see below)
+    ├── fonts/
+    │   ├── mononoki/                Monospace code font (SIL OFL)
+    │   └── plus-jakarta-sans/       Heading font (SIL OFL)
+    └── vendor/
+        ├── prism/                   Syntax highlighting (MIT)
+        ├── lunr/                    Full-text search (MIT)
+        └── NOTICES                  Third-party license attributions
 </code></pre>
+
+<h2 id="cssarchitecture">CSS Architecture</h2>
+
+<h3 id="designtokenstokens.css">Design Tokens (<code>tokens.css</code>)</h3>
+
+<p>All colors, spacing, typography, shadows, borders, and z-index values are defined as CSS custom properties on <code>:root</code>. Light and dark themes are handled via <code>html[data-theme=&quot;light&quot;]</code> and <code>html[data-theme=&quot;dark&quot;]</code> selectors. No hardcoded values in component files — everything references tokens.</p>
+
+<h3 id="namingconvention">Naming Convention</h3>
+
+<p>All classes use <strong>flat/kebab-case</strong> with an <code>hh-</code> namespace prefix on component names:</p>
+
+<pre><code>.hh-sidebar              Block (component root)
+.hh-sidebar-category     Element (child of block)
+.hh-card-active          Modifier (variant of block)
+</code></pre>
+
+<p>Utility classes (<code>.sr-only</code>, <code>.text-center</code>, <code>.mt-lg</code>, <code>.hidden</code>, <code>.flex</code>) are unprefixed.</p>
+
+<h3 id="componentstylesheets">Component Stylesheets</h3>
+
+<p>Each component has its own file in <code>_assets/css/components/</code>:</p>
+
+<table>
+<colgroup>
+<col />
+<col />
+<col />
+</colgroup>
+
+<thead>
+<tr>
+	<th> File </th>
+	<th> Component </th>
+	<th> Description </th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td> <code>accordion.css</code> </td>
+	<td> <code>hh-accordion</code> </td>
+	<td> Collapsible sections using native <code>&lt;details&gt;/&lt;summary&gt;</code> </td>
+</tr>
+<tr>
+	<td> <code>back-to-top.css</code> </td>
+	<td> <code>hh-back-to-top</code> </td>
+	<td> Scroll-driven reveal button (<code>animation-timeline: scroll()</code>) </td>
+</tr>
+<tr>
+	<td> <code>badges.css</code> </td>
+	<td> <code>hh-badge</code>, <code>hh-pill</code> </td>
+	<td> Inline status indicators with color variants </td>
+</tr>
+<tr>
+	<td> <code>breadcrumb.css</code> </td>
+	<td> <code>hh-breadcrumb</code> </td>
+	<td> Navigation breadcrumb trail </td>
+</tr>
+<tr>
+	<td> <code>buttons.css</code> </td>
+	<td> <code>hh-btn</code> </td>
+	<td> Button styles with info/warning/tip/danger variants </td>
+</tr>
+<tr>
+	<td> <code>callout.css</code> </td>
+	<td> <code>hh-callout</code> </td>
+	<td> Admonition boxes (info, warning, tip, danger) </td>
+</tr>
+<tr>
+	<td> <code>cards.css</code> </td>
+	<td> <code>hh-card</code>, <code>hh-card-grid</code> </td>
+	<td> Link cards with icons in 2/3-column grids </td>
+</tr>
+<tr>
+	<td> <code>code-block.css</code> </td>
+	<td> <code>hh-code-block</code> </td>
+	<td> Syntax-highlighted code with copy button, line numbers, tabs </td>
+</tr>
+<tr>
+	<td> <code>footer.css</code> </td>
+	<td> <code>hh-site-footer</code> </td>
+	<td> Site footer with social links and copyright </td>
+</tr>
+<tr>
+	<td> <code>search.css</code> </td>
+	<td> <code>hh-search-overlay</code> </td>
+	<td> Cmd+K search modal with result highlighting </td>
+</tr>
+<tr>
+	<td> <code>sidebar.css</code> </td>
+	<td> <code>hh-sidebar</code> </td>
+	<td> Collapsible navigation sidebar with active state </td>
+</tr>
+<tr>
+	<td> <code>steps.css</code> </td>
+	<td> <code>hh-steps</code> </td>
+	<td> Numbered step-by-step instructions </td>
+</tr>
+<tr>
+	<td> <code>table.css</code> </td>
+	<td> <code>hh-table</code> </td>
+	<td> Styled tables with striped/bordered variants </td>
+</tr>
+<tr>
+	<td> <code>tabs.css</code> </td>
+	<td> <code>hh-tabs</code> </td>
+	<td> Tab panels with keyboard navigation </td>
+</tr>
+<tr>
+	<td> <code>theme-toggle.css</code> </td>
+	<td> <code>hh-theme-toggle</code> </td>
+	<td> Light/dark/system theme dropdown </td>
+</tr>
+<tr>
+	<td> <code>toc.css</code> </td>
+	<td> <code>hh-toc</code> </td>
+	<td> Table of contents with scroll spy </td>
+</tr>
+<tr>
+	<td> <code>tooltip.css</code> </td>
+	<td> <code>hh-tooltip</code> </td>
+	<td> CSS-only tooltips via <code>data-tooltip</code> attribute </td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="javascript">JavaScript</h2>
+
+<p>All scripts are vanilla JS (no frameworks, no bundler). Each file is a self-contained IIFE.</p>
+
+<table>
+<colgroup>
+<col />
+<col />
+</colgroup>
+
+<thead>
+<tr>
+	<th> File </th>
+	<th> Purpose </th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td> <code>theme-init.js</code> </td>
+	<td> Inlined in <code>&lt;head&gt;</code> to prevent flash of unstyled content — reads theme from localStorage </td>
+</tr>
+<tr>
+	<td> <code>theme.js</code> </td>
+	<td> Theme toggle dropdown (light/dark/system) with localStorage persistence </td>
+</tr>
+<tr>
+	<td> <code>sidebar.js</code> </td>
+	<td> Sidebar category expand/collapse, mobile drawer with overlay and focus trap </td>
+</tr>
+<tr>
+	<td> <code>search.js</code> </td>
+	<td> Cmd+K/Ctrl+K search overlay with Lunr.js, debounced input, keyboard navigation </td>
+</tr>
+<tr>
+	<td> <code>toc.js</code> </td>
+	<td> Auto-generates table of contents from h2/h3 headings, IntersectionObserver scroll spy </td>
+</tr>
+<tr>
+	<td> <code>accordion.js</code> </td>
+	<td> Upgrades legacy accordion markup to native <code>&lt;details&gt;/&lt;summary&gt;</code> </td>
+</tr>
+<tr>
+	<td> <code>tabs.js</code> </td>
+	<td> Tab switching with arrow key navigation for both <code>hh-tabs</code> and <code>hh-code-block</code> tabs </td>
+</tr>
+<tr>
+	<td> <code>code-block.js</code> </td>
+	<td> Copy-to-clipboard button and line number generation </td>
+</tr>
+<tr>
+	<td> <code>heading-anchor.js</code> </td>
+	<td> Adds anchor links to headings with click-to-copy URL </td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="fonts">Fonts</h2>
+
+<p>Both fonts are self-hosted and licensed under the <a href="https://openfontlicense.org/">SIL Open Font License</a>:</p>
+
+<ul>
+<li><strong>Plus Jakarta Sans</strong> — Heading font (600–700 weight, WOFF2). Designed by Gumpita Rahayu / Tokotype.</li>
+<li><strong>Mononoki</strong> — Monospace code font (Regular, Italic, Bold, BoldItalic in OTF+TTF). Designed by Matthias Tellen.</li>
+</ul>
+
+<p>License files are included in each font directory.</p>
+
+<h2 id="vendorlibraries">Vendor Libraries</h2>
+
+<p>Bundled in <code>_assets/vendor/</code> with license attributions in <code>_assets/vendor/NOTICES</code>:</p>
+
+<ul>
+<li><strong><a href="https://prismjs.com/">Prism.js</a></strong> (MIT) — Syntax highlighting for Velocity, Java, JavaScript, CSS, HTML, Python, JSON, Bash, YAML, SQL, XML, PHP</li>
+<li><strong><a href="https://lunrjs.com/">Lunr.js</a></strong> (MIT) — Client-side full-text search. Index data lives in <code>search-index.json</code>.</li>
+</ul>
 
 <h2 id="pages">Pages</h2>
 
-<p>Local paths:</p>
+<table>
+<colgroup>
+<col />
+<col />
+<col />
+</colgroup>
 
-<ul>
-<li>Homepage: <code>index.html</code></li>
-<li>Velocity Tools: <code>velocity-tools.html</code></li>
-<li>Date Tool Essentials: <code>date-tool-essentials.html</code></li>
-<li>Query Tool Directives: <code>query-tool-directives.html</code></li>
-<li>Velocity Best Practices: <code>velocity-best-practices.html</code></li>
-<li>Showcase: <code>component-showcase.html</code></li>
-</ul>
+<thead>
+<tr>
+	<th> Page </th>
+	<th> Local Path </th>
+	<th> Description </th>
+</tr>
+</thead>
 
-<p>Published URLs:</p>
+<tbody>
+<tr>
+	<td> Homepage </td>
+	<td> <code>index.html</code> </td>
+	<td> Category cards, featured articles, popular/new lists </td>
+</tr>
+<tr>
+	<td> Velocity Tools </td>
+	<td> <code>velocity-tools.html</code> </td>
+	<td> Velocity tool reference for Cascade CMS </td>
+</tr>
+<tr>
+	<td> Date Tool Essentials </td>
+	<td> <code>date-tool-essentials.html</code> </td>
+	<td> DateTool formatting guide </td>
+</tr>
+<tr>
+	<td> Query Tool Directives </td>
+	<td> <code>query-tool-directives.html</code> </td>
+	<td> QueryTool directive reference </td>
+</tr>
+<tr>
+	<td> Velocity Best Practices </td>
+	<td> <code>velocity-best-practices.html</code> </td>
+	<td> Coding standards and patterns </td>
+</tr>
+<tr>
+	<td> Component Showcase </td>
+	<td> <code>component-showcase.html</code> </td>
+	<td> Visual reference for every component in the design system </td>
+</tr>
+</tbody>
+</table>
 
-<ul>
-<li><a href="https://mattwren88.github.io/hannon-hill-kb/">Homepage</a></li>
-<li><a href="https://mattwren88.github.io/hannon-hill-kb/velocity-tools.html">Velocity Tools</a></li>
-<li><a href="https://mattwren88.github.io/hannon-hill-kb/date-tool-essentials.html">Date Tool Essentials</a></li>
-<li><a href="https://mattwren88.github.io/hannon-hill-kb/query-tool-directives.html">Query Tool Directives</a></li>
-<li><a href="https://mattwren88.github.io/hannon-hill-kb/velocity-best-practices.html">Velocity Best Practices</a></li>
-<li><a href="https://mattwren88.github.io/hannon-hill-kb/component-showcase.html">Component Showcase</a></li>
-</ul>
-
-<h2 id="designsystem">Design System</h2>
-
-<p>Core tokens: <code>_assets/css/tokens.css</code></p>
-
-<p>Shared layout: <code>reset.css</code>, <code>layout.css</code>, <code>typography.css</code></p>
-
-<p>Component styles cover: sidebar, breadcrumb, TOC, cards, callouts, accordions, tabs, steps, tables, code blocks, tooltips, badges, buttons, theme toggle, search overlay, footer.</p>
-
-<p>Component behaviors: sidebar mobile drawer, theme persistence (light/dark/system), search overlay, TOC generation, accordion, code-block copy/line-numbers, tab switching.</p>
-
-<p>Use <code>component-showcase.html</code> as the canonical visual reference.</p>
+<p>Published: <a href="https://mattwren88.github.io/hannon-hill-kb/">mattwren88.github.io/hannon-hill-kb</a></p>
 
 <h2 id="gitremote">Git Remote</h2>
 

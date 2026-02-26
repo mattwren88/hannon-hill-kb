@@ -6,14 +6,14 @@
 (function () {
     'use strict';
 
-    var overlay = document.querySelector('.search-overlay');
-    var triggers = document.querySelectorAll('.header__search-trigger');
+    var overlay = document.querySelector('.hh-search-overlay');
+    var triggers = document.querySelectorAll('.hh-header-search-trigger');
     if (!overlay) return;
 
-    var input = overlay.querySelector('.search-overlay__input');
-    var results = overlay.querySelector('.search-overlay__results');
-    var backdrop = overlay.querySelector('.search-overlay__backdrop');
-    var liveRegion = overlay.querySelector('.search-overlay__live');
+    var input = overlay.querySelector('.hh-search-overlay-input');
+    var results = overlay.querySelector('.hh-search-overlay-results');
+    var backdrop = overlay.querySelector('.hh-search-overlay-backdrop');
+    var liveRegion = overlay.querySelector('.hh-search-overlay-live');
 
     var searchIndex = null;
     var searchData = null;
@@ -84,7 +84,7 @@
         document.body.style.overflow = 'hidden';
         input.value = '';
         clearElement(results);
-        results.appendChild(createMessage('Start typing to search...', 'search-overlay__empty'));
+        results.appendChild(createMessage('Start typing to search...', 'hh-search-overlay-empty'));
         highlightedIndex = -1;
 
         requestAnimationFrame(function () {
@@ -115,8 +115,8 @@
         }
     });
 
-    triggers.forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
+    triggers.forEach(function (hh-btn) {
+        hh-btn.addEventListener('click', function (e) {
             e.preventDefault();
             openSearch();
         });
@@ -132,7 +132,7 @@
         isLoading = true;
 
         clearElement(results);
-        results.appendChild(createMessage('Loading search index...', 'search-overlay__loading'));
+        results.appendChild(createMessage('Loading search index...', 'hh-search-overlay-loading'));
 
         var indexUrl = overlay.getAttribute('data-search-index') || 'search-index.json';
         fetch(indexUrl)
@@ -151,7 +151,7 @@
                 });
                 isLoading = false;
                 clearElement(results);
-                results.appendChild(createMessage('Start typing to search...', 'search-overlay__empty'));
+                results.appendChild(createMessage('Start typing to search...', 'hh-search-overlay-empty'));
                 if (liveRegion) liveRegion.textContent = '';
 
                 if (input.value.trim()) {
@@ -161,7 +161,7 @@
             .catch(function () {
                 isLoading = false;
                 clearElement(results);
-                results.appendChild(createMessage('Could not load search index.', 'search-overlay__empty'));
+                results.appendChild(createMessage('Could not load search index.', 'hh-search-overlay-empty'));
             });
     }
 
@@ -169,7 +169,7 @@
     function performSearch(query) {
         if (!searchIndex || !query) {
             clearElement(results);
-            results.appendChild(createMessage('Start typing to search...', 'search-overlay__empty'));
+            results.appendChild(createMessage('Start typing to search...', 'hh-search-overlay-empty'));
             highlightedIndex = -1;
             return;
         }
@@ -188,7 +188,7 @@
         clearElement(results);
 
         if (matches.length === 0) {
-            results.appendChild(createMessage('No results found for \u201c' + query + '\u201d', 'search-overlay__empty'));
+            results.appendChild(createMessage('No results found for \u201c' + query + '\u201d', 'hh-search-overlay-empty'));
             if (liveRegion) liveRegion.textContent = 'No results found';
             highlightedIndex = -1;
             return;
@@ -201,15 +201,15 @@
 
             var link = document.createElement('a');
             link.href = doc.url;
-            link.className = 'search-result' + (i === 0 ? ' search-result--highlighted' : '');
+            link.className = 'hh-search-result' + (i === 0 ? ' hh-search-result-highlighted' : '');
             link.setAttribute('data-index', String(i));
 
             var title = document.createElement('span');
-            title.className = 'search-result__title';
+            title.className = 'hh-search-result-title';
             title.appendChild(highlightTextNode(doc.title, query));
 
             var category = document.createElement('span');
-            category.className = 'search-result__category';
+            category.className = 'hh-search-result-category';
             category.textContent = doc.category;
 
             link.appendChild(title);
@@ -218,7 +218,7 @@
             var excerptParts = getExcerptParts(doc.body, query);
             if (excerptParts) {
                 var excerpt = document.createElement('span');
-                excerpt.className = 'search-result__excerpt';
+                excerpt.className = 'hh-search-result-excerpt';
                 if (excerptParts.prefix) {
                     excerpt.appendChild(document.createTextNode(excerptParts.prefix));
                 }
@@ -246,7 +246,7 @@
 
     // ── Keyboard Navigation ──
     overlay.addEventListener('keydown', function (e) {
-        var items = results.querySelectorAll('.search-result');
+        var items = results.querySelectorAll('.hh-search-result');
         if (items.length === 0) return;
 
         if (e.key === 'ArrowDown') {
@@ -267,7 +267,7 @@
 
     function updateHighlight(items) {
         items.forEach(function (item, i) {
-            item.classList.toggle('search-result--highlighted', i === highlightedIndex);
+            item.classList.toggle('hh-search-result-highlighted', i === highlightedIndex);
         });
         if (items[highlightedIndex]) {
             items[highlightedIndex].scrollIntoView({ block: 'nearest' });

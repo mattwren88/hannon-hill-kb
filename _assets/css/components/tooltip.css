@@ -1,24 +1,24 @@
 /* ==========================================================================
    Tooltip — Cascade CMS Knowledge Base
-   CSS-only tooltip pattern with keyboard support.
+   CSS-only hh-tooltip pattern with keyboard support.
    ========================================================================== */
 
-.tooltip {
+.hh-tooltip {
     position: relative;
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
 }
 
-.tooltip [data-tooltip],
-.tooltip__trigger {
+.hh-tooltip [data-tooltip],
+.hh-tooltip-trigger {
     cursor: help;
 }
 
-.tooltip [data-tooltip]::after,
-.tooltip [data-tooltip]::before,
-.tooltip__trigger::after,
-.tooltip__trigger::before {
+.hh-tooltip [data-tooltip]::after,
+.hh-tooltip [data-tooltip]::before,
+.hh-tooltip-trigger::after,
+.hh-tooltip-trigger::before {
     position: absolute;
     left: 50%;
     opacity: 0;
@@ -26,8 +26,8 @@
     transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
-.tooltip [data-tooltip]::after,
-.tooltip__trigger::after {
+.hh-tooltip [data-tooltip]::after,
+.hh-tooltip-trigger::after {
     content: attr(data-tooltip);
     bottom: calc(100% + 11px);
     transform: translate(-50%, 4px);
@@ -45,8 +45,8 @@
     z-index: var(--z-overlay);
 }
 
-.tooltip [data-tooltip]::before,
-.tooltip__trigger::before {
+.hh-tooltip [data-tooltip]::before,
+.hh-tooltip-trigger::before {
     content: "";
     bottom: calc(100% + 5px);
     transform: translateX(-50%);
@@ -55,29 +55,29 @@
     z-index: var(--z-overlay);
 }
 
-.tooltip [data-tooltip]:hover::after,
-.tooltip [data-tooltip]:hover::before,
-.tooltip [data-tooltip]:focus-visible::after,
-.tooltip [data-tooltip]:focus-visible::before,
-.tooltip__trigger:hover::after,
-.tooltip__trigger:hover::before,
-.tooltip__trigger:focus-visible::after,
-.tooltip__trigger:focus-visible::before {
+.hh-tooltip [data-tooltip]:hover::after,
+.hh-tooltip [data-tooltip]:hover::before,
+.hh-tooltip [data-tooltip]:focus-visible::after,
+.hh-tooltip [data-tooltip]:focus-visible::before,
+.hh-tooltip-trigger:hover::after,
+.hh-tooltip-trigger:hover::before,
+.hh-tooltip-trigger:focus-visible::after,
+.hh-tooltip-trigger:focus-visible::before {
     opacity: 1;
 }
 
-.tooltip [data-tooltip]:hover::after,
-.tooltip [data-tooltip]:focus-visible::after,
-.tooltip__trigger:hover::after,
-.tooltip__trigger:focus-visible::after {
+.hh-tooltip [data-tooltip]:hover::after,
+.hh-tooltip [data-tooltip]:focus-visible::after,
+.hh-tooltip-trigger:hover::after,
+.hh-tooltip-trigger:focus-visible::after {
     transform: translate(-50%, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .tooltip [data-tooltip]::after,
-    .tooltip [data-tooltip]::before,
-    .tooltip__trigger::after,
-    .tooltip__trigger::before {
+    .hh-tooltip [data-tooltip]::after,
+    .hh-tooltip [data-tooltip]::before,
+    .hh-tooltip-trigger::after,
+    .hh-tooltip-trigger::before {
         transition: none;
     }
 }

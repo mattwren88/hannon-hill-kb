@@ -5,12 +5,12 @@
 (function () {
     'use strict';
 
-    var toggle = document.querySelector('.theme-toggle');
+    var toggle = document.querySelector('.hh-theme-toggle');
     if (!toggle) return;
 
-    var button = toggle.querySelector('.theme-toggle__button');
-    var dropdown = toggle.querySelector('.theme-toggle__dropdown');
-    var options = toggle.querySelectorAll('.theme-toggle__option');
+    var button = toggle.querySelector('.hh-theme-toggle-button');
+    var dropdown = toggle.querySelector('.hh-theme-toggle-dropdown');
+    var options = toggle.querySelectorAll('.hh-theme-toggle-option');
     var html = document.documentElement;
     var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -22,10 +22,10 @@
         var theme;
         if (preference === 'system') {
             theme = mediaQuery.matches ? 'dark' : 'light';
-            toggle.classList.add('theme-toggle--system');
+            toggle.classList.add('hh-theme-toggle-system');
         } else {
             theme = preference;
-            toggle.classList.remove('theme-toggle--system');
+            toggle.classList.remove('hh-theme-toggle-system');
         }
         html.setAttribute('data-theme', theme);
         localStorage.setItem('theme-preference', preference);
@@ -33,8 +33,8 @@
         // Update active state on options
         options.forEach(function (opt) {
             var isActive = opt.getAttribute('data-theme') === preference;
-            opt.classList.toggle('theme-toggle__option--active', isActive);
-            var check = opt.querySelector('.theme-toggle__check');
+            opt.classList.toggle('hh-theme-toggle-option-active', isActive);
+            var check = opt.querySelector('.hh-theme-toggle-check');
             if (check) {
                 check.style.display = isActive ? '' : 'none';
             }

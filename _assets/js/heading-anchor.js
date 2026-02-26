@@ -6,7 +6,7 @@
 (function () {
     'use strict';
 
-    var contentBody = document.querySelector('.content__body');
+    var contentBody = document.querySelector('.hh-content-body');
     if (!contentBody) return;
 
     var SVG_NS = 'http://www.w3.org/2000/svg';
@@ -34,27 +34,27 @@
         return svg;
     }
 
-    function showCopied(btn) {
-        btn.classList.add('heading-anchor--copied');
+    function showCopied(hh-btn) {
+        hh-btn.classList.add('hh-heading-anchor-copied');
         setTimeout(function () {
-            btn.classList.remove('heading-anchor--copied');
+            hh-btn.classList.remove('hh-heading-anchor-copied');
         }, 1500);
     }
 
     headings.forEach(function (heading) {
-        var btn = document.createElement('a');
-        btn.href = '#' + heading.id;
-        btn.className = 'heading-anchor';
-        btn.setAttribute('aria-label', 'Copy link to ' + heading.textContent.trim());
-        btn.appendChild(createLinkIcon());
+        var hh-btn = document.createElement('a');
+        hh-btn.href = '#' + heading.id;
+        hh-btn.className = 'hh-heading-anchor';
+        hh-btn.setAttribute('aria-label', 'Copy link to ' + heading.textContent.trim());
+        hh-btn.appendChild(createLinkIcon());
 
-        btn.addEventListener('click', function (e) {
+        hh-btn.addEventListener('click', function (e) {
             e.preventDefault();
             var url = location.origin + location.pathname + '#' + heading.id;
 
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(url).then(function () {
-                    showCopied(btn);
+                    showCopied(hh-btn);
                 });
             } else {
                 var tmp = document.createElement('input');
@@ -63,12 +63,12 @@
                 tmp.select();
                 document.execCommand('copy');
                 document.body.removeChild(tmp);
-                showCopied(btn);
+                showCopied(hh-btn);
             }
 
             history.replaceState(null, '', '#' + heading.id);
         });
 
-        heading.appendChild(btn);
+        heading.appendChild(hh-btn);
     });
 })();

@@ -3,12 +3,12 @@
    Step-by-step guides with numbered badges and connecting lines.
    ========================================================================== */
 
-.steps {
+.hh-steps {
     margin: var(--space-xl) 0;
     padding-left: 0;
 }
 
-.steps__item {
+.hh-steps-item {
     display: grid;
     grid-template-columns: 32px 1fr;
     gap: var(--space-md);
@@ -16,12 +16,12 @@
     padding-bottom: var(--space-xl);
 }
 
-.steps__item:last-child {
+.hh-steps-item:last-child {
     padding-bottom: 0;
 }
 
 /* Connecting line */
-.steps__item:not(:last-child)::before {
+.hh-steps-item:not(:last-child)::before {
     content: '';
     position: absolute;
     left: 15px;
@@ -33,7 +33,7 @@
 }
 
 /* ── Step Number Badge ── */
-.steps__number {
+.hh-steps-number {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,11 +51,11 @@
 }
 
 /* ── Step Content ── */
-.steps__content {
+.hh-steps-content {
     padding-top: 4px;
 }
 
-.steps__title {
+.hh-steps-title {
     font-family: var(--font-heading);
     font-size: var(--text-lg);
     font-weight: var(--weight-semibold);
@@ -64,19 +64,19 @@
     line-height: var(--leading-tight);
 }
 
-.steps__description {
+.hh-steps-description {
     font-size: var(--text-base);
     color: var(--color-text-secondary);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-md);
 }
 
-.steps__description:last-child {
+.hh-steps-description:last-child {
     margin-bottom: 0;
 }
 
-/* Code blocks inside steps */
-.steps__content .code-block {
+/* Code blocks inside hh-steps */
+.hh-steps-content .hh-code-block {
     margin-top: var(--space-sm);
     margin-bottom: 0;
 }

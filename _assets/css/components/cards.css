@@ -1,40 +1,40 @@
 /* ==========================================================================
    Cards — Cascade CMS Knowledge Base
-   Feature cards and link cards with icons, inspired by Claude/Anthropic docs.
+   Feature cards and link cards with icons.
    Supports: card grids (2-col, 3-col), full-width highlight cards,
    active/selected state, and responsive stacking.
    ========================================================================== */
 
 /* ── Card Grid Container ── */
-.card-grid {
+.hh-card-grid {
     display: grid;
     gap: var(--space-lg);
     margin: var(--space-xl) 0;
 }
 
-.card-grid--2col {
+.hh-card-grid-2col {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.card-grid--3col {
+.hh-card-grid-3col {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 @media (max-width: 768px) {
-    .card-grid--2col,
-    .card-grid--3col {
+    .hh-card-grid-2col,
+    .hh-card-grid-3col {
         grid-template-columns: 1fr;
     }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .card-grid--3col {
+    .hh-card-grid-3col {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 /* ── Base Card ── */
-.card {
+.hh-card {
     display: block;
     background: var(--color-card-bg);
     border: 1px solid var(--color-card-border);
@@ -48,25 +48,25 @@
         transform var(--transition-fast);
 }
 
-.card:hover {
+.hh-card:hover {
     border-color: var(--color-card-hover-border);
     box-shadow: var(--color-card-hover-shadow);
     transform: translateY(-1px);
 }
 
-.card:focus-visible {
+.hh-card:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
-/* Active / selected state (like Claude's blue-bordered card) */
-.card--active {
+/* Active / selected state */
+.hh-card-active {
     border-color: var(--color-card-active-border);
     box-shadow: var(--color-card-active-shadow);
 }
 
 /* ── Card Icon ── */
-.card__icon {
+.hh-card-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,7 +76,7 @@
     color: var(--color-card-icon);
 }
 
-.card__icon svg {
+.hh-card-icon svg {
     width: 24px;
     height: 24px;
     stroke: currentColor;
@@ -87,7 +87,7 @@
 }
 
 /* ── Card Content ── */
-.card__title {
+.hh-card-title {
     font-family: var(--font-heading);
     font-size: var(--text-lg);
     font-weight: var(--weight-semibold);
@@ -96,7 +96,7 @@
     line-height: var(--leading-tight);
 }
 
-.card__description {
+.hh-card-description {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     line-height: var(--leading-normal);
@@ -104,44 +104,44 @@
 }
 
 /* ── Full-width Highlight Card ── */
-.card--highlight {
+.hh-card-highlight {
     padding: var(--space-xl);
 }
 
-.card--highlight .card__title {
+.hh-card-highlight .hh-card-title {
     font-size: var(--text-xl);
 }
 
-.card--highlight .card__description {
+.hh-card-highlight .hh-card-description {
     font-size: var(--text-base);
 }
 
 /* ── Compact variant (tighter padding, smaller icon) ── */
-.card--compact {
+.hh-card-compact {
     padding: var(--space-md);
 }
 
-.card--compact .card__icon {
+.hh-card-compact .hh-card-icon {
     width: 32px;
     height: 32px;
     margin-bottom: var(--space-sm);
 }
 
-.card--compact .card__icon svg {
+.hh-card-compact .hh-card-icon svg {
     width: 20px;
     height: 20px;
 }
 
-.card--compact .card__title {
+.hh-card-compact .hh-card-title {
     font-size: var(--text-base);
 }
 
-.card--compact .card__description {
+.hh-card-compact .hh-card-description {
     font-size: var(--text-sm);
 }
 
 /* ── Section Header (optional, for card grid sections) ── */
-.card-section__heading {
+.hh-card-section-heading {
     font-family: var(--font-heading);
     font-size: var(--text-2xl);
     font-weight: var(--weight-semibold);

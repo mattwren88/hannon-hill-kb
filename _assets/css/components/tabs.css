@@ -3,7 +3,7 @@
    Tab switcher for content variants (OS-specific, etc.)
    ========================================================================== */
 
-.tabs {
+.hh-tabs {
     margin: var(--space-lg) 0;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
@@ -11,7 +11,7 @@
 }
 
 /* ── Tab List ── */
-.tabs__list {
+.hh-tabs-list {
     display: flex;
     border-bottom: 1px solid var(--color-border);
     background: var(--color-bg-secondary);
@@ -19,7 +19,7 @@
     -webkit-overflow-scrolling: touch;
 }
 
-.tabs__tab {
+.hh-tabs-tab {
     padding: var(--space-sm) var(--space-lg);
     font-size: var(--text-sm);
     font-weight: var(--weight-medium);
@@ -30,29 +30,29 @@
     transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
-.tabs__tab:hover {
+.hh-tabs-tab:hover {
     color: var(--color-text);
 }
 
-.tabs__tab--active {
+.hh-tabs-tab-active {
     color: var(--color-primary);
     border-bottom-color: var(--color-primary);
 }
 
 /* ── Tab Panels ── */
-.tabs__panel {
+.hh-tabs-panel {
     display: none;
     padding: var(--space-lg);
 }
 
-.tabs__panel--active {
+.hh-tabs-panel-active {
     display: block;
 }
 
-.tabs__panel > *:first-child {
+.hh-tabs-panel > *:first-child {
     margin-top: 0;
 }
 
-.tabs__panel > *:last-child {
+.hh-tabs-panel > *:last-child {
     margin-bottom: 0;
 }

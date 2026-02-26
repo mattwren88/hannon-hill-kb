@@ -2,11 +2,11 @@
    Breadcrumb — Cascade CMS Knowledge Base
    ========================================================================== */
 
-.breadcrumb {
+.hh-breadcrumb {
     margin-bottom: var(--space-lg);
 }
 
-.breadcrumb__list {
+.hh-breadcrumb-list {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -16,29 +16,29 @@
     margin: 0;
 }
 
-.breadcrumb__item {
+.hh-breadcrumb-item {
     display: flex;
     align-items: center;
     font-size: var(--text-sm);
     color: var(--color-text-tertiary);
 }
 
-.breadcrumb__item:not(:last-child)::after {
+.hh-breadcrumb-item:not(:last-child)::after {
     content: '/';
     margin-left: var(--space-xs);
     color: var(--color-text-tertiary);
 }
 
-.breadcrumb__link {
+.hh-breadcrumb-link {
     color: var(--color-text-secondary);
     transition: color var(--transition-fast);
 }
 
-.breadcrumb__link:hover {
+.hh-breadcrumb-link:hover {
     color: var(--color-primary);
 }
 
-.breadcrumb__item--current {
+.hh-breadcrumb-item-current {
     color: var(--color-text);
     font-weight: var(--weight-medium);
 }

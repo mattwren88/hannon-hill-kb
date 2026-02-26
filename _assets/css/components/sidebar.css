@@ -3,16 +3,16 @@
    Left sidebar with 2-level collapsible navigation.
    ========================================================================== */
 
-.sidebar__nav {
+.hh-sidebar-nav {
     padding: 0;
 }
 
 /* ── Category Headers ── */
-.sidebar__section {
+.hh-sidebar-section {
     margin-bottom: var(--space-sm);
 }
 
-.sidebar__category {
+.hh-sidebar-category {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,11 +27,11 @@
     text-align: left;
 }
 
-.sidebar__category:hover {
+.hh-sidebar-category:hover {
     color: var(--color-text);
 }
 
-.sidebar__chevron {
+.hh-sidebar-chevron {
     width: 16px;
     height: 16px;
     flex-shrink: 0;
@@ -39,19 +39,19 @@
     transition: transform var(--transition-fast);
 }
 
-.sidebar__category[aria-expanded="true"] .sidebar__chevron {
+.hh-sidebar-category[aria-expanded="true"] .hh-sidebar-chevron {
     transform: rotate(90deg);
 }
 
 /* ── Page Links ── */
-.sidebar__pages {
+.hh-sidebar-pages {
     padding: 2px 0 var(--space-xs);
     overflow: hidden;
     transition: max-height var(--transition-normal), opacity var(--transition-fast);
     opacity: 1;
 }
 
-.sidebar__link {
+.hh-sidebar-link {
     display: block;
     padding: 5px var(--space-lg) 5px calc(var(--space-lg) + var(--space-sm));
     font-size: var(--text-base);
@@ -63,18 +63,18 @@
     line-height: var(--leading-normal);
 }
 
-.sidebar__link:hover {
+.hh-sidebar-link:hover {
     color: var(--color-text);
 }
 
-.sidebar__link--active {
+.hh-sidebar-link-active {
     color: var(--color-sidebar-active-text);
     border-left-color: var(--color-sidebar-active-border);
     font-weight: var(--weight-medium);
 }
 
 /* ── Divider between sections ── */
-.sidebar__divider {
+.hh-sidebar-divider {
     height: 1px;
     background: var(--color-border);
     margin: var(--space-md) var(--space-md);

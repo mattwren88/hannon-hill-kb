@@ -5,12 +5,12 @@
    On unsupported browsers the button never appears — graceful no-op.
    ========================================================================== */
 
-@keyframes back-to-top-reveal {
+@keyframes hh-back-to-top-reveal {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
 
-.back-to-top {
+.hh-back-to-top {
     position: fixed;
     bottom: var(--space-xl);
     right: calc(var(--toc-width) + var(--space-xs));
@@ -31,7 +31,7 @@
     opacity: 0;
     pointer-events: auto;
 
-    animation: back-to-top-reveal linear both;
+    animation: hh-back-to-top-reveal linear both;
     animation-timeline: scroll(root);
     animation-range: 300px 400px;
 
@@ -40,27 +40,27 @@
         right var(--transition-fast);
 }
 
-.back-to-top:hover {
+.hh-back-to-top:hover {
     background: var(--color-bg-tertiary);
     color: var(--color-text);
     border-color: var(--color-primary);
     box-shadow: var(--shadow-lg);
 }
 
-.back-to-top svg {
+.hh-back-to-top svg {
     flex-shrink: 0;
 }
 
 /* Narrow viewports: TOC column is hidden, sit at viewport edge */
 @media (max-width: 1279px) {
-    .back-to-top {
+    .hh-back-to-top {
         right: var(--space-sm);
     }
 }
 
 /* Reduced motion: disable animation; button is always hidden (graceful no-op) */
 @media (prefers-reduced-motion: reduce) {
-    .back-to-top {
+    .hh-back-to-top {
         animation: none;
         opacity: 0;
     }

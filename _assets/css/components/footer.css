@@ -3,49 +3,49 @@
    Global footer inspired by hannonhill.com knowledge base footer.
    ========================================================================== */
 
-.site-footer {
+.hh-site-footer {
     position: relative;
     z-index: calc(var(--z-sidebar) + 1);
     border-top: 1px solid var(--color-border);
     background: var(--color-bg-secondary);
 }
 
-.site-footer__inner {
+.hh-site-footer-inner {
     max-width: 1100px;
     margin: 0 auto;
     padding: var(--space-lg) var(--space-2xl) var(--space-xl);
 }
 
-.site-footer__social,
-.site-footer__primary,
-.site-footer__links {
+.hh-site-footer-social,
+.hh-site-footer-primary,
+.hh-site-footer-links {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-md);
 }
 
-.site-footer__social,
-.site-footer__primary {
+.hh-site-footer-social,
+.hh-site-footer-primary {
     padding-bottom: var(--space-md);
     margin-bottom: var(--space-md);
     border-bottom: 1px solid var(--color-border-light);
 }
 
-.site-footer__social-link,
-.site-footer__primary-link,
-.site-footer__link {
+.hh-site-footer-social-link,
+.hh-site-footer-primary-link,
+.hh-site-footer-link {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     transition: color var(--transition-fast);
 }
 
-.site-footer__social-link:hover,
-.site-footer__primary-link:hover,
-.site-footer__link:hover {
+.hh-site-footer-social-link:hover,
+.hh-site-footer-primary-link:hover,
+.hh-site-footer-link:hover {
     color: var(--color-primary);
 }
 
-.site-footer__bottom {
+.hh-site-footer-bottom {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -53,14 +53,14 @@
     gap: var(--space-md);
 }
 
-.site-footer__copyright {
+.hh-site-footer-copyright {
     margin: 0;
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
 }
 
 @media (max-width: 1024px) {
-    .site-footer__inner {
+    .hh-site-footer-inner {
         padding: var(--space-lg) var(--space-lg) var(--space-xl);
     }
 }

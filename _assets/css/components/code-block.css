@@ -3,7 +3,7 @@
    Styled pre/code blocks with header bar, copy button, and language tabs.
    ========================================================================== */
 
-.code-block {
+.hh-code-block {
     margin: var(--space-lg) 0;
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
@@ -15,7 +15,7 @@
 }
 
 /* ── Header Bar ── */
-.code-block__header {
+.hh-code-block-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,20 +25,20 @@
     min-height: 40px;
 }
 
-.code-block__language,
-.code-block__filename {
+.hh-code-block-language,
+.hh-code-block-filename {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     color: var(--color-heading);
     font-weight: var(--weight-medium);
 }
 
-.code-block__filename {
+.hh-code-block-filename {
     color: var(--color-text-secondary);
 }
 
 /* ── Copy Button ── */
-.code-block__copy {
+.hh-code-block-copy {
     display: flex;
     align-items: center;
     gap: var(--space-xs);
@@ -49,22 +49,22 @@
     transition: color var(--transition-fast), background var(--transition-fast);
 }
 
-.code-block__copy:hover {
+.hh-code-block-copy:hover {
     color: var(--color-text);
     background: var(--color-bg-tertiary);
 }
 
-.code-block__copy svg {
+.hh-code-block-copy svg {
     width: 14px;
     height: 14px;
 }
 
-.code-block__copy--copied {
+.hh-code-block-copy-copied {
     color: var(--color-callout-tip-icon);
 }
 
 /* ── Code Content ── */
-.code-block__body {
+.hh-code-block-body {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     align-items: stretch;
@@ -73,7 +73,7 @@
         var(--color-code-bg);
 }
 
-.code-block__gutter {
+.hh-code-block-gutter {
     padding: var(--space-md) var(--space-sm);
     background: color-mix(in srgb, var(--color-code-header-bg) 80%, var(--color-bg) 20%);
     border-right: 1px solid var(--color-border);
@@ -82,7 +82,7 @@
     user-select: none;
 }
 
-.code-block__line-number {
+.hh-code-block-line-number {
     display: block;
     font-family: var(--font-mono);
     font-size: var(--text-sm);
@@ -90,7 +90,7 @@
     color: color-mix(in srgb, var(--color-text-secondary) 80%, var(--color-text) 20%);
 }
 
-.code-block__pre {
+.hh-code-block-pre {
     margin: 0;
     padding: var(--space-md) var(--space-lg);
     overflow-x: auto;
@@ -98,7 +98,7 @@
     background: transparent;
 }
 
-.code-block__pre code {
+.hh-code-block-pre code {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     line-height: var(--leading-relaxed);
@@ -107,26 +107,26 @@
     padding: 0;
 }
 
-.code-block__pre::-webkit-scrollbar {
+.hh-code-block-pre::-webkit-scrollbar {
     height: 6px;
 }
 
-.code-block__pre::-webkit-scrollbar-track {
+.hh-code-block-pre::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.code-block__pre::-webkit-scrollbar-thumb {
+.hh-code-block-pre::-webkit-scrollbar-thumb {
     background: var(--color-border);
     border-radius: 3px;
 }
 
 /* ── Language Tabs (multi-language code blocks) ── */
-.code-block__tabs {
+.hh-code-block-tabs {
     display: flex;
     gap: 2px;
 }
 
-.code-block__tab {
+.hh-code-block-tab {
     padding: 4px var(--space-sm);
     font-family: var(--font-mono);
     font-size: var(--text-xs);
@@ -136,27 +136,27 @@
     font-weight: var(--weight-medium);
 }
 
-.code-block__tab:hover {
+.hh-code-block-tab:hover {
     color: var(--color-text);
     background: var(--color-bg-tertiary);
 }
 
-.code-block__tab--active {
+.hh-code-block-tab-active {
     color: var(--color-primary);
     background: var(--color-primary-bg);
 }
 
 /* ── Tab Panels ── */
-.code-block__panel {
+.hh-code-block-panel {
     display: none;
 }
 
-.code-block__panel--active {
+.hh-code-block-panel-active {
     display: block;
 }
 
 /* ── Simple pre/code without wrapper (fallback) ── */
-.content__body pre:not(.code-block__pre) {
+.hh-content-body pre:not(.hh-code-block-pre) {
     margin: var(--space-lg) 0;
     padding: var(--space-md) var(--space-lg);
     background: var(--color-code-bg);
@@ -166,7 +166,7 @@
     -webkit-overflow-scrolling: touch;
 }
 
-.content__body pre:not(.code-block__pre) code {
+.hh-content-body pre:not(.hh-code-block-pre) code {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     line-height: var(--leading-relaxed);

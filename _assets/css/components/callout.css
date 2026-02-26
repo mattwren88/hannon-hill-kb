@@ -3,7 +3,7 @@
    Info, warning, tip, and danger alert boxes.
    ========================================================================== */
 
-.callout {
+.hh-callout {
     display: flex;
     gap: var(--space-md);
     padding: var(--space-md) var(--space-lg);
@@ -14,7 +14,7 @@
     box-shadow: var(--shadow-sm);
 }
 
-.callout__icon {
+.hh-callout-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -27,18 +27,18 @@
     color: var(--color-text-secondary);
 }
 
-.callout__icon svg {
+.hh-callout-icon svg {
     --size: 20px;   
     width: var(--size);
     height: var(--size);
 }
 
-.callout__content {
+.hh-callout-content {
     flex: 1;
     min-width: 0;
 }
 
-.callout__title {
+.hh-callout-title {
     font-family: var(--font-heading);
     font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
@@ -46,73 +46,73 @@
     color: var(--color-callout-title);
 }
 
-.callout__content p {
+.hh-callout-content p {
     font-size: var(--text-base);
     line-height: var(--leading-relaxed);
     color: var(--color-text-secondary);
     margin-bottom: 0;
 }
 
-.callout__content p + p {
+.hh-callout-content p + p {
     margin-top: var(--space-sm);
 }
 
 /* ── Info ── */
-.callout--info {
+.hh-callout-info {
     border-color: var(--color-callout-info-border);
     background: transparent;
 }
 
-.callout--info .callout__icon {
+.hh-callout-info .hh-callout-icon {
     background: transparent;
     color: var(--color-callout-info-icon);
 }
 
-.callout--info .callout__title {
+.hh-callout-info .hh-callout-title {
     color: var(--color-callout-info-text);
 }
 
 /* ── Warning ── */
-.callout--warning {
+.hh-callout-warning {
     border-color: var(--color-callout-warning-border);
     background: var(--color-callout-warning-bg);
 }
 
-.callout--warning .callout__icon {
+.hh-callout-warning .hh-callout-icon {
     background: transparent;
     color: var(--color-callout-warning-icon);
 }
 
-.callout--warning .callout__title {
+.hh-callout-warning .hh-callout-title {
     color: var(--color-callout-warning-text);
 }
 
 /* ── Tip ── */
-.callout--tip {
+.hh-callout-tip {
     border-color: var(--color-callout-tip-border);
     background: var(--color-callout-tip-bg);
 }
 
-.callout--tip .callout__icon {
+.hh-callout-tip .hh-callout-icon {
     background: transparent;
     color: var(--color-callout-tip-icon);
 }
 
-.callout--tip .callout__title {
+.hh-callout-tip .hh-callout-title {
     color: var(--color-callout-tip-text);
 }
 
 /* ── Danger ── */
-.callout--danger {
+.hh-callout-danger {
     border-color: var(--color-callout-danger-border);
     background: var(--color-callout-danger-bg);
 }
 
-.callout--danger .callout__icon {
+.hh-callout-danger .hh-callout-icon {
     background: transparent;
     color: var(--color-callout-danger-icon);
 }
 
-.callout--danger .callout__title {
+.hh-callout-danger .hh-callout-title {
     color: var(--color-callout-danger-text);
 }
